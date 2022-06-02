@@ -17,3 +17,7 @@ discord: Neurodegenerate#6307
 Name: Karl Kang
 Email: karl.kang@mail.utoronto.ca
 discord: KarlK#5503
+
+Name: Taymoor Farooq
+Email: taymoor.farooq@mail.utoronto.ca
+Discord: taymoor#3606
