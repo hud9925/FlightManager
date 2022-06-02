@@ -13,3 +13,7 @@ discord: dan.H#5176
 Name : Adel Halawa
 email: adel.halawa@mail.utoronto.ca
 discord: Neurodegenerate#6307
+
+Name: Karl Kang
+Email: karl.kang@mail.utoronto.ca
+discord: KarlK#5503
