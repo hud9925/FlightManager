@@ -1,4 +1,4 @@
-package User;
+package Entities.User;
 
 public class Customer {
 }
