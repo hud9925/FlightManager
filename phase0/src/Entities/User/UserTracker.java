@@ -13,6 +13,7 @@ public class UserTracker {
         return allUsers.containsKey(username);
     }
 
+
     public static void addUser (User newUser) {
         allUsers.put(newUser.getUsername(), newUser);
     }
@@ -22,6 +23,9 @@ public class UserTracker {
     }
 
     // Getters for basic user information
+
+    public static Map<String, User> getAllUsers() {return allUsers;}
+
     public static String getPassword (String username)  {
         return allUsers.get(username).getPassword();
     }
