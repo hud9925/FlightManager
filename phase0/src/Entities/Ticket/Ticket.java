@@ -1,4 +1,4 @@
-package Ticket;
+package Entities.Ticket;
 
 public class Ticket {
 }
