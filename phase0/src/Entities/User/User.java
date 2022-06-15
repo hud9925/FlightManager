@@ -1,6 +1,6 @@
 package Entities.User;
 
-import Ticket.Ticket;
+import Entities.Ticket.Ticket;
 
 import java.util.ArrayList;
 import java.util.Arrays;

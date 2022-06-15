@@ -1,8 +1,7 @@
 package Entities.User;
 
-import Ticket.Ticket;
+import Entities.Ticket.Ticket;
 
-import java.util.List;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
