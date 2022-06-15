@@ -21,3 +21,7 @@ discord: KarlK#5503
 Name: Taymoor Farooq
 Email: taymoor.farooq@mail.utoronto.ca
 Discord: taymoor#3606
+
+Name: Khang Han
+Email: khang.han@mail.utoronto.ca
+Discord: khag#3859
