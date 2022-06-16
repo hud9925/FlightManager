@@ -10,4 +10,8 @@ public class Admin extends User{
     public boolean isAdmin() {
         return true;
     }
+
+    public String toString(){return super.getUsername() + "," + super.getPassword() + "," + super.getBirthDay() + "," +
+            super.getEmail() + "," + super.getMemberStatus() + "," + super.getAddress() + "," + super.getLastLoginTime()
+            + "," + true;}
 }

@@ -10,4 +10,8 @@ public class Customer extends User{
     public boolean isAdmin() {
         return false;
     }
+
+    public String toString(){return super.getUsername() + "," + super.getPassword() + "," + super.getBirthDay() + "," +
+            super.getEmail() + "," + super.getMemberStatus() + "," + super.getAddress() + "," + super.getLastLoginTime()
+            + "," + false;}
 }
