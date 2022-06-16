@@ -15,14 +15,15 @@ public class LoginMenu {
 
         // Codes reserved for contacting LoginUseCase class.
     }
+
     public static void loginPage(){
         System.out.println("Welcome to the air ticket reserving system login page!\n" +
                 "If you are an existing user, please enter 'E'. If you are new user, you need to register an account," +
                 "to do so, please enter 'R'.\n" +
-                "Enter 'Q' to exit.");
+                "Press 'Q' to exit.");
 
         Scanner input0 = new Scanner(System.in);
-        System.out.println("Existing user or New user? (E/R) : ");
+        System.out.println("Existing user or New user? (Press E or R and then Enter) : ");
         String ans = input0.next();
         if (Objects.equals(ans, "E") || Objects.equals(ans, "e")){
             LoginMenu.loginPrompt();
@@ -35,10 +36,10 @@ public class LoginMenu {
             System.out.println("You are going to quit this program. Thank you for using.");
             System.exit(0);
         }
-        else {
-            System.out.println("You have entered a wrong command and you will be redirected to login page.\n ");
-            LoginMenu.loginPage();
 
+        else {
+            System.out.println("You entered an incorrect command and will be redirected to the login menu.");
+            loginPage();
         }
     }
 }
