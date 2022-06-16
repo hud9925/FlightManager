@@ -34,7 +34,7 @@ abstract public class User {
         this.securityQuestions = new ArrayList<String[]>();
         this.tickets = new ArrayList<Ticket>();
     }
-
+    public abstract String toString();
     // getters
     public String getUsername () {
         return this.username;
