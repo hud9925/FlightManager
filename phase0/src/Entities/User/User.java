@@ -15,7 +15,7 @@ abstract public class User {
     private boolean isMember;
     private String address;
     private List<Object> paymentMethods;
-    private Date lastLoginTime; // If the user just registered but have not logged in, lastLoginTime will be the register time.
+    private List<Date> dateList; // If the user just registered but have not logged in, lastLoginTime will be the register time.
     private List<String[]> securityQuestions;
     private List<Ticket> tickets;
 
@@ -27,10 +27,10 @@ abstract public class User {
         this.dob= new int[] {birthYear, birthMonth, birthDay};
         this.email = email;
         this.isMember = isMember;
-
         this.address = "";
         this.paymentMethods = new ArrayList<Object>();
-        this.lastLoginTime = new Date();
+        this.dateList = new ArrayList<Date>();
+        this.dateList.add(new Date());
         this.securityQuestions = new ArrayList<String[]>();
         this.tickets = new ArrayList<Ticket>();
     }
@@ -72,9 +72,7 @@ abstract public class User {
         throw new UnsupportedOperationException("Not implemented");
     }
 
-    public Date getLastLoginTime () {
-        return new Date(this.lastLoginTime.getTime());
-    }
+    public List<Date> getDateList() {return this.dateList;}
 
     public String[][] getSecurityQuestions () {
         String result[][] = new String[this.securityQuestions.size()][];
@@ -117,9 +115,9 @@ abstract public class User {
         throw new UnsupportedOperationException("Not implemented");
     }
 
-    public void updateLastLoginTime () {
-        this.lastLoginTime = new Date();
-    }
+    public void updateDateList () {this.dateList.add(new Date());}
+
+    public void setDateList (List<Date> ls) {this.dateList = ls;}
 
     public void addSecurityQuestion (String question, String answer) {
         this.securityQuestions.add(new String[] {question, answer});

@@ -1,5 +1,10 @@
 package Entities.User;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
 public class Customer extends User{
 
     public Customer(String username, String password, int birthYear, int birthMonth, int birthDay, String email, boolean isMember) {
@@ -11,8 +16,15 @@ public class Customer extends User{
         return false;
     }
 
-    public String toString(){return super.getUsername() + "," + super.getPassword() + "," + super.getBirthYear() + ","
+    public String toString(){
+        List<Date> ls = super.getDateList();
+        String datestrs = "";
+        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        for(Date d:ls){
+            String datestr = dateFormat.format(d);
+            datestrs = datestrs + datestr + "|";
+        }
+        return super.getUsername() + "," + super.getPassword() + "," + super.getBirthYear() + ","
             + super.getBirthMonth() + "," + super.getBirthDay() + "," + super.getEmail() + "," + super.getMemberStatus()
-            + "," + super.getAddress() + "," + super.getLastLoginTime()
-            + ",false";}
+            + "," + super.getAddress() + "," + datestrs + ",false";}
 }
