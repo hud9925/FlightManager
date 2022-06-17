@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class RegisterMenu {
 
+
     public static void registerPrompt() {
         Scanner input0 = new Scanner(System.in);
         System.out.println("Please enter your new username: ");
@@ -12,6 +13,8 @@ public class RegisterMenu {
         Scanner input1 = new Scanner(System.in);
         System.out.println("Please enter your new password: ");
         String ans1 = input1.next();
+
+        // Codes reserved for contacting Register Use Case
     }
 
     public static void registerPage() {

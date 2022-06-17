@@ -1,9 +1,15 @@
 package ControllersAndPresenters;
 
+import UseCases.LoginUseCase;
+
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class LoginMenu {
+    /**
+     * This is the Login Menu presenter class code.
+     */
     public static void loginPrompt(){
         Scanner input1 = new Scanner(System.in);
         System.out.println("Enter Username : ");
@@ -13,7 +19,22 @@ public class LoginMenu {
         System.out.println("Enter Password : ");
         String password = input2.next();
 
-        // Codes reserved for contacting LoginUseCase class.
+        // Check credential existence by contacting UserType method from Login Use Case class.
+        ArrayList<Boolean> credPredicates = LoginUseCase.UserType(username, password);
+        if (!credPredicates.get(0) || !credPredicates.get(1)){
+            System.out.println("Either your username or password is incorrect. Please try again.\n" +
+                    "Press any key except B to continue or press B to go back to login page.\n");
+            Scanner input3 = new Scanner(System.in);
+            System.out.println("Continue?: ");
+            String ans = input3.next();
+            if (Objects.equals(ans, "B") || Objects.equals(ans, "b")){
+                loginPage();
+            }
+            else{
+                loginPrompt();
+            }
+        }
+
     }
 
     public static void loginPage(){
