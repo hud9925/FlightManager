@@ -11,7 +11,8 @@ public class Customer extends User{
         return false;
     }
 
-    public String toString(){return super.getUsername() + "," + super.getPassword() + "," + super.getBirthDay() + "," +
-            super.getEmail() + "," + super.getMemberStatus() + "," + super.getAddress() + "," + super.getLastLoginTime()
-            + "," + false;}
+    public String toString(){return super.getUsername() + "," + super.getPassword() + "," + super.getBirthYear() + ","
+            + super.getBirthMonth() + "," + super.getBirthDay() + "," + super.getEmail() + "," + super.getMemberStatus()
+            + "," + super.getAddress() + "," + super.getLastLoginTime()
+            + ",false";}
 }

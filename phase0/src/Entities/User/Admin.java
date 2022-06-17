@@ -11,7 +11,8 @@ public class Admin extends User{
         return true;
     }
 
-    public String toString(){return super.getUsername() + "," + super.getPassword() + "," + super.getBirthDay() + "," +
-            super.getEmail() + "," + super.getMemberStatus() + "," + super.getAddress() + "," + super.getLastLoginTime()
-            + "," + true;}
+    public String toString(){return super.getUsername() + "," + super.getPassword() + "," + super.getBirthYear() + ","
+            + super.getBirthMonth() + "," + super.getBirthDay() + "," + super.getEmail() + "," + super.getMemberStatus()
+            + "," + super.getAddress() + "," + super.getLastLoginTime()
+            + ",true";}
 }
