@@ -82,6 +82,8 @@ abstract public class User {
             result[i] = Arrays.copyOf(this.securityQuestions.get(i),2);
         }
         return result;
+        // This method return in this format:
+        // String[][] { String[] {question, answer}, String[] {question, answer}, String[] {question, answer}, ... }
     }
 
     public Ticket[] getTickets () {
