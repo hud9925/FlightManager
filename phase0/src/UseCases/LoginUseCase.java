@@ -14,17 +14,17 @@ public class LoginUseCase {
             Usertype.add(false);
         } else {
 //      User exists with the Username
-//            Usertype.add(true);
-
 //      Checking if the password matches
             if (Objects.equals(UserTracker.getAllUsers().get(Username).getPassword(), password)){
                 Usertype.add(true);
 //                Updates pre-existing User(login date/times)
                UserTracker.getAllUsers().get(Username).updateDateList();
-                //      Checks if User is an Admin
+                // Checks if User is an Admin
                 if (UserTracker.getAllUsers().get(Username).isAdmin()){
+//                  User is an admin, returns [true, true]
                     Usertype.add(true);
                 } else{
+//                  User is not an admin, Returns [true, false]
                     Usertype.add(false);
                 }
             } else{
