@@ -3,6 +3,7 @@ package UseCases;
 import Entities.User.Admin;
 import Entities.User.Customer;
 import Entities.User.User;
+import Entities.User.UserTracker;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -38,6 +39,7 @@ public class Load {
                 datelist.add(d);
             }
             newuser.setDateList(datelist);
+            UserTracker.addUser(newuser);
         }
     }
 }

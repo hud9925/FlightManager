@@ -11,7 +11,7 @@ public class Save {
     public Save(PrintWriter pw){
         Map<String, User> allusers = UserTracker.getAllUsers();
         for(User user : allusers.values()){
-            pw.write(user.toString());
+            pw.write(user.toString() + "\n");
         }
     }
 }
