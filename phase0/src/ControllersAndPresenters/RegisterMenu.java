@@ -14,7 +14,7 @@ public class RegisterMenu {
         System.out.println("Please enter your new password: ");
         String ans1 = input1.next();
 
-        // Codes reserved for contacting Register Use Case
+        // Codes reserved for contacting RegisterUseCase.
     }
 
     public static void registerPage() {

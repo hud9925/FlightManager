@@ -7,9 +7,6 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class LoginMenu {
-    /**
-     * This is the Login Menu presenter class code.
-     */
     public static void loginPrompt(){
         Scanner input1 = new Scanner(System.in);
         System.out.println("Enter Username : ");
@@ -21,9 +18,9 @@ public class LoginMenu {
 
         // Check credential existence by contacting UserType method from Login Use Case class.
         ArrayList<Boolean> credPredicates = LoginUseCase.UserType(username, password);
-        if (!credPredicates.get(0) || !credPredicates.get(1)){
+        if (!credPredicates.get(0) && !credPredicates.get(1)){ //[false, false]
             System.out.println("Either your username or password is incorrect. Please try again.\n" +
-                    "Press any key except B to continue or press B to go back to login page.\n");
+                    "Press any key except B and then Enter to continue or press B to go back to login page.\n");
             Scanner input3 = new Scanner(System.in);
             System.out.println("Continue?: ");
             String ans = input3.next();
@@ -33,6 +30,14 @@ public class LoginMenu {
             else{
                 loginPrompt();
             }
+        }
+        else { // [true, ?]
+            if (!credPredicates.get(1)){ // If the user account is not admin
+                MainMenu.mainPage(); // Call main menu
+            }
+            //else { // if the user account is admin
+                //AdminMenu.someMethod(); // Call AdminMenu
+            //}
         }
 
     }
