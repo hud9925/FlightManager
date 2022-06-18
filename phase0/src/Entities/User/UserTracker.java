@@ -21,13 +21,17 @@ public class UserTracker {
         return new HashMap<String, User>(allUsers); // A shallow copy of allUsers.
     }
 
+    public static void removeUser(String username){
+        allUsers.remove(username);
+    }
+
     // getters
     public User getCurrentUser () {
         return this.currentUser;
     }
 
     // setters
-    public void changeCurrentUser (String username) {
+    public void changeCurrentUser(String username) {
         this.currentUser = allUsers.get(username);
     }
 
