@@ -6,6 +6,7 @@ import Entities.User.User;
 import Entities.User.UserTracker;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,12 +16,14 @@ import java.util.List;
 
 public class Load {
 
-    public Load(BufferedReader br) throws IOException, ParseException {
+    public Load() throws IOException, ParseException {
+        BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Owner\\Documents\\CSC207\\grouprepository\\phase0\\UserDatabase.csv"));
         String line;
         while((line = br.readLine())!= null) {
             User newuser = lineToUser(line);
             UserTracker.addUser(newuser);
         }
+        br.close();
     }
 
     public User lineToUser(String line) throws ParseException {
