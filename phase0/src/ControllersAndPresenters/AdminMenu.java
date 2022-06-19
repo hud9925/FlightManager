@@ -7,17 +7,15 @@ import java.util.Scanner;
 
     public class AdminMenu {
         public static void AdminPrompt() {
-            System.out.println("""
-                Welcome to the admin menu!\s
-                please press A to add a new admin\s
-                D to delete and existing User within the system\s
-                or any other letter to logout the menu""");
+            System.out.println("Welcome to the admin menu!\n" +
+                    "please press A to add a new admin,\n" + "D to delete and existing User within the system,\n"+
+                "or any other letter to logout the menu");
             Scanner decision = new Scanner(System.in);
             String ans = decision.next();
             if (Objects.equals(ans, "A") || Objects.equals(ans, "a")){
 //            adding a new admin
                 Scanner create = new Scanner(System.in);
-                System.out.println("Ok! Please enter the new admins's information!\s" +
+                System.out.println("Ok! Please enter the new admins's information!\n" +
                         "Username? ");
 //            String UserName = create.next();
                 Scanner pass  = new Scanner(System.in);
@@ -62,7 +60,6 @@ import java.util.Scanner;
                     AdminMenu.AdminPrompt();
 
                 }
-
 
             } else {
                 System.out.println("Thank you! Logging out...");
