@@ -10,8 +10,8 @@ import Entities.User.UserTracker;
 public class RegisterUseCase {
     public static ArrayList<Boolean> NewUser(String Username, String Password, int Year, int Month, int Day, String Email){
         ArrayList<Boolean> NewUser = new ArrayList<>();
-//      Checks if username exists in UserTracker
-        if (UserTracker.getAllUsers().get(Username) == null){
+//      Checks if username or email exists in UserTracker
+        if (UserTracker.getAllUsers().get(Username) == null || UserTracker.getAllUsers().get(Email) == null){
 //          User does not exist. Register as new user.
             NewUser.add(true);
             Customer newuser = new Customer(Username, Password, Year, Month, Day, Email, false);
@@ -20,7 +20,6 @@ public class RegisterUseCase {
         } else {
 //          User exists.
             NewUser.add(false);
-            System.out.println("User already exists in system.");
         }
 
 
