@@ -17,7 +17,7 @@ import java.util.List;
 public class Load {
 
     public Load() throws IOException, ParseException {
-        BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Owner\\Documents\\CSC207\\grouprepository\\phase0\\UserDatabase.csv"));
+        BufferedReader br = new BufferedReader(new FileReader("UserDatabase.csv"));
         String line;
         while((line = br.readLine())!= null) {
             User newuser = lineToUser(line);
