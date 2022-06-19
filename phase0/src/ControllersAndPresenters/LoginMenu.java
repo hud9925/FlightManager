@@ -20,10 +20,10 @@ public class LoginMenu {
         ArrayList<Boolean> credPredicates = LoginUseCase.UserType(username, password);
         if (!credPredicates.get(0) && !credPredicates.get(1)){ //[false, false]
             System.out.println("Either your username or password is incorrect. Please try again.\n" +
-                    "Press any key except B and then Enter to continue or press B to go back to login page.\n");
+                    "Enter any letter except B to continue or enter B to go back to login page.\n");
             Scanner input3 = new Scanner(System.in);
             System.out.println("Continue?: ");
-            String ans = input3.next();
+            String ans =  input3.next();
             if (Objects.equals(ans, "B") || Objects.equals(ans, "b")){
                 loginPage();
             }
@@ -35,9 +35,10 @@ public class LoginMenu {
             if (!credPredicates.get(1)){ // If the user account is not admin
                 MainMenu.mainPage(username); // Call main menu
             }
-            //else { // if the user account is admin
-                //AdminMenu.someMethod(); // Call AdminMenu
-            //}
+            //
+             else { // if the user account is admin
+                AdminMenu.AdminPrompt(); // Call AdminMenu
+            }
         }
 
     }
@@ -49,7 +50,7 @@ public class LoginMenu {
                 "Press 'Q' to exit.");
 
         Scanner input0 = new Scanner(System.in);
-        System.out.println("Existing user or New user? (Press E or R and then Enter) : ");
+        System.out.println("Existing user or New user? (E/R) : ");
         String ans = input0.next();
         if (Objects.equals(ans, "E") || Objects.equals(ans, "e")){
             LoginMenu.loginPrompt();

@@ -63,7 +63,7 @@ import java.util.Scanner;
 
             } else {
                 System.out.println("Thank you! Logging out...");
-                LoginMenu.loginPrompt();
+                LoginMenu.loginPage();
 
             }
 
