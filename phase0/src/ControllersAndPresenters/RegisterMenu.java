@@ -1,5 +1,8 @@
 package ControllersAndPresenters;
 
+import UseCases.RegisterUseCase;
+
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -9,12 +12,44 @@ public class RegisterMenu {
     public static void registerPrompt() {
         Scanner input0 = new Scanner(System.in);
         System.out.println("Please enter your new username: ");
-        String ans0 = input0.next();
+        String username = input0.next();
         Scanner input1 = new Scanner(System.in);
         System.out.println("Please enter your new password: ");
-        String ans1 = input1.next();
+        String password = input1.next();
+        Scanner input2 = new Scanner(System.in);
+        System.out.println("Please enter your birth YEAR (YYYY):");
+        String year = input2.next();
+        Scanner input3 = new Scanner(System.in);
+        System.out.println("Please enter your birth MONTH (MM):");
+        String month = input2.next();
+        Scanner input4 = new Scanner(System.in);
+        System.out.println("Please enter your birth DAY (DD):");
+        String day = input2.next();
+        Scanner input5 = new Scanner(System.in);
+        System.out.println("Please enter your email address:");
+        String email = input3.next();
 
-        // Codes reserved for contacting RegisterUseCase.
+        ArrayList<Boolean> credPredicate = RegisterUseCase.NewUser(username, password,
+                Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day), email);
+
+        if (!credPredicate.get(0)){ //[false]
+            System.out.println("An account with this username already exists. Please try again.\n" +
+                    "Enter any letter except B to continue or enter B to go back to the landing page.\n");
+            Scanner input6 = new Scanner(System.in);
+            System.out.println("Continue?: ");
+            String ans =  input6.next();
+            if (Objects.equals(ans, "B") || Objects.equals(ans, "b")){
+                LoginMenu.loginPage();
+            }
+            else{
+                registerPrompt();
+            }
+        }
+        else { // [true]
+            System.out.println("Account created successfully!");
+            MainMenu.mainPage(username); // Call main menu
+        }
+
     }
 
     public static void registerPage() {
