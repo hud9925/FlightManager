@@ -13,4 +13,9 @@ public class AddAdmin {
         UserTracker.addUser(NewAdmin);
     }
 
+    public static void addFirstAdmin(){
+        User firstAdmin = new Admin("Administrator", "admin123", 2000, 1, 1, "admin@sample.com", false);
+        UserTracker.addUser(firstAdmin);
+    }
+
 }

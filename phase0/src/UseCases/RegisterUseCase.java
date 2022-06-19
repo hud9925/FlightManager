@@ -7,7 +7,8 @@ import Entities.User.UserTracker;
 /* The code below is used to register a new general User
  * and adds it to UserTracker*/
 
-public class RegisterUseCase {
+public class
+RegisterUseCase {
     public static ArrayList<Boolean> NewUser(String Username, String Password, int Year, int Month, int Day, String Email){
         ArrayList<Boolean> NewUser = new ArrayList<>();
 //      Checks if username exists in UserTracker
