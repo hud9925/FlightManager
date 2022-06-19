@@ -21,13 +21,13 @@ public class RegisterMenu {
         String year = input2.next();
         Scanner input3 = new Scanner(System.in);
         System.out.println("Please enter your birth MONTH (MM):");
-        String month = input2.next();
+        String month = input3.next();
         Scanner input4 = new Scanner(System.in);
         System.out.println("Please enter your birth DAY (DD):");
-        String day = input2.next();
+        String day = input4.next();
         Scanner input5 = new Scanner(System.in);
         System.out.println("Please enter your email address:");
-        String email = input3.next();
+        String email = input5.next();
 
         ArrayList<Boolean> credPredicate = RegisterUseCase.NewUser(username, password,
                 Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day), email);
