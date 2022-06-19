@@ -33,7 +33,7 @@ public class LoginMenu {
         }
         else { // [true, ?]
             if (!credPredicates.get(1)){ // If the user account is not admin
-                MainMenu.mainPage(); // Call main menu
+                MainMenu.mainPage(username); // Call main menu
             }
             //else { // if the user account is admin
                 //AdminMenu.someMethod(); // Call AdminMenu
