@@ -11,7 +11,8 @@ import java.util.Map;
 public class Save {
 
     public Save() throws IOException {
-        PrintWriter pw = new PrintWriter(new FileWriter("C:\\Users\\Owner\\Documents\\CSC207\\grouprepository\\phase0\\UserDatabase.csv"));
+//        PrintWriter pw = new PrintWriter(new FileWriter("C:\\Users\\Owner\\Documents\\CSC207\\grouprepository\\phase0\\UserDatabase.csv"));
+        PrintWriter pw = new PrintWriter(new FileWriter("phase0/UserDatabase.csv"));
         Map<String, User> allusers = UserTracker.getAllUsers();
         for(User user : allusers.values()){
             pw.write(user.toString() + "\n");
