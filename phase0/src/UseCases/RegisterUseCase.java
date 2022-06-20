@@ -12,15 +12,14 @@ RegisterUseCase {
     public static ArrayList<Boolean> NewUser(String Username, String Password, int Year, int Month, int Day, String Email){
         ArrayList<Boolean> NewUser = new ArrayList<>();
 //      Checks if username or email exists in UserTracker
-        if (UserTracker.getAllUsers().get(Username) == null){
+        if (new UserTracker(Username).userExists()){
+//          User exists.
+            NewUser.add(false);
+        } else {
 //          User does not exist. Register as new user.
             NewUser.add(true);
             Customer newuser = new Customer(Username, Password, Year, Month, Day, Email, false);
             UserTracker.addUser(newuser);
-
-        } else {
-//          User exists.
-            NewUser.add(false);
         }
 
 

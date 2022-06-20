@@ -18,6 +18,7 @@ public class UserTracker {
     }
 
     public static Map<String, User> getAllUsers() {
+        // Try to avoid using this method. It is very inefficient and created solely for saving the allUser map.
         return new HashMap<String, User>(allUsers); // A shallow copy of allUsers.
     }
 
