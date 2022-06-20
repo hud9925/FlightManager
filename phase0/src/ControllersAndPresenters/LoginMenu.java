@@ -18,6 +18,9 @@ public class LoginMenu {
 
         // Check credential existence by contacting UserType method from Login Use Case class.
         ArrayList<Boolean> credPredicates = LoginUseCase.UserType(username, password);
+        // The array list of predicates indicate:
+        // 1. whether or not the username/password matches;
+        // 2. whether the user is admin.
         if (!credPredicates.get(0) && !credPredicates.get(1)){ //[false, false]
             System.out.println("Either your username or password is incorrect. Please try again.\n" +
                     "Enter any letter except B to continue or enter B to go back to login page.\n");
@@ -31,7 +34,7 @@ public class LoginMenu {
                 loginPrompt();
             }
         }
-        else { // [true, ?]
+        else { // [true, ?], i.e.
             if (!credPredicates.get(1)){ // If the user account is not admin
                 MainMenu.mainPage(username); // Call main menu
             }
