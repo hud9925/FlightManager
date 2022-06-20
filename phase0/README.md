@@ -5,7 +5,7 @@ This will start the program, and you can follow the prompts on the terminal afte
 
 Any Users that you create will be automatically saved in the UserDatabase.csv file after you are done with the program.
 Any Users saved before will be automatically loaded anytime you start the program, so you can log-in using
-their username and password.
+their username and password. To access the Admin controls, please login with the username "Administrator" and password "admin123."
 
 Classes are organized based on Clean Architecture and the CRC model cards.
 
