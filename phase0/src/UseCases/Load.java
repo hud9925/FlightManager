@@ -6,6 +6,7 @@ import Entities.User.User;
 import Entities.User.UserTracker;
 
 import java.io.*;
+import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -16,8 +17,8 @@ public class Load {
 
     public Load() throws IOException, ParseException {
 //        BufferedReader br = new BufferedReader(new FileReader("/Users/taymoorfarooq/IdeaProjects/group_0291/phase0/UserDatabase.csv"));
-        String file ="phase0/UserDatabase.csv";
-        BufferedReader br = new BufferedReader(new FileReader(file));
+        String filepath = String.valueOf(Paths.get("UserDatabase.csv").toAbsolutePath());
+        BufferedReader br = new BufferedReader(new FileReader(filepath));
 
         String line;
         while((line = br.readLine())!= null) {
@@ -54,7 +55,8 @@ public class Load {
     }
 
     public static boolean checkEmpty() throws IOException {
-        BufferedReader file = new BufferedReader(new FileReader("phase0/UserDatabase.csv"));
+        String filepath = String.valueOf(Paths.get("UserDatabase.csv").toAbsolutePath());
+        BufferedReader file = new BufferedReader(new FileReader(filepath));
         return file.readLine() == null;
     }
 
