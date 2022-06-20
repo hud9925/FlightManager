@@ -74,9 +74,10 @@ import java.util.Scanner;
                 AdminMenu.RemovingUserPrompt();
                 System.out.println("Would you like to remove another user? Yes/No");
                 Scanner AnotherUser = new Scanner(System.in);
-                if (Objects.equals(AnotherUser.next(), "Yes")|| Objects.equals(AnotherUser.next(), "yes")){
+                String newans = AnotherUser.next();
+                if (Objects.equals(newans, "Yes")|| Objects.equals(newans, "yes")){
                     AdminMenu.RemovingUserPrompt();
-                } else if (Objects.equals(AnotherUser.next(), "No")|| Objects.equals(AnotherUser.next(), "no")){
+                } else if (Objects.equals(newans, "No")|| Objects.equals(newans, "no")){
                     System.out.println("Returning you to the AdminMenu");
                     AdminMenu.AdminPrompt();
                 } else {
@@ -101,6 +102,7 @@ import java.util.Scanner;
                 } else{
 //                User does not exist
                 System.out.println("This User does not exist");
+                AdminMenu.AdminPrompt();
 
             }
 
