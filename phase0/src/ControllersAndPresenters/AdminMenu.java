@@ -102,6 +102,7 @@ import java.util.Scanner;
                 } else{
 //                User does not exist
                 System.out.println("This User does not exist");
+                AdminMenu.AdminPrompt();
 
             }
 
