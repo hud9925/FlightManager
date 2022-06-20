@@ -1,4 +1,3 @@
-import ControllersAndPresenters.AdminMenu;
 import ControllersAndPresenters.LoginMenu;
 import UseCases.AddAdmin;
 import UseCases.Load;
