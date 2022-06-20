@@ -22,9 +22,13 @@ public class UserTracker {
         return new HashMap<String, User>(allUsers); // A shallow copy of allUsers.
     }
 
+    /*  Please use:
+        >>> new UserTracker('username').removeCurrentUser();
+        to remove users.
+
     public static void removeUser(String username){
         allUsers.remove(username);
-    }
+    } */
 
     // getters
     public User getCurrentUser () {
@@ -42,7 +46,9 @@ public class UserTracker {
     }
 
     public void removeCurrentUser () {
-        allUsers.remove(this.currentUser.getUsername());
-        this.currentUser = null;
+        if (this.userExists()) {
+            allUsers.remove(this.currentUser.getUsername());
+            this.currentUser = null;
+        }
     }
 }
