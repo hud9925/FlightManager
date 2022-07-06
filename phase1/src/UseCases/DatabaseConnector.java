@@ -19,7 +19,9 @@ public class DatabaseConnector {
     private final String filepath;
 
     public DatabaseConnector(){
-        this.filepath = String.valueOf(Paths.get("UserDatabase.csv").toAbsolutePath());
+        this.filepath = String.valueOf(Paths.get("phase1/UserDatabase.csv").toAbsolutePath());
+//        this.filepath = String.valueOf(Paths.get("UserDatabase.csv").toAbsolutePath());
+//        Above is the reserved code that fails on some devices
     }
 
     public void Save() throws IOException {
@@ -31,7 +33,8 @@ public class DatabaseConnector {
         pw.close();
     }
     public void Load() throws IOException, ParseException {
-        String filepath = String.valueOf(Paths.get("UserDatabase.csv").toAbsolutePath());
+        String filepath = String.valueOf(Paths.get("phase1/UserDatabase.csv").toAbsolutePath());
+//        String filepath = String.valueOf(Paths.get("UserDatabase.csv").toAbsolutePath());
         BufferedReader br = new BufferedReader(new FileReader(filepath));
 
         String line;
@@ -69,7 +72,8 @@ public class DatabaseConnector {
     }
 
     public boolean checkEmpty() throws IOException {
-        String filepath = String.valueOf(Paths.get("UserDatabase.csv").toAbsolutePath());
+        String filepath = String.valueOf(Paths.get("phase1/UserDatabase.csv").toAbsolutePath());
+//        String filepath = String.valueOf(Paths.get("UserDatabase.csv").toAbsolutePath());
         BufferedReader file = new BufferedReader(new FileReader(filepath));
         return file.readLine() == null;
     }

@@ -2,11 +2,12 @@ package ControllersAndPresenters;
 import UseCases.AddAdmin;
 import UseCases.DeleteUser;
 
+import java.io.IOException;
 import java.util.Objects;
 import java.util.Scanner;
 
     public class AdminMenu {
-        public static void AdminPrompt() {
+        public static void AdminPrompt() throws IOException {
             System.out.println("Welcome to the admin menu!\n" +
                     "Please press 'A' to add a new admin,\n" + "'D' to delete and existing User within the system,\n"+
                 "or any other letter to logout the menu");
@@ -93,7 +94,7 @@ import java.util.Scanner;
             }
 
         }
-        public static void RemovingUserPrompt(){
+        public static void RemovingUserPrompt() throws IOException {
             System.out.println("Please enter the Username of the User you wish to delete");
             Scanner User = new Scanner(System.in);
             if (DeleteUser.RemoveUser(User.next())){

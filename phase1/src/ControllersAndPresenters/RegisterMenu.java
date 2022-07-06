@@ -2,13 +2,14 @@ package ControllersAndPresenters;
 
 import UseCases.RegisterUseCase;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class RegisterMenu {
 
-    public static void registerPrompt() {
+    public static void registerPrompt() throws IOException {
         Scanner input0 = new Scanner(System.in);
         System.out.println("Please enter your new username: ");
         String username = input0.next();
@@ -53,7 +54,7 @@ public class RegisterMenu {
     }
 
     // Account registration page setup.
-    public static void registerPage() {
+    public static void registerPage() throws IOException {
         System.out.println("Welcome to the air ticket reserving system registration page! \n" +
                 "Please enter the following credentials in order to create an account.\n" +
                 "Press C to continue. Press B to go back");
