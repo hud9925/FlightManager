@@ -12,11 +12,25 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
-public class Load {
+public class DatabaseConnector {
 
-    public Load() throws IOException, ParseException {
-//        BufferedReader br = new BufferedReader(new FileReader("/Users/taymoorfarooq/IdeaProjects/group_0291/phase0/UserDatabase.csv"));
+    private final String filepath;
+
+    public DatabaseConnector(){
+        this.filepath = String.valueOf(Paths.get("UserDatabase.csv").toAbsolutePath());
+    }
+
+    public void Save() throws IOException {
+        PrintWriter pw = new PrintWriter(new FileWriter(this.filepath));
+        Map<String, User> allusers = UserTracker.getAllUsers();
+        for(User user : allusers.values()){
+            pw.write(user.toString() + "\n");
+        }
+        pw.close();
+    }
+    public void Load() throws IOException, ParseException {
         String filepath = String.valueOf(Paths.get("UserDatabase.csv").toAbsolutePath());
         BufferedReader br = new BufferedReader(new FileReader(filepath));
 
@@ -54,10 +68,9 @@ public class Load {
         return datelist;
     }
 
-    public static boolean checkEmpty() throws IOException {
+    public boolean checkEmpty() throws IOException {
         String filepath = String.valueOf(Paths.get("UserDatabase.csv").toAbsolutePath());
         BufferedReader file = new BufferedReader(new FileReader(filepath));
         return file.readLine() == null;
     }
-
 }
