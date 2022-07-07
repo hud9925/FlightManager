@@ -33,10 +33,8 @@ public class DatabaseConnector {
         pw.close();
     }
     public void Load() throws IOException, ParseException {
-        String filepath = String.valueOf(Paths.get("phase1/UserDatabase.csv").toAbsolutePath());
 //        String filepath = String.valueOf(Paths.get("UserDatabase.csv").toAbsolutePath());
-        BufferedReader br = new BufferedReader(new FileReader(filepath));
-
+        BufferedReader br = new BufferedReader(new FileReader(this.filepath));
         String line;
         while((line = br.readLine())!= null) {
             User newuser = lineToUser(line);
@@ -72,9 +70,8 @@ public class DatabaseConnector {
     }
 
     public boolean checkEmpty() throws IOException {
-        String filepath = String.valueOf(Paths.get("phase1/UserDatabase.csv").toAbsolutePath());
 //        String filepath = String.valueOf(Paths.get("UserDatabase.csv").toAbsolutePath());
-        BufferedReader file = new BufferedReader(new FileReader(filepath));
+        BufferedReader file = new BufferedReader(new FileReader(this.filepath));
         return file.readLine() == null;
     }
 }
