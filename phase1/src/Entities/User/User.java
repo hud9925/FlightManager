@@ -2,6 +2,8 @@ package Entities.User;
 
 import Entities.Ticket.Ticket;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -328,5 +330,23 @@ abstract public class User {
     public void removeTicket (Ticket oldTicket) {
         // Pre-condition: 'oldTicket' is in the 'tickets' list.
         throw new UnsupportedOperationException("Not implemented");
+    }
+
+    /**
+     * Return a string representation of this User.
+     *
+     * @return The string representation of this User.
+     */
+    @Override
+    public String toString(){
+        StringBuilder dateStrs = new StringBuilder();
+        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        for(Date d : this.dateList){
+            String dateStr = dateFormat.format(d);
+            dateStrs.append(dateStr).append("|");
+        }
+        return this.getUsername() + "," + this.getPassword() + "," + this.getBirthYear() + ","
+                + this.getBirthMonth() + "," + this.getBirthDay() + "," + this.getEmail() + "," + this.getMemberStatus()
+                + "," + this.getAddress() + "," + dateStrs + "," + (this.isAdmin()?"true":"false");
     }
 }
