@@ -1,13 +1,15 @@
 package ControllersAndPresenters;
 
+import UseCases.DatabaseConnector;
 import UseCases.LoginUseCase;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class LoginMenu {
-    public static void loginPrompt(){
+    public static void loginPrompt() throws IOException {
         Scanner input1 = new Scanner(System.in);
         System.out.println("Enter Username : ");
         String username = input1.next();
@@ -19,7 +21,7 @@ public class LoginMenu {
         // Check credential existence by contacting UserType method from Login Use Case class.
         ArrayList<Boolean> credPredicates = LoginUseCase.UserType(username, password);
         // The array list of predicates indicate:
-        // 1. whether or not the username/password matches;
+        // 1. whether the username/password matches;
         // 2. whether the user is admin.
         if (!credPredicates.get(0) && !credPredicates.get(1)){ //[false, false]
             System.out.println("Either your username or password is incorrect. Please try again.\n" +
@@ -46,7 +48,7 @@ public class LoginMenu {
 
     }
 
-    public static void loginPage(){
+    public static void loginPage() throws IOException {
         System.out.println("Welcome to the air ticket reserving system login page!\n" +
                 "If you are an existing user, please enter 'E'. If you are new user, you need to register an account," +
                 "to do so, please enter 'R'.\n" +
@@ -64,6 +66,8 @@ public class LoginMenu {
         }
         else if (Objects.equals(ans, "Q") || Objects.equals(ans, "q")){
             System.out.println("You are going to quit this program. Thank you for using.");
+            DatabaseConnector dc = new DatabaseConnector();
+            dc.Save();
             System.exit(0);
         }
 

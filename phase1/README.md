@@ -7,5 +7,7 @@ Any Users that you create will be automatically saved in the UserDatabase.csv fi
 Any Users saved before will be automatically loaded anytime you start the program, so you can log-in using
 their username and password. To access the Admin controls, please login with the username "Administrator" and password "admin123."
 
-Classes are organized based on Clean Architecture and the CRC model cards.
+Classes are organized based on Clean Architecture and the CRC model.
+
+The TestSuite is currently un-finished with two temporary tests - they will be fixed and more will be added later.
 
