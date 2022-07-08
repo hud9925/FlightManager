@@ -11,7 +11,7 @@ public class FlightTracker {
     /**
      Hashmap that maps the Flight Id as the key, and the value being the flight itself
      */
-    public static Map<Integer, Flight> flightMap = new HashMap<Integer, Flight>();
+    public static Map<Integer, Flight> flightMap = new HashMap<>();
 
     /**
      Adds a flight to the map
@@ -42,7 +42,7 @@ public class FlightTracker {
         return flightMap.containsKey(idNum);
     }
     /**
-     Getter to retrive the flight associated with the inputted Id
+     Getter to retrieve the flight associated with the inputted Id
      */
     public Flight getFlight(int idNum){
         if (verifyFlight(idNum)){
