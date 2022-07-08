@@ -39,7 +39,7 @@ public class FlightTracker {
      */
 
     public static boolean verifyFlight(int idNum){
-        return flightMap.get(idNum) != null;
+        return flightMap.containsKey(idNum);
     }
     /**
      Getter to retrive the flight associated with the inputted Id
