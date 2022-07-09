@@ -18,7 +18,7 @@ public class FlightTracker {
      */
     public static void addFlight(Flight newFlight){
         // adds a new flight to the Map
-        flightMap.put(newFlight.getId(), Flight);
+        flightMap.put(newFlight.getFlightid(), newFlight);
     }
     /**
      Returns the number of current flights
