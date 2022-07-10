@@ -5,8 +5,6 @@ import java.util.Map;
 
 // An Entity that keeps track of current flights
 
-
-
 public class FlightTracker {
     /**
      Hashmap that maps the Flight Id as the key, and the value being the flight itself
