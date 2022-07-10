@@ -42,11 +42,12 @@ public class FlightTracker {
     /**
      Getter to retrieve the flight associated with the inputted Id
      */
-    public Flight getFlight(int idNum){
-        if (verifyFlight(idNum)){
-            return flightMap.get(idNum);
-        }
-        return null;
-    }
+
+//    public Flight getFlight(int idNum){
+//        if (verifyFlight(idNum)){
+//            return flightMap.get(idNum);
+//        }
+//        return null;
+//    }
 
     }
