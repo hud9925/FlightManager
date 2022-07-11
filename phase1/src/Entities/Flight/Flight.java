@@ -5,13 +5,13 @@ import java.util.Date;
 
 public class Flight {
 
-    private int flightid;
+    private final int flightid;
 
     private String Airline;
 
     private String type;
 
-    private Seatmap seats;
+    private final Seatmap seats;
 
     private Date departuredate;
 
@@ -23,9 +23,9 @@ public class Flight {
 
     private Time duration;
 
-    public Flight(int flightid){
+    public Flight(int flightid, int rows, int columns){
         this.flightid = flightid;
-        this.seats = new Seatmap();
+        this.seats = new Seatmap(rows, columns);
     }
 
     public void setAirline(String airline) {

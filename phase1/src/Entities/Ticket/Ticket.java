@@ -57,7 +57,7 @@ public class Ticket {
     public String toString() {
         return "This ticket is for flight " + getWhatFlight().getAirline() + getWhatFlight().getFlightid() +
                 ", with cost " + getCost() + "dollars.\n" +
-                "This ticket is assigned to the seat " + getWhere().getSeatnumber() +
+                "This ticket is assigned to the seat " + getWhere().getSeatid() +
                 " and " + getWhom().getUsername() + " buys it.";
     }
 
