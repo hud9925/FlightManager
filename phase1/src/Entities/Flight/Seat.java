@@ -35,6 +35,6 @@ public class Seat {
         this.updateSeatid();
     }
     public void updateSeatid() {
-        this.seatid = String.valueOf(this.seatcol) + this.seatrow;
+        this.seatid = this.seatcol + " " + this.seatrow;
     }
 }
