@@ -198,13 +198,11 @@ abstract public class User {
      * Get an array of tickets purchased by the user.
      * <p>
      * The returned array is a shallow copy.
-     * <p>
-     * <strong>This method is not yet implemented.</strong>
      *
      * @return An array of tickets purchased by the user.
      */
     public Ticket[] getTickets () {
-        throw new UnsupportedOperationException("Not implemented");
+        return tickets.toArray(new Ticket[this.tickets.size()]);
     }
 
     /**
@@ -302,7 +300,6 @@ abstract public class User {
      * Remove a security question from this User.
      *
      * @param index The index of the question in the list returned by {@code this.getSecurityQuestions()}.
-     * @throws IndexOutOfBoundsException if the index is out of range ({@code index < this.getSecurityQuestions().size()}).
      */
     public void removeSecurityQuestion (int index) {
         this.securityQuestions.remove(index);
@@ -310,26 +307,28 @@ abstract public class User {
 
     /**
      * Add a ticket to this User.
-     * <p>
-     * <strong>This method is not yet implemented.</strong>
      *
      * @param newTicket The new ticket to add.
+     * @throws TicketAlreadyExistsException if the ticket to add is already added to this User.
      */
-    public void addTicket (Ticket newTicket) {
-        // Pre-condition: 'newTicket' is not in the 'tickets' list.
-        throw new UnsupportedOperationException("Not implemented");
+    public void addTicket (Ticket newTicket) throws TicketAlreadyExistsException {
+        if (this.tickets.contains(newTicket)) {
+            throw new TicketAlreadyExistsException();
+        }
+        this.tickets.add(newTicket);
     }
 
     /**
      * Remove a ticket from this User.
-     * <p>
-     * <strong>This method is not yet implemented.</strong>
      *
      * @param oldTicket The old ticket to remove.
+     * @throws TicketNotFoundException if the ticket to remove is not found in this User.
      */
-    public void removeTicket (Ticket oldTicket) {
-        // Pre-condition: 'oldTicket' is in the 'tickets' list.
-        throw new UnsupportedOperationException("Not implemented");
+    public void removeTicket (Ticket oldTicket) throws TicketNotFoundException {
+        if (!this.tickets.contains(oldTicket)) {
+            throw new TicketNotFoundException();
+        }
+        this.tickets.remove(oldTicket);
     }
 
     /**
