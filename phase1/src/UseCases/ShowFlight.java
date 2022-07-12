@@ -4,6 +4,9 @@ import Entities.Flight.Flight;
 import Entities.Flight.FlightTracker;
 
 public class ShowFlight {
+    /**
+     * This allows the finding of a single flight via the flight tracker.
+     */
 
     private int flightID;
 
@@ -13,4 +16,5 @@ public class ShowFlight {
         }
         return null;
     }
+
 }

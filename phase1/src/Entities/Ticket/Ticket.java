@@ -4,6 +4,8 @@ import Entities.Flight.Flight;
 import Entities.Flight.FlightTracker;
 import Entities.Flight.Seat;
 import Entities.User.Customer;
+import Entities.User.FlightNotFoundException;
+import Entities.User.TicketNotFoundException;
 
 public class Ticket {
     private int cost;
@@ -13,17 +15,15 @@ public class Ticket {
     private Customer who;
     private Seat where;
 
-    public Ticket(Flight flight, int cost, Customer who, Seat where){
-        if (FlightTracker.verifyFlight(flight.getFlightid())) {
-            this.flight = flight;
-            this.cost = cost;
-            this.who = who;
-            this.where = where;
-        }
-
+    public Ticket(Flight flight, int cost, Customer who, Seat where) {
+        this.flight = flight;
+        this.cost = cost;
+        this.who = who;
+        this.where = where;
     }
     /**
-     * This constructor assigns a ticket with a specific flight, cost, customer and the seat be assigned.
+     * This constructor creates a ticket with a specific flight, cost, customer and the seat be assigned. Works iff
+     * the flight exists. This can be done through buying ticket use case.
      */
     public int getCost(){
         return this.cost;
@@ -60,7 +60,6 @@ public class Ticket {
                 "This ticket is assigned to the seat " + getWhere().getSeatid() +
                 " and " + getWhom().getUsername() + " buys it.";
     }
-
 
 
 }

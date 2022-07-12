@@ -1,10 +1,12 @@
 package Entities.Flight;
 
+
 public class Seat {
 
     private String seatid;
     private int seatrow;
     private int seatcol;
+    private int seatcolletter;
     private boolean isfilled;
 
     public Seat(int seatrow, int seatcol){
@@ -12,7 +14,7 @@ public class Seat {
         this.seatcol = seatcol;
         this.updateSeatid();
         this.isfilled = false;
-    }
+}
 
     public boolean isFilled(){
         return this.isfilled;
@@ -34,7 +36,14 @@ public class Seat {
         this.seatcol = seatcol;
         this.updateSeatid();
     }
+
+    public String convertCol(int seatcol){
+        String[] largeCol = {"A", "B", "C", "D", "E", "F", "G", "H", "J", "K"};
+        //String[] smallCol = {"A","B","C","H","J","K"};
+
+        return largeCol[seatcol - 1];
+    }
     public void updateSeatid() {
-        this.seatid = this.seatcol + " " + this.seatrow;
+        this.seatid = convertCol(this.seatcol) + " " + this.seatrow;
     }
 }
