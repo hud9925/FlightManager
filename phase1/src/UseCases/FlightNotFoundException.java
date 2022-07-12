@@ -1,4 +1,4 @@
-package Entities.User;
+package UseCases;
 
 public class FlightNotFoundException extends Exception {
     /**

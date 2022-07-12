@@ -6,7 +6,6 @@ public class Seat {
     private String seatid;
     private int seatrow;
     private int seatcol;
-    private int seatcolletter;
     private boolean isfilled;
 
     public Seat(int seatrow, int seatcol){

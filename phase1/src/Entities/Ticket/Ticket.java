@@ -1,11 +1,8 @@
 package Entities.Ticket;
 
 import Entities.Flight.Flight;
-import Entities.Flight.FlightTracker;
 import Entities.Flight.Seat;
 import Entities.User.Customer;
-import Entities.User.FlightNotFoundException;
-import Entities.User.TicketNotFoundException;
 
 public class Ticket {
     private int cost;
