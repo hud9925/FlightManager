@@ -340,7 +340,7 @@ abstract public class User {
         StringBuilder dateStrs = new StringBuilder();
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         for(Date d : this.dateList){
-            String dateStr = dateFormat.format(d);
+            String dateStr = String.valueOf(d.getTime());
             dateStrs.append(dateStr).append("|");
         }
         return this.getUsername() + "," + this.getPassword() + "," + this.getBirthYear() + ","

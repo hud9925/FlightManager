@@ -62,7 +62,7 @@ public class DatabaseConnector {
     public List<Date> loginDatesReader(String[] previousdates) throws ParseException {
         List<Date> datelist = new ArrayList<>();
         for(String str: previousdates){
-            Date d = new SimpleDateFormat("dd/MM/yyyy").parse(str);
+            Date d = new Date(Long.parseLong(str));
             datelist.add(d);
         }
         return datelist;
