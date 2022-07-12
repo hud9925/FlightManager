@@ -3,6 +3,7 @@ package ControllersAndPresenters;
 import Entities.User.User;
 import Entities.User.UserTracker;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class MainMenu {
@@ -16,7 +17,7 @@ public class MainMenu {
         if(ans.equals("Y") || ans.equals("y")){
             UserTracker ut = new UserTracker(username);
             User u1 = ut.getCurrentUser();
-            System.out.println(u1.getDateList());
+            System.out.println(Arrays.toString(u1.getDateList()));
         } else {
             System.out.println("Temporary end of Program! Hope to see you in phase 1!");
         }

@@ -172,10 +172,10 @@ abstract public class User {
      *
      * @return A deep copy of the list of dates when the User logged in.
      */
-    public List<Date> getDateList() {
-        List<Date> result = new ArrayList();
-        for (Date loginDate : this.dateList) {
-            result.add(new Date(loginDate.getTime()));
+    public Date[] getDateList() {
+        Date[] result = new Date[this.dateList.size()];
+        for (int i = 0; i < this.dateList.size(); i++) {
+            result[i] = new Date(this.dateList.get(i).getTime());
         }
         return result;
     }
