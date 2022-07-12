@@ -6,19 +6,63 @@ import Entities.User.User;
 import Entities.User.UserTracker;
 
 import java.io.*;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class DatabaseConnector {
 
     private final String filepath;
 
-    public DatabaseConnector(){
-        this.filepath = String.valueOf(Paths.get("phase1/UserDatabase.csv").toAbsolutePath());
-//        this.filepath = String.valueOf(Paths.get("UserDatabase.csv").toAbsolutePath());
-//        Above is the reserved code that fails on some devices
+    /**
+     * Connect to the database.
+     * <p>
+     * This constructor will search for the 'UserDatabase.csv' file in the working directory first. If not found, it
+     * will search the 'phase1/' subdirectory of the working directory for that file. If the file is not found in either
+     * place, it will create this file in the working directory.
+     *
+     * @throws IOException when the file is not found in either place, and cannot be created.
+     */
+    public DatabaseConnector() throws IOException{
+        String preferredPath = getAbsolutePath("UserDatabase.csv");
+        if (fileExists(preferredPath)) {
+            this.filepath = preferredPath;
+            return;
+        }
+
+        String altPath = getAbsolutePath("phase1/UserDatabase.csv");
+        if (fileExists(altPath)) {
+            this.filepath = altPath;
+            return;
+        }
+
+        this.filepath = preferredPath;
+        File preferredFile = new File(preferredPath);
+        if (!preferredFile.createNewFile()) {
+            throw new IOException();
+        }
+    }
+
+    /**
+     * Get the absolute path from a relative path.
+     *
+     * @param relPath The relative path to the working directory.
+     * @return The absolute path.
+     */
+    private String getAbsolutePath (String relPath) {
+        return String.valueOf(Paths.get(relPath).toAbsolutePath());
+    }
+
+    /**
+     * Check if the file of a given path exists.
+     *
+     * @param path The path of the file to check.
+     * @return A boolean indicating whether the file exists.
+     */
+    private boolean fileExists (String path) {
+        File file = new File(path);
+        return file.isFile();
     }
 
     public void Save() throws IOException {
