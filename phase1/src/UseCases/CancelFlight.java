@@ -10,7 +10,7 @@ public class CancelFlight {
      If present, the flight is removed and returns True.
      Else, returns False
      */
-    public static boolean RemoveFlight(int id){
+    public static boolean RemoveFlight(String id){
         return FlightTracker.removeFlight(id);
     }
 }

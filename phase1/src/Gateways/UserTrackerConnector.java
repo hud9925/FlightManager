@@ -1,4 +1,4 @@
-package UseCases;
+package Gateways;
 
 import Entities.User.Admin;
 import Entities.User.Customer;
@@ -6,12 +6,13 @@ import Entities.User.User;
 import Entities.User.UserTracker;
 
 import java.io.*;
-import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.text.ParseException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
-public class DatabaseConnector {
+public class UserTrackerConnector implements DatabaseConnector {
 
     private final String filepath;
 
@@ -24,7 +25,7 @@ public class DatabaseConnector {
      *
      * @throws IOException when the file is not found in either place, and cannot be created.
      */
-    public DatabaseConnector() throws IOException{
+    public UserTrackerConnector() throws IOException{
         String preferredPath = getAbsolutePath("UserDatabase.csv");
         if (fileExists(preferredPath)) {
             this.filepath = preferredPath;
@@ -73,7 +74,7 @@ public class DatabaseConnector {
         }
         pw.close();
     }
-    public void Load() throws IOException, ParseException {
+    public void Load() throws IOException {
 //        String filepath = String.valueOf(Paths.get("UserDatabase.csv").toAbsolutePath());
         BufferedReader br = new BufferedReader(new FileReader(this.filepath));
         String line;
@@ -84,7 +85,7 @@ public class DatabaseConnector {
         br.close();
     }
 
-    public User lineToUser(String line) throws ParseException {
+    public User lineToUser(String line) {
         User newuser;
         String [] userinfo = line.split(",");
         if (userinfo[9].equals("true")){
@@ -103,7 +104,7 @@ public class DatabaseConnector {
         }
         return newuser;
     }
-    public List<Date> loginDatesReader(String[] previousdates) throws ParseException {
+    public List<Date> loginDatesReader(String[] previousdates) {
         List<Date> datelist = new ArrayList<>();
         for(String str: previousdates){
             Date d = new Date(Long.parseLong(str));

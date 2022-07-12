@@ -1,6 +1,6 @@
 package ControllersAndPresenters;
 
-import UseCases.DatabaseConnector;
+import Gateways.UserTrackerConnector;
 import UseCases.LoginUseCase;
 
 import java.io.IOException;
@@ -66,7 +66,7 @@ public class LoginMenu {
         }
         else if (Objects.equals(ans, "Q") || Objects.equals(ans, "q")){
             System.out.println("You are going to quit this program. Thank you for using.");
-            DatabaseConnector dc = new DatabaseConnector();
+            UserTrackerConnector dc = new UserTrackerConnector();
             dc.Save();
             System.exit(0);
         }

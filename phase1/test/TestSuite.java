@@ -2,19 +2,18 @@ import Entities.User.Admin;
 import Entities.User.Customer;
 import Entities.User.User;
 import Entities.User.UserTracker;
+import Gateways.UserTrackerConnector;
 import UseCases.AddAdmin;
-import UseCases.DatabaseConnector;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.text.ParseException;
 
 import static org.junit.Assert.*;
 
 public class TestSuite {
 
-    public void setup() throws IOException, ParseException {
-        DatabaseConnector dc = new DatabaseConnector();
+    public void setup() throws IOException {
+        UserTrackerConnector dc = new UserTrackerConnector();
         dc.Load();
         User u1 = new Customer("bob", "pool", 2003, 7, 6, "bruh", false);
         Customer c1 = new Customer("Dad", "ball", 1900, 2, 3, "none", true);

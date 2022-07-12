@@ -13,6 +13,16 @@ public class Seatmap {
         }
     }
 
+    public int getColumns() {return seats.length;}
+
+    public int getRows() {
+        if(this.seats[0] == null){
+            return 0;
+        } else {
+            return this.seats[0].length;
+        }
+    }
+
     public String toString() {
         String rtrnstr = "";
         for(Seat[] sarray : this.seats){
@@ -23,8 +33,9 @@ public class Seatmap {
                     rtrnstr += 'X';
                 }
             }
-            rtrnstr += "n";
+            rtrnstr += " ";
         }
         return rtrnstr;
     }
+
 }

@@ -5,13 +5,13 @@ import java.util.Date;
 
 public class Flight {
 
-    private final int flightid;
+    private final String flightid;
 
     private String Airline;
 
     private String type;
 
-    private final Seatmap seats;
+    private Seatmap seats;
 
     private Date departuredate;
 
@@ -23,7 +23,7 @@ public class Flight {
 
     private Time duration;
 
-    public Flight(int flightid, int rows, int columns){
+    public Flight(String flightid, int rows, int columns){
         this.flightid = flightid;
         this.seats = new Seatmap(rows, columns);
     }
@@ -52,6 +52,8 @@ public class Flight {
         this.arrivallocation = arrivallocation;
     }
 
+    public void setSeats(Seatmap seatmap) { this.seats = seatmap; }
+
     public void setDuration(Time duration) {
         this.duration = duration;
     }
@@ -76,7 +78,7 @@ public class Flight {
         return departurelocation;
     }
 
-    public int getFlightid() {
+    public String getFlightid() {
         return flightid;
     }
 
@@ -94,6 +96,6 @@ public class Flight {
 
     public String toString() {
         return this.flightid + "," + this.type + "," + this.Airline + "," + this.departuredate + this.arrivaldate + ","
-        + this.departurelocation + "," + this.arrivallocation + "," + this.duration + this.seats;
+        + this.departurelocation + "," + this.arrivallocation + "," + this.duration + "\n" + this.seats;
     }
 }

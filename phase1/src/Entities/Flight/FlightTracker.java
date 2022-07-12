@@ -9,7 +9,7 @@ public class FlightTracker {
     /**
      Hashmap that maps the Flight Id as the key, and the value being the flight itself
      */
-    public static Map<Integer, Flight> flightMap = new HashMap<>();
+    public static Map<String, Flight> flightMap = new HashMap<>();
 
     /**
      Adds a flight to the map
@@ -29,17 +29,17 @@ public class FlightTracker {
      If present, the flight is removed and returns True.
      Else, returns False
      */
-    public static boolean removeFlight(int idNum){
+    public static boolean removeFlight(String idNum){
         return flightMap.remove(idNum) != null;
     }
     /**
      Verifies if a flight with the inputted ID exists, returning a boolean
      */
 
-    public static boolean verifyFlight(int idNum){
+    public static boolean verifyFlight(String idNum){
         return flightMap.containsKey(idNum);
     }
-    /**
+    /*
      Getter to retrieve the flight associated with the inputted Id
      */
 
