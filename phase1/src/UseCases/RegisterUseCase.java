@@ -19,6 +19,7 @@ RegisterUseCase {
 //          User does not exist. Register as new user.
             NewUser.add(true);
             Customer newuser = new Customer(Username, Password, Year, Month, Day, Email, false);
+            newuser.updateDateList();
             UserTracker.addUser(newuser);
         }
 

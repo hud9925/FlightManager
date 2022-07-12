@@ -9,10 +9,7 @@ import java.io.*;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class DatabaseConnector {
 
@@ -57,7 +54,9 @@ public class DatabaseConnector {
         }
         newuser.changeAddress(userinfo[7]);
         String[] previousdates = userinfo[8].split("\\|");
-        newuser.setDateList(loginDatesReader(previousdates));
+        if (!previousdates[0].equals("")) {
+            newuser.setDateList(loginDatesReader(previousdates));
+        }
         return newuser;
     }
     public List<Date> loginDatesReader(String[] previousdates) throws ParseException {

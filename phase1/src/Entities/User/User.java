@@ -78,7 +78,6 @@ abstract public class User {
         this.address = "";
         this.paymentMethods = new ArrayList<Object>();
         this.dateList = new ArrayList<Date>();
-        this.dateList.add(new Date());
         this.securityQuestions = new ArrayList<String[]>();
         this.tickets = new ArrayList<Ticket>();
     }
@@ -339,7 +338,7 @@ abstract public class User {
     @Override
     public String toString(){
         StringBuilder dateStrs = new StringBuilder();
-        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         for(Date d : this.dateList){
             String dateStr = dateFormat.format(d);
             dateStrs.append(dateStr).append("|");
