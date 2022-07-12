@@ -12,11 +12,14 @@ public class Ticket {
     private Customer who;
     private Seat where;
 
+    private String ticketID;
+
     public Ticket(Flight flight, int cost, Customer who, Seat where) {
         this.flight = flight;
         this.cost = cost;
         this.who = who;
         this.where = where;
+        this.ticketID = setTicketID();
     }
     /**
      * This constructor creates a ticket with a specific flight, cost, customer and the seat be assigned. Works iff
@@ -51,11 +54,30 @@ public class Ticket {
      * @return the flight this ticket referring to
      */
 
+    public String setTicketID(){
+        return null;
+    }
+
+    /**
+     * Set the unique ID of this ticket. Code reserved for future development.
+     * Style: username + booking date and time + flight id
+     */
+
+    public String getTicketID(){
+        return this.ticketID;
+    }
+
+    /**
+     *
+     * @return the unique ID of this ticket. Code reserved for future development
+     */
+
     public String toString() {
         return "This ticket is for flight " + getWhatFlight().getAirline() + getWhatFlight().getFlightid() +
                 ", with cost " + getCost() + "dollars.\n" +
                 "This ticket is assigned to the seat " + getWhere().getSeatid() +
-                " and " + getWhom().getUsername() + " buys it.";
+                " and " + getWhom().getUsername() + " buys it.\n" +
+                "Ticket ID: " + getTicketID();
     }
 
 
