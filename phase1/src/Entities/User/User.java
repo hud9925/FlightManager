@@ -278,7 +278,7 @@ abstract public class User {
     /**
      * Set the list of login dates.
      * <p>
-     * <strong>This method is intended for use by the database load method only and is subjected to deprecation.<strong/>
+     * <strong>This method is intended for use by the database load method only and is subjected to deprecation.</strong>
      *
      * @param ls The new list of login dates.
      */
