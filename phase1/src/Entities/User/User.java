@@ -166,11 +166,11 @@ abstract public class User {
     }
 
     /**
-     * Get a list of dates when the User logged in.
+     * Get an array of dates of when the User logged in.
      * <p>
-     * The returned list is a deep copy.
+     * The returned array is a deep copy.
      *
-     * @return A deep copy of the list of dates when the User logged in.
+     * @return A array of dates of when the User logged in.
      */
     public Date[] getDateList() {
         Date[] result = new Date[this.dateList.size()];
