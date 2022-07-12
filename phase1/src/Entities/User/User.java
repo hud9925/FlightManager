@@ -69,7 +69,8 @@ abstract public class User {
      * @param  email The email of the User.
      * @param  isMember A boolean indicating whether this User is a member.
      */
-    public User (String username, String password, int birthYear, int birthMonth, int birthDay, String email, boolean isMember) {
+    public User (String username, String password, int birthYear, int birthMonth, int birthDay, String email,
+                 boolean isMember) {
         this.username = username;
         this.password = password;
         this.dob= new int[] {birthYear, birthMonth, birthDay};
@@ -183,7 +184,8 @@ abstract public class User {
     /**
      * Get an array of security questions for this User.
      *
-     * @return An array of security questions in the format String[][] { String[] {question, answer}, String[] {question, answer}, String[] {question, answer}, ... }.
+     * @return An array of security questions in the format
+     * String[][] { String[] {question, answer}, String[] {question, answer}, String[] {question, answer}, ... }.
      */
     public String[][] getSecurityQuestions () {
         String result[][] = new String[this.securityQuestions.size()][];
