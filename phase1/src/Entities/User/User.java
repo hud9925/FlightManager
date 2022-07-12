@@ -347,7 +347,6 @@ abstract public class User {
     @Override
     public String toString(){
         StringBuilder dateStrs = new StringBuilder();
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         for(Date d : this.dateList){
             String dateStr = String.valueOf(d.getTime());
             dateStrs.append(dateStr).append("|");
