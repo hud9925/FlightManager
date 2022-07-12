@@ -275,14 +275,23 @@ abstract public class User {
     public void updateDateList () {this.dateList.add(new Date());}
 
     /**
-     * Set the list of login dates.
-     * <p>
-     * <strong>This method is intended for use by the database load method only and is subjected to deprecation.</strong>
+     * Add a new date to the login time list of this User.
      *
-     * @param ls The new list of login dates.
+     * @param newDate The new date to add.
      */
-    public void setDateList (List<Date> ls) {
-        this.dateList = ls;
+    public void updateDateList (Date newDate) {
+        this.dateList.add(newDate);
+    }
+
+    /**
+     * Append dates in a list to the existing login time list of this user.
+     *
+     * @param newDateList The new dates to append.
+     */
+    public void updateDateList (List<Date> newDateList) {
+        for (Date newDate : newDateList) {
+            this.updateDateList(newDate);
+        }
     }
 
     /**

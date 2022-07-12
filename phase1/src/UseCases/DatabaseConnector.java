@@ -55,7 +55,7 @@ public class DatabaseConnector {
         newuser.changeAddress(userinfo[7]);
         String[] previousdates = userinfo[8].split("\\|");
         if (!previousdates[0].equals("")) {
-            newuser.setDateList(loginDatesReader(previousdates));
+            newuser.updateDateList(loginDatesReader(previousdates));
         }
         return newuser;
     }
