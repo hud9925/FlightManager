@@ -53,7 +53,7 @@ abstract public class User {
     /**
      * A list of Tickets purchased by the User.
      */
-    private List<Ticket> tickets;
+    private static List<Ticket> tickets;
 
     /**
      * Construct a new User.
@@ -321,11 +321,11 @@ abstract public class User {
      * @param newTicket The new ticket to add.
      * @throws TicketAlreadyExistsException if the ticket to add is already added to this User.
      */
-    public void addTicket (Ticket newTicket) throws TicketAlreadyExistsException {
-        if (this.tickets.contains(newTicket)) {
+    public static void addTicket (Ticket newTicket) throws TicketAlreadyExistsException {
+        if (tickets.contains(newTicket)) {
             throw new TicketAlreadyExistsException();
         }
-        this.tickets.add(newTicket);
+        tickets.add(newTicket);
     }
 
     /**
@@ -334,11 +334,11 @@ abstract public class User {
      * @param oldTicket The old ticket to remove.
      * @throws TicketNotFoundException if the ticket to remove is not found in this User.
      */
-    public void removeTicket (Ticket oldTicket) throws TicketNotFoundException {
-        if (!this.tickets.contains(oldTicket)) {
+    public static void removeTicket (Ticket oldTicket) throws TicketNotFoundException {
+        if (!tickets.contains(oldTicket)) {
             throw new TicketNotFoundException();
         }
-        this.tickets.remove(oldTicket);
+        tickets.remove(oldTicket);
     }
 
     /**
