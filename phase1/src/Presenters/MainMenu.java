@@ -2,8 +2,6 @@ package Presenters;
 
 import Controllers.MainMenuC;
 
-import java.util.Scanner;
-
 public class MainMenu {
 
     public static void mainPage(String username) {

@@ -50,8 +50,7 @@ class Console {
         for (String message : messages) {
             System.out.println(message);
         }
-        String input = getInput(regex);
-        return input;
+        return getInput(regex);
     }
 
     /**

@@ -5,8 +5,6 @@ import UseCases.LoginUseCase;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Scanner;
 
 public class LoginMenu {
     public static void loginPrompt() throws IOException {

@@ -3,8 +3,6 @@ import UseCases.AddAdmin;
 import UseCases.DeleteUser;
 
 import java.io.IOException;
-import java.util.Objects;
-import java.util.Scanner;
 
     public class AdminMenu {
         public static void AdminPrompt() throws IOException {
@@ -48,19 +46,12 @@ import java.util.Scanner;
 //                Scanner member = new Scanner(System.in);
 
 
-                if (ans.equalsIgnoreCase("yes")){
-                    AddAdmin.NewAdmin(username, password,
-                            Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day), email, true);
-                    System.out.println("Admin Created!");
-                    System.out.println("Returning you to the AdminMenu");
-                    AdminMenu.AdminPrompt();
-                } else {
-                    AddAdmin.NewAdmin(username, password,
-                            Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day), email, false);
-                    System.out.println("Admin Created!");
-                    System.out.println("Returning you to the AdminMenu");
-                    AdminMenu.AdminPrompt();
-                }
+                AddAdmin.NewAdmin(username, password, Integer.parseInt(year), Integer.parseInt(month),
+                        Integer.parseInt(day), email, MemberStatus.equalsIgnoreCase("yes"));
+
+                System.out.println("Admin Created!");
+                System.out.println("Returning you to the AdminMenu");
+                AdminMenu.AdminPrompt();
 
 
 //      Deleting an User
