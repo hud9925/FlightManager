@@ -69,7 +69,14 @@ abstract public class DatabaseConnector {
         return file.isFile();
     }
 
+    /**
+     * Perform the save operation on this database.
+     */
     abstract public void Save() throws IOException;
+
+    /**
+     * Perform the load operation on this database.
+     */
     abstract public void Load() throws IOException, ParseException;
 
     /**

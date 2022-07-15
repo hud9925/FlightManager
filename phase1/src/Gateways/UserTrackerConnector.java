@@ -29,38 +29,38 @@ public class UserTrackerConnector extends DatabaseConnector {
         BufferedReader br = new BufferedReader(new FileReader(this.filepath));
         String line;
         while((line = br.readLine())!= null) {
-            User newuser = lineToUser(line);
-            UserTracker.addUser(newuser);
+            User newUser = lineToUser(line);
+            UserTracker.addUser(newUser);
         }
         br.close();
     }
 
     private User lineToUser(String line) {
-        User newuser;
+        User newUser;
         String [] userinfo = line.split(",");
         if (userinfo[9].equals("true")){
-            newuser = new Admin(userinfo[0], userinfo[1], Integer.parseInt(userinfo[2]),
+            newUser = new Admin(userinfo[0], userinfo[1], Integer.parseInt(userinfo[2]),
                     Integer.parseInt(userinfo[3]), Integer.parseInt(userinfo[4]), userinfo[5],
                     Boolean.parseBoolean(userinfo[6]));
         } else {
-            newuser = new Customer(userinfo[0], userinfo[1], Integer.parseInt(userinfo[2]),
+            newUser = new Customer(userinfo[0], userinfo[1], Integer.parseInt(userinfo[2]),
                     Integer.parseInt(userinfo[3]), Integer.parseInt(userinfo[4]), userinfo[5],
                     Boolean.parseBoolean(userinfo[6]));
         }
-        newuser.changeAddress(userinfo[7]);
-        String[] previousdates = userinfo[8].split("\\|");
-        if (!previousdates[0].equals("")) {
-            newuser.updateDateList(loginDatesReader(previousdates));
+        newUser.changeAddress(userinfo[7]);
+        String[] previousDates = userinfo[8].split("\\|");
+        if (!previousDates[0].equals("")) {
+            newUser.updateDateList(loginDatesReader(previousDates));
         }
-        return newuser;
+        return newUser;
     }
-    private List<Date> loginDatesReader(String[] previousdates) {
-        List<Date> datelist = new ArrayList<>();
-        for(String str: previousdates){
+    private List<Date> loginDatesReader(String[] previousDates) {
+        List<Date> dateList = new ArrayList<>();
+        for(String str: previousDates){
             Date d = new Date(Long.parseLong(str));
-            datelist.add(d);
+            dateList.add(d);
         }
-        return datelist;
+        return dateList;
     }
 
     @Override

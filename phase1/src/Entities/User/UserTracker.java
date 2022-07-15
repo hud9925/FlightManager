@@ -8,7 +8,7 @@ public class UserTracker implements Iterable<User> {
     /**
      * A HashMap that maps usernames to User objects for all users in the system.
      */
-    private static Map<String, User> allUsers = new HashMap<String, User>();
+    private static final Map<String, User> allUsers = new HashMap<>();
     /**
      * A User object indicate the user currently being tracked.
      */

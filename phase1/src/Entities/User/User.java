@@ -19,7 +19,7 @@ abstract public class User {
     /**
      * The date of birth of this User, stored in the format int[] {birthYear, birthMonth, birthDay}.
      */
-    private final int dob[];
+    private final int[] dob;
     /**
      * The email address of this User.
      */
@@ -37,21 +37,21 @@ abstract public class User {
      * <p>
      * <strong>Payment methods are not yet implemented.</strong>
      */
-    private List<Object> paymentMethods;
+    private final List<Object> paymentMethods;
     /**
      * A list of date when the User logged in.
      */
-    private List<Date> dateList;
+    private final List<Date> dateList;
     /**
      * A list of security questions for this User.
      * <p>
      * Each item in the list is in the format String[] {question, answer}.
      */
-    private List<String[]> securityQuestions;
+    private final List<String[]> securityQuestions;
     /**
      * A list of Tickets purchased by the User.
      */
-    private List<Ticket> tickets;
+    private final List<Ticket> tickets;
 
     /**
      * Construct a new User.
@@ -75,10 +75,10 @@ abstract public class User {
         this.email = email;
         this.isMember = isMember;
         this.address = "";
-        this.paymentMethods = new ArrayList<Object>();
-        this.dateList = new ArrayList<Date>();
-        this.securityQuestions = new ArrayList<String[]>();
-        this.tickets = new ArrayList<Ticket>();
+        this.paymentMethods = new ArrayList<>();
+        this.dateList = new ArrayList<>();
+        this.securityQuestions = new ArrayList<>();
+        this.tickets = new ArrayList<>();
     }
 
     /**
@@ -169,7 +169,7 @@ abstract public class User {
      * <p>
      * The returned array is a deep copy.
      *
-     * @return A array of dates of when the User logged in.
+     * @return An array of dates of when the User logged in.
      */
     public Date[] getDateList() {
         Date[] result = new Date[this.dateList.size()];
@@ -186,7 +186,7 @@ abstract public class User {
      * String[][] { String[] {question, answer}, String[] {question, answer}, String[] {question, answer}, ... }.
      */
     public String[][] getSecurityQuestions () {
-        String result[][] = new String[this.securityQuestions.size()][];
+        String[][] result = new String[this.securityQuestions.size()][];
         for (int i = 0; i < this.securityQuestions.size(); i++) {
             result[i] = Arrays.copyOf(this.securityQuestions.get(i),2);
         }
