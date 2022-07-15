@@ -48,7 +48,7 @@ public class LoginMenu {
                         "account, to do so, please enter 'R'.",
                 "Press 'Q' to exit.",
                 "Existing user or New user? (E/R) : "
-        }, "^(e|r|q)$");
+        }, "^[erq]$");
         if (ans.equalsIgnoreCase("e")){
             LoginMenu.loginPrompt();
         }
