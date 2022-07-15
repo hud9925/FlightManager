@@ -10,13 +10,8 @@ import java.util.Scanner;
 
 public class LoginMenu {
     public static void loginPrompt() throws IOException {
-        Scanner input1 = new Scanner(System.in);
-        System.out.println("Enter Username : ");
-        String username = input1.next();
-
-        Scanner input2 = new Scanner(System.in);
-        System.out.println("Enter Password : ");
-        String password = input2.next();
+        String username = Console.prompt("Enter Username : ", ".+");
+        String password = Console.prompt("Enter Password : ", ".+");
 
         // Check credential existence by contacting UserType method from Login Use Case class.
         ArrayList<Boolean> credPredicates = LoginUseCase.UserType(username, password);
@@ -24,12 +19,12 @@ public class LoginMenu {
         // 1. whether the username/password matches;
         // 2. whether the user is admin.
         if (!credPredicates.get(0) && !credPredicates.get(1)){ //[false, false]
-            System.out.println("Either your username or password is incorrect. Please try again.\n" +
-                    "Enter any letter except B to continue or enter B to go back to login page.\n");
-            Scanner input3 = new Scanner(System.in);
-            System.out.println("Continue?: ");
-            String ans =  input3.next();
-            if (Objects.equals(ans, "B") || Objects.equals(ans, "b")){
+            String ans = Console.prompt(new String[] {
+                    "Either your username or password is incorrect. Please try again.",
+                    "Enter any letter except B to continue or enter B to go back to login page.",
+                    "Continue?"
+            });
+            if (ans.equalsIgnoreCase("b")){
                 loginPage();
             }
             else{
@@ -49,31 +44,24 @@ public class LoginMenu {
     }
 
     public static void loginPage() throws IOException {
-        System.out.println("Welcome to the air ticket reserving system login page!\n" +
-                "If you are an existing user, please enter 'E'. If you are new user, you need to register an account," +
-                "to do so, please enter 'R'.\n" +
-                "Press 'Q' to exit.");
-
-        Scanner input0 = new Scanner(System.in);
-        System.out.println("Existing user or New user? (E/R) : ");
-        String ans = input0.next();
-        if (Objects.equals(ans, "E") || Objects.equals(ans, "e")){
+        String ans = Console.prompt(new String[]{
+                "Welcome to the air ticket reserving system login page!",
+                "If you are an existing user, please enter 'E'. If you are new user, you need to register an " +
+                        "account, to do so, please enter 'R'.",
+                "Press 'Q' to exit.",
+                "Existing user or New user? (E/R) : "
+        }, "^(e|r|q)$");
+        if (ans.equalsIgnoreCase("e")){
             LoginMenu.loginPrompt();
-
         }
-        else if (Objects.equals(ans, "R") || Objects.equals(ans, "r")){
+        else if (ans.equalsIgnoreCase("r")){
             RegisterMenu.registerPage();
         }
-        else if (Objects.equals(ans, "Q") || Objects.equals(ans, "q")){
+        else if (ans.equalsIgnoreCase("q")){
             System.out.println("You are going to quit this program. Thank you for using.");
             UserTrackerConnector dc = new UserTrackerConnector();
             dc.Save();
             System.exit(0);
-        }
-
-        else {
-            System.out.println("You entered an incorrect command and will be redirected to the login menu.");
-            loginPage();
         }
     }
 }

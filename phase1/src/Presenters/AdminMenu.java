@@ -8,34 +8,27 @@ import java.util.Scanner;
 
     public class AdminMenu {
         public static void AdminPrompt() throws IOException {
-            System.out.println("Welcome to the admin menu!\n" +
-                    "Please press 'A' to add a new admin,\n" + "'D' to delete and existing User within the system,\n"+
-                "or any other letter to logout the menu");
-            Scanner decision = new Scanner(System.in);
-            String ans = decision.next();
-            if (Objects.equals(ans, "A") || Objects.equals(ans, "a")){
+            String ans = Console.prompt(new String[]{
+                    "Welcome to the admin menu!",
+                    "Please press 'A' to add a new admin,",
+                    "'D' to delete an existing User within the system,",
+                    "or any other letter to logout the menu"
+            });
+            if (ans.equalsIgnoreCase("a")){
 //            adding a new admin
-                Scanner input0 = new Scanner(System.in);
-                System.out.println("Please enter the new admin's username: ");
-                String username = input0.next();
-                Scanner input1 = new Scanner(System.in);
-                System.out.println("Please enter the new admin's password: ");
-                String password = input1.next();
-                Scanner input2 = new Scanner(System.in);
-                System.out.println("Please enter the new admin's birth YEAR (YYYY):");
-                String year = input2.next();
-                Scanner input3 = new Scanner(System.in);
-                System.out.println("Please enter the new admin's birth MONTH (MM):");
-                String month = input3.next();
-                Scanner input4 = new Scanner(System.in);
-                System.out.println("Please enter the new admin's birth DAY (DD):");
-                String day = input4.next();
-                Scanner input5 = new Scanner(System.in);
-                System.out.println("Please enter the new admin's email address:");
-                String email = input5.next();
-                Scanner input6 = new Scanner(System.in);
-                System.out.println("Please enter the new admin's member status? (Yes/No)");
-                String MemberStatus = input6.next();
+                String username = Console.prompt("Please enter the new admin's username: ", ".+");
+                String password = Console.prompt("Please enter the new admin's password: ", ".+");
+
+                String year = Console.prompt("Please enter the new admin's birth YEAR (YYYY): ",
+                        "^((19\\d{2})|(20(((0|1)\\d)|(2(1|2)))))$");
+                String month = Console.prompt("Please enter the new admin's birth MONTH (MM): ",
+                        "^((0?[1-9])|(1[0-2]))$");
+                String day = Console.prompt("Please enter the new admin's birth DAY (DD): ",
+                        "^((0?[1-9])|([12]\\d)|(3[01]))$");
+                String email = Console.prompt("Please enter the new admin's email address: ",
+                        "^[^@]+@[^@]+\\.[^@]+$");
+                String MemberStatus = Console.prompt("Please enter the new admin's member status (Yes/No): ",
+                        "^((yes)|(no))$");
 
 //                Scanner create = new Scanner(System.in);
 //                System.out.println("Ok! Please enter the new admins's information!\n" +
@@ -55,7 +48,7 @@ import java.util.Scanner;
 //                Scanner member = new Scanner(System.in);
 
 
-                if (Objects.equals(MemberStatus, "Yes")|| Objects.equals(MemberStatus, "yes" )){
+                if (ans.equalsIgnoreCase("yes")){
                     AddAdmin.NewAdmin(username, password,
                             Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day), email, true);
                     System.out.println("Admin Created!");
@@ -71,22 +64,16 @@ import java.util.Scanner;
 
 
 //      Deleting an User
-            } else if (Objects.equals(ans, "D") || Objects.equals(ans, "d")){
+            } else if (ans.equalsIgnoreCase("d")){
                 AdminMenu.RemovingUserPrompt();
-                System.out.println("Would you like to remove another user? Yes/No");
-                Scanner AnotherUser = new Scanner(System.in);
-                String newans = AnotherUser.next();
-                if (Objects.equals(newans, "Yes")|| Objects.equals(newans, "yes")){
+                String newans = Console.prompt("Would you like to remove another user? (Yes/No) ",
+                        "^((yes)|(no))$");
+                if (newans.equalsIgnoreCase("yes")){
                     AdminMenu.RemovingUserPrompt();
-                } else if (Objects.equals(newans, "No")|| Objects.equals(newans, "no")){
+                } else {
                     System.out.println("Returning you to the AdminMenu");
                     AdminMenu.AdminPrompt();
-                } else {
-                    System.out.println("You have failed to answer a Yes or No Question. Returning you to Admin Menu");
-                    AdminMenu.AdminPrompt();
-
                 }
-
             } else {
                 System.out.println("Thank you! Logging out...");
                 LoginMenu.loginPage();
@@ -95,16 +82,20 @@ import java.util.Scanner;
 
         }
         public static void RemovingUserPrompt() throws IOException {
-            System.out.println("Please enter the Username of the User you wish to delete");
-            Scanner User = new Scanner(System.in);
-            if (DeleteUser.RemoveUser(User.next())){
+            String username = Console.prompt(new String[]{
+                    "Please enter the Username of the User you wish to delete,",
+                    "leave the input blank to return to the top of the admin menu:"
+            });
+            if (username.equals("")) {
+                AdminMenu.AdminPrompt();
+            }
+            if (DeleteUser.RemoveUser(username)){
 //                User exists and was removed
                 System.out.println("User has been Removed!") ;
-                } else{
+            } else{
 //                User does not exist
                 System.out.println("This User does not exist");
                 AdminMenu.AdminPrompt();
-
             }
 
         }
