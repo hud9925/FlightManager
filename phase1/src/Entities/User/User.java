@@ -2,8 +2,6 @@ package Entities.User;
 
 import Entities.Ticket.Ticket;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
