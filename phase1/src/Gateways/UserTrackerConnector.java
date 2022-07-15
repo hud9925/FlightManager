@@ -18,8 +18,7 @@ public class UserTrackerConnector extends DatabaseConnector {
     @Override
     public void Save() throws IOException {
         PrintWriter pw = new PrintWriter(new FileWriter(this.filepath));
-        Map<String, User> allusers = UserTracker.getAllUsers();
-        for(User user : allusers.values()){
+        for(User user : new UserTracker()){
             pw.write(user.toString() + "\n");
         }
         pw.close();

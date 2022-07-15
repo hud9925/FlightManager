@@ -1,17 +1,25 @@
 package Entities.User;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
-public class UserTracker {
+public class UserTracker implements Iterable<User> {
     /**
      * A HashMap that maps usernames to User objects for all users in the system.
      */
-    private static Map<String, User> allUsers = new HashMap<String, User>(); // HashMap for constant lookup time.
+    private static Map<String, User> allUsers = new HashMap<String, User>();
     /**
      * A User object indicate the user currently being tracked.
      */
     private User currentUser;
+
+    /**
+     * Construct a new UserTracker with no User being tracked.
+     */
+    public UserTracker () {
+        this.currentUser = null;
+    }
 
     /**
      * Construct a new UserTracker with the username of the User that will be tracked.
@@ -38,18 +46,6 @@ public class UserTracker {
      */
     public static int getTotalUserCount () {
         return allUsers.size();
-    }
-
-    /**
-     * Get a shallow copy of the HashMap of all users.
-     * <p>
-     * Try to avoid using this method if you want to track only one User. It is very inefficient and is created solely
-     * for saving the allUsers map.
-     *
-     * @return Return a shallow copy of the HashMap of all users.
-     */
-    public static Map<String, User> getAllUsers() {
-        return new HashMap<String, User>(allUsers);
     }
 
     /**
@@ -87,5 +83,10 @@ public class UserTracker {
             allUsers.remove(this.currentUser.getUsername());
             this.currentUser = null;
         }
+    }
+
+    @Override
+    public Iterator<User> iterator() {
+        return allUsers.values().iterator();
     }
 }
