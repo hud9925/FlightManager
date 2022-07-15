@@ -11,3 +11,10 @@ Classes are organized based on Clean Architecture and the CRC model.
 
 The TestSuite is currently un-finished with two temporary tests - they will be fixed and more will be added later.
 
+Required additional notes on the program's design:
+- SOLID principles:
+- Clean Architecture:
+- Design patterns:
+- Code smells:
+- Refactorings: 
+- Personal Contribution:
