@@ -1,6 +1,8 @@
 package Controllers;
 
+import Presenters.AddAdminMenu;
 import Presenters.AdminMenu;
+import Presenters.DeleteUserMenu;
 
 import java.io.IOException;
 
@@ -19,11 +21,11 @@ public class UserMenuC {
         }
     }
 
-    public void option1(){
-
+    public void option1() throws IOException {
+        DeleteUserMenu.RemovingUserPrompt();
     }
-    public void option2(){
-
+    public void option2() throws IOException {
+        AddAdminMenu.AddAdminPrompt();
     }
     public void back() throws IOException {
         AdminMenu.AdminPrompt();
