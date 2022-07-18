@@ -24,18 +24,18 @@ public class Seatmap {
     }
 
     public String toString() {
-        String rtrnstr = "";
+        StringBuilder rtrnstr = new StringBuilder();
         for(Seat[] sarray : this.seats){
             for(Seat s: sarray){
                 if(s.isFilled()){
-                    rtrnstr += 'O';
+                    rtrnstr.append('O');
                 }else{
-                    rtrnstr += 'X';
+                    rtrnstr.append('X');
                 }
             }
-            rtrnstr += " ";
+            rtrnstr.append(" ");
         }
-        return rtrnstr;
+        return rtrnstr.toString();
     }
 
 }

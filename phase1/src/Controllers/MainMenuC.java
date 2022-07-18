@@ -29,8 +29,7 @@ public class MainMenuC {
         new CancelMenu();
     }
     public void option3(String username){
-        GetUser getter = new GetUser();
-        System.out.println(getter.ReturnUser(username));
+        System.out.println(new GetUser().ReturnUser(username));
     }
     public void exit(){
         System.out.println("Program is closing.");
