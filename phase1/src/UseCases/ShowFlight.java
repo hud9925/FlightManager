@@ -10,9 +10,9 @@ public class ShowFlight {
 
     private int flightID;
 
-    public Flight getFlight(String flightID) throws FlightNotFoundException{
+    public static Flight getFlight(String flightID) throws FlightNotFoundException{
         if (FlightTracker.verifyFlight(flightID)){
-            return FlightTracker.flightMap.get(flightID);
+            return FlightTracker.getFlight(flightID);
         }
         else{
             throw new FlightNotFoundException("Sorry, the flight entered does not exist. Please try again.");

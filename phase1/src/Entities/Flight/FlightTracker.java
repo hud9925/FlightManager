@@ -9,7 +9,7 @@ public class FlightTracker {
     /**
      Hashmap that maps the Flight Id as the key, and the value being the flight itself
      */
-    public static Map<String, Flight> flightMap = new HashMap<>();
+    private static final Map<String, Flight> flightMap = new HashMap<>();
 
     /**
      Adds a flight to the map
@@ -39,15 +39,22 @@ public class FlightTracker {
     public static boolean verifyFlight(String idNum){
         return flightMap.containsKey(idNum);
     }
-    /*
+    /**
+    A Getter that returns the FlightMap
+     */
+    public static HashMap<String, Flight> GetFlights(){
+        return (HashMap<String, Flight>) flightMap;
+
+    }
+    /**
      Getter to retrieve the flight associated with the inputted Id
      */
 
-//    public Flight getFlight(int idNum){
-//        if (verifyFlight(idNum)){
-//            return flightMap.get(idNum);
-//        }
-//        return null;
-//    }
+    public static Flight getFlight(String idNum){
+        if (verifyFlight(idNum)){
+            return flightMap.get(idNum);
+        }
+        return null;
+    }
 
     }

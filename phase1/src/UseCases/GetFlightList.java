@@ -6,21 +6,21 @@ import Entities.Flight.FlightTracker;
 import java.util.Map;
 
 // A Use Case that returns details pertaining to all current Flights including
-// a map of Flights; where the Integer keys of Flights Ids correspond with its associated Flight, as well as
+// the entire map of Flights; where the Integer keys of Flights Ids correspond with its associated Flight, as well as
 // the number of current flights
 
 
 public class GetFlightList {
     /**
-     Returns a Map of all current flights
+     Returns a Map of flights in FlightTracker
      */
     public static Map<String, Flight> FlightMap(){
-        return FlightTracker.flightMap;
+        return FlightTracker.GetFlights();
     }
     /**
      Returns the number of Current Flights
      */
-    public static int NumFlights() {
+    public int NumFlights() {
         return FlightTracker.numFlights();
     }
 }
