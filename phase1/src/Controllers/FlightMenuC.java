@@ -1,6 +1,8 @@
 package Controllers;
 
-import Presenters.FlightMenu;
+import Presenters.PurchaseMenu;
+import UseCases.FlightNotFoundException;
+
 
 /**
  * A Controller that calls upon a Presenter
@@ -8,12 +10,9 @@ import Presenters.FlightMenu;
  */
 
 public class FlightMenuC {
-    public FlightMenuC(String flightid){
-        FlightMenu.ShowDestinations();
-
-        //PurchaseMenu.PurchaseMenuPrompt(FlightMenu.SelectFlight());
-
+    public FlightMenuC(String flightid) throws FlightNotFoundException {
+        PurchaseMenu.PurchaseMenuPrompt(flightid);
+        }
     }
 
 
-}

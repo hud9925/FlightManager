@@ -37,5 +37,9 @@ public class Seatmap {
         }
         return rtrnstr.toString();
     }
+    public Seat getSeat(int row, int column){
+        return this.seats[row][column];
 
+    }
 }
+
