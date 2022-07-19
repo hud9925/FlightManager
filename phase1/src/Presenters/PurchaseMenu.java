@@ -47,9 +47,5 @@ public class PurchaseMenu {
         } else{
             new PurchaseMenuC(ShowFlight.getFlight(ans), row, column);
         }
-
-
-
-
-}
+    }
 }
