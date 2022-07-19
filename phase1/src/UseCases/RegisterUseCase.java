@@ -23,9 +23,7 @@ RegisterUseCase {
             UserTracker.addUser(newuser);
         }
 
-
         return NewUser;
     }
-
 
 }
