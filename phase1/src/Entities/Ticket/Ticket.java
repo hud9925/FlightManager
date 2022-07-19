@@ -12,7 +12,7 @@ public class Ticket {
 
     private Flight flight;
 
-    private Customer who;
+//    private Customer who;
     private Seat where;
 
     private int ticketID;
@@ -22,10 +22,10 @@ public class Ticket {
     /**
      * Docstrings are below each method/constructor.
      */
-    public Ticket(Flight flight, int cost, Customer who, Seat where) {
+    public Ticket(Flight flight, int cost, Seat where) {
         this.flight = flight;
         this.cost = cost;
-        this.who = who;
+//        this.who = who;
         this.where = where;
         this.ticketID = setTicketHashID();
 
@@ -43,12 +43,12 @@ public class Ticket {
     /**
      * @return the cost of the ticket
      */
-    public Customer getWhom(){
-        return this.who;
-    }
-    /**
-     * @return the customer who buys the ticket
-     */
+//    public Customer getWhom(){
+//        return this.who;
+//    }
+//    /**
+//     * @return the customer who buys the ticket
+//     */
 
     public Seat getWhere(){
         return this.where;
@@ -67,9 +67,11 @@ public class Ticket {
 
     public int setTicketHashID(){
 
-        String plainTicketText = getWhom().getUsername() + "//" +
-                                 this.when + "//" +
-                                 getWhatFlight().getAirline() + getWhatFlight().getFlightid() + "//";
+//        String plainTicketText = getWhom().getUsername() + "//" +
+//                                 this.when + "//" +
+//                                 getWhatFlight().getAirline() + getWhatFlight().getFlightid() + "//";
+        String plainTicketText = this.when + "//" +
+                getWhatFlight().getAirline() + getWhatFlight().getFlightid() + "//";
 
         return plainTicketText.hashCode();
     }
@@ -99,7 +101,7 @@ public class Ticket {
         return "Flight: " + getWhatFlight().getAirline() + getWhatFlight().getFlightid() + "\n" +
                 "Price: " + getCost() + " dollars.\n" +
                 "Seat ID: " + getWhere().getSeatid() + "\n" +
-                "Payer: " + getWhom().getUsername() + "\n" +
+//                "Payer: " + getWhom().getUsername() + "\n" +
                 "Booking time (UTC): " + getWhen() +
                 "Ticket ID: " + getTicketID() + "\n";
     }
