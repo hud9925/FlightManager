@@ -2,6 +2,7 @@ package Presenters;
 import java.util.HashMap;
 import java.util.Map;
 
+import Controllers.FlightMenuC;
 import Entities.Flight.Flight;
 import UseCases.FlightNotFoundException;
 import UseCases.GetFlightList;
@@ -13,9 +14,10 @@ import UseCases.GetFlightList;
 
 public class FlightMenu {
     /**
-     * Presents All Available Flights(by their Id) with its Arrival Location, as a map
+     * Presents All Available Flights(by their Id) with its Arrival Location, as a map,
+     * and Sends User Input to Controller Class
      */
-    public static void ShowDestinations(){
+    public FlightMenu() throws FlightNotFoundException {
         Map<String, String> destinations = new HashMap<>();
         for (Map.Entry<String, Flight> flight: GetFlightList.FlightMap().entrySet()){
             String flightkey = flight.getKey();
@@ -26,24 +28,10 @@ public class FlightMenu {
         System.out.println("Here Are All The Current Flights and Their Destinations: ");
         System.out.println("    Flight Number  "+ "    Flight Destination");
         for (Map.Entry<String, String> flight: destinations.entrySet()){
-            System.out.println("    "+flight.getKey()+"    "+flight.getValue());
+            System.out.println("    "+flight.getKey()+"    "+ flight.getValue());
         }
         System.out.println("\n**********************************");
+        String ans = Console.prompt("Please enter the flight number of the flight you wish to view: ", "[A-Z]{2}[0-9]{3}");
+        new FlightMenuC(ans);
     }
-    /**
-     * Presents the Desired Flight with the given FlightiD
-     */
-    public static String SelectFlight() {
-        return Console.prompt("Please enter the flight number of the flight you wish to view: ", "[A-Z]{2}[0-9]{3}");
-    }
-
-    /**
-     * Presents All Current Flights as a Map
-     */
-    public static Map<String, Flight> ShowFlights(){
-        return GetFlightList.FlightMap();
-
-    }
-
-
 }
