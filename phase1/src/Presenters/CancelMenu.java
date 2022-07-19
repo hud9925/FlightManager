@@ -9,6 +9,10 @@ import UseCases.GetUser;
 
 import java.util.Scanner;
 
+/*
+ * This is presenter class for Cancel a Ticket with the prompt page and a helper method for generating ticket list.
+ * Sending the user's input to the CancelMenuC (controller class).
+ */
 public class CancelMenu {
 
     private static String username;

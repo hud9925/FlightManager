@@ -12,7 +12,7 @@ public class GetUser {
      * @param username username of the User to parse
      * @return the User
      */
-    public User ReturnUser(String username){
+    public static User ReturnUser(String username){
         UserTracker ut = new UserTracker(username);
         return ut.getCurrentUser();
     }
