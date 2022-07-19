@@ -7,7 +7,8 @@ import Entities.Flight.FlightTracker;
 
 public class AddFlight {
     /**
-     Adds a flight to FlightTracker
+     * Adds a flight to FlightTracker.
+     * @param newFlight the flight being added
      */
     public void NewFlight(Flight newFlight){
         FlightTracker.addFlight(newFlight);
