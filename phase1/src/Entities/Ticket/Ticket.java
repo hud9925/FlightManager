@@ -3,6 +3,7 @@ package Entities.Ticket;
 import Entities.Flight.Flight;
 import Entities.Flight.Seat;
 import Entities.User.Customer;
+import Entities.User.User;
 
 import java.time.Instant;
 
@@ -12,7 +13,7 @@ public class Ticket {
 
     private Flight flight;
 
-    private Customer who;
+    private User who;
     private Seat where;
 
     private int ticketID;
@@ -22,7 +23,7 @@ public class Ticket {
     /**
      * Docstrings are below each method/constructor.
      */
-    public Ticket(Flight flight, int cost, Customer who, Seat where) {
+    public Ticket(Flight flight, int cost, User who, Seat where) {
         this.flight = flight;
         this.cost = cost;
         this.who = who;
@@ -43,7 +44,7 @@ public class Ticket {
     /**
      * @return the cost of the ticket
      */
-    public Customer getWhom(){
+    public User getWhom(){
         return this.who;
     }
     /**
