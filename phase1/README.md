@@ -50,4 +50,14 @@ different types of data to different types of files. Another major refactoring w
 and separating the presenter menus from their controllers which would assign the work to the use case classes 
 (git revision cce73612) to accommodate clean architecture.
 
-- Personal Contribution:
+Personal Contribution:
+
+Mani: UML diagram, Implementation of Flight/Seat/Seatmap, UserMenu/AdminMenu (and their controllers). Implementation of gateway class (DatabaseConnector) and its subclasses. Written respective javadocs for each, some minor test cases.
+
+Daniel: FlightTracker, GetFlightList, AddFlight, CancelFlight, FlightMenu, FightMenuController, PurchaseMenu, PurchaseMenuController(still in progress), SeatViewer,
+
+Billy: Ticket (multiple git commits), SeatMap (minor fixes), ShowFlight (git c41b3f7), AdminFlight (git 8076ddf9), AdminFlightC (controller, git 8076ddf9), CancelMenu(git 8076ddf9), CancelMenuC (controller, git 8076ddf9), GetTicketList (git 8076ddf9), FlightNotFoundException (git 62e117b7). Wrote some Javadoc for some presenter/controller classes (not yet finished) (git 7b83906c). LoginMenu presenter bug fixes (git a49b14d2).
+
+Taymoor: BuyTicket, CancelTicket, SeeAccountDetails, GetMemberList. Additions to UserTracker and FlightTracker (not finalized). Working on tests for Use Cases. JavaDoc modifications/additions for all Use Cases and working on it for the remaining classes.
+
+Karl: User and its subclasses (Additional methods for newly implemented features, bug fixes, some refactoring, and Javadoc), UserTracker (iterator design pattern implementation and Javadoc), Console, some menu classes (Refactor to use Console class to prompt for user input), Gateways (Some bug fixes, implement more robust database initialization process 53faff28, Refactor duplicated code to DatabaseConnector).
