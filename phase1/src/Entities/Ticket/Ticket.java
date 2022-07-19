@@ -21,7 +21,8 @@ public class Ticket {
     private String when;
 
     /**
-     * Docstrings are below each method/constructor.
+     * This constructor creates a ticket with a specific flight, cost, customer and the seat be assigned. Works iff
+     * the flight exists. This can be done through buying ticket use case.
      */
     public Ticket(Flight flight, int cost, User who, Seat where) {
         this.flight = flight;
@@ -33,39 +34,40 @@ public class Ticket {
         Instant now = Instant.now();
         this.when = now.toString();
     }
+
     /**
-     * This constructor creates a ticket with a specific flight, cost, customer and the seat be assigned. Works iff
-     * the flight exists. This can be done through buying ticket use case.
+     * @return the price of the ticket.
      */
     public int getCost(){
         return this.cost;
     }
 
     /**
-     * @return the cost of the ticket
+     * @return the customer who buys the ticket
      */
     public User getWhom(){
         return this.who;
     }
-    /**
-     * @return the customer who buys the ticket
-     */
 
-    public Seat getWhere(){
-        return this.where;
-    }
     /**
      * @return the seat this ticket referring to
      */
-
-    public Flight getWhatFlight(){
-        return this.flight;
+    public Seat getWhere(){
+        return this.where;
     }
 
     /**
      * @return the flight this ticket referring to
      */
+    public Flight getWhatFlight(){
+        return this.flight;
+    }
 
+
+    /**
+     * Set the unique ID of this ticket. Code reserved for future development.
+     * Style: username + booking date and time in UTC + flight id -> Hash code
+     */
     public int setTicketHashID(){
 
         String plainTicketText = getWhom().getUsername() + "//" +
@@ -75,25 +77,27 @@ public class Ticket {
         return plainTicketText.hashCode();
     }
 
-    /**
-     * Set the unique ID of this ticket. Code reserved for future development.
-     * Style: username + booking date and time in UTC + flight id -> Hash code
-     */
 
+    /**
+     * @return the unique ID of this ticket.
+     */
     public int getTicketID(){
         return this.ticketID;
     }
 
+
     /**
-     * @return the unique ID of this ticket.
+     * @return the date and time in UTC.
      */
 
     public String getWhen(){
         return this.when;
     }
 
+
+
     /**
-     * @return the date and time in UTC.
+     * Return the String representation of a ticket.
      */
 
     public String toString() {
@@ -104,6 +108,5 @@ public class Ticket {
                 "Booking time (UTC): " + getWhen() +
                 "Ticket ID: " + getTicketID() + "\n";
     }
-
 
 }
