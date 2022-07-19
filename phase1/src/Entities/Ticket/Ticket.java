@@ -4,6 +4,9 @@ import Entities.Flight.Flight;
 import Entities.Flight.Seat;
 import Entities.User.Customer;
 
+import java.time.Instant;
+
+
 public class Ticket {
     private int cost;
 
@@ -12,14 +15,22 @@ public class Ticket {
     private Customer who;
     private Seat where;
 
-    private String ticketID;
+    private int ticketID;
 
+    private String when;
+
+    /**
+     * Docstrings are below each method/constructor.
+     */
     public Ticket(Flight flight, int cost, Customer who, Seat where) {
         this.flight = flight;
         this.cost = cost;
         this.who = who;
         this.where = where;
-        this.ticketID = setTicketID();
+        this.ticketID = setTicketHashID();
+
+        Instant now = Instant.now();
+        this.when = now.toString();
     }
     /**
      * This constructor creates a ticket with a specific flight, cost, customer and the seat be assigned. Works iff
@@ -54,30 +65,43 @@ public class Ticket {
      * @return the flight this ticket referring to
      */
 
-    public String setTicketID(){
-        return null;
+    public int setTicketHashID(){
+
+        String plainTicketText = getWhom().getUsername() + "//" +
+                                 this.when + "//" +
+                                 getWhatFlight().getAirline() + getWhatFlight().getFlightid() + "//";
+
+        return plainTicketText.hashCode();
     }
 
     /**
      * Set the unique ID of this ticket. Code reserved for future development.
-     * Style: username + booking date and time + flight id
+     * Style: username + booking date and time in UTC + flight id -> Hash code
      */
 
-    public String getTicketID(){
+    public int getTicketID(){
         return this.ticketID;
     }
 
     /**
-     *
-     * @return the unique ID of this ticket. Code reserved for future development
+     * @return the unique ID of this ticket.
+     */
+
+    public String getWhen(){
+        return this.when;
+    }
+
+    /**
+     * @return the date and time in UTC.
      */
 
     public String toString() {
-        return "This ticket is for flight " + getWhatFlight().getAirline() + getWhatFlight().getFlightid() +
-                ", with cost " + getCost() + "dollars.\n" +
-                "This ticket is assigned to the seat " + getWhere().getSeatid() +
-                " and " + getWhom().getUsername() + " buys it.\n" +
-                "Ticket ID: " + getTicketID();
+        return "Flight: " + getWhatFlight().getAirline() + getWhatFlight().getFlightid() + "\n" +
+                "Price: " + getCost() + " dollars.\n" +
+                "Seat ID: " + getWhere().getSeatid() + "\n" +
+                "Payer: " + getWhom().getUsername() + "\n" +
+                "Booking time (UTC): " + getWhen() +
+                "Ticket ID: " + getTicketID() + "\n";
     }
 
 

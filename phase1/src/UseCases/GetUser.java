@@ -5,7 +5,7 @@ import Entities.User.UserTracker;
 
 public class GetUser {
 
-    public User ReturnUser(String username){
+    public static User ReturnUser(String username){
         UserTracker ut = new UserTracker(username);
         return ut.getCurrentUser();
     }

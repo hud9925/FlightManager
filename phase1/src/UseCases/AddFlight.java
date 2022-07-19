@@ -9,7 +9,7 @@ public class AddFlight {
     /**
      Adds a flight to FlightTracker
      */
-    public void NewFlight(Flight newFlight){
+    public static void NewFlight(Flight newFlight){
         FlightTracker.addFlight(newFlight);
     }
 }

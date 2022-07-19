@@ -200,7 +200,7 @@ abstract public class User {
      *
      * @return An array of tickets purchased by the user.
      */
-    public Ticket[] getTickets () {
+    public Ticket[] getTickets() {
         return tickets.toArray(new Ticket[this.tickets.size()]);
     }
 

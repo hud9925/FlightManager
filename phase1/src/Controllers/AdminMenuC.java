@@ -1,5 +1,6 @@
 package Controllers;
 
+import Presenters.AdminFlight;
 import Presenters.UserMenu;
 
 import java.io.IOException;
@@ -23,8 +24,8 @@ public class AdminMenuC {
     public void option1() throws IOException {
         UserMenu.UserMenuPrompt();
     }
-    public void option2(){
-        //AdminFlight.AdminFlightPrompt();
+    public void option2() throws IOException {
+        AdminFlight.AdminFlightPrompt();
     }
     public void exit(){
         System.out.println("Exiting the program...");
