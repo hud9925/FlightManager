@@ -8,8 +8,8 @@ import java.util.Map;
 import java.util.Objects;
 
 /* A Use Case that returns details pertaining to all current Flights including
-   the entire map of Flights; where the Integer keys of Flights Ids correspond with its associated Flight, as well as
-   the number of current flights */
+ * the entire map of Flights; where the Integer keys of Flights Ids correspond with its associated Flight, as well as
+ * the number of current flights */
 
 public class GetFlightList {
 

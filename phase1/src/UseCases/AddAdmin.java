@@ -5,7 +5,7 @@ import Entities.User.User;
 import Entities.User.UserTracker;
 
 /* The code below is used to add an admin User, and adds it to UserTracker
- with the new User */
+ * with the new User */
 public class AddAdmin {
 
     /**

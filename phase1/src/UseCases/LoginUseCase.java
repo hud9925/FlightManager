@@ -6,7 +6,7 @@ import Entities.User.User;
 import Entities.User.UserTracker;
 
 /* A Use Case that handles checking whether the User trying to
-   log in exists and determines whether they are a Customer or an Admin. */
+ * log in exists and determines whether they are a Customer or an Admin. */
 
 public class LoginUseCase {
 

@@ -1,7 +1,7 @@
 package UseCases;
 
 /* A Use Case exception that arises when a non-existing flight (a flight that isn't
-   present in FlightTracker) is referenced. */
+ * present in FlightTracker) is referenced. */
 
 public class FlightNotFoundException extends Exception {
 
