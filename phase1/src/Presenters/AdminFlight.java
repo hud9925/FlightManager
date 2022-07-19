@@ -7,6 +7,10 @@ import Entities.Flight.Flight;
 import java.io.IOException;
 import java.util.Map;
 
+/*
+ * This is the presenter class of Admin Menu -> Admin Flight, with some controlling methods (add/cancel)
+ * redirected to the Admin Flight controller class.
+ */
 public class AdminFlight {
     /**
      * The page showing the admin's flight control.
