@@ -5,29 +5,34 @@ import Entities.Flight.FlightTracker;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.ArrayList;
 import java.util.Objects;
 
-// A Use Case that returns details pertaining to all current Flights including
-// the entire map of Flights; where the Integer keys of Flights Ids correspond with its associated Flight, as well as
-// the number of current flights
-
+/* A Use Case that returns details pertaining to all current Flights including
+ * the entire map of Flights; where the Integer keys of Flights Ids correspond with its associated Flight, as well as
+ * the number of current flights */
 
 public class GetFlightList {
+
     /**
-     Returns a Map of flights in FlightTracker
+     * Displays a Map of all the current flights saved to FlightTracker.
+     * @return the map of flights
      */
     public static Map<String, Flight> FlightMap(){
         return FlightTracker.GetFlights();
     }
+
     /**
-     Returns the number of Current Flights
+     * Returns the number of current flights saved to FlightTracker.
+     * @return the total number of flights
      */
     public int NumFlights() {
         return FlightTracker.numFlights();
     }
+
     /**
-     Returns A Map Containing the Flight information(departure date, airline, etc)
+     * Returns a map containing the flight's information (airline, locations, date, duration).
+     * @param id the ID of the flight to parse
+     * @return the flight's information
      */
     public static Map<String, Object> FlightInfo(String id){
         HashMap<String, Object> info = new HashMap<>();

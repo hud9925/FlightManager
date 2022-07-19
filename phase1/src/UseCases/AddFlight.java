@@ -10,7 +10,7 @@ public class AddFlight {
      * Adds a flight to FlightTracker.
      * @param newFlight the flight being added
      */
-    public void NewFlight(Flight newFlight){
+    public static void NewFlight(Flight newFlight){
         FlightTracker.addFlight(newFlight);
     }
 }

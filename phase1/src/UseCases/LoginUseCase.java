@@ -4,8 +4,20 @@ import java.util.Objects;
 
 import Entities.User.User;
 import Entities.User.UserTracker;
+
+/* A Use Case that handles checking whether the User trying to
+ * log in exists and determines whether they are a Customer or an Admin. */
+
 public class LoginUseCase {
 
+    /**
+     * Checks whether the username and password match the login details
+     * of an existing user in UserTracker and returns whether they are
+     * an Admin or Customer.
+     * @param Username username of the user logging in
+     * @param password password of the user logging in
+     * @return if the username exists, whether it is an admin or customer user
+     */
     public static ArrayList<Boolean> UserType(String Username, String password){
 //      Checking if the Username belongs to a User within UserTracker
         ArrayList<Boolean> Usertype = new ArrayList<>(2);
@@ -27,7 +39,7 @@ public class LoginUseCase {
                     Usertype.add(false);
                 }
             } else{
-//                incorrect password; wont access User information
+//                incorrect password; will not access User information
                 Usertype.add(false);
                 Usertype.add(false);
             }
