@@ -2,6 +2,7 @@ package Controllers;
 
 import Presenters.CancelMenu;
 import Presenters.FlightMenu;
+import UseCases.FlightNotFoundException;
 import UseCases.GetUser;
 
 /**
@@ -16,7 +17,7 @@ public class MainMenuC {
      * @param ans the user's choice
      * @param username the user's username
      */
-    public MainMenuC(String ans, String username) {
+    public MainMenuC(String ans, String username) throws FlightNotFoundException {
         switch (ans) {
             case "1":
                 this.option1();
@@ -36,7 +37,7 @@ public class MainMenuC {
     /**
      * First option method: directs user to the flight menu
      */
-    public void option1(){
+    public void option1() throws FlightNotFoundException {
         new FlightMenu();
     }
     /**
