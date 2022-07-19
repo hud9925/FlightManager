@@ -6,6 +6,8 @@ import Entities.Flight.Seatmap;
 import UseCases.GetFlightList;
 
 import java.io.*;
+import java.sql.Time;
+import java.util.Date;
 import java.util.Map;
 
 public class FlightTrackerConnector extends DatabaseConnector {
@@ -30,7 +32,7 @@ public class FlightTrackerConnector extends DatabaseConnector {
             String flightdata = line;
             line = br.readLine();
             Seatmap newseatmap = lineToSeatmap(line);
-            Flight newflight = lineToFlight(flightdata, newseatmap.getRows(), newseatmap.getColumns());
+            Flight newflight = lineToFlight(flightdata, newseatmap);
             newflight.setSeats(newseatmap);
             FlightTracker.addFlight(newflight);
         }
@@ -38,13 +40,36 @@ public class FlightTrackerConnector extends DatabaseConnector {
     }
 
     private Seatmap lineToSeatmap(String line) {
-        // not yet implemented
-        return null;
+        String[] stringseatmap = line.split(" ");
+        Seatmap sm;
+        if(stringseatmap.length == 0 || stringseatmap[0].length() == 0){
+            sm = new Seatmap(0, 0);
+        } else {
+            sm = new Seatmap(stringseatmap.length, stringseatmap[0].length());
+        }
+        for(int i = 0; i < stringseatmap.length; i++){
+            String[] chars = stringseatmap[i].split("(?!^)");
+            for(int j = 0; j < chars.length; j++){
+                if(chars[j].equals("O")){
+                    sm.getSeat(i,j).fill();
+                }
+            }
+        }
+        return sm;
     }
 
-    private Flight lineToFlight(String line, int row, int col) {
-        // not yet implemented
-        return null;
+    private Flight lineToFlight(String line, Seatmap sm) {
+        String[] flightdata = line.split(",");
+        Flight flight = new Flight(flightdata[0], sm.getRows(), sm.getColumns());
+        flight.setSeats(sm);
+        flight.setType(flightdata[1]);
+        flight.setAirline(flightdata[2]);
+        flight.setDeparturedate(new Date(Long.parseLong(flightdata[3])));
+        flight.setArrivaldate(new Date(Long.parseLong(flightdata[4])));
+        flight.setDeparturelocation(flightdata[5]);
+        flight.setArrivallocation(flightdata[6]);
+        flight.setDuration(new Time(Long.parseLong(flightdata[7])));
+        return flight;
     }
 
     @Override
