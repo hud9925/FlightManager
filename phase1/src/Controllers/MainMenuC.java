@@ -1,5 +1,7 @@
 package Controllers;
 
+import Entities.User.TicketAlreadyExistsException;
+import Entities.User.TicketNotFoundException;
 import Presenters.CancelMenu;
 import Presenters.FlightMenu;
 import UseCases.FlightNotFoundException;
@@ -17,7 +19,7 @@ public class MainMenuC {
      * @param ans the user's choice
      * @param username the user's username
      */
-    public MainMenuC(String ans, String username) throws FlightNotFoundException {
+    public MainMenuC(String ans, String username) throws FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
         switch (ans) {
             case "1":
                 this.option1();
@@ -37,14 +39,14 @@ public class MainMenuC {
     /**
      * First option method: directs user to the flight menu
      */
-    public void option1() throws FlightNotFoundException {
+    public void option1() throws FlightNotFoundException, TicketAlreadyExistsException {
         new FlightMenu();
     }
     /**
      * Second option method: directs user to the cancel menu
      */
-    public void option2(){
-        new CancelMenu();
+    public void option2() throws TicketNotFoundException {
+        CancelMenu.CancelMenuPrompt();
     }
     /**
      * Third option method: formats and displays the user's stored information

@@ -6,8 +6,6 @@ import Entities.Flight.Seatmap;
 import UseCases.GetFlightList;
 
 import java.io.*;
-import java.sql.Time;
-import java.util.Date;
 import java.util.Map;
 
 public class FlightTrackerConnector extends DatabaseConnector {
@@ -41,12 +39,7 @@ public class FlightTrackerConnector extends DatabaseConnector {
 
     private Seatmap lineToSeatmap(String line) {
         String[] stringseatmap = line.split(" ");
-        Seatmap sm;
-        if(stringseatmap.length == 0 || stringseatmap[0].length() == 0){
-            sm = new Seatmap(0, 0);
-        } else {
-            sm = new Seatmap(stringseatmap.length, stringseatmap[0].length());
-        }
+        Seatmap sm = new Seatmap(stringseatmap.length, stringseatmap[0].length());
         for(int i = 0; i < stringseatmap.length; i++){
             String[] chars = stringseatmap[i].split("(?!^)");
             for(int j = 0; j < chars.length; j++){
@@ -64,16 +57,13 @@ public class FlightTrackerConnector extends DatabaseConnector {
         flight.setSeats(sm);
         flight.setType(flightdata[1]);
         flight.setAirline(flightdata[2]);
-        flight.setDeparturedate(new Date(Long.parseLong(flightdata[3])));
-        flight.setArrivaldate(new Date(Long.parseLong(flightdata[4])));
         flight.setDeparturelocation(flightdata[5]);
         flight.setArrivallocation(flightdata[6]);
-        flight.setDuration(new Time(Long.parseLong(flightdata[7])));
         return flight;
     }
 
     @Override
     protected String getDatabaseName () {
-        return "UserDatabase";
+        return "FlightDatabase.txt";
     }
 }

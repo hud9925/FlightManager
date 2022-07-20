@@ -1,6 +1,9 @@
 package Presenters;
 
 import Controllers.MainMenuC;
+import Entities.User.TicketAlreadyExistsException;
+import Entities.User.TicketNotFoundException;
+import UseCases.FlightNotFoundException;
 
 /**
  * Presenter class, first page of the program for customers.
@@ -12,7 +15,7 @@ public class MainMenu {
      * Takes in their username, passes their answer and their username to the associated controller.
      * @param username the user's username
      */
-    public static void mainPage(String username) {
+    public static void mainPage(String username) throws FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
         String ans = Console.prompt(new String[] {
                 "Welcome to the air ticket reserving system!",
                 "To see a list of flights, press 1.",

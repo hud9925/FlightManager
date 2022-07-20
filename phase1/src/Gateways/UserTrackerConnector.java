@@ -65,6 +65,6 @@ public class UserTrackerConnector extends DatabaseConnector {
 
     @Override
     protected String getDatabaseName () {
-        return "UserDatabase";
+        return "UserDatabase.csv";
     }
 }

@@ -40,7 +40,7 @@ public class Seat {
         String[] largeCol = {"A", "B", "C", "D", "E", "F", "G", "H", "J", "K"};
         //String[] smallCol = {"A","B","C","H","J","K"};
 
-        return largeCol[seatcol - 1];
+        return largeCol[seatcol];
     }
     public void updateSeatid() {
         this.seatid = convertCol(this.seatcol) + " " + this.seatrow;

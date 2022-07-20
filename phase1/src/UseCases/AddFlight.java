@@ -13,4 +13,8 @@ public class AddFlight {
     public static void NewFlight(Flight newFlight){
         FlightTracker.addFlight(newFlight);
     }
+
+    public static void addFirstFlight(){
+        FlightTracker.addFlight(new Flight("AB123", 4, 4));
+    }
 }

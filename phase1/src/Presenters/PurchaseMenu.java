@@ -1,13 +1,14 @@
 package Presenters;
 
-import java.util.Objects;
-import java.util.Scanner;
-
 import Controllers.PurchaseMenuC;
+import Entities.User.TicketAlreadyExistsException;
 import UseCases.FlightNotFoundException;
 import UseCases.GetFlightList;
 import UseCases.SeatViewer;
 import UseCases.ShowFlight;
+
+import java.util.Objects;
+import java.util.Scanner;
 
 /**
  * A Presenter Menu that Displays Flight information including its seatmap, prompts the User to select a seat for
@@ -15,7 +16,7 @@ import UseCases.ShowFlight;
  *
  */
 public class PurchaseMenu {
-    public static void PurchaseMenuPrompt(String ans) throws FlightNotFoundException {
+    public static void PurchaseMenuPrompt(String ans) throws FlightNotFoundException, TicketAlreadyExistsException {
         System.out.println("The Flight" + ans + "of airline" + GetFlightList.FlightInfo(ans).get("Airline:") +
                 "departing from" + GetFlightList.FlightInfo(ans).get("Departure Location:") +
                 "to " + GetFlightList.FlightInfo(ans).get("Arrival Location:") + "departs at " +

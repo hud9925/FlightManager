@@ -1,11 +1,13 @@
 package Presenters;
-import java.util.HashMap;
-import java.util.Map;
 
 import Controllers.FlightMenuC;
 import Entities.Flight.Flight;
+import Entities.User.TicketAlreadyExistsException;
 import UseCases.FlightNotFoundException;
 import UseCases.GetFlightList;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A Presenter Menu that Retrieves UseCase Information about Flights
@@ -17,7 +19,7 @@ public class FlightMenu {
      * Presents All Available Flights(by their Id) with its Arrival Location, as a map,
      * and Sends User Input to Controller Class
      */
-    public FlightMenu() throws FlightNotFoundException {
+    public FlightMenu() throws FlightNotFoundException, TicketAlreadyExistsException {
         Map<String, String> destinations = new HashMap<>();
         for (Map.Entry<String, Flight> flight: GetFlightList.FlightMap().entrySet()){
             String flightkey = flight.getKey();

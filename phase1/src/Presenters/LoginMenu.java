@@ -1,13 +1,16 @@
 package Presenters;
 
+import Entities.User.TicketAlreadyExistsException;
+import Entities.User.TicketNotFoundException;
 import Gateways.UserTrackerConnector;
+import UseCases.FlightNotFoundException;
 import UseCases.LoginUseCase;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class LoginMenu {
-    public static void loginPrompt() throws IOException {
+    public static void loginPrompt() throws IOException, FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
         String username = Console.prompt("Enter Username : ", ".+");
         String password = Console.prompt("Enter Password : ", ".+");
 
@@ -41,7 +44,7 @@ public class LoginMenu {
 
     }
 
-    public static void loginPage() throws IOException {
+    public static void loginPage() throws IOException, FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
         String ans = Console.prompt(new String[]{
                 "Welcome to the air ticket reserving system login page!",
                 "If you are an existing user, please enter 'E'. If you are new user, you need to register an " +

@@ -1,5 +1,6 @@
 package Controllers;
 
+import Entities.User.TicketAlreadyExistsException;
 import Presenters.PurchaseMenu;
 import UseCases.FlightNotFoundException;
 
@@ -10,7 +11,7 @@ import UseCases.FlightNotFoundException;
  */
 
 public class FlightMenuC {
-    public FlightMenuC(String flightid) throws FlightNotFoundException {
+    public FlightMenuC(String flightid) throws FlightNotFoundException, TicketAlreadyExistsException {
         PurchaseMenu.PurchaseMenuPrompt(flightid);
         }
     }

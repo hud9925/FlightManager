@@ -1,5 +1,8 @@
 package Presenters;
 
+import Entities.User.TicketAlreadyExistsException;
+import Entities.User.TicketNotFoundException;
+import UseCases.FlightNotFoundException;
 import UseCases.RegisterUseCase;
 
 import java.io.IOException;
@@ -7,7 +10,7 @@ import java.util.ArrayList;
 
 public class RegisterMenu {
 
-    public static void registerPrompt() throws IOException {
+    public static void registerPrompt() throws IOException, FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
         String username = Console.prompt("Please enter your new username: ", ".+");
         String password = Console.prompt("Please enter your new password: ", ".+");
         String year = Console.prompt("Please enter your birth YEAR (YYYY): ",
@@ -44,7 +47,7 @@ public class RegisterMenu {
     }
 
     // Account registration page setup.
-    public static void registerPage() throws IOException {
+    public static void registerPage() throws IOException, FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
         String ans = Console.prompt(new String[]{
                 "Welcome to the air ticket reserving system registration page!",
                 "Please enter the following credentials in order to create an account.",

@@ -20,7 +20,7 @@ abstract public class DatabaseConnector {
      * @throws IOException when the file is not found in either place, and cannot be created.
      */
     public DatabaseConnector() throws IOException{
-        String filename = getDatabaseName() + ".csv";
+        String filename = getDatabaseName();
         String preferredPath = getAbsolutePath(filename);
 
         if (fileExists(preferredPath)) {

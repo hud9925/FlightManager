@@ -1,8 +1,12 @@
+import Entities.User.TicketAlreadyExistsException;
+import Entities.User.TicketNotFoundException;
 import Gateways.FlightTrackerConnector;
 import Presenters.LoginMenu;
 import Gateways.DatabaseConnector;
 import Gateways.UserTrackerConnector;
 import UseCases.AddAdmin;
+import UseCases.AddFlight;
+import UseCases.FlightNotFoundException;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -19,12 +23,16 @@ public class MainApplication {
      * @throws IOException disregards any input that is invalid
      * @throws ParseException disregards if the input string cannot be parsed correctly.
      */
-    public static void main(String[] args) throws IOException, ParseException {
+    public static void main(String[] args) throws IOException, ParseException, FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
         DatabaseConnector dc1 = new UserTrackerConnector();
         DatabaseConnector dc2 = new FlightTrackerConnector();
         if (dc1.checkEmpty()){ // Check if file is empty. If empty then create first admin.
             AddAdmin.addFirstAdmin();
             dc1.Save();
+        }
+        if (dc2.checkEmpty()){
+            AddFlight.addFirstFlight();
+            dc2.Save();
         }
         dc2.Load();
         dc1.Load();
