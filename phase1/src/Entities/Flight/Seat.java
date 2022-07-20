@@ -35,6 +35,9 @@ public class Seat {
         this.seatcol = seatcol;
         this.updateSeatid();
     }
+    public void setIsfilled(){
+        this.isfilled = true;
+    }
 
     public String convertCol(int seatcol){
         String[] largeCol = {"A", "B", "C", "D", "E", "F", "G", "H", "J", "K"};
@@ -45,4 +48,6 @@ public class Seat {
     public void updateSeatid() {
         this.seatid = convertCol(this.seatcol) + " " + this.seatrow;
     }
+
+
 }
