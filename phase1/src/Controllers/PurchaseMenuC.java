@@ -11,13 +11,11 @@ import UseCases.GetUser;
 import UseCases.SeatViewer;
 import UseCases.BuyTicket;
 
-
+/**
+ * A controller that prompts the User to Relogin to confirm their ticketPurchase
+ */
 public class PurchaseMenuC {
     public PurchaseMenuC(Flight flight, Integer row, Integer column) throws TicketAlreadyExistsException, FlightNotFoundException {
-        //BuyTicket
-        // For Now --> No Cost
-        // Make User login again
-        // create instance of ticket
 
         LoginConfirmMenu.LoginConfirmPrompt();
         Ticket PlaneTicket = new Ticket(flight, 0, GetUser.ReturnUser(LoginConfirmMenu.LoginConfirmPrompt()) ,
