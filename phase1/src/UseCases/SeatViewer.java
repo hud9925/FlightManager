@@ -4,7 +4,7 @@ import Entities.Flight.Flight;
 import Entities.Flight.Seat;
 
 /**
- * A use Case that Provides a String Representation of a Flight's SeatMap
+ * A use Case that Provides a String Representation of a Flight's SeatMap and the accessing of individual seats
  */
 public class SeatViewer {
 
@@ -48,6 +48,12 @@ public class SeatViewer {
             else{
                 return null;
             }
+        }
+        /**
+        * Updates the seat be now be occupied
+        */
+        public static void fillSeat(Flight flight, Integer row, Integer column){
+            flight.getSeats().getSeat(row, column).setIsfilled();
         }
 }
 

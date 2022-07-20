@@ -26,6 +26,7 @@ public class FlightMenu {
             String destination = flight.getValue().getArrivallocation();
             destinations.put(flightkey, destination);
         }
+        System.out.println(destinations);
         System.out.println("\n**********************************");
         System.out.println("Here Are All The Current Flights and Their Destinations: ");
         System.out.println("    Flight Number  "+ "    Flight Destination");
@@ -36,4 +37,11 @@ public class FlightMenu {
         String ans = Console.prompt("Please enter the flight number of the flight you wish to view: ", "[A-Z]{2}[0-9]{3}");
         new FlightMenuC(ans);
     }
+        public static void FlightError() throws FlightNotFoundException, TicketAlreadyExistsException {
+        String ans  = Console.prompt("A flight with that ID does not exist. Please re-enter the id of the flight you" +
+                "wish to view, type 'exit' to exit from this menu");
+        new FlightMenuC(ans);
+
+    }
+
 }

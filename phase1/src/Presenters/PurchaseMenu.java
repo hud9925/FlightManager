@@ -17,11 +17,11 @@ import java.util.Scanner;
  */
 public class PurchaseMenu {
     public static void PurchaseMenuPrompt(String ans) throws FlightNotFoundException, TicketAlreadyExistsException {
-        System.out.println("The Flight" + ans + "of airline" + GetFlightList.FlightInfo(ans).get("Airline:") +
-                "departing from" + GetFlightList.FlightInfo(ans).get("Departure Location:") +
-                "to " + GetFlightList.FlightInfo(ans).get("Arrival Location:") + "departs at " +
-                GetFlightList.FlightInfo(ans).get("Departure Date:") + "." + " The Flight will take" +
-                GetFlightList.FlightInfo(ans).get("Flight Duration:") + "long.");
+        System.out.println("The Flight" + " " + ans + " of airline " + GetFlightList.FlightInfo(ans).get("Airline:") +
+                " departing from " + GetFlightList.FlightInfo(ans).get("Departure Location:") +
+                " to " + GetFlightList.FlightInfo(ans).get("Arrival Location:") + " departs at " +
+                GetFlightList.FlightInfo(ans).get("Departure Date:") + "." + " The Flight will take " +
+                GetFlightList.FlightInfo(ans).get("Flight Duration:") + " long.");
         System.out.println(" ");
         System.out.println(" ");
 
@@ -47,6 +47,16 @@ public class PurchaseMenu {
             PurchaseMenuPrompt(ans);
         } else{
             new PurchaseMenuC(ShowFlight.getFlight(ans), row, column);
+        }
+    }
+    public static String PurchaseAnotherTicket(){
+        String ans = Console.prompt("Would You Like to Purchase Another Ticket? To Purchase Another ticket, please press 't,' or " +
+                "type any other character to exit.");
+        if (ans.equalsIgnoreCase("t")){
+            return "yes";
+        }
+        else{
+            return "no";
         }
     }
 }

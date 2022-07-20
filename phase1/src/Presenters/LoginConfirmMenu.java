@@ -1,6 +1,5 @@
 package Presenters;
 
-import Entities.User.TicketAlreadyExistsException;
 import UseCases.*;
 
 /**
@@ -8,7 +7,8 @@ import UseCases.*;
  *
  */
 public class LoginConfirmMenu {
-    public static String LoginConfirmPrompt() throws FlightNotFoundException, TicketAlreadyExistsException {
+    public static String LoginConfirmPrompt() {
+        System.out.println("To Continue, Please re-Enter your username and password");
         String username = Console.prompt("Enter Username : ", ".+");
         String password = Console.prompt("Enter Password : ", ".+");
         // Checking Credentials Through Contacting LoginUseCase
@@ -18,14 +18,15 @@ public class LoginConfirmMenu {
         }
         else { //.UserType(username, password).get(0)) is false
             String reprompt = Console.prompt("Either your username or password is incorrect. Please try again." +
-                            "Please Enter 't' to try again, or 'e' to exit to the flight menu.");
+                            "Please Enter 't' to try again, or enter any other character to go back to the flight menu.");
             if (reprompt.equalsIgnoreCase("t")){
                 LoginConfirmPrompt();
             }
             else {
-                new FlightMenu();
+                return "exit";
             }
         }
+
         return username;
     }
 }
