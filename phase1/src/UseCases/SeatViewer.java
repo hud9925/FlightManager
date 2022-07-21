@@ -13,7 +13,7 @@ public class SeatViewer {
      * Will Adjust Later --> Right Now, only returns a string Rep of 'X' and 'O'
      */
 
-    public static String StringRepresenation(Flight flight) {
+    public static String StringRepresentation(Flight flight) {
         String[] Columns = new String[6];
         Columns[0] = "A";
         Columns[1] = "B";

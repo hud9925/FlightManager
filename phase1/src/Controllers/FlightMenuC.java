@@ -14,7 +14,7 @@ import UseCases.GetFlightList;
 
 public class FlightMenuC {
     public FlightMenuC(String flightid) throws FlightNotFoundException, TicketAlreadyExistsException {
-        if (GetFlightList.FlightMap().containsKey(flightid)){
+        if (GetFlightList.FlightMap().containsKey(flightid)) {
             PurchaseMenu.PurchaseMenuPrompt(flightid);
         } else if (flightid.equals("exit")) {
             System.out.println("Program Closing");
@@ -22,7 +22,8 @@ public class FlightMenuC {
         } else {
             FlightMenu.FlightError();
         }
-        }
+
+    }
     }
 
 

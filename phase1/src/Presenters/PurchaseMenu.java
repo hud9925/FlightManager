@@ -27,7 +27,7 @@ public class PurchaseMenu {
 
         System.out.println("Currently, Here is the Seating Chart. '-'s denote the Seat is Occupied." +
                 "Rows start from 0(VIP Row), while the letters identify the columns");
-        System.out.println(SeatViewer.StringRepresenation(ShowFlight.getFlight(ans)));
+        System.out.println(SeatViewer.StringRepresentation(ShowFlight.getFlight(ans)));
 
         System.out.println("To Purchase a seat, Please Select a Row and Column.");
 
