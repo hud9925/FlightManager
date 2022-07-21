@@ -2,7 +2,6 @@ package Entities.Ticket;
 
 import Entities.Flight.Flight;
 import Entities.Flight.Seat;
-import Entities.User.Customer;
 import Entities.User.User;
 
 import java.time.Instant;
@@ -101,12 +100,9 @@ public class Ticket {
      */
 
     public String toString() {
-        return "Flight: " + getWhatFlight().getAirline() + getWhatFlight().getFlightid() + "\n" +
-                "Price: " + getCost() + " dollars.\n" +
-                "Seat ID: " + getWhere().getSeatid() + "\n" +
-                "Payer: " + getWhom().getUsername() + "\n" +
-                "Booking time (UTC): " + getWhen() +
-                "Ticket ID: " + getTicketID() + "\n";
+        return "Flight ID: " + getWhatFlight().getFlightid() + "\nPrice: " + getCost() +
+                "\nSeat ID: " + getWhere().getSeatid() + "\nPayer: " + getWhom().getUsername() +
+                "\nBooking time (UTC): " + getWhen() + "\nTicket ID: " + getTicketID() + "\n";
     }
 
 }

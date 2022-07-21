@@ -17,8 +17,8 @@ public class TestSuite {
         dc.Load();
         User u1 = new Customer("bob", "pool", 2003, 7, 6, "bruh", false);
         Customer c1 = new Customer("Dad", "ball", 1900, 2, 3, "none", true);
-        User u2 = new Admin("pablo", "mod", 2010, 3, 4, "dis", false);
-        Admin a1 = new Admin("Who", "idk", 1111, 1, 1, "plank", true);
+        User u2 = new Admin("pablo", "mod", 2010, 3, 4, "dis");
+        Admin a1 = new Admin("Who", "idk", 1111, 1, 1, "plank");
 
         UserTracker.addUser(u1);
         UserTracker.addUser(c1);
@@ -30,18 +30,12 @@ public class TestSuite {
     @Test(timeout = 50)
     public void testAddFirstAdmin(){
         AddAdmin.addFirstAdmin();
-        System.out.println(UserTracker.getTotalUserCount());
 
-        assertEquals(UserTracker.getTotalUserCount(),2);
-
-        UserTracker ut2 = new UserTracker("someone");
-        UserTracker ut3 = new UserTracker("Administrator");
-        assertTrue(ut2.userExists());
-        assertTrue(ut3.userExists());
+        assertEquals(UserTracker.getTotalUserCount(),1);
     }
     @Test(timeout = 50)
     public void testAddNewAdmin(){
-        AddAdmin.NewAdmin("someone", "probably", 2111, 12, 31, "amy", false);
+        AddAdmin.NewAdmin("someone", "probably", 2111, 12, 31, "amy");
         assertEquals(UserTracker.getTotalUserCount(),1);
 
         UserTracker ut3 = new UserTracker("someone");
@@ -49,4 +43,5 @@ public class TestSuite {
         assertTrue(ut3.userExists());
         assertFalse(ut4.userExists());
     }
+
 }
