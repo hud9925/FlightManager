@@ -25,8 +25,8 @@ public class PurchaseMenu {
         System.out.println(" ");
         System.out.println(" ");
 
-        System.out.println("Currently, Here is the Seating Chart. X's denote the Seat is empty," +
-                "while O's are already occupied: ");
+        System.out.println("Currently, Here is the Seating Chart. '-'s denote the Seat is Occupied." +
+                "Rows start from 0(VIP Row), while the letters identify the columns");
         System.out.println(SeatViewer.StringRepresenation(ShowFlight.getFlight(ans)));
 
         System.out.println("To Purchase a seat, Please Select a Row and Column.");
@@ -36,17 +36,22 @@ public class PurchaseMenu {
         int row = SeatRow.nextInt();
         Scanner SeatColumn = new Scanner(System.in);
         System.out.println("Please Enter the Seat's Column Number");
-        int column  = SeatColumn.nextInt();
+        //int column = SeatColumn.nextInt();
 
-        if (SeatViewer.getSeat(ShowFlight.getFlight(ans), row, column)==null){
+        char column = SeatColumn.next().charAt(0);
+        char CharRep = Character.toUpperCase(column);
+
+        if (SeatViewer.getSeat(ShowFlight.getFlight(ans), row, (int) CharRep -65)==null){
             System.out.println("The Seat is not found on the plane. Please Try Again");
             PurchaseMenuPrompt(ans);
     }
-        else if (Objects.requireNonNull(SeatViewer.getSeat(ShowFlight.getFlight(ans), row, column)).isFilled()){
+        else if (Objects.requireNonNull(SeatViewer.getSeat(ShowFlight.getFlight(ans), row, (int) CharRep -65)).isFilled()){
+            System.out.println(" ");
             System.out.println("This Seat is already Occupied. Please Try Again");
+            System.out.println(" ");
             PurchaseMenuPrompt(ans);
         } else{
-            new PurchaseMenuC(ShowFlight.getFlight(ans), row, column);
+            new PurchaseMenuC(ShowFlight.getFlight(ans), row, (int) CharRep -65);
         }
     }
     public static String PurchaseAnotherTicket(){

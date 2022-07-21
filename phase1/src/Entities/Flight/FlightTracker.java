@@ -49,7 +49,6 @@ public class FlightTracker {
     /**
      Getter to retrieve the flight associated with the inputted Id
      */
-
     public static Flight getFlight(String idNum){
         if (verifyFlight(idNum)){
             return flightMap.get(idNum);
