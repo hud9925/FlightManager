@@ -1,11 +1,8 @@
 package Presenters;
 
 import Controllers.AdminFlightC;
-import Controllers.AdminMenuC;
-import Entities.Flight.Flight;
 
 import java.io.IOException;
-import java.util.Map;
 
 /*
  * This is the presenter class of Admin Menu -> Admin Flight, with some controlling methods (add/cancel)

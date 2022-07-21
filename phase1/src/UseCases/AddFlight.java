@@ -17,6 +17,10 @@ public class AddFlight {
         FlightTracker.addFlight(newFlight);
     }
 
+    public static void NewFlight(String ID, int col, int rows){
+        NewFlight(new Flight(ID, col, rows));
+    }
+
     /**
      * To be used if the Flight database is empty
      * Adds the first flight, the default flight.

@@ -9,7 +9,11 @@ their username and password. To access the Admin controls, please login with the
 
 Classes are organized based on Clean Architecture.
 
-The TestSuite is currently un-finished with two temporary tests - they will be fixed and more will be added later.
+The TestSuite currently has several tests for the Use Cases. 
+Note: These tests should be run one at a time, as there are static data maps that will preserve data between 
+unit tests, which might affect the test's outcome.
+
+Link to UML design file: [https://drive.google.com/file/d/1T2Uzcr9I8aQR9C_mC4lYmTdG9XlfxkJp/view?usp=sharing](https://drive.google.com/file/d/1T2Uzcr9I8aQR9C_mC4lYmTdG9XlfxkJp/view?usp=sharing)
 
 Required additional notes on the program's design:
 

@@ -1,7 +1,6 @@
 package Presenters;
 
 import Controllers.CancelMenuC;
-import Entities.Ticket.Ticket;
 import Entities.User.TicketNotFoundException;
 import UseCases.GetTicketList;
 import UseCases.GetUser;
@@ -16,9 +15,8 @@ public class CancelMenu {
 
     public static void CancelMenuPrompt() throws TicketNotFoundException {
         String username = Console.prompt("Please enter your username:","^[0-9]*$");
-        Ticket[] tickets = GetTicketList.getTickets(GetUser.ReturnUser(username));
         String ticketID = Console.prompt(new String[]{
-                Arrays.toString(tickets),
+                Arrays.toString(GetTicketList.getTickets(GetUser.ReturnUser(username))),
                 "Please enter your ID of ticket you are going to cancel:"
                 },
                 "^[0-9]*$");

@@ -1,15 +1,14 @@
 package Controllers;
 
-import Entities.Flight.Flight;
 import Presenters.AdminFlight;
 import Presenters.AdminMenu;
-import UseCases.AddFlight;
 import UseCases.CancelFlight;
 import UseCases.GetFlightList;
 
 import java.io.IOException;
-import java.util.Map;
 import java.util.Scanner;
+
+import static UseCases.AddFlight.NewFlight;
 
 /*
  * This is the controller class for the presenter class AdminFlight, where the input from user will be sent to and
@@ -41,8 +40,7 @@ public class AdminFlightC {
      * @param row: the number of rows of seats for this flight;
      */
     public AdminFlightC(String flightID, int col, int row) throws IOException {
-        Flight f = new Flight(flightID, col, row);
-        AddFlight.NewFlight(f);
+        NewFlight(flightID, col, row);
         AdminFlight.AdminFlightPrompt();
     }
 
@@ -65,7 +63,7 @@ public class AdminFlightC {
     }
 
     public void opt1() throws IOException {
-        Map<String, Flight> flightMap = GetFlightList.FlightMap();
+        System.out.println(GetFlightList.FlightMap());
         AdminFlight.AdminFlightPrompt();
     }
 
