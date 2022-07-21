@@ -25,13 +25,11 @@ public class FlightMenu {
             String flightkey = flight.getKey();
             String destination = flight.getValue().getArrivallocation();
             destinations.put(flightkey, destination);
-        }
-        System.out.println(destinations);
-        System.out.println("\n**********************************");
+        }System.out.println("\n**********************************");
         System.out.println("Here Are All The Current Flights and Their Destinations: ");
-        System.out.println("    Flight Number  "+ "    Flight Destination");
+        System.out.println("    Flight Number  "+ "Flight Destination");
         for (Map.Entry<String, String> flight: destinations.entrySet()){
-            System.out.println("    "+flight.getKey()+"    "+ flight.getValue());
+            System.out.println("    "+flight.getKey()+"          "+ flight.getValue());
         }
         System.out.println("\n**********************************");
         String ans = Console.prompt("Please enter the flight number of the flight you wish to view: ", "[A-Z]{2}[0-9]{3}");
@@ -39,7 +37,7 @@ public class FlightMenu {
     }
         public static void FlightError() throws FlightNotFoundException, TicketAlreadyExistsException {
         String ans  = Console.prompt("A flight with that ID does not exist. Please re-enter the id of the flight you" +
-                "wish to view, type 'exit' to exit from this menu");
+                "wish to view, or type 'exit' to exit from this menu");
         new FlightMenuC(ans);
 
     }

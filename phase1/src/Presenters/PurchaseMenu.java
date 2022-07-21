@@ -17,9 +17,9 @@ import java.util.Scanner;
  */
 public class PurchaseMenu {
     public static void PurchaseMenuPrompt(String ans) throws FlightNotFoundException, TicketAlreadyExistsException {
-        System.out.println("The Flight" + " " + ans + " of airline " + GetFlightList.FlightInfo(ans).get("Airline:") +
+        System.out.println("Flight" + " " + ans + " of airline " + GetFlightList.FlightInfo(ans).get("Airline:") +
                 " departing from " + GetFlightList.FlightInfo(ans).get("Departure Location:") +
-                " to " + GetFlightList.FlightInfo(ans).get("Arrival Location:") + " departs at " +
+                " to "+ GetFlightList.FlightInfo(ans).get("Arrival Location:") + " departs at " +
                 GetFlightList.FlightInfo(ans).get("Departure Date:") + "." + " The Flight will take " +
                 GetFlightList.FlightInfo(ans).get("Flight Duration:") + " long.");
         System.out.println(" ");
