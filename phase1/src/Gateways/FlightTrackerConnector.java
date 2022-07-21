@@ -6,9 +6,12 @@ import Entities.Flight.Seatmap;
 import UseCases.GetFlightList;
 
 import java.io.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Map;
 
 public class FlightTrackerConnector extends DatabaseConnector {
+
     public FlightTrackerConnector() throws IOException {
     }
 
@@ -55,10 +58,11 @@ public class FlightTrackerConnector extends DatabaseConnector {
         String[] flightdata = line.split(",");
         Flight flight = new Flight(flightdata[0], sm.getRows(), sm.getColumns());
         flight.setSeats(sm);
-        flight.setType(flightdata[1]);
-        flight.setAirline(flightdata[2]);
-        flight.setDeparturelocation(flightdata[5]);
-        flight.setArrivallocation(flightdata[6]);
+        flight.setAirline(flightdata[1]);
+        flight.setDeparturedate(LocalDate.parse(flightdata[2]));
+        flight.setDeparturelocation(flightdata[3]);
+        flight.setArrivallocation(flightdata[4]);
+        flight.setDuration(LocalTime.parse(flightdata[5]));
         return flight;
     }
 

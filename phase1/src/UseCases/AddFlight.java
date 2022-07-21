@@ -14,7 +14,11 @@ public class AddFlight {
         FlightTracker.addFlight(newFlight);
     }
 
+    /**
+     * To be used if the Flight database is empty
+     * Adds the first flight, the default flight.
+     */
     public static void addFirstFlight(){
-        FlightTracker.addFlight(new Flight("AB123", 4, 4));
+        FlightTracker.addFlight(new Flight("AB123", 5, 5));
     }
 }
