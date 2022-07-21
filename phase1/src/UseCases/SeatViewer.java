@@ -53,7 +53,7 @@ public class SeatViewer {
         * Updates the seat be now be occupied
         */
         public static void fillSeat(Flight flight, Integer row, Integer column){
-            flight.getSeats().getSeat(row, column).setIsfilled();
+            flight.getSeats().getSeat(row, column).fill();
         }
 }
 
