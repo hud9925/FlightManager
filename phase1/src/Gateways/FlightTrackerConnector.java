@@ -10,11 +10,20 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Map;
 
+/**
+ * Class extending the DatabaseConnector
+ * Used for saving all the Flight data in the program
+ */
 public class FlightTrackerConnector extends DatabaseConnector {
 
     public FlightTrackerConnector() throws IOException {
     }
 
+    /**
+     * Implements the abstract save operation of DatabaseConnector
+     * Saves the FlightTracker to a file with specified filepath
+     * @throws IOException - in case of meaningless input
+     */
     @Override
     public void Save() throws IOException {
         PrintWriter pw = new PrintWriter(new FileWriter(this.filepath));
@@ -25,6 +34,11 @@ public class FlightTrackerConnector extends DatabaseConnector {
         pw.close();
     }
 
+    /**
+     * Implements the abstract load operation of DatabaseConnector
+     * Reads flights from a file with specified directory and adds them to the FlightTracker
+     * @throws IOException - in case of meaningless input
+     */
     @Override
     public void Load() throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(this.filepath));
@@ -40,6 +54,11 @@ public class FlightTrackerConnector extends DatabaseConnector {
         br.close();
     }
 
+    /**
+     * Helper method for translating a line into a Seatmap entity
+     * @param line the line String read from the document
+     * @return a Seatmap object
+     */
     private Seatmap lineToSeatmap(String line) {
         String[] stringseatmap = line.split(" ");
         Seatmap sm = new Seatmap(stringseatmap.length, stringseatmap[0].length());
@@ -53,7 +72,12 @@ public class FlightTrackerConnector extends DatabaseConnector {
         }
         return sm;
     }
-
+    /**
+     * Helper method for translating a line into a User entity
+     * @param line the line String read from the document containing flight properties (minus the seatmap)
+     * @param sm the flight's seatmap
+     * @return a Flight object
+     */
     private Flight lineToFlight(String line, Seatmap sm) {
         String[] flightdata = line.split(",");
         Flight flight = new Flight(flightdata[0], sm.getRows(), sm.getColumns());
@@ -66,6 +90,10 @@ public class FlightTrackerConnector extends DatabaseConnector {
         return flight;
     }
 
+    /**
+     * Implements the abstract method in DatabaseConnector, with the specified filepath
+     * @return the filepath (string)
+     */
     @Override
     protected String getDatabaseName () {
         return "FlightDatabase.txt";

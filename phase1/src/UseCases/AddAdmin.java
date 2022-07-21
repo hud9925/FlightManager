@@ -16,11 +16,11 @@ public class AddAdmin {
      * @param birthMonth the admin's birth month
      * @param birthDay the admin's birthday
      * @param email the admin's email address
-     * @param isMember the admin's membership status
      */
-    public static void NewAdmin(String username, String password, int birthYear, int birthMonth, int birthDay, String email, boolean isMember){
-//        Creates a new instance of admin
-        User NewAdmin = new Admin(username, password, birthYear, birthMonth, birthDay, email, isMember);
+    public static void NewAdmin(String username, String password, int birthYear, int birthMonth, int birthDay,
+                                String email){
+//      Creates a new instance of admin
+        User NewAdmin = new Admin(username, password, birthYear, birthMonth, birthDay, email);
         UserTracker.addUser(NewAdmin);
     }
 
@@ -28,7 +28,7 @@ public class AddAdmin {
      * Creates the first sample Admin instance and adds it to UserTracker.
      */
     public static void addFirstAdmin(){
-        User firstAdmin = new Admin("Administrator", "admin123", 2000, 1, 1, "admin@sample.com", false);
+        User firstAdmin = new Admin("Administrator", "admin123", 2000, 1, 1, "admin@sample.com");
         UserTracker.addUser(firstAdmin);
     }
 

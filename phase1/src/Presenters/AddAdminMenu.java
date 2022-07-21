@@ -19,8 +19,6 @@ public class AddAdminMenu {
                 "^((0?[1-9])|([12]\\d)|(3[01]))$");
         String email = Console.prompt("Please enter the new admin's email address: ",
                 "^[^@]+@[^@]+\\.[^@]+$");
-        String MemberStatus = Console.prompt("Please enter the new admin's member status (Yes/No): ",
-                "^((yes)|(no))$");
 
 //                Scanner create = new Scanner(System.in);
 //                System.out.println("Ok! Please enter the new admins's information!\n" +
@@ -41,7 +39,7 @@ public class AddAdminMenu {
 
 
         AddAdmin.NewAdmin(username, password, Integer.parseInt(year), Integer.parseInt(month),
-                Integer.parseInt(day), email, MemberStatus.equalsIgnoreCase("yes"));
+                Integer.parseInt(day), email);
 
         System.out.println("Admin Created!");
         UserMenu.UserMenuPrompt();

@@ -10,10 +10,19 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Class extending the DatabaseConnector
+ * Used for saving all the User data in the program
+ */
 public class UserTrackerConnector extends DatabaseConnector {
     public UserTrackerConnector() throws IOException {
     }
 
+    /**
+     * Implements the abstract save operation of DatabaseConnector
+     * Saves the UserTracker to a file with specified filepath
+     * @throws IOException - in case of meaningless input
+     */
     @Override
     public void Save() throws IOException {
         PrintWriter pw = new PrintWriter(new FileWriter(this.filepath));
@@ -23,6 +32,11 @@ public class UserTrackerConnector extends DatabaseConnector {
         pw.close();
     }
 
+    /**
+     * Implements the abstract load operation of DatabaseConnector
+     * Reads Users from a file with specified directory and adds them to the UserTracker
+     * @throws IOException - in case of meaningless input
+     */
     @Override
     public void Load() throws IOException {
 //        String filepath = String.valueOf(Paths.get("UserDatabase.csv").toAbsolutePath());
@@ -35,13 +49,17 @@ public class UserTrackerConnector extends DatabaseConnector {
         br.close();
     }
 
+    /**
+     * Helper method for translating a line into a User entity
+     * @param line the line String read from the document containing User properties
+     * @return a User object with the read properties
+     */
     private User lineToUser(String line) {
         User newUser;
         String [] userinfo = line.split(",");
         if (userinfo[9].equals("true")){
             newUser = new Admin(userinfo[0], userinfo[1], Integer.parseInt(userinfo[2]),
-                    Integer.parseInt(userinfo[3]), Integer.parseInt(userinfo[4]), userinfo[5],
-                    Boolean.parseBoolean(userinfo[6]));
+                    Integer.parseInt(userinfo[3]), Integer.parseInt(userinfo[4]), userinfo[5]);
         } else {
             newUser = new Customer(userinfo[0], userinfo[1], Integer.parseInt(userinfo[2]),
                     Integer.parseInt(userinfo[3]), Integer.parseInt(userinfo[4]), userinfo[5],
@@ -54,6 +72,12 @@ public class UserTrackerConnector extends DatabaseConnector {
         }
         return newUser;
     }
+
+    /**
+     * Helper method for translating a list of previous dates in string format into a list of dates
+     * @param previousDates the list of previous dates, in string format
+     * @return the list of previous dates, in date format
+     */
     private List<Date> loginDatesReader(String[] previousDates) {
         List<Date> dateList = new ArrayList<>();
         for(String str: previousDates){
@@ -63,6 +87,10 @@ public class UserTrackerConnector extends DatabaseConnector {
         return dateList;
     }
 
+    /**
+     * Implements the abstract method in DatabaseConnector, with the specified filepath
+     * @return the filepath (string)
+     */
     @Override
     protected String getDatabaseName () {
         return "UserDatabase.csv";
