@@ -4,8 +4,16 @@ import UseCases.AddAdmin;
 
 import java.io.IOException;
 
+/**
+ * Presenter class that prompts admin to create a new Admin, takes their input and creates an admin
+ */
 public class AddAdminMenu {
 
+    /**
+     * The prompt method that displays the prompts to the screen
+     * It takes the User's responses and sends them to the AddAdmin Use Case to create a new admin.
+     * @throws IOException for meaningless inputs.
+     */
     public static void AddAdminPrompt() throws IOException {
         //adding a new admin
         String username = Console.prompt("Please enter the new admin's username: ", ".+");
@@ -19,24 +27,6 @@ public class AddAdminMenu {
                 "^((0?[1-9])|([12]\\d)|(3[01]))$");
         String email = Console.prompt("Please enter the new admin's email address: ",
                 "^[^@]+@[^@]+\\.[^@]+$");
-
-//                Scanner create = new Scanner(System.in);
-//                System.out.println("Ok! Please enter the new admins's information!\n" +
-//                        "Username? ");
-////            String UserName = create.next();
-//                Scanner pass  = new Scanner(System.in);
-//                System.out.println("Password?");
-//                Scanner birthyear  = new Scanner(System.in);
-//                System.out.println("Year Born?(XXXX)");
-//                Scanner monthborn = new Scanner(System.in);
-//                System.out.println("Month Born(MM)?");
-//                System.out.println("Day Born(DD)?");
-//                Scanner dayborn = new Scanner(System.in);
-//                System.out.println("Email Address?");
-//                Scanner email = new Scanner(System.in);
-//                System.out.println("Member status? (Member or not? Yes or No)");
-//                Scanner member = new Scanner(System.in);
-
 
         AddAdmin.NewAdmin(username, password, Integer.parseInt(year), Integer.parseInt(month),
                 Integer.parseInt(day), email);

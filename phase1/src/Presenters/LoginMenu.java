@@ -2,14 +2,21 @@ package Presenters;
 
 import Entities.User.TicketAlreadyExistsException;
 import Entities.User.TicketNotFoundException;
-import Gateways.UserTrackerConnector;
 import UseCases.FlightNotFoundException;
 import UseCases.LoginUseCase;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Presenter class that prompts user to input their User credentials
+ */
 public class LoginMenu {
+
+    /**
+     * Method that prompts the user to enter their login credentials
+     * If the credentials don't exist, another prompt to go back or to continue.
+     */
     public static void loginPrompt() throws IOException, FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
         String username = Console.prompt("Enter Username : ", ".+");
         String password = Console.prompt("Enter Password : ", ".+");
@@ -19,7 +26,7 @@ public class LoginMenu {
         // The array list of predicates indicate:
         // 1. whether the username/password matches;
         // 2. whether the user is admin.
-        if (!credPredicates.get(0) && !credPredicates.get(1)){ //[false, false]
+        if (!credPredicates.get(0)){
             String ans = Console.prompt(new String[] {
                     "Either your username or password is incorrect. Please try again.",
                     "Enter any letter except B to continue or enter B to go back to login page.",
@@ -27,23 +34,22 @@ public class LoginMenu {
             });
             if (ans.equalsIgnoreCase("b")){
                 loginPage();
-            }
-            else{
+            } else {
                 loginPrompt();
             }
         }
-        else { // [true, ?], i.e.
-            if (!credPredicates.get(1)){ // If the user account is not admin
-                MainMenu.mainPage(username); // Call main menu
-            }
-            //
-             else { // if the user account is admin
-                AdminMenu.AdminPrompt(); // Call AdminMenu
+        else {
+            if (!credPredicates.get(1)){
+                MainMenu.mainPage(username);
+            } else {
+                AdminMenu.AdminPrompt();
             }
         }
-
     }
 
+    /**
+     * Main prompt method to display the login page. Asks the User if they want to register, login or quit.
+     */
     public static void loginPage() throws IOException, FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
         String ans = Console.prompt(new String[]{
                 "Welcome to the air ticket reserving system login page!",
@@ -56,13 +62,10 @@ public class LoginMenu {
             LoginMenu.loginPrompt();
         }
         else if (ans.equalsIgnoreCase("r")){
-            RegisterMenu.registerPage();
+            RegisterMenu.registerPrompt();
         }
         else if (ans.equalsIgnoreCase("q")){
             System.out.println("You are going to quit this program. Thank you for using.");
-            UserTrackerConnector dc = new UserTrackerConnector();
-            dc.Save();
-            System.exit(0);
         }
     }
 }

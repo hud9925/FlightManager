@@ -8,8 +8,15 @@ import UseCases.RegisterUseCase;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Presenter class that prompts a new user to input their relevant information to register
+ */
 public class RegisterMenu {
 
+    /**
+     * Method that prompts the user to enter their relevant information
+     * If the username already exists, then prompt to either retry or to go back.
+     */
     public static void registerPrompt() throws IOException, FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
         String username = Console.prompt("Please enter your new username: ", ".+");
         String password = Console.prompt("Please enter your new password: ", ".+");
@@ -42,23 +49,6 @@ public class RegisterMenu {
         else { // [true] i.e: Username is available.
             System.out.println("Account created successfully!");
             MainMenu.mainPage(username); // Call main menu.
-        }
-
-    }
-
-    // Account registration page setup.
-    public static void registerPage() throws IOException, FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
-        String ans = Console.prompt(new String[]{
-                "Welcome to the air ticket reserving system registration page!",
-                "Please enter the following credentials in order to create an account.",
-                "Press C to continue. Press B to go back",
-                "Continue? (C/B):"
-        }, "^[cb]$");
-        if (ans.equalsIgnoreCase("b")) {
-            LoginMenu.loginPage(); // Return to initial landing page.
-        }
-        else {
-            registerPrompt(); // Call register prompt again.
         }
 
     }
