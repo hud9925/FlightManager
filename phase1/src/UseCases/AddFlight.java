@@ -3,6 +3,9 @@ package UseCases;
 import Entities.Flight.Flight;
 import Entities.Flight.FlightTracker;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 // A Use Case that adds a flight to the entity FlightTracker
 
 public class AddFlight {
@@ -19,6 +22,9 @@ public class AddFlight {
      * Adds the first flight, the default flight.
      */
     public static void addFirstFlight(){
-        FlightTracker.addFlight(new Flight("AB123", 5, 5));
+        Flight defaultflight = new Flight("AB123", 5, 5);
+        defaultflight.setDeparturedate(LocalDate.now());
+        defaultflight.setDuration(LocalTime.now());
+        FlightTracker.addFlight(defaultflight);
     }
 }
