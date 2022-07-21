@@ -1,6 +1,4 @@
 package UseCases;
-import java.util.ArrayList;
-
 
 import Entities.User.Customer;
 import Entities.User.UserTracker;
@@ -23,19 +21,16 @@ RegisterUseCase {
      * @param Email email address of the new user
      * @return the new user
      */
-    public static ArrayList<Boolean> NewUser(String Username, String Password, int Year, int Month, int Day, String Email){
-        ArrayList<Boolean> NewUser = new ArrayList<>();
+    public static boolean NewUser(String Username, String Password, int Year, int Month, int Day, String Email){
 //      Checks if username or email exists in UserTracker
         if (new UserTracker(Username).userExists()){
-//          User exists.
-            NewUser.add(false);
+            return false;
         } else {
 //          User does not exist. Register as new user.
-            NewUser.add(true);
             Customer newUser = new Customer(Username, Password, Year, Month, Day, Email, false);
             newUser.updateDateList();
             UserTracker.addUser(newUser);
+            return true;
         }
-        return NewUser;
     }
 }

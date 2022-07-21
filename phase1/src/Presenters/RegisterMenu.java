@@ -6,7 +6,6 @@ import UseCases.FlightNotFoundException;
 import UseCases.RegisterUseCase;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * Presenter class that prompts a new user to input their relevant information to register
@@ -29,11 +28,9 @@ public class RegisterMenu {
         String email = Console.prompt("Please enter your email address: ",
                 "^[^@]+@[^@]+\\.[^@]+$");
 
-//      Check credential existence.
-        ArrayList<Boolean> credPredicate = RegisterUseCase.NewUser(username, password,
-                Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day), email);
 
-        if (!credPredicate.get(0)){ //[false] i.e: Username is already registered.
+        if (!RegisterUseCase.NewUser(username, password, Integer.parseInt(year), Integer.parseInt(month),
+                Integer.parseInt(day), email)){ //false = Username is already registered.
             String ans = Console.prompt(new String[]{
                     "An account with this username already exists. Please try again.",
                     "Enter any letter except B to continue or enter B to go back to the landing page.",
@@ -46,7 +43,7 @@ public class RegisterMenu {
                 registerPrompt(); // Call register prompt again.
             }
         }
-        else { // [true] i.e: Username is available.
+        else { //true = Username is available.
             System.out.println("Account created successfully!");
             MainMenu.mainPage(username); // Call main menu.
         }

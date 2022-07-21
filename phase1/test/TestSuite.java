@@ -1,36 +1,18 @@
-import Entities.User.Admin;
+import Entities.Flight.Flight;
+import Entities.Flight.FlightTracker;
 import Entities.User.Customer;
 import Entities.User.User;
 import Entities.User.UserTracker;
-import Gateways.UserTrackerConnector;
-import UseCases.AddAdmin;
+import UseCases.*;
 import org.junit.Test;
-
-import java.io.IOException;
 
 import static org.junit.Assert.*;
 
 public class TestSuite {
 
-    public void setup() throws IOException {
-        UserTrackerConnector dc = new UserTrackerConnector();
-        dc.Load();
-        User u1 = new Customer("bob", "pool", 2003, 7, 6, "bruh", false);
-        Customer c1 = new Customer("Dad", "ball", 1900, 2, 3, "none", true);
-        User u2 = new Admin("pablo", "mod", 2010, 3, 4, "dis");
-        Admin a1 = new Admin("Who", "idk", 1111, 1, 1, "plank");
-
-        UserTracker.addUser(u1);
-        UserTracker.addUser(c1);
-        UserTracker.addUser(u2);
-        UserTracker.addUser(a1);
-
-        dc.Save();
-    }
     @Test(timeout = 50)
     public void testAddFirstAdmin(){
         AddAdmin.addFirstAdmin();
-
         assertEquals(UserTracker.getTotalUserCount(),1);
     }
     @Test(timeout = 50)
@@ -43,5 +25,55 @@ public class TestSuite {
         assertTrue(ut3.userExists());
         assertFalse(ut4.userExists());
     }
+    @Test(timeout = 50)
+    public void testAddFirstFlight(){
+        AddFlight.addFirstFlight();
+        assertEquals(FlightTracker.numFlights(),1);
+        assertTrue(FlightTracker.verifyFlight("AB123"));
+    }
 
+    @Test(timeout = 50)
+    public void testAddFlight(){
+        Flight f1 = new Flight("BC123", 8, 8);
+        AddFlight.NewFlight(f1);
+        assertEquals(FlightTracker.numFlights(),1);
+        assertTrue(FlightTracker.verifyFlight("BC123"));
+    }
+    @Test(timeout = 50)
+    public void testRemoveUser(){
+
+    }
+    @Test(timeout = 50)
+    public void testCancelFlight(){
+
+    }
+
+    @Test(timeout = 50)
+    public void testReturnUser(){
+
+    }
+
+    @Test(timeout = 50)
+    public void testLoginUseCase(){
+        
+    }
+    @Test(timeout = 50)
+    public void testRegisterUseCase(){
+        assertTrue(RegisterUseCase.NewUser("C1", "P1", 1111, 12, 41, "ma214"));
+        assertFalse(RegisterUseCase.NewUser("C1", "P1", 1111, 12, 41, "ma214"));
+    }
+    @Test(timeout = 50)
+    public void testShowFlight() throws FlightNotFoundException {
+        Flight f1 = new Flight("BC123", 8, 8);
+        AddFlight.NewFlight(f1);
+        assertEquals(f1, ShowFlight.getFlight("BC123"));
+        assertEquals("BC123", ShowFlight.getFlightID(f1));
+    }
+    @Test(timeout = 50)
+    public void testSeeAccountDetails(){
+        User u1 = new Customer("C1", "P1", 1111, 12, 41, "ma214",
+                true);
+        assertEquals(SeeAccountDetails.AccountDetails("A1"), "User does not exist");
+        assertEquals(SeeAccountDetails.AccountDetails("P1"), u1.toString());
+    }
 }
