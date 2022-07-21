@@ -83,10 +83,18 @@ public class FlightTrackerConnector extends DatabaseConnector {
         Flight flight = new Flight(flightdata[0], sm.getRows(), sm.getColumns());
         flight.setSeats(sm);
         flight.setAirline(flightdata[1]);
-        flight.setDeparturedate(LocalDate.parse(flightdata[2]));
+        if(flightdata[2].equals("null")){
+            flight.setDeparturedate(LocalDate.now());
+        } else {
+            flight.setDeparturedate(LocalDate.parse(flightdata[2]));
+        }
         flight.setDeparturelocation(flightdata[3]);
         flight.setArrivallocation(flightdata[4]);
-        flight.setDuration(LocalTime.parse(flightdata[5]));
+        if(flightdata[5].equals("null")){
+            flight.setDuration(LocalTime.now());
+        } else {
+            flight.setDuration(LocalTime.parse(flightdata[5]));
+        }
         return flight;
     }
 
