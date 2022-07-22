@@ -22,5 +22,3 @@ public class AdminMenu {
         new AdminMenuC(ans);
     }
 }
-
-

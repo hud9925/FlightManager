@@ -7,6 +7,12 @@ import UseCases.*;
  *
  */
 public class LoginConfirmMenu {
+
+    /**
+     * Menu that requires the user to input their username and password to confirm their
+     * purchase.
+     * @return the user's username
+     */
     public static String LoginConfirmPrompt() {
         System.out.println("To Continue, Please re-Enter your username and password");
         String username = Console.prompt("Enter Username : ", ".+");
@@ -17,9 +23,9 @@ public class LoginConfirmMenu {
             return username;
         }
         else { //.UserType(username, password).get(0)) is false
-            String reprompt = Console.prompt("Either your username or password is incorrect. Please try again." +
+            String RePrompt = Console.prompt("Either your username or password is incorrect. Please try again." +
                             "Please Enter 't' to try again, or enter any other character to go back to the flight menu.");
-            if (reprompt.equalsIgnoreCase("t")){
+            if (RePrompt.equalsIgnoreCase("t")){
                 LoginConfirmPrompt();
             }
             else {

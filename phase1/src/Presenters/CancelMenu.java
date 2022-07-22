@@ -13,6 +13,10 @@ import java.util.Arrays;
  */
 public class CancelMenu {
 
+    /**
+     * Menu that allows a user to cancel their flight.
+     * @throws TicketNotFoundException if the input ticket does not exist
+     */
     public static void CancelMenuPrompt() throws TicketNotFoundException {
         String username = Console.prompt("Please enter your username:","^[0-9]*$");
         String ticketID = Console.prompt(new String[]{

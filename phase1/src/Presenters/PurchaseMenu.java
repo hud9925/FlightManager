@@ -11,7 +11,7 @@ import java.util.Objects;
 import java.util.Scanner;
 
 /**
- * A Presenter Menu that Displays Flight information including its seatmap, prompts the User to select a seat for
+ * A Presenter Menu that Displays Flight information including its seat map, prompts the User to select a seat for
  * potential purchase
  *
  */
