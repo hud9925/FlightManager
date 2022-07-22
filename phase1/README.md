@@ -10,10 +10,11 @@ their username and password. To access the Admin controls, please login with the
 Classes are organized based on Clean Architecture.
 
 The TestSuite currently has several tests for the Use Cases. 
-Note: These tests should be run one at a time, as there are static data maps that will preserve data between 
+Note: **These tests should be run one at a time** as there are static data maps that will preserve data between 
 unit tests, which might affect the test's outcome.
 
 Link to UML design file: [https://drive.google.com/file/d/1T2Uzcr9I8aQR9C_mC4lYmTdG9XlfxkJp/view?usp=sharing](https://drive.google.com/file/d/1T2Uzcr9I8aQR9C_mC4lYmTdG9XlfxkJp/view?usp=sharing)
+Contains major classes, updated July 21st, 2022
 
 Required additional notes on the program's design:
 
@@ -56,7 +57,7 @@ and separating the presenter menus from their controllers which would assign the
 
 Personal Contribution:
 
-Mani: UML diagram, Implementation of Flight/Seat/Seatmap, UserMenu/AdminMenu (and their controllers). Implementation of gateway class (DatabaseConnector) and its subclasses. Written respective javadocs for each, some minor test cases.
+Mani: UML diagram, Implementation of Flight/Seat/Seatmap, UserMenu/AdminMenu (and their controllers). Implementation of gateway class (DatabaseConnector) and its subclasses. Written respective javadocs for each, addition of test cases.
 
 Daniel: FlightTracker, GetFlightList, AddFlight, CancelFlight, FlightMenu, FightMenuController, PurchaseMenu, PurchaseMenuController(still in progress), SeatViewer,
 
