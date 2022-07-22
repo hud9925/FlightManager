@@ -17,6 +17,16 @@ import java.util.Objects;
  * be occupied. Allows User to keep buying additional tickets, or return the User to the Flight Menu.
  */
 public class PurchaseMenuC {
+
+    /**
+     * Allows the user to purchase a ticket for a flight and a specific seat on that flight based on the seat's row and
+     * column.
+     * @param flight flight to purchase
+     * @param row row of the requested seat
+     * @param column column of the requested seat
+     * @throws TicketAlreadyExistsException if the ticket already exists
+     * @throws FlightNotFoundException if the flight does not exist
+     */
     public PurchaseMenuC(Flight flight, Integer row, Integer column) throws TicketAlreadyExistsException, FlightNotFoundException {
 
         String ans = LoginConfirmMenu.LoginConfirmPrompt();
@@ -28,8 +38,8 @@ public class PurchaseMenuC {
                     SeatViewer.getSeat(flight, row, column));
             BuyTicket.PurchasedTicket(GetUser.ReturnUser(ans), PlaneTicket);
             SeatViewer.fillSeat(flight, row, column);
-            String Anotherticket = PurchaseMenu.PurchaseAnotherTicket();
-            if (Anotherticket.equals("yes")){
+            String AnotherTicket = PurchaseMenu.PurchaseAnotherTicket();
+            if (AnotherTicket.equals("yes")){
                 PurchaseMenu.PurchaseMenuPrompt(ShowFlight.getFlightID(flight));
             }
             else{
