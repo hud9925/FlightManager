@@ -22,13 +22,13 @@ public class MainMenuC {
     public MainMenuC(String ans, String username) throws FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
         switch (ans) {
             case "1":
-                this.option1();
+                this.flightMenuOption();
                 break;
             case "2":
-                this.option2();
+                this.cancelMenuOption();
                 break;
             case "3":
-                this.option3(username);
+                this.accountInfoOption(username);
                 break;
             default:
                 this.exit();
@@ -39,13 +39,13 @@ public class MainMenuC {
     /**
      * First option method: directs user to the flight menu
      */
-    public void option1() throws FlightNotFoundException, TicketAlreadyExistsException {
+    public void flightMenuOption() throws FlightNotFoundException, TicketAlreadyExistsException {
         new FlightMenu();
     }
     /**
      * Second option method: directs user to the cancel menu
      */
-    public void option2() throws TicketNotFoundException {
+    public void cancelMenuOption() throws TicketNotFoundException {
         CancelMenu.CancelMenuPrompt();
     }
     /**
@@ -53,8 +53,8 @@ public class MainMenuC {
      * Takes in the user's username, retrieves their data from GetUser Use Case class
      * @param username the user's username
      */
-    public void option3(String username){
-        String[] userdata = new GetUser().ReturnUser(username).toString().split(",");
+    public void accountInfoOption(String username){
+        String[] userdata = GetUser.ReturnUser(username).toString().split(",");
 
         System.out.println("Username: " + userdata[0] + "\nPassword: " + userdata[1] + "\nBirthday: " + userdata[2] +
                 "/" + userdata[3] + "/" + userdata[4] + "\nEmail: " + userdata[5] + "\nMember" +
@@ -65,6 +65,6 @@ public class MainMenuC {
      * Exit option: displays a message.
      */
     public void exit(){
-        System.out.println("Program is closing.");
+        System.out.println("Program is closing...");
     }
 }

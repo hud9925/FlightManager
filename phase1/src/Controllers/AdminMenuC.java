@@ -20,10 +20,10 @@ public class AdminMenuC {
     public AdminMenuC(String ans) throws IOException {
         switch (ans){
             case "1":
-                this.option1();
+                this.userMenuOption();
                 break;
             case "2":
-                this.option2();
+                this.adminFlightOption();
                 break;
             default:
                 this.exit();
@@ -31,10 +31,10 @@ public class AdminMenuC {
         }
     }
 
-    public void option1() throws IOException {
+    public void userMenuOption() throws IOException {
         UserMenu.UserMenuPrompt();
     }
-    public void option2() throws IOException {
+    public void adminFlightOption() throws IOException {
         AdminFlight.AdminFlightPrompt();
     }
     public void exit(){
