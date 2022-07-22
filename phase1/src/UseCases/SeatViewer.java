@@ -3,6 +3,8 @@ package UseCases;
 import Entities.Flight.Flight;
 import Entities.Flight.Seat;
 
+import java.util.Arrays;
+
 /**
  * A use Case that Provides a String Representation of a Flight's SeatMap and the accessing of individual seats
  */
@@ -47,6 +49,21 @@ public class SeatViewer {
             else{
                 return null;
             }
+        }
+
+        /**
+        * Returns the seat on the inputted flight based upon the seat's ID
+        */
+        public static Seat getSeat(Flight flight, String seatID){
+            String[] seatData = seatID.split(" ");
+            String[] largeCol = {"A", "B", "C", "D", "E", "F", "G", "H", "J", "K"};
+            for(String letter: largeCol){
+                if(seatData[0].equals(letter)){
+                    return flight.getSeats().getSeat(Arrays.asList(largeCol).indexOf(letter),
+                            Integer.parseInt(seatData[1]));
+                }
+            }
+            return null;
         }
         /**
         * Updates the seat be now be occupied

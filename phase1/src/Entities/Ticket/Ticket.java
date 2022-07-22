@@ -125,4 +125,9 @@ public class Ticket {
                 "\nBooking time (UTC): " + getWhen() + "\nTicket ID: " + getTicketID() + "\n";
     }
 
+    public String simpleToString(){
+        return getWhatFlight().getFlightid() + "," + getCost() + "," + getWhere().getSeatid() + "," +
+                getWhom().getUsername() + "," + getWhen() + "," + getTicketID();
+    }
+
 }

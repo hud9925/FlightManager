@@ -16,6 +16,7 @@ import java.util.List;
  */
 public class UserTrackerConnector extends DatabaseConnector {
     public UserTrackerConnector() throws IOException {
+        super();
     }
 
     /**

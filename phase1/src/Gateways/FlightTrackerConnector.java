@@ -17,6 +17,7 @@ import java.util.Map;
 public class FlightTrackerConnector extends DatabaseConnector {
 
     public FlightTrackerConnector() throws IOException {
+        super();
     }
 
     /**
