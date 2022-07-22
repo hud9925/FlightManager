@@ -1,8 +1,11 @@
 package Controllers;
 
+import Entities.User.TicketAlreadyExistsException;
 import Entities.User.TicketNotFoundException;
 import Presenters.CancelMenu;
+import Presenters.MainMenu;
 import UseCases.CancelTicket;
+import UseCases.FlightNotFoundException;
 import UseCases.GetTicketList;
 import UseCases.GetUser;
 
@@ -24,8 +27,14 @@ public class CancelMenuC {
                 GetTicketList.getOneTicket(GetUser.ReturnUser(username), ticketIDHash));
         boolean TicketNotFoundException = false;
         if (!TicketNotFoundException){
-            System.out.println("Ticket has been successfully deleted! Redirect to the ticket menu...");
+            System.out.println("Ticket has been successfully deleted! Redirect to the main menu...");
+            try {
+                MainMenu.mainPage();
+            } catch (FlightNotFoundException | TicketAlreadyExistsException e) {
+                throw new RuntimeException(e);
+            }
+        } else{
+            CancelMenu.CancelMenuPrompt();
         }
-        CancelMenu.CancelMenuPrompt();
     }
 }
