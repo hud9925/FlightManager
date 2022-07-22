@@ -16,14 +16,7 @@ public class SeatViewer {
      */
 
     public static String StringRepresentation(Flight flight) {
-        String[] Columns = new String[6];
-        Columns[0] = "A";
-        Columns[1] = "B";
-        Columns[2] = "C";
-        Columns[3] = "D";
-        Columns[4] = "E";
-        Columns[5] = "F";
-
+        String[] Columns = {"A", "B", "C", "D", "E", "F", "G", "H", "J", "K"};
         StringBuilder StringRep = new StringBuilder();
         for (int row = 0; row <flight.getSeats().getRows(); row++) {
             for (int col = 0; col < flight.getSeats().getColumns(); col++) {
@@ -33,10 +26,8 @@ public class SeatViewer {
                     String SeatID = row + Columns[col]+ " ";
                     StringRep.append(SeatID);
                 }
-                }
             }
-         // return flight.getSeats().toString();
-//        }
+        }
         return StringRep.toString();
     }
         /**
