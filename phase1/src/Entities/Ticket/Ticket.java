@@ -8,15 +8,35 @@ import java.time.Instant;
 
 
 public class Ticket {
+
+    /**
+     * The cost of the ticket.
+     */
     private int cost;
 
+    /**
+     * The flight associated with the ticket.
+     */
     private Flight flight;
 
+    /**
+     * The user who owns the ticket.
+     */
     private User who;
+
+    /**
+     * The passenger's seat on the flight associated with the ticket.
+     */
     private Seat where;
 
+    /**
+     * The ID of the ticket.
+     */
     private int ticketID;
 
+    /**
+     * The date and time in UTC.
+     */
     private String when;
 
     /**

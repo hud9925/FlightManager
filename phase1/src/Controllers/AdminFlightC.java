@@ -15,8 +15,8 @@ import static UseCases.AddFlight.NewFlight;
  * being processed, i.e. add flight, cancel flight, return to upper level menu
  */
 public class AdminFlightC {
-    public AdminFlightC(int whichChoise) throws IOException {
-        switch (whichChoise){
+    public AdminFlightC(int whichChoice) throws IOException {
+        switch (whichChoice){
             case 0:
                 this.adminMenuOption();
                 break;
