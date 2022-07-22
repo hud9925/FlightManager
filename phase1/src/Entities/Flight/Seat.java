@@ -59,4 +59,5 @@ public class Seat {
 
         return largeCol[seatcol];
     }
+    public void empty() {this.isfilled = false;}
 }

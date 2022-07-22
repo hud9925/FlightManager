@@ -27,6 +27,7 @@ public class SeatViewer {
                     StringRep.append(SeatID);
                 }
             }
+            StringRep.append("\n");
         }
         return StringRep.toString();
     }

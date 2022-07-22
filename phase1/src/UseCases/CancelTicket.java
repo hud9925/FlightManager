@@ -17,5 +17,6 @@ public class CancelTicket {
      */
     public static void CancelledTicket(User user, Ticket oldTicket) throws TicketNotFoundException {
         user.removeTicket(oldTicket);
+        oldTicket.getWhere().empty();
     }
 }
