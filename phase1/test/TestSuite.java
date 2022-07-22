@@ -6,6 +6,9 @@ import Entities.User.UserTracker;
 import UseCases.*;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Objects;
+
 import static org.junit.Assert.*;
 
 public class TestSuite {
@@ -36,26 +39,36 @@ public class TestSuite {
     public void testAddFlight(){
         Flight f1 = new Flight("BC123", 8, 8);
         AddFlight.NewFlight(f1);
-        assertEquals(FlightTracker.numFlights(),1);
         assertTrue(FlightTracker.verifyFlight("BC123"));
     }
     @Test(timeout = 50)
     public void testRemoveUser(){
+        UserTracker ut3 = new UserTracker("someone");
+        ut3.removeCurrentUser();
+        assertFalse(ut3.userExists());
 
     }
     @Test(timeout = 50)
     public void testCancelFlight(){
+        Flight f2 = new Flight("AC546", 5, 3);
+        AddFlight.NewFlight(f2);
+        CancelFlight.RemoveFlight("AC546");
+        assertNull(FlightTracker.getFlight("AC546"));
 
     }
-
     @Test(timeout = 50)
     public void testReturnUser(){
+        AddAdmin.NewAdmin("someone", "probably", 2111, 12, 31, "amy");
+        assertEquals(GetUser.ReturnUser("someone").getUsername(), "someone");
 
     }
-
     @Test(timeout = 50)
     public void testLoginUseCase(){
-        
+        AddAdmin.NewAdmin("someone", "probably", 2111, 12, 31, "amy");
+        ArrayList<Boolean> Predicates = new ArrayList<>();
+        Predicates.add(true);
+        Predicates.add(true);
+        assertEquals(Predicates, LoginUseCase.UserType("someone", "probably"));
     }
     @Test(timeout = 50)
     public void testRegisterUseCase(){
