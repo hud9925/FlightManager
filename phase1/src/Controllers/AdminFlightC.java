@@ -18,16 +18,16 @@ public class AdminFlightC {
     public AdminFlightC(int whichChoise) throws IOException {
         switch (whichChoise){
             case 0:
-                this.opt0();
+                this.adminMenuOption();
                 break;
             case 1:
-                this.opt1();
+                this.adminFlightOption();
                 break;
             case 2:
-                this.opt2();
+                this.addFlightOption();
                 break;
             case 3:
-                this.opt3();
+                this.cancelFlightOption();
                 break;
 
         }
@@ -58,16 +58,16 @@ public class AdminFlightC {
         AdminFlight.AdminFlightPrompt();
     }
 
-    public void opt0() throws IOException {
+    public void adminMenuOption() throws IOException {
         AdminMenu.AdminPrompt();
     }
 
-    public void opt1() throws IOException {
+    public void adminFlightOption() throws IOException {
         System.out.println(GetFlightList.FlightMap());
         AdminFlight.AdminFlightPrompt();
     }
 
-    public void opt2() throws IOException {
+    public void addFlightOption() throws IOException {
         Scanner sc= new Scanner(System.in);
         System.out.print("Enter Flight ID: \n");
         String flightID = sc.nextLine();
@@ -80,7 +80,7 @@ public class AdminFlightC {
         System.out.println("Flight " + flightID + " has been successfully added! Redirecting...");
 
     }
-    public void opt3() throws IOException {
+    public void cancelFlightOption() throws IOException {
         Scanner sc= new Scanner(System.in);
         System.out.print("Enter Flight ID: \n");
         String flightID = sc.nextLine();

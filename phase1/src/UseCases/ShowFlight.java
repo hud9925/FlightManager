@@ -7,9 +7,7 @@ public class ShowFlight {
     /**
      * This allows the finding of a single flight via the flight tracker, or obtaining the ID of the flight
      */
-
-    private int flightID;
-
+    
     public static Flight getFlight(String flightID) throws FlightNotFoundException {
         if (FlightTracker.verifyFlight(flightID)) {
             return FlightTracker.getFlight(flightID);
