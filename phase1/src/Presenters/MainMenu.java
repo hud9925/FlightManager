@@ -13,9 +13,8 @@ public class MainMenu {
     /**
      * Main page of the application. Prompts the user on what they want to do.
      * Takes in their username, passes their answer and their username to the associated controller.
-     * @param username the user's username
      */
-    public static void mainPage(String username) throws FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
+    public static void mainPage() throws FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
         String ans = Console.prompt(new String[] {
                 "Welcome to the air ticket reserving system!",
                 "To see a list of flights, press 1.",
@@ -23,6 +22,6 @@ public class MainMenu {
                 "To see your account details, press 3.",
                 "To exit the program, press any other key."
         });
-        new MainMenuC(ans, username);
+        new MainMenuC(ans);
     }
 }

@@ -1,7 +1,9 @@
 package Controllers;
 
 import Entities.User.TicketAlreadyExistsException;
+import Entities.User.TicketNotFoundException;
 import Presenters.FlightMenu;
+import Presenters.MainMenu;
 import Presenters.PurchaseMenu;
 import UseCases.FlightNotFoundException;
 import UseCases.GetFlightList;
@@ -15,7 +17,7 @@ public class FlightMenuC {
 
     /**
      * Takes the user's input from the FlightMenu presenter and either directs them to PurchaseMenu
-     * or allows them to exit the program.
+     * or allows them to go back to the main page.
      * @param flightId ID of the flight
      * @throws FlightNotFoundException if the flight does not exist
      * @throws TicketAlreadyExistsException if the ticket already exists
@@ -23,14 +25,16 @@ public class FlightMenuC {
     public FlightMenuC(String flightId) throws FlightNotFoundException, TicketAlreadyExistsException {
         if (GetFlightList.FlightMap().containsKey(flightId)) {
             PurchaseMenu.PurchaseMenuPrompt(flightId);
-        } else if (flightId.equals("exit")) {
-            System.out.println("Program Closing");
-            System.exit(0);
+        } else if (flightId.equalsIgnoreCase("back")) {
+            try {
+                MainMenu.mainPage();
+            } catch (TicketNotFoundException e) {
+                throw new RuntimeException(e);
+            }
         } else {
             FlightMenu.FlightError();
         }
-
     }
-    }
+}
 
 

@@ -40,7 +40,7 @@ public class LoginMenu {
         }
         else {
             if (!credPredicates.get(1)){
-                MainMenu.mainPage(username);
+                MainMenu.mainPage();
             } else {
                 AdminMenu.AdminPrompt();
             }

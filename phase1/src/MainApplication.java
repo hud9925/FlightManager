@@ -1,6 +1,7 @@
 import Entities.User.TicketAlreadyExistsException;
 import Entities.User.TicketNotFoundException;
 import Gateways.FlightTrackerConnector;
+import Gateways.TicketConnector;
 import Presenters.LoginMenu;
 import Gateways.DatabaseConnector;
 import Gateways.UserTrackerConnector;
@@ -26,6 +27,7 @@ public class MainApplication {
     public static void main(String[] args) throws IOException, ParseException, FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
         DatabaseConnector dc1 = new UserTrackerConnector();
         DatabaseConnector dc2 = new FlightTrackerConnector();
+        DatabaseConnector dc3 = new TicketConnector();
         if (dc1.checkEmpty()){ // Check if file is empty. If empty then create first admin.
             AddAdmin.addFirstAdmin();
             dc1.Save();
@@ -34,11 +36,13 @@ public class MainApplication {
             AddFlight.addFirstFlight();
             dc2.Save();
         }
-        dc2.Load();
         dc1.Load();
+        dc2.Load();
+        dc3.Load();
         // Call LoginMenu ...
         LoginMenu.loginPage();
         dc1.Save();
         dc2.Save();
+        dc3.Save();
     }
 }
