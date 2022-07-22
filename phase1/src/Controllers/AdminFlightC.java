@@ -40,7 +40,8 @@ public class AdminFlightC {
      * @param row: the number of rows of seats for this flight;
      */
     public AdminFlightC(String flightID, int col, int row) throws IOException {
-        NewFlight(flightID, col, row);
+        NewFlight(flightID, row, col);
+        System.out.println("Flight " + flightID + " has been successfully added! Redirecting...");
         AdminFlight.AdminFlightPrompt();
     }
 
@@ -71,14 +72,11 @@ public class AdminFlightC {
         Scanner sc= new Scanner(System.in);
         System.out.print("Enter Flight ID: \n");
         String flightID = sc.nextLine();
-        System.out.println("Enter column number: \n");
+        System.out.println("Enter column number (max 10): \n");
         int col = sc.nextInt();
         System.out.println("Enter row number: \n");
         int row = sc.nextInt();
-
-        new AdminFlightC(flightID, col, row);
-        System.out.println("Flight " + flightID + " has been successfully added! Redirecting...");
-
+        new AdminFlightC(flightID, col-1, row);
     }
     public void cancelFlightOption() throws IOException {
         Scanner sc= new Scanner(System.in);
