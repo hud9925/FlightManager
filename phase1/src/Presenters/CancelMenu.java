@@ -21,7 +21,10 @@ public class CancelMenu {
      */
     public static void CancelMenuPrompt() throws TicketNotFoundException {
         String username = Console.prompt("Please enter your username:");
-        if(GetTicketList.getTickets(GetUser.ReturnUser(username)).length <= 0){
+        if(GetUser.ReturnUser(username) == null){
+            System.out.println("Invalid username.\n");
+            CancelMenu.CancelMenuPrompt();
+        } else if (GetTicketList.getTickets(GetUser.ReturnUser(username)).length <= 0) {
             System.out.println("You have no tickets. Returning you to main menu...");
             try {
                 MainMenu.mainPage();

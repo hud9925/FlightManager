@@ -6,6 +6,7 @@ This will start the program, and you can follow the prompts on the terminal afte
 Any Users that you create will be automatically saved in the UserDatabase.csv file after you are done with the program.
 Any Users saved before will be automatically loaded anytime you start the program, so you can log-in using
 their username and password. To access the Admin controls, please login with the username "Administrator" and password "admin123."
+Note that most input prompts are case-sensitive (to be fixed later).
 
 Classes are organized based on Clean Architecture.
 
@@ -57,7 +58,7 @@ and separating the presenter menus from their controllers which would assign the
 
 Personal Contribution:
 
-Mani: UML diagram, Implementation of Flight/Seat/Seatmap, UserMenu/AdminMenu (and their controllers). Implementation of gateway class (DatabaseConnector) and its subclasses. Written respective javadocs for each, addition of test cases.
+Mani: UML diagram, Implementation of Flight/Seat/Seatmap, UserMenu/AdminMenu (and their controllers). Implementation of gateway class (DatabaseConnector) and its subclasses. Written respective javadocs for each, addition of test cases. General clean-up and bug-testing, matching controller and presenter cases.
 
 Daniel: FlightTracker, GetFlightList, AddFlight, CancelFlight, FlightMenu, FightMenuController, PurchaseMenu, PurchaseMenuController(still in progress), SeatViewer,
 

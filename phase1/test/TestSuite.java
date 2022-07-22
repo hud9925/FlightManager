@@ -1,13 +1,10 @@
 import Entities.Flight.Flight;
 import Entities.Flight.FlightTracker;
-import Entities.User.Customer;
-import Entities.User.User;
 import Entities.User.UserTracker;
 import UseCases.*;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 import static org.junit.Assert.*;
 
@@ -81,12 +78,5 @@ public class TestSuite {
         AddFlight.NewFlight(f1);
         assertEquals(f1, ShowFlight.getFlight("BC123"));
         assertEquals("BC123", ShowFlight.getFlightID(f1));
-    }
-    @Test(timeout = 50)
-    public void testSeeAccountDetails(){
-        User u1 = new Customer("C1", "P1", 1111, 12, 41, "ma214",
-                true);
-        assertEquals(SeeAccountDetails.AccountDetails("A1"), "User does not exist");
-        assertEquals(SeeAccountDetails.AccountDetails("P1"), u1.toString());
     }
 }
