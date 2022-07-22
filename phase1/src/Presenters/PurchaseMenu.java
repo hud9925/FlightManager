@@ -31,7 +31,8 @@ public class PurchaseMenu {
         String Ans  = Console.prompt("Please enter 'continue' to continue and purchase a ticket, or press any other character " +
                 "to leave this menu");
         if (Objects.equals(Ans, "continue")){
-            System.out.println("To Purchase a seat, Please Select a Row and Column.");
+            System.out.println(" ");
+            System.out.println("To Purchase a seat, Please Select a Row and Column individually.");
 
             Scanner SeatRow = new Scanner(System.in);
             System.out.println("Please Enter the Seat's Row Number");
