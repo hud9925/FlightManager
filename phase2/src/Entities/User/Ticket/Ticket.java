@@ -1,4 +1,4 @@
-package Entities.Ticket;
+package Entities.User.Ticket;
 
 import Entities.Flight.Flight;
 import Entities.Flight.Seat;

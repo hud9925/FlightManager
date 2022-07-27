@@ -1,6 +1,6 @@
 package UseCases;
 
-import Entities.Ticket.Ticket;
+import Entities.User.Ticket.Ticket;
 import Entities.User.TicketAlreadyExistsException;
 import Entities.User.User;
 

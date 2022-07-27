@@ -2,7 +2,7 @@ package Controllers;
 
 
 import Entities.Flight.Flight;
-import Entities.Ticket.Ticket;
+import Entities.User.Ticket.Ticket;
 import Entities.User.TicketAlreadyExistsException;
 import Presenters.LoginConfirmMenu;
 import Presenters.FlightMenu;
