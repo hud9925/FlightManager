@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="da775fb6-7d69-48d2-b9fe-b7c10713f9ef" name="Changes" comment="Added already made material (phase 0) to Phase 1 folder (including tests) and everything else">
+      <change beforePath="$PROJECT_DIR$/phase1/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phase1/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase1/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phase1/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase1/FlightDatabase.txt" beforeDir="false" afterPath="$PROJECT_DIR$/phase1/FlightDatabase.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase1/UserDatabase.csv" beforeDir="false" afterPath="$PROJECT_DIR$/phase1/UserDatabase.csv" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="29ikmBrAvXYm6abQPIaC6rWNuS0" />
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Owner/Documents/CSC207/group_0291/phase1&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Owner\Documents\CSC207\group_0291\phase1" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="da775fb6-7d69-48d2-b9fe-b7c10713f9ef" name="Changes" comment="" />
+      <created>1653603452623</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1653603452623</updated>
+      <workItem from="1653603454982" duration="287000" />
+      <workItem from="1653603815393" duration="91000" />
+      <workItem from="1653603976770" duration="55000" />
+      <workItem from="1653604117049" duration="34000" />
+      <workItem from="1653604207079" duration="44000" />
+      <workItem from="1653605435245" duration="16000" />
+      <workItem from="1653614608195" duration="1288000" />
+      <workItem from="1653857181073" duration="25000" />
+      <workItem from="1654129323046" duration="167000" />
+      <workItem from="1654560833708" duration="66000" />
+      <workItem from="1656514254980" duration="29000" />
+      <workItem from="1656514300963" duration="1316000" />
+      <workItem from="1657058283565" duration="1909000" />
+      <workItem from="1657070179010" duration="1045000" />
+      <workItem from="1658283183906" duration="16000" />
+    </task>
+    <task id="LOCAL-00001" summary="Group information file">
+      <created>1653603875638</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1653603875638</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Typo on the name of the file, so reuploaded">
+      <created>1653614827354</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1653614827354</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Typo on the name of the file, so reuploaded">
+      <created>1653615300449</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1653615300449</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added already made material (phase 0) to Phase 1 folder">
+      <created>1657070259156</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1657070259156</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added already made material (phase 0) to Phase 1 folder (including tests) and everything else">
+      <created>1657075512816</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1657075512816</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Group information file" />
+    <MESSAGE value="Typo on the name of the file, so reuploaded" />
+    <MESSAGE value="Added already made material (phase 0) to Phase 1 folder" />
+    <MESSAGE value="Added already made material (phase 0) to Phase 1 folder (including tests) and everything else" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added already made material (phase 0) to Phase 1 folder (including tests) and everything else" />
+  </component>
+</project>
