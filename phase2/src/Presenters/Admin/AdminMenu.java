@@ -1,6 +1,7 @@
-package Presenters;
+package Presenters.Admin;
 
 import Controllers.AdminMenuC;
+import Presenters.Admin.Console;
 
 import java.io.IOException;
 

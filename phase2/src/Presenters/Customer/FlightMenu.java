@@ -1,10 +1,10 @@
-package Presenters;
+package Presenters.Customer;
 
 import Controllers.FlightMenuC;
 import Entities.Flight.Flight;
 import Entities.User.TicketAlreadyExistsException;
 import UseCases.FlightNotFoundException;
-import UseCases.GetFlightList;
+import UseCases.Customer.GetFlightList;
 
 import java.util.HashMap;
 import java.util.Map;

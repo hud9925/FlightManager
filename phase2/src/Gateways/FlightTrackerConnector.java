@@ -3,7 +3,7 @@ package Gateways;
 import Entities.Flight.Flight;
 import Entities.Flight.FlightTracker;
 import Entities.Flight.Seatmap;
-import UseCases.GetFlightList;
+import UseCases.Customer.GetFlightList;
 
 import java.io.*;
 import java.time.LocalDate;

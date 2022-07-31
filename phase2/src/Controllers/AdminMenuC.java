@@ -1,7 +1,7 @@
 package Controllers;
 
-import Presenters.AdminFlight;
-import Presenters.UserMenu;
+import Presenters.Admin.AdminFlight;
+import Presenters.Admin.UserMenu;
 
 import java.io.IOException;
 

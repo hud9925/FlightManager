@@ -4,11 +4,15 @@ package Controllers;
 import Entities.Flight.Flight;
 import Entities.User.Ticket.Ticket;
 import Entities.User.TicketAlreadyExistsException;
-import Presenters.LoginConfirmMenu;
-import Presenters.FlightMenu;
+import Presenters.Customer.LoginConfirmMenu;
+import Presenters.Customer.FlightMenu;
 
-import Presenters.PurchaseMenu;
+import Presenters.Customer.PurchaseMenu;
 import UseCases.*;
+import UseCases.Admin.GetUser;
+import UseCases.Customer.BuyTicket;
+import UseCases.Customer.SeatViewer;
+import UseCases.Customer.ShowFlight;
 
 import java.util.Objects;
 

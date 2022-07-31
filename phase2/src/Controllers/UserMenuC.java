@@ -1,8 +1,8 @@
 package Controllers;
 
-import Presenters.AddAdminMenu;
-import Presenters.AdminMenu;
-import Presenters.DeleteUserMenu;
+import Presenters.Admin.AddAdminMenu;
+import Presenters.Admin.AdminMenu;
+import Presenters.Admin.DeleteUserMenu;
 
 import java.io.IOException;
 

@@ -1,6 +1,6 @@
-package Presenters;
+package Presenters.Admin;
 
-import UseCases.AddAdmin;
+import UseCases.Admin.AddAdmin;
 
 import java.io.IOException;
 

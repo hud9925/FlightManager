@@ -1,7 +1,8 @@
-package UseCases;
+package UseCases.Customer;
 
 import Entities.Flight.Flight;
 import Entities.Flight.FlightTracker;
+import UseCases.FlightNotFoundException;
 
 public class ShowFlight {
     /**

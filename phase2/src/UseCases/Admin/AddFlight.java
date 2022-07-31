@@ -1,4 +1,4 @@
-package UseCases;
+package UseCases.Admin;
 
 import Entities.Flight.Flight;
 import Entities.Flight.FlightTracker;

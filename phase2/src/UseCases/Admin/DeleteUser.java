@@ -1,4 +1,4 @@
-package UseCases;
+package UseCases.Admin;
 import Entities.User.UserTracker;
 
 // A Use Case that removes a User based on the given Username if it exists in UserTracker.

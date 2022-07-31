@@ -1,14 +1,14 @@
 package Controllers;
 
-import Presenters.AdminFlight;
-import Presenters.AdminMenu;
-import UseCases.CancelFlight;
-import UseCases.GetFlightList;
+import Presenters.Admin.AdminFlight;
+import Presenters.Admin.AdminMenu;
+import UseCases.Admin.CancelFlight;
+import UseCases.Customer.GetFlightList;
 
 import java.io.IOException;
 import java.util.Scanner;
 
-import static UseCases.AddFlight.NewFlight;
+import static UseCases.Admin.AddFlight.NewFlight;
 
 /*
  * This is the controller class for the presenter class AdminFlight, where the input from user will be sent to and

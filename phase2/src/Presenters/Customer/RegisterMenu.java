@@ -1,9 +1,9 @@
-package Presenters;
+package Presenters.Customer;
 
 import Entities.User.TicketAlreadyExistsException;
 import Entities.User.TicketNotFoundException;
 import UseCases.FlightNotFoundException;
-import UseCases.RegisterUseCase;
+import UseCases.Customer.RegisterUseCase;
 
 import java.io.IOException;
 

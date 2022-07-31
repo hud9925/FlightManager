@@ -1,6 +1,6 @@
-package Presenters;
+package Presenters.Customer;
 
-import UseCases.*;
+import UseCases.Customer.LoginUseCase;
 
 /**
  * A Presenter that Prompts the User to Re-Enter their Login Information;

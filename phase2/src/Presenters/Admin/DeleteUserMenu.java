@@ -1,6 +1,6 @@
-package Presenters;
+package Presenters.Admin;
 
-import UseCases.DeleteUser;
+import UseCases.Admin.DeleteUser;
 
 /**
  * Presenter class that prompts admin to delete a user

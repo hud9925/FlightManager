@@ -2,9 +2,12 @@ package Controllers;
 
 import Entities.User.TicketAlreadyExistsException;
 import Entities.User.TicketNotFoundException;
-import Presenters.*;
+import Presenters.Customer.CancelMenu;
+import Presenters.Customer.FlightMenu;
+import Presenters.Customer.MainMenu;
+import Presenters.Customer.UsernameMenu;
 import UseCases.FlightNotFoundException;
-import UseCases.GetUser;
+import UseCases.Admin.GetUser;
 
 /**
  * Controller class containing options for the main menu

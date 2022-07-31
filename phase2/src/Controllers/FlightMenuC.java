@@ -2,11 +2,11 @@ package Controllers;
 
 import Entities.User.TicketAlreadyExistsException;
 import Entities.User.TicketNotFoundException;
-import Presenters.FlightMenu;
-import Presenters.MainMenu;
-import Presenters.PurchaseMenu;
+import Presenters.Customer.FlightMenu;
+import Presenters.Customer.MainMenu;
+import Presenters.Customer.PurchaseMenu;
 import UseCases.FlightNotFoundException;
-import UseCases.GetFlightList;
+import UseCases.Customer.GetFlightList;
 
 
 /**
