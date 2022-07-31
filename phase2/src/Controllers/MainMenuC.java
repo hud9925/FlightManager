@@ -38,7 +38,7 @@ public class MainMenuC {
      * First option method: directs user to the flight menu
      */
     public void flightMenuOption() throws FlightNotFoundException, TicketAlreadyExistsException {
-        new FlightMenu();
+        FlightMenu.FlightMenuPrompt();
     }
     /**
      * Second option method: directs user to the cancel menu

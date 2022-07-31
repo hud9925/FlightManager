@@ -58,7 +58,7 @@ public class PurchaseMenu {
             }
 
         } else {
-            new FlightMenu();
+            FlightMenu.FlightMenuPrompt();
         }
 
     }

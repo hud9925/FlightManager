@@ -31,12 +31,22 @@ public class AdminMenuC {
         }
     }
 
+    /**
+     * Option method redirecting the admin to the user menu
+     */
     public void userMenuOption() throws IOException {
         UserMenu.UserMenuPrompt();
     }
+
+    /**
+     * Option method redirecting the admin to the flight menu
+     */
     public void adminFlightOption() throws IOException {
         AdminFlight.AdminFlightPrompt();
     }
+    /**
+     * Option method that notifies the admin about quitting the program
+     */
     public void exit(){
         System.out.println("Exiting the program...");
     }

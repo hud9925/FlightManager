@@ -34,9 +34,8 @@ public class UserMenuC {
 
     /**
      * Option method 1: Directs admin to delete user menu and its prompt
-     * @throws IOException disregards any input that is invalid
      */
-    public void option1() throws IOException {
+    public void option1() {
         DeleteUserMenu.RemovingUserPrompt();
     }
     /**

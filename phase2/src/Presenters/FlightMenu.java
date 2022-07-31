@@ -14,11 +14,12 @@ import java.util.Map;
  */
 
 public class FlightMenu {
+
     /**
-     * Presents All Available Flights(by their ID) with its Arrival Location, as a map,
-     * and Sends User Input to Controller Class
-     */
-    public FlightMenu() throws FlightNotFoundException, TicketAlreadyExistsException {
+    * Presents All Available Flights(by their ID) with its Arrival Location, as a map,
+    * and Sends User Input to Controller Class
+    */
+    public static void FlightMenuPrompt() throws FlightNotFoundException, TicketAlreadyExistsException {
         Map<String, String> destinations = new HashMap<>();
         for (Map.Entry<String, Flight> flight: GetFlightList.FlightMap().entrySet()){
             String flightKey = flight.getKey();
@@ -35,6 +36,7 @@ public class FlightMenu {
                 "leave this menu: ");
         new FlightMenuC(ans);
     }
+
 
     /**
      * Error prompt that arises if the ID inputted by the user does not correspond with an existing

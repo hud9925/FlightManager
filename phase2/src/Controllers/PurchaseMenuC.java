@@ -43,7 +43,7 @@ public class PurchaseMenuC {
                 PurchaseMenu.PurchaseMenuPrompt(ShowFlight.getFlightID(flight));
             }
             else{
-                new FlightMenu();
+                FlightMenu.FlightMenuPrompt();
             }
         }
 

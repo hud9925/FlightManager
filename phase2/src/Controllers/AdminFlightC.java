@@ -15,6 +15,10 @@ import static UseCases.AddFlight.NewFlight;
  * being processed, i.e. add flight, cancel flight, return to upper level menu
  */
 public class AdminFlightC {
+    /**
+     * Constructor for AdminFlight Controller, takes in user's choice and assigns it to different options
+     * @param whichChoice The user's choice
+     */
     public AdminFlightC(int whichChoice) throws IOException {
         switch (whichChoice){
             case 0:
@@ -34,7 +38,7 @@ public class AdminFlightC {
     }
 
     /**
-     * Second Constructor for AdminFlight Controller, if the input from client is 2, i.e. adding flight.
+     * Helper method creating a new flight based on user input and redirecting the user to the menu prompt
      * @param flightID: the ID of the single flight want to be added;
      * @param col: the number of columns of seats for this flight;
      * @param row: the number of rows of seats for this flight;
@@ -46,7 +50,8 @@ public class AdminFlightC {
     }
 
     /**
-     * Third Constructor for AdminFlight Controller, if the input from client is 3, i.e. canceling flight.
+     * Helper method cancelling a new flight based on input flight ID and redirecting the user to the menu prompt
+     * Notifies if a flight with the given ID does not exist
      * @param flightID: the ID of the flight, if existing.
      */
     public static void CancelFlightResult(String flightID) throws IOException {
@@ -59,15 +64,24 @@ public class AdminFlightC {
         AdminFlight.AdminFlightPrompt();
     }
 
+    /**
+     * Method that redirects admin to the main admin menu
+     */
     public void adminMenuOption() throws IOException {
         AdminMenu.AdminPrompt();
     }
 
+    /**
+     * Method that shows the current flight list, then redirects admin to the flight prompt menu
+     */
     public void adminFlightOption() throws IOException {
         System.out.println(GetFlightList.FlightMap());
         AdminFlight.AdminFlightPrompt();
     }
 
+    /**
+     * Method that asks the admin for flight information, then calls helper method to create the flight
+     */
     public void addFlightOption() throws IOException {
         Scanner sc= new Scanner(System.in);
         System.out.print("Enter Flight ID: \n");
@@ -78,6 +92,10 @@ public class AdminFlightC {
         int row = sc.nextInt();
         AdminFlightC.AddFlightResult(flightID, col-1, row);
     }
+
+    /**
+     * Method that asks the admin for flight ID to be cancelled, then calls helper method to cancel the flight
+     */
     public void cancelFlightOption() throws IOException {
         Scanner sc= new Scanner(System.in);
         System.out.print("Enter Flight ID: \n");
