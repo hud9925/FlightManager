@@ -39,7 +39,7 @@ public class AdminFlightC {
      * @param col: the number of columns of seats for this flight;
      * @param row: the number of rows of seats for this flight;
      */
-    public AdminFlightC(String flightID, int col, int row) throws IOException {
+    public static void AddFlightResult(String flightID, int col, int row) throws IOException {
         NewFlight(flightID, row, col);
         System.out.println("Flight " + flightID + " has been successfully added! Redirecting...");
         AdminFlight.AdminFlightPrompt();
@@ -49,7 +49,7 @@ public class AdminFlightC {
      * Third Constructor for AdminFlight Controller, if the input from client is 3, i.e. canceling flight.
      * @param flightID: the ID of the flight, if existing.
      */
-    public AdminFlightC(String flightID) throws IOException {
+    public static void CancelFlightResult(String flightID) throws IOException {
         boolean pred = CancelFlight.RemoveFlight(flightID);
         if (pred) {
             System.out.println("Flight " + flightID + " has been removed successfully! Redirecting...");
@@ -76,14 +76,13 @@ public class AdminFlightC {
         int col = sc.nextInt();
         System.out.println("Enter row number: \n");
         int row = sc.nextInt();
-        new AdminFlightC(flightID, col-1, row);
+        AdminFlightC.AddFlightResult(flightID, col-1, row);
     }
     public void cancelFlightOption() throws IOException {
         Scanner sc= new Scanner(System.in);
         System.out.print("Enter Flight ID: \n");
         String flightID = sc.nextLine();
-
-        new AdminFlightC(flightID);
+        AdminFlightC.CancelFlightResult(flightID);
 
     }
 
