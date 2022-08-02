@@ -11,6 +11,7 @@ import UseCases.Customer.RegisterUseCase;
 import UseCases.Customer.ShowFlight;
 import org.junit.Test;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import static org.junit.Assert.*;
@@ -24,7 +25,8 @@ public class TestSuite {
     }
     @Test(timeout = 50)
     public void testAddNewAdmin(){
-        AddAdmin.NewAdmin("someone", "probably", 2111, 12, 31, "amy");
+        AddAdmin.NewAdmin("someone", "probably", LocalDate.of(2000,10,20),
+                "amy");
         assertEquals(UserTracker.getTotalUserCount(),1);
 
         UserTracker ut3 = new UserTracker("someone");
@@ -62,13 +64,15 @@ public class TestSuite {
     }
     @Test(timeout = 50)
     public void testReturnUser(){
-        AddAdmin.NewAdmin("someone", "probably", 2111, 12, 31, "amy");
+        AddAdmin.NewAdmin("someone", "probably",  LocalDate.of(2000,10,20),
+                "amy");
         assertEquals(GetUser.ReturnUser("someone").getUsername(), "someone");
 
     }
     @Test(timeout = 50)
     public void testLoginUseCase(){
-        AddAdmin.NewAdmin("someone", "probably", 2111, 12, 31, "amy");
+        AddAdmin.NewAdmin("someone", "probably",  LocalDate.of(2000,10,20),
+                "amy");
         ArrayList<Boolean> Predicates = new ArrayList<>();
         Predicates.add(true);
         Predicates.add(true);
@@ -76,8 +80,10 @@ public class TestSuite {
     }
     @Test(timeout = 50)
     public void testRegisterUseCase(){
-        assertTrue(RegisterUseCase.NewUser("C1", "P1", 1111, 12, 41, "ma214"));
-        assertFalse(RegisterUseCase.NewUser("C1", "P1", 1111, 12, 41, "ma214"));
+        assertTrue(RegisterUseCase.NewUser("C1", "P1", LocalDate.of(1111, 12, 21)
+                , "ma214"));
+        assertFalse(RegisterUseCase.NewUser("C1", "P1", LocalDate.of(1111, 12, 21)
+                , "ma214"));
     }
     @Test(timeout = 50)
     public void testShowFlight() throws FlightNotFoundException {

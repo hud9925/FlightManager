@@ -2,6 +2,7 @@ package Entities.User;
 
 import Entities.User.Ticket.Ticket;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -19,7 +20,7 @@ abstract public class User {
     /**
      * The date of birth of this User, stored in the format int[] {birthYear, birthMonth, birthDay}.
      */
-    private final int[] dob;
+    private final LocalDate dob;
     /**
      * The email address of this User.
      */
@@ -61,17 +62,14 @@ abstract public class User {
      *
      * @param  username The username of the User.
      * @param  password The password of the User.
-     * @param  birthYear The year of birth as an integer.
-     * @param  birthMonth The month of birth as an integer.
-     * @param  birthDay The day of birth as an integer.
      * @param  email The email of the User.
      * @param  isMember A boolean indicating whether this User is a member.
      */
-    public User (String username, String password, int birthYear, int birthMonth, int birthDay, String email,
+    public User (String username, String password, LocalDate dob, String email,
                  boolean isMember) {
         this.username = username;
         this.password = password;
-        this.dob= new int[] {birthYear, birthMonth, birthDay};
+        this.dob= dob;
         this.email = email;
         this.isMember = isMember;
         this.address = "";
@@ -90,6 +88,8 @@ abstract public class User {
         return this.username;
     }
 
+    public LocalDate getDob(){return this.dob;}
+
     /**
      * Get the password of this User.
      *
@@ -99,32 +99,6 @@ abstract public class User {
         return this.password;
     }
 
-    /**
-     * Get the birth day of this User.
-     *
-     * @return An integer representing the day of birth of this User.
-     */
-    public int getBirthDay () {
-        return this.dob[2];
-    }
-
-    /**
-     * Get the birth month of this User.
-     *
-     * @return An integer representing the month of birth of this User.
-     */
-    public int getBirthMonth () {
-        return this.dob[1];
-    }
-
-    /**
-     * Get the birth year of this User.
-     *
-     * @return An integer representing the year of birth of this User.
-     */
-    public int getBirthYear () {
-        return this.dob[0];
-    }
 
     /**
      * Get the email of this User.
@@ -351,8 +325,8 @@ abstract public class User {
             String dateStr = String.valueOf(d.getTime());
             dateStrs.append(dateStr).append("|");
         }
-        return this.getUsername() + "," + this.getPassword() + "," + this.getBirthYear() + ","
-                + this.getBirthMonth() + "," + this.getBirthDay() + "," + this.getEmail() + "," + this.getMemberStatus()
+        return this.getUsername() + "," + this.getPassword() + "," + this.getDob()
+                + "," + this.getEmail() + "," + this.getMemberStatus()
                 + "," + this.getAddress() + "," + dateStrs + "," + (this.isAdmin()?"true":"false");
     }
 }

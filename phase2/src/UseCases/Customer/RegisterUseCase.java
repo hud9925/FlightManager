@@ -3,6 +3,8 @@ package UseCases.Customer;
 import Entities.User.Customer;
 import Entities.User.UserTracker;
 
+import java.time.LocalDate;
+
 /* The code below is used to register a new general User
  * and adds it to UserTracker */
 
@@ -15,19 +17,16 @@ RegisterUseCase {
      * the user is not added again.
      * @param Username username of the new user
      * @param Password password of the new user
-     * @param Year birth year of the new user
-     * @param Month birth month of the new user
-     * @param Day birthday of the new user
      * @param Email email address of the new user
      * @return the new user
      */
-    public static boolean NewUser(String Username, String Password, int Year, int Month, int Day, String Email){
+    public static boolean NewUser(String Username, String Password, LocalDate dob, String Email){
 //      Checks if username or email exists in UserTracker
         if (new UserTracker(Username).userExists()){
             return false;
         } else {
 //          User does not exist. Register as new user.
-            Customer newUser = new Customer(Username, Password, Year, Month, Day, Email, false);
+            Customer newUser = new Customer(Username, Password, dob, Email, false);
             newUser.updateDateList();
             UserTracker.addUser(newUser);
             return true;
