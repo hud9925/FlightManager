@@ -9,19 +9,25 @@ public class FlightTracker {
     /**
      Hashmap that maps the Flight Id as the key, and the value being the flight itself
      */
-    private static final Map<String, Flight> flightMap = new HashMap<>();
+    private Map<String, Flight> flightMap = new HashMap<>();
+    private static final FlightTracker instance = new FlightTracker();
+    private FlightTracker(){}
+
+    public static FlightTracker getInstance() {
+        return instance;
+    }
 
     /**
      Adds a flight to the map
      */
-    public static void addFlight(Flight newFlight){
+    public void addFlight(Flight newFlight){
         // adds a new flight to the Map
         flightMap.put(newFlight.getFlightid(), newFlight);
     }
     /**
      Returns the number of current flights
      */
-    public static int numFlights(){
+    public int numFlights(){
         return flightMap.size();
     }
     /**
@@ -29,31 +35,27 @@ public class FlightTracker {
      If present, the flight is removed and returns True.
      Else, returns False
      */
-    public static boolean removeFlight(String idNum){
+    public boolean removeFlight(String idNum){
         return flightMap.remove(idNum) != null;
     }
     /**
      Verifies if a flight with the inputted ID exists, returning a boolean
      */
 
-    public static boolean verifyFlight(String idNum){
+    public boolean verifyFlight(String idNum){
         return flightMap.containsKey(idNum);
     }
     /**
     A Getter that returns the FlightMap
      */
-    public static HashMap<String, Flight> GetFlights(){
-        return (HashMap<String, Flight>) flightMap;
-
-    }
+    public Map<String, Flight> GetFlights(){return flightMap;}
     /**
      Getter to retrieve the flight associated with the inputted Id
      */
-    public static Flight getFlight(String idNum){
+    public Flight getFlight(String idNum){
         if (verifyFlight(idNum)){
             return flightMap.get(idNum);
         }
         return null;
     }
-
-    }
+}

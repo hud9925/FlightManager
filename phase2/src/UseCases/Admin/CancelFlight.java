@@ -14,6 +14,6 @@ public class CancelFlight {
      * @return the flight's cancellation status
      */
     public static boolean RemoveFlight(String id){
-        return FlightTracker.removeFlight(id);
+        return FlightTracker.getInstance().removeFlight(id);
     }
 }

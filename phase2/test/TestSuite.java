@@ -37,15 +37,15 @@ public class TestSuite {
     @Test(timeout = 50)
     public void testAddFirstFlight(){
         AddFlight.addFirstFlight();
-        assertEquals(FlightTracker.numFlights(),1);
-        assertTrue(FlightTracker.verifyFlight("AB123"));
+        assertEquals(FlightTracker.getInstance().numFlights(),1);
+        assertTrue(FlightTracker.getInstance().verifyFlight("AB123"));
     }
 
     @Test(timeout = 50)
     public void testAddFlight(){
         Flight f1 = new Flight("BC123", 8, 8);
         AddFlight.NewFlight(f1);
-        assertTrue(FlightTracker.verifyFlight("BC123"));
+        assertTrue(FlightTracker.getInstance().verifyFlight("BC123"));
     }
     @Test(timeout = 50)
     public void testRemoveUser(){
@@ -59,7 +59,7 @@ public class TestSuite {
         Flight f2 = new Flight("AC546", 5, 3);
         AddFlight.NewFlight(f2);
         CancelFlight.RemoveFlight("AC546");
-        assertNull(FlightTracker.getFlight("AC546"));
+        assertNull(FlightTracker.getInstance().getFlight("AC546"));
 
     }
     @Test(timeout = 50)

@@ -50,7 +50,7 @@ public class FlightTrackerConnector extends DatabaseConnector {
             Seatmap newseatmap = lineToSeatmap(line);
             Flight newflight = lineToFlight(flightdata, newseatmap);
             newflight.setSeats(newseatmap);
-            FlightTracker.addFlight(newflight);
+            FlightTracker.getInstance().addFlight(newflight);
         }
         br.close();
     }

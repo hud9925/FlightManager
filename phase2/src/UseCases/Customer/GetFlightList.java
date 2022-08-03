@@ -18,16 +18,14 @@ public class GetFlightList {
      * @return the map of flights
      */
     public static Map<String, Flight> FlightMap(){
-        return FlightTracker.GetFlights();
+        return FlightTracker.getInstance().GetFlights();
     }
 
     /**
      * Returns the number of current flights saved to FlightTracker.
      * @return the total number of flights
      */
-    public int NumFlights() {
-        return FlightTracker.numFlights();
-    }
+    public int NumFlights() {return FlightTracker.getInstance().numFlights();}
 
     /**
      * Returns a map containing the flight's information (airline, locations, date, duration).
@@ -36,11 +34,12 @@ public class GetFlightList {
      */
     public static Map<String, Object> FlightInfo(String id){
         HashMap<String, Object> info = new HashMap<>();
-        info.put("Airline:", (Objects.requireNonNull(FlightTracker.getFlight(id))).getAirline());
-        info.put("Arrival Location:", Objects.requireNonNull(FlightTracker.getFlight(id)).getArrivallocation());
-        info.put("Departure Location:", Objects.requireNonNull(FlightTracker.getFlight(id)).getDeparturelocation());
-        info.put("Departure Date:", Objects.requireNonNull(FlightTracker.getFlight(id)).getDeparturedate());
-        info.put("Flight Duration:", Objects.requireNonNull(FlightTracker.getFlight(id)).getDuration());
+        Flight flight = FlightTracker.getInstance().getFlight(id);
+        info.put("Airline:", Objects.requireNonNull(flight).getAirline());
+        info.put("Arrival Location:", Objects.requireNonNull(flight).getArrivallocation());
+        info.put("Departure Location:", Objects.requireNonNull(flight).getDeparturelocation());
+        info.put("Departure Date:", Objects.requireNonNull(flight).getDeparturedate());
+        info.put("Flight Duration:", Objects.requireNonNull(flight).getDuration());
     return info;
 
     }

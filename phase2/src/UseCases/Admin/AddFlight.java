@@ -14,7 +14,7 @@ public class AddFlight {
      * @param newFlight the flight being added
      */
     public static void NewFlight(Flight newFlight){
-        FlightTracker.addFlight(newFlight);
+        FlightTracker.getInstance().addFlight(newFlight);
     }
 
     public static void NewFlight(String ID, int col, int rows){
@@ -29,6 +29,6 @@ public class AddFlight {
         Flight defaultflight = new Flight("AB123", 5, 5);
         defaultflight.setDeparturedate(LocalDate.now());
         defaultflight.setDuration(LocalTime.now());
-        FlightTracker.addFlight(defaultflight);
+        FlightTracker.getInstance().addFlight(defaultflight);
     }
 }
