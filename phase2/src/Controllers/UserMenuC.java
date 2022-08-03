@@ -1,8 +1,8 @@
 package Controllers;
 
-import Presenters.AddAdminMenu;
-import Presenters.AdminMenu;
-import Presenters.DeleteUserMenu;
+import Presenters.Admin.AddAdminMenu;
+import Presenters.Admin.AdminMenu;
+import Presenters.Admin.DeleteUserMenu;
 
 import java.io.IOException;
 
@@ -34,9 +34,8 @@ public class UserMenuC {
 
     /**
      * Option method 1: Directs admin to delete user menu and its prompt
-     * @throws IOException disregards any input that is invalid
      */
-    public void option1() throws IOException {
+    public void option1() {
         DeleteUserMenu.RemovingUserPrompt();
     }
     /**

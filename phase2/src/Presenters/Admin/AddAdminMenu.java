@@ -1,8 +1,9 @@
-package Presenters;
+package Presenters.Admin;
 
-import UseCases.AddAdmin;
+import UseCases.Admin.AddAdmin;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 /**
  * Presenter class that prompts admin to create a new Admin, takes their input and creates an admin
@@ -27,9 +28,8 @@ public class AddAdminMenu {
                 "^((0?[1-9])|([12]\\d)|(3[01]))$");
         String email = Console.prompt("Please enter the new admin's email address: ",
                 "^[^@]+@[^@]+\\.[^@]+$");
-
-        AddAdmin.NewAdmin(username, password, Integer.parseInt(year), Integer.parseInt(month),
-                Integer.parseInt(day), email);
+        String dob = year + "-" + month + "-" + day;
+        AddAdmin.NewAdmin(username, password, LocalDate.parse(dob), email);
 
         System.out.println("Admin Created!");
         UserMenu.UserMenuPrompt();

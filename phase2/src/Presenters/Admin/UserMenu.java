@@ -1,7 +1,7 @@
-package Presenters;
+package Presenters.Admin;
 
 import Controllers.UserMenuC;
-import UseCases.GetUser;
+import UseCases.Admin.GetUser;
 
 import java.io.IOException;
 

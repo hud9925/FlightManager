@@ -6,6 +6,7 @@ import Entities.User.User;
 import Entities.User.UserTracker;
 
 import java.io.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -59,12 +60,10 @@ public class UserTrackerConnector extends DatabaseConnector {
         User newUser;
         String [] userinfo = line.split(",");
         if (userinfo[9].equals("true")){
-            newUser = new Admin(userinfo[0], userinfo[1], Integer.parseInt(userinfo[2]),
-                    Integer.parseInt(userinfo[3]), Integer.parseInt(userinfo[4]), userinfo[5]);
+            newUser = new Admin(userinfo[0], userinfo[1], LocalDate.parse(userinfo[2]), userinfo[3]);
         } else {
-            newUser = new Customer(userinfo[0], userinfo[1], Integer.parseInt(userinfo[2]),
-                    Integer.parseInt(userinfo[3]), Integer.parseInt(userinfo[4]), userinfo[5],
-                    Boolean.parseBoolean(userinfo[6]));
+            newUser = new Customer(userinfo[0], userinfo[1], LocalDate.parse(userinfo[2]), userinfo[3],
+                    Boolean.parseBoolean(userinfo[4]));
         }
         newUser.changeAddress(userinfo[7]);
         String[] previousDates = userinfo[8].split("\\|");

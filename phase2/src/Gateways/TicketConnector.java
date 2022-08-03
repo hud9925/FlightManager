@@ -7,9 +7,9 @@ import Entities.User.TicketAlreadyExistsException;
 import Entities.User.User;
 import Entities.User.UserTracker;
 import UseCases.FlightNotFoundException;
-import UseCases.GetUser;
-import UseCases.SeatViewer;
-import UseCases.ShowFlight;
+import UseCases.Admin.GetUser;
+import UseCases.Customer.SeatViewer;
+import UseCases.Customer.ShowFlight;
 
 import java.io.*;
 import java.util.ArrayList;

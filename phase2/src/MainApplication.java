@@ -2,11 +2,11 @@ import Entities.User.TicketAlreadyExistsException;
 import Entities.User.TicketNotFoundException;
 import Gateways.FlightTrackerConnector;
 import Gateways.TicketConnector;
-import Presenters.LoginMenu;
+import Presenters.Customer.LoginMenu;
 import Gateways.DatabaseConnector;
 import Gateways.UserTrackerConnector;
-import UseCases.AddAdmin;
-import UseCases.AddFlight;
+import UseCases.Admin.AddAdmin;
+import UseCases.Admin.AddFlight;
 import UseCases.FlightNotFoundException;
 
 import java.io.IOException;

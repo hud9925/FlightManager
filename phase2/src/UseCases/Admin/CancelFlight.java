@@ -1,4 +1,4 @@
-package UseCases;
+package UseCases.Admin;
 
 // A Use Case That Cancels a Current Flight in FlightTracker based on the inputted Flight ID
 
@@ -14,6 +14,6 @@ public class CancelFlight {
      * @return the flight's cancellation status
      */
     public static boolean RemoveFlight(String id){
-        return FlightTracker.removeFlight(id);
+        return FlightTracker.getInstance().removeFlight(id);
     }
 }

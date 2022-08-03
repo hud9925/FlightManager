@@ -1,4 +1,4 @@
-package UseCases;
+package UseCases.Admin;
 
 import Entities.User.User;
 import Entities.User.UserTracker;

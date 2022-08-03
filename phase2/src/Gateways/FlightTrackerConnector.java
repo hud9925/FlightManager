@@ -3,7 +3,7 @@ package Gateways;
 import Entities.Flight.Flight;
 import Entities.Flight.FlightTracker;
 import Entities.Flight.Seatmap;
-import UseCases.GetFlightList;
+import UseCases.Customer.GetFlightList;
 
 import java.io.*;
 import java.time.LocalDate;
@@ -50,7 +50,7 @@ public class FlightTrackerConnector extends DatabaseConnector {
             Seatmap newseatmap = lineToSeatmap(line);
             Flight newflight = lineToFlight(flightdata, newseatmap);
             newflight.setSeats(newseatmap);
-            FlightTracker.addFlight(newflight);
+            FlightTracker.getInstance().addFlight(newflight);
         }
         br.close();
     }

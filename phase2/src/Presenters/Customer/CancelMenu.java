@@ -1,11 +1,11 @@
-package Presenters;
+package Presenters.Customer;
 
 import Controllers.CancelMenuC;
 import Entities.User.TicketAlreadyExistsException;
 import Entities.User.TicketNotFoundException;
 import UseCases.FlightNotFoundException;
-import UseCases.GetTicketList;
-import UseCases.GetUser;
+import UseCases.Customer.GetTicketList;
+import UseCases.Admin.GetUser;
 
 import java.util.Arrays;
 
