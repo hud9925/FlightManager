@@ -20,6 +20,7 @@ public class MainMenu {
                 "To see a list of flights, press 1.",
                 "To cancel a ticket, press 2.",
                 "To see your account details, press 3.",
+                "To open the membership dashboard, press 4",
                 "To exit the program, press any other key."
         });
         new MainMenuC(ans);
