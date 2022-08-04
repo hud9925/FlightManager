@@ -2,10 +2,7 @@ package Controllers;
 
 import Entities.User.TicketAlreadyExistsException;
 import Entities.User.TicketNotFoundException;
-import Presenters.Customer.CancelMenu;
-import Presenters.Customer.FlightMenu;
-import Presenters.Customer.MainMenu;
-import Presenters.Customer.UsernameMenu;
+import Presenters.Customer.*;
 import UseCases.FlightNotFoundException;
 import UseCases.Admin.GetUser;
 
@@ -30,6 +27,9 @@ public class MainMenuC {
                 break;
             case "3":
                 this.accountInfoOption();
+                break;
+            case "4":
+                this.membershipMenuOption();
                 break;
             default:
                 this.exit();
@@ -65,6 +65,12 @@ public class MainMenuC {
         } catch (FlightNotFoundException | TicketAlreadyExistsException | TicketNotFoundException e) {
             throw new RuntimeException(e);
         }
+    }
+    /**
+     * Fourth option method: directs the user to the Membership Menu.
+     */
+    public void membershipMenuOption(){
+        MembershipMenu.MembershipMenuPrompt();
     }
     /**
      * Exit option: displays a message.

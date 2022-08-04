@@ -22,12 +22,6 @@ public class GetFlightList {
     }
 
     /**
-     * Returns the number of current flights saved to FlightTracker.
-     * @return the total number of flights
-     */
-    public int NumFlights() {return FlightTracker.getInstance().numFlights();}
-
-    /**
      * Returns a map containing the flight's information (airline, locations, date, duration).
      * @param id the ID of the flight to parse
      * @return the flight's information
