@@ -13,7 +13,7 @@ public class CancelFlight {
      * @param id ID of the cancelled flight
      * @return the flight's cancellation status
      */
-    public static boolean RemoveFlight(String id){
+    public static boolean removeFlight(String id){
         return FlightTracker.getInstance().removeFlight(id);
     }
 }

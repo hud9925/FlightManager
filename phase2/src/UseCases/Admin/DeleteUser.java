@@ -9,7 +9,7 @@ public class DeleteUser {
      * @param Username username of the user being deleted
      * @return the user's cancellation status
      */
-    public static boolean RemoveUser(String Username){
+    public static boolean removeUser(String Username){
         UserTracker ut = new UserTracker(Username);
         if (ut.userExists()){
             ut.removeCurrentUser();

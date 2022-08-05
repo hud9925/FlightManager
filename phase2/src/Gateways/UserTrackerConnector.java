@@ -26,7 +26,7 @@ public class UserTrackerConnector extends DatabaseConnector {
      * @throws IOException - in case of meaningless input
      */
     @Override
-    public void Save() throws IOException {
+    public void save() throws IOException {
         PrintWriter pw = new PrintWriter(new FileWriter(this.filepath));
         for(User user : new UserTracker()){
             pw.write(user.toString() + "\n");
@@ -40,7 +40,7 @@ public class UserTrackerConnector extends DatabaseConnector {
      * @throws IOException - in case of meaningless input
      */
     @Override
-    public void Load() throws IOException {
+    public void load() throws IOException {
 //        String filepath = String.valueOf(Paths.get("UserDatabase.csv").toAbsolutePath());
         BufferedReader br = new BufferedReader(new FileReader(this.filepath));
         String line;

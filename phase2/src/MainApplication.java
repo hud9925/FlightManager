@@ -30,19 +30,19 @@ public class MainApplication {
         DatabaseConnector dc3 = new TicketConnector();
         if (dc1.checkEmpty()){ // Check if file is empty. If empty then create first admin.
             AddAdmin.addFirstAdmin();
-            dc1.Save();
+            dc1.save();
         }
         if (dc2.checkEmpty()){
             AddFlight.addFirstFlight();
-            dc2.Save();
+            dc2.save();
         }
-        dc1.Load();
-        dc2.Load();
-        dc3.Load();
+        dc1.load();
+        dc2.load();
+        dc3.load();
         // Call LoginMenu ...
         LoginMenu.loginPage();
-        dc1.Save();
-        dc2.Save();
-        dc3.Save();
+        dc1.save();
+        dc2.save();
+        dc3.save();
     }
 }

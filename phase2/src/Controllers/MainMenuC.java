@@ -41,13 +41,13 @@ public class MainMenuC {
      * First option method: directs user to the flight menu
      */
     public void flightMenuOption() throws FlightNotFoundException, TicketAlreadyExistsException {
-        FlightMenu.FlightMenuPrompt();
+        FlightMenu.flightMenuPrompt();
     }
     /**
      * Second option method: directs user to the cancel menu
      */
     public void cancelMenuOption() throws TicketNotFoundException {
-        CancelMenu.CancelMenuPrompt();
+        CancelMenu.cancelMenuPrompt();
     }
     /**
      * Third option method: formats and displays the user's stored information
@@ -55,7 +55,7 @@ public class MainMenuC {
      */
     public void accountInfoOption(){
         String username = UsernameMenu.getUsernamePrompt();
-        String[] userdata = GetUser.ReturnUser(username).toString().split(",");
+        String[] userdata = GetUser.returnUser(username).toString().split(",");
         System.out.println("Username: " + userdata[0] + "\nPassword: " + userdata[1] + "\nBirthday: " + userdata[2] +
                 "/" + userdata[3] + "/" + userdata[4] + "\nEmail: " + userdata[5] + "\nMember" +
                 " Status: " + userdata[6] + "\nAddress: " + userdata[7] + "\nLogin dates: " + userdata[8] + "\n" +
@@ -70,7 +70,7 @@ public class MainMenuC {
      * Fourth option method: directs the user to the Membership Menu.
      */
     public void membershipMenuOption(){
-        MembershipMenu.MembershipMenuPrompt();
+        MembershipMenu.membershipMenuPrompt();
     }
     /**
      * Exit option: displays a message.

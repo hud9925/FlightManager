@@ -27,7 +27,7 @@ public class TicketConnector extends DatabaseConnector{
     }
 
     @Override
-    public void Save() throws IOException {
+    public void save() throws IOException {
         List<String> allTickets = new ArrayList<>();
         for(User user: new UserTracker()){
             for(Ticket ticket: user.getTickets()){
@@ -42,7 +42,7 @@ public class TicketConnector extends DatabaseConnector{
     }
 
     @Override
-    public void Load() throws IOException {
+    public void load() throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(this.filepath));
         String line;
         while((line = br.readLine())!= null) {
@@ -63,7 +63,7 @@ public class TicketConnector extends DatabaseConnector{
         try {
             flight = ShowFlight.getFlight(ticketData[0]);
             seat = SeatViewer.getSeat(flight, ticketData[2]);
-            buyer = GetUser.ReturnUser(ticketData[3]);
+            buyer = GetUser.returnUser(ticketData[3]);
         } catch (FlightNotFoundException e) {
             throw new RuntimeException(e);
         }

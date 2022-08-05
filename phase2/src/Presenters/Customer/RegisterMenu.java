@@ -30,7 +30,7 @@ public class RegisterMenu {
                 "^[^@]+@[^@]+\\.[^@]+$");
 
 
-        if (!RegisterUseCase.NewUser(username, password, LocalDate.parse(year + "-" + month + "-" + day),
+        if (!RegisterUseCase.newUser(username, password, LocalDate.parse(year + "-" + month + "-" + day),
                 email)){ //false = Username is already registered.
             String ans = Console.prompt(new String[]{
                     "An account with this username already exists. Please try again.",

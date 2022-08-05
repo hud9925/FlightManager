@@ -14,7 +14,7 @@ public class SeatViewer {
      * Returns a Static String Representation of the Seatmap
      */
 
-    public static String StringRepresentation(Flight flight) {
+    public static String stringRepresentation(Flight flight) {
         String[] Columns = {"A", "B", "C", "D", "E", "F", "G", "H", "J", "K"};
         StringBuilder StringRep = new StringBuilder();
         for (int row = 0; row <flight.getSeats().getRows(); row++) {

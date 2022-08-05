@@ -19,12 +19,12 @@ public class CancelMenu {
      * Menu that allows a user to cancel their flight.
      * @throws TicketNotFoundException if the input ticket does not exist
      */
-    public static void CancelMenuPrompt() throws TicketNotFoundException {
+    public static void cancelMenuPrompt() throws TicketNotFoundException {
         String username = Console.prompt("Please enter your username:");
-        if(GetUser.ReturnUser(username) == null){
+        if(GetUser.returnUser(username) == null){
             System.out.println("Invalid username.\n");
-            CancelMenu.CancelMenuPrompt();
-        } else if (GetTicketList.getTickets(GetUser.ReturnUser(username)).length <= 0) {
+            CancelMenu.cancelMenuPrompt();
+        } else if (GetTicketList.getTickets(GetUser.returnUser(username)).length <= 0) {
             System.out.println("You have no tickets. Returning you to main menu...");
             try {
                 MainMenu.mainPage();
@@ -33,7 +33,7 @@ public class CancelMenu {
             }
         } else {
             String ticketID = Console.prompt(new String[]{
-                    Arrays.toString(GetTicketList.getTickets(GetUser.ReturnUser(username))),
+                    Arrays.toString(GetTicketList.getTickets(GetUser.returnUser(username))),
                     "Please enter your ID of ticket you are going to cancel:"
             });
             int ticketIDHash = Integer.parseInt(ticketID);

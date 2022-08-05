@@ -19,11 +19,11 @@ public class FlightMenu {
     * Presents All Available Flights(by their ID) with its Arrival Location, as a map,
     * and Sends User Input to Controller Class
     */
-    public static void FlightMenuPrompt() throws FlightNotFoundException, TicketAlreadyExistsException {
+    public static void flightMenuPrompt() throws FlightNotFoundException, TicketAlreadyExistsException {
         Map<String, String> destinations = new HashMap<>();
-        for (Map.Entry<String, Flight> flight: GetFlightList.FlightMap().entrySet()){
+        for (Map.Entry<String, Flight> flight: GetFlightList.flightMap().entrySet()){
             String flightKey = flight.getKey();
-            String destination = flight.getValue().getArrivallocation();
+            String destination = flight.getValue().getArrivalLocation();
             destinations.put(flightKey, destination);
         }System.out.println("\n**********************************");
         System.out.println("Here Are All The Current Flights and Their Destinations: ");
@@ -44,7 +44,7 @@ public class FlightMenu {
      * @throws FlightNotFoundException if the flight does not exist / isn't found
      * @throws TicketAlreadyExistsException if the ticket already exists
      */
-    public static void FlightError() throws FlightNotFoundException, TicketAlreadyExistsException {
+    public static void flightError() throws FlightNotFoundException, TicketAlreadyExistsException {
         String ans  = Console.prompt("A flight with that ID does not exist. Please re-enter the id of the flight you" +
                 "wish to view, or 'back' to leave this menu");
         new FlightMenuC(ans);

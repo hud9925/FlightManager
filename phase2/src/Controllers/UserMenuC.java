@@ -36,20 +36,20 @@ public class UserMenuC {
      * Option method 1: Directs admin to delete user menu and its prompt
      */
     public void option1() {
-        DeleteUserMenu.RemovingUserPrompt();
+        DeleteUserMenu.removingUserPrompt();
     }
     /**
      * Option method 2: Directs admin to add admin menu and its prompt
      * @throws IOException disregards any input that is invalid
      */
     public void option2() throws IOException {
-        AddAdminMenu.AddAdminPrompt();
+        AddAdminMenu.addAdminPrompt();
     }
     /**
      * Option method 3: Directs admin back to the main admin menu and its prompt
      * @throws IOException disregards any input that is invalid
      */
     public void back() throws IOException {
-        AdminMenu.AdminPrompt();
+        AdminMenu.adminPrompt();
     }
 }

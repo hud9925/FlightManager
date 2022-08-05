@@ -18,7 +18,7 @@ public class LoginUseCase {
      * @param password password of the user logging in
      * @return if the username exists, whether it is an admin or customer user
      */
-    public static ArrayList<Boolean> UserType(String Username, String password){
+    public static ArrayList<Boolean> userType(String Username, String password){
 //      Checking if the Username belongs to a User within UserTracker
         ArrayList<Boolean> Usertype = new ArrayList<>(2);
         UserTracker ut = new UserTracker(Username);

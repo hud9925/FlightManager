@@ -4,7 +4,6 @@ import Entities.Flight.Seat;
 import Entities.User.Customer;
 import Entities.User.Ticket.Ticket;
 import java.time.LocalDate;
-import java.util.Arrays;
 
 import Entities.User.TicketAlreadyExistsException;
 import Entities.User.TicketNotFoundException;
@@ -24,9 +23,9 @@ public class TicketUseCaseTests {
         Flight f1 = new Flight("BC123", 8, 8);
         Seat s1 = new Seat(1, 1);
         Ticket t1 = new Ticket(f1, 0, c1, s1);
-        BuyTicket.PurchasedTicket(c1, t1);
+        BuyTicket.purchasedTicket(c1, t1);
         assertEquals(GetTicketList.getOneTicket(c1, t1.getTicketID()), t1);
-        CancelTicket.CancelledTicket(c1, t1);
+        CancelTicket.cancelledTicket(c1, t1);
     }
     @Test(timeout = 50)
     public  void testCancelTicket() throws TicketNotFoundException, TicketAlreadyExistsException {
@@ -35,9 +34,9 @@ public class TicketUseCaseTests {
         Flight f1 = new Flight("BC123", 8, 8);
         Seat s1 = new Seat(1, 1);
         Ticket t1 = new Ticket(f1, 0, c1, s1);
-        BuyTicket.PurchasedTicket(c1, t1);
+        BuyTicket.purchasedTicket(c1, t1);
         assertEquals(GetTicketList.getOneTicket(c1, t1.getTicketID()), t1);
-        CancelTicket.CancelledTicket(c1, t1);
+        CancelTicket.cancelledTicket(c1, t1);
 
 //        assertTrue(Arrays.stream(GetTicketList.getTickets(c1)).noneMatch(ticket -> ticket.getTicketID() == t1.getTicketID()));
 

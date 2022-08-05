@@ -12,7 +12,7 @@ public class SeeAccountDetails {
      * @param username the user's username
      * @return the user's account details
      */
-    public static String AccountDetails(String username){
+    public static String accountDetails(String username){
         UserTracker usertracker = new UserTracker(username);
         if (usertracker.userExists()){
             return usertracker.getCurrentUser().toString();

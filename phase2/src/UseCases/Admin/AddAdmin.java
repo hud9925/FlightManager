@@ -3,7 +3,6 @@ package UseCases.Admin;
 import Entities.User.Admin;
 import Entities.User.User;
 import Entities.User.UserTracker;
-import jdk.jshell.execution.LoaderDelegate;
 
 import java.time.LocalDate;
 
@@ -18,7 +17,7 @@ public class AddAdmin {
 
      * @param email the admin's email address
      */
-    public static void NewAdmin(String username, String password, LocalDate dob, String email){
+    public static void newAdmin(String username, String password, LocalDate dob, String email){
 //      Creates a new instance of admin
         User NewAdmin = new Admin(username, password, dob, email);
         UserTracker.addUser(NewAdmin);

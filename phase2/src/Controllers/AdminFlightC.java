@@ -8,7 +8,7 @@ import UseCases.Customer.GetFlightList;
 import java.io.IOException;
 import java.util.Scanner;
 
-import static UseCases.Admin.AddFlight.NewFlight;
+import static UseCases.Admin.AddFlight.newFlight;
 
 /*
  * This is the controller class for the presenter class AdminFlight, where the input from user will be sent to and
@@ -43,10 +43,10 @@ public class AdminFlightC {
      * @param col: the number of columns of seats for this flight;
      * @param row: the number of rows of seats for this flight;
      */
-    public static void AddFlightResult(String flightID, int col, int row) throws IOException {
-        NewFlight(flightID, row, col);
+    public static void addFlightResult(String flightID, int col, int row) throws IOException {
+        newFlight(flightID, row, col);
         System.out.println("Flight " + flightID + " has been successfully added! Redirecting...");
-        AdminFlight.AdminFlightPrompt();
+        AdminFlight.adminFlightPrompt();
     }
 
     /**
@@ -54,29 +54,29 @@ public class AdminFlightC {
      * Notifies if a flight with the given ID does not exist
      * @param flightID: the ID of the flight, if existing.
      */
-    public static void CancelFlightResult(String flightID) throws IOException {
-        boolean pred = CancelFlight.RemoveFlight(flightID);
+    public static void cancelFlightResult(String flightID) throws IOException {
+        boolean pred = CancelFlight.removeFlight(flightID);
         if (pred) {
             System.out.println("Flight " + flightID + " has been removed successfully! Redirecting...");
         }else{
             System.out.println("Flight " + flightID + " does not exist in the database! Redirecting...");
         }
-        AdminFlight.AdminFlightPrompt();
+        AdminFlight.adminFlightPrompt();
     }
 
     /**
      * Method that redirects admin to the main admin menu
      */
     public void adminMenuOption() throws IOException {
-        AdminMenu.AdminPrompt();
+        AdminMenu.adminPrompt();
     }
 
     /**
      * Method that shows the current flight list, then redirects admin to the flight prompt menu
      */
     public void adminFlightOption() throws IOException {
-        System.out.println(GetFlightList.FlightMap());
-        AdminFlight.AdminFlightPrompt();
+        System.out.println(GetFlightList.flightMap());
+        AdminFlight.adminFlightPrompt();
     }
 
     /**
@@ -90,7 +90,7 @@ public class AdminFlightC {
         int col = sc.nextInt();
         System.out.println("Enter row number: \n");
         int row = sc.nextInt();
-        AdminFlightC.AddFlightResult(flightID, col-1, row);
+        AdminFlightC.addFlightResult(flightID, col-1, row);
     }
 
     /**
@@ -100,7 +100,7 @@ public class AdminFlightC {
         Scanner sc= new Scanner(System.in);
         System.out.print("Enter Flight ID: \n");
         String flightID = sc.nextLine();
-        AdminFlightC.CancelFlightResult(flightID);
+        AdminFlightC.cancelFlightResult(flightID);
 
     }
 

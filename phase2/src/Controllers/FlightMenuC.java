@@ -23,8 +23,8 @@ public class FlightMenuC {
      * @throws TicketAlreadyExistsException if the ticket already exists
      */
     public FlightMenuC(String flightId) throws FlightNotFoundException, TicketAlreadyExistsException {
-        if (GetFlightList.FlightMap().containsKey(flightId)) {
-            PurchaseMenu.PurchaseMenuPrompt(flightId);
+        if (GetFlightList.flightMap().containsKey(flightId)) {
+            PurchaseMenu.purchaseMenuPrompt(flightId);
         } else if (flightId.equalsIgnoreCase("back")) {
             try {
                 MainMenu.mainPage();
@@ -32,7 +32,7 @@ public class FlightMenuC {
                 throw new RuntimeException(e);
             }
         } else {
-            FlightMenu.FlightError();
+            FlightMenu.flightError();
         }
     }
 }

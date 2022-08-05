@@ -12,7 +12,7 @@ public class GetUser {
      * @param username username of the User to parse
      * @return the User
      */
-    public static User ReturnUser(String username){
+    public static User returnUser(String username){
         UserTracker ut = new UserTracker(username);
         return ut.getCurrentUser();
     }
@@ -21,7 +21,7 @@ public class GetUser {
      * Gets and returns all the current Users present in UserTracker.
      * @return all users
      */
-    public String ReturnAllUsers(){
+    public String returnAllUsers(){
        StringBuilder UserLst = new StringBuilder();
        for(User user : new UserTracker()){
            UserLst.append(user.toString()).append("\n");

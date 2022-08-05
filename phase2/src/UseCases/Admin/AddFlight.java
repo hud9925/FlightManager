@@ -13,12 +13,12 @@ public class AddFlight {
      * Adds a flight to FlightTracker.
      * @param newFlight the flight being added
      */
-    public static void NewFlight(Flight newFlight){
+    public static void newFlight(Flight newFlight){
         FlightTracker.getInstance().addFlight(newFlight);
     }
 
-    public static void NewFlight(String ID, int col, int rows){
-        NewFlight(new Flight(ID, col, rows));
+    public static void newFlight(String ID, int col, int rows){
+        newFlight(new Flight(ID, col, rows));
     }
 
     /**
@@ -27,7 +27,7 @@ public class AddFlight {
      */
     public static void addFirstFlight(){
         Flight defaultflight = new Flight("AB123", 5, 5);
-        defaultflight.setDeparturedate(LocalDate.now());
+        defaultflight.setDepartureDate(LocalDate.now());
         defaultflight.setDuration(LocalTime.now());
         FlightTracker.getInstance().addFlight(defaultflight);
     }

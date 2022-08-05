@@ -26,9 +26,9 @@ public class FlightTrackerConnector extends DatabaseConnector {
      * @throws IOException - in case of meaningless input
      */
     @Override
-    public void Save() throws IOException {
+    public void save() throws IOException {
         PrintWriter pw = new PrintWriter(new FileWriter(this.filepath));
-        Map<String, Flight> allflights = GetFlightList.FlightMap();
+        Map<String, Flight> allflights = GetFlightList.flightMap();
         for(Flight flight : allflights.values()){
             pw.write(flight.toString() + "\n");
         }
@@ -41,7 +41,7 @@ public class FlightTrackerConnector extends DatabaseConnector {
      * @throws IOException - in case of meaningless input
      */
     @Override
-    public void Load() throws IOException {
+    public void load() throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(this.filepath));
         String line;
         while((line = br.readLine())!= null) {
@@ -85,12 +85,12 @@ public class FlightTrackerConnector extends DatabaseConnector {
         flight.setSeats(sm);
         flight.setAirline(flightdata[1]);
         if(flightdata[2].equals("null")){
-            flight.setDeparturedate(LocalDate.now());
+            flight.setDepartureDate(LocalDate.now());
         } else {
-            flight.setDeparturedate(LocalDate.parse(flightdata[2]));
+            flight.setDepartureDate(LocalDate.parse(flightdata[2]));
         }
-        flight.setDeparturelocation(flightdata[3]);
-        flight.setArrivallocation(flightdata[4]);
+        flight.setDepartureLocation(flightdata[3]);
+        flight.setArrivalLocation(flightdata[4]);
         if(flightdata[5].equals("null")){
             flight.setDuration(LocalTime.now());
         } else {

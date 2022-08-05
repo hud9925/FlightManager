@@ -20,7 +20,7 @@ RegisterUseCase {
      * @param Email email address of the new user
      * @return the new user
      */
-    public static boolean NewUser(String Username, String Password, LocalDate dob, String Email){
+    public static boolean newUser(String Username, String Password, LocalDate dob, String Email){
 //      Checks if username or email exists in UserTracker
         if (new UserTracker(Username).userExists()){
             return false;

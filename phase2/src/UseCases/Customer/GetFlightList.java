@@ -17,7 +17,7 @@ public class GetFlightList {
      * Displays a Map of all the current flights saved to FlightTracker.
      * @return the map of flights
      */
-    public static Map<String, Flight> FlightMap(){
+    public static Map<String, Flight> flightMap(){
         return FlightTracker.getInstance().GetFlights();
     }
 
@@ -26,13 +26,13 @@ public class GetFlightList {
      * @param id the ID of the flight to parse
      * @return the flight's information
      */
-    public static Map<String, Object> FlightInfo(String id){
+    public static Map<String, Object> flightInfo(String id){
         HashMap<String, Object> info = new HashMap<>();
         Flight flight = FlightTracker.getInstance().getFlight(id);
         info.put("Airline:", Objects.requireNonNull(flight).getAirline());
-        info.put("Arrival Location:", Objects.requireNonNull(flight).getArrivallocation());
-        info.put("Departure Location:", Objects.requireNonNull(flight).getDeparturelocation());
-        info.put("Departure Date:", Objects.requireNonNull(flight).getDeparturedate());
+        info.put("Arrival Location:", Objects.requireNonNull(flight).getArrivalLocation());
+        info.put("Departure Location:", Objects.requireNonNull(flight).getDepartureLocation());
+        info.put("Departure Date:", Objects.requireNonNull(flight).getDepartureDate());
         info.put("Flight Duration:", Objects.requireNonNull(flight).getDuration());
     return info;
 
