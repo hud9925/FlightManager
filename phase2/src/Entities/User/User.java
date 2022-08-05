@@ -33,12 +33,7 @@ abstract public class User {
      * The address of this User.
      */
     private String address;
-    /**
-     * A list of payment methods for this User.
-     * <p>
-     * <strong>Payment methods are not yet implemented.</strong>
-     */
-    private final List<Object> paymentMethods;
+
     /**
      * A list of date when the User logged in.
      */
@@ -68,7 +63,6 @@ abstract public class User {
         this.email = email;
         this.isMember = isMember;
         this.address = "";
-        this.paymentMethods = new ArrayList<>();
         this.dateList = new ArrayList<>();
         this.tickets = new ArrayList<>();
     }
@@ -90,34 +84,6 @@ abstract public class User {
     public String getPassword () {
         return this.password;
     }
-
-
-    /**
-     * Get the payment methods for this User.
-     * <p>
-     * <strong>This method is not yet implemented.</strong>
-     *
-     * @return A list of payment methods for this User.
-     */
-    public Object getPaymentMethods () {
-        throw new UnsupportedOperationException("Not implemented");
-    }
-
-    /**
-     * Get an array of dates of when the User logged in.
-     * <p>
-     * The returned array is a deep copy.
-     *
-     * @return An array of dates of when the User logged in.
-     */
-    public Date[] getDateList() {
-        Date[] result = new Date[this.dateList.size()];
-        for (int i = 0; i < this.dateList.size(); i++) {
-            result[i] = new Date(this.dateList.get(i).getTime());
-        }
-        return result;
-    }
-
 
     /**
      * Get an array of tickets purchased by the user.
@@ -155,27 +121,7 @@ abstract public class User {
         this.address = newAddress;
     }
 
-    /**
-     * Add a payment method to this User.
-     * <p>
-     * <strong>This method is not yet implemented.</strong>
-     *
-     * @param newMethod The new payment method to add.
-     */
-    public void addPaymentMethod (Object newMethod) {
-        throw new UnsupportedOperationException("Not implemented");
-    }
 
-    /**
-     * Remove a payment method for this User.
-     * <p>
-     * <strong>This method is not yet implemented.</strong>
-     *
-     * @param oldMethod The payment method to remove.
-     */
-    public void removePaymentMethod (Object oldMethod) {
-        throw new UnsupportedOperationException("Not implemented");
-    }
 
     /**
      * Add the current time to the login time list of this User.

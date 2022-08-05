@@ -9,6 +9,13 @@ import java.time.LocalDate;
 public class Customer extends User{
 
     /**
+     * This customer's payment method
+     * <p>
+     * <strong>Payment methods are not yet implemented.</strong>
+     */
+    private PaymentMethod paymentMethod;
+
+    /**
      * Constructor for creating a new customer
      * @param username Customer's username
      * @param password Customer's password
@@ -18,6 +25,7 @@ public class Customer extends User{
     public Customer(String username, String password, LocalDate dob, String email,
                     boolean isMember) {
         super(username, password, dob, email, isMember);
+        this.paymentMethod = new PaymentMethod(username);
     }
 
     /**
@@ -27,5 +35,14 @@ public class Customer extends User{
     @Override
     public boolean isAdmin() {
         return false;
+    }
+
+    /**
+     * save this user's added method.
+     *
+     * @param newMethod the user's payment method
+     */
+    public void setPaymentMethod (PaymentMethod newMethod) {
+        this.paymentMethod = newMethod;
     }
 }
