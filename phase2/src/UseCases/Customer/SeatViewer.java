@@ -12,7 +12,6 @@ public class SeatViewer {
 
     /**
      * Returns a Static String Representation of the Seatmap
-     * Will Adjust Later --> Right Now, only returns a string Rep of 'X' and 'O'
      */
 
     public static String StringRepresentation(Flight flight) {
