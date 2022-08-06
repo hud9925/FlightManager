@@ -12,31 +12,30 @@ import UseCases.Admin.GetUser;
  * and redirects them accordingly.
  */
 public class MembershipMenuC {
-
     /**
-     * Takes the user's input from MembershipMenu. If they choose 1, they are sent to becomeMemberOption
-     * which changes their member status to member and redirects them to the MembershipMenu. If they choose 2, they
-     * are sent back to the MainMenu.
+     * Takes the user's input from MembershipMenu. If they enter 'yes', they become a member. Any other combination
+     * of characters will return them to the Main Menu.
      * @param choice the option chosen by the user.
      * @param username the user's username.
      */
-    public MembershipMenuC(int choice, String username) throws FlightNotFoundException,
+    public MembershipMenuC(String choice, String username) throws FlightNotFoundException,
             TicketAlreadyExistsException, TicketNotFoundException {
-        switch (choice){
-            case 1:
-                this.becomeMemberOption(username);
-                break;
-            case 2:
-                this.mainMenuOption();
-                break;
+        if (choice.equalsIgnoreCase("yes")){
+            this.becomeMemberOption(username);
+        }
+        else {
+            this.mainMenuOption();
         }
     }
 
     /**
-     * -
+     Takes the user's input from MembershipMenu. If they choose 1, they are sent to exclusiveFlightMenuOption
+     * where they can purchase exclusive flights. If they choose 2, they are sent back to the Mai nMenu.
+     * If they choose 3, they can cancel their membership status.
      * @param choice the option chosen by the user.
+     * @param username the user's username.
      */
-    public MembershipMenuC(int choice) throws FlightNotFoundException, TicketAlreadyExistsException,
+    public MembershipMenuC(int choice, String username) throws FlightNotFoundException, TicketAlreadyExistsException,
             TicketNotFoundException {
         switch(choice){
             case 1:
@@ -44,6 +43,9 @@ public class MembershipMenuC {
                 break;
             case 2:
                 this.mainMenuOption();
+                break;
+            case 3:
+                this.cancelMembershipOption(username);
                 break;
         }
     }
@@ -74,7 +76,14 @@ public class MembershipMenuC {
         MainMenu.mainPage();
     }
 
-    public void cancelMembershipOption() {
-        System.out.println("in progress");
+    /**
+     * Changes the user's membership status to member and redirects them to the Main Menu.
+     * @param username the user's username.
+     */
+    public void cancelMembershipOption(String username) throws FlightNotFoundException,
+            TicketAlreadyExistsException, TicketNotFoundException {
+        GetUser.returnUser(username).changeMemberStatus(false);
+        System.out.println("You are no longer a member!");
+        MainMenu.mainPage();
     }
 }

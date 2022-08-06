@@ -10,7 +10,6 @@ import UseCases.Admin.GetUser;
 /**
  * Presenter class for the Membership Menu.
  */
-
 public class MembershipMenu {
 
     /**
@@ -26,20 +25,19 @@ public class MembershipMenu {
             String action = Console.prompt(new String[]{
                     "Welcome back, " + username + "!",
                     "To view a list of available exclusive flights, enter 1.",
-                    "To return to the Main Menu, enter 2."
-            }, "^[0-9]");
-            int choice = Integer.parseInt(action);
-            new MembershipMenuC(choice);
-
-        } else {
-            String action = Console.prompt(new String[]{
-                    "You are not a member yet. Would you like to become one? \n" +
-                            "Enter 1 if yes.\n" +
-                            "Enter 2 if no/return to the Main Menu.\n"
+                    "To return to the Main Menu, enter 2.",
+                    "To cancel your membership status, enter 3."
             }, "^[0-9]");
             int choice = Integer.parseInt(action);
             new MembershipMenuC(choice, username);
 
+        } else {
+            String choice = Console.prompt(new String[]{
+                    "You are not a member yet. Would you like to become one? \n" +
+                            "Enter 'yes' if you would.\n" +
+                            "Enter anything else to return to the main menu.\n"
+            });
+            new MembershipMenuC(choice, username);
         }
     }
 }
