@@ -33,19 +33,48 @@ public class MembershipMenuC {
     }
 
     /**
-     * Option 1: Changes the user's membership status to member and redirects them to MembershipMenu.
+     * -
+     * @param choice the option chosen by the user.
+     */
+    public MembershipMenuC(int choice) throws FlightNotFoundException, TicketAlreadyExistsException,
+            TicketNotFoundException {
+        switch(choice){
+            case 1:
+                this.exclusiveFlightMenuOption();
+                break;
+            case 2:
+                this.mainMenuOption();
+                break;
+        }
+    }
+
+    /**
+     * Changes the user's membership status to member and redirects them to MembershipMenu.
      * @param username the user's username.
      */
-    public void becomeMemberOption(String username) throws FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
+    public void becomeMemberOption(String username) throws FlightNotFoundException, TicketAlreadyExistsException,
+            TicketNotFoundException {
         GetUser.returnUser(username).changeMemberStatus(true);
         System.out.println("Congratulations, you are now a member!");
         MembershipMenu.membershipMenuPrompt();
     }
 
     /**
-     * Option 2: Redirects user to the main menu.
+     * Redirects user to the exclusive flight menu.
      */
-    public void mainMenuOption() throws FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
+    public void exclusiveFlightMenuOption(){
+        System.out.println("in progress");
+    }
+
+    /**
+     * Redirects user to the main menu.
+     */
+    public void mainMenuOption() throws FlightNotFoundException, TicketAlreadyExistsException,
+            TicketNotFoundException {
         MainMenu.mainPage();
+    }
+
+    public void cancelMembershipOption() {
+        System.out.println("in progress");
     }
 }
