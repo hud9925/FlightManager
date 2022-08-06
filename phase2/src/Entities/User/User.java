@@ -29,10 +29,6 @@ abstract public class User {
      * A boolean indicating whether this User is a member.
      */
     private boolean isMember;
-    /**
-     * The address of this User.
-     */
-    private String address;
 
     /**
      * A list of date when the User logged in.
@@ -62,7 +58,6 @@ abstract public class User {
         this.dob= dob;
         this.email = email;
         this.isMember = isMember;
-        this.address = "";
         this.dateList = new ArrayList<>();
         this.tickets = new ArrayList<>();
     }
@@ -120,16 +115,6 @@ abstract public class User {
     public void changeMemberStatus (boolean newStatus) {
         this.isMember = newStatus;
     }
-
-    /**
-     * Change the address of this User.
-     *
-     * @param newAddress The new address of this User.
-     */
-    public void changeAddress (String newAddress) {
-        this.address = newAddress;
-    }
-
 
 
     /**
@@ -196,7 +181,7 @@ abstract public class User {
             String dateStr = String.valueOf(d.getTime());
             dateStrs.append(dateStr).append("|");
         }
-        return username + "," + password + "," + dob  + "," + email + "," + isMember + "," + address + "," +
+        return username + "," + password + "," + dob  + "," + email + "," + isMember + "," +
                 dateStrs + "," + (this.isAdmin()?"true":"false");
     }
 }

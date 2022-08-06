@@ -60,9 +60,8 @@ public class MainMenuC {
         String username = UsernameMenu.getUsernamePrompt();
         String[] userdata = GetUser.returnUser(username).toString().split(",");
         System.out.println("Username: " + userdata[0] + "\nPassword: " + userdata[1] + "\nBirthday: " + userdata[2] +
-                "/" + userdata[3] + "/" + userdata[4] + "\nEmail: " + userdata[5] + "\nMember" +
-                " Status: " + userdata[6] + "\nAddress: " + userdata[7] + "\nLogin dates: " + userdata[8] + "\n" +
-                "Admin: " + userdata[9]);
+                "\nEmail: " + userdata[3] + "\nMember Status: " + userdata[4] + "\nLogin dates: " + userdata[5] +
+                "\nAdmin: " + userdata[6]);
         try {
             MainMenu.mainPage();
         } catch (FlightNotFoundException | TicketAlreadyExistsException | TicketNotFoundException e) {

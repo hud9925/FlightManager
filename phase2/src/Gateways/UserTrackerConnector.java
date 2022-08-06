@@ -59,14 +59,13 @@ public class UserTrackerConnector extends DatabaseConnector {
     private User lineToUser(String line) {
         User newUser;
         String [] userinfo = line.split(",");
-        if (userinfo[7].equals("true")){
+        if (userinfo[6].equals("true")){
             newUser = new Admin(userinfo[0], userinfo[1], LocalDate.parse(userinfo[2]), userinfo[3]);
         } else {
             newUser = new Customer(userinfo[0], userinfo[1], LocalDate.parse(userinfo[2]), userinfo[3],
                     Boolean.parseBoolean(userinfo[4]));
         }
-        newUser.changeAddress(userinfo[5]);
-        String[] previousDates = userinfo[6].split("\\|");
+        String[] previousDates = userinfo[5].split("\\|");
         if (!previousDates[0].equals("")) {
             newUser.updateDateList(loginDatesReader(previousDates));
         }
