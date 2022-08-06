@@ -59,7 +59,7 @@ public class UserTrackerConnector extends DatabaseConnector {
     private User lineToUser(String line) {
         User newUser;
         String [] userinfo = line.split(",");
-        if (userinfo[9].equals("true")){
+        if (userinfo[7].equals("true")){
             newUser = new Admin(userinfo[0], userinfo[1], LocalDate.parse(userinfo[2]), userinfo[3]);
         } else {
             newUser = new Customer(userinfo[0], userinfo[1], LocalDate.parse(userinfo[2]), userinfo[3],
