@@ -16,10 +16,10 @@ public class PaymentMethod {
         this.pin = 0;
         this.cardNumber = 0;
     }
-    public PaymentMethod(String owner, int cardNumber, int balance, int pin){
+    public PaymentMethod(String owner, int cardNumber, int pin){
         this.owner = owner;
         this.cardNumber = cardNumber;
-        this.balance = balance;
+        this.balance = 0;
         this.pin = pin;
     }
 
