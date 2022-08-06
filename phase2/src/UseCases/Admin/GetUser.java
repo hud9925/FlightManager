@@ -13,7 +13,7 @@ public class GetUser {
      * @return the User
      */
     public static User returnUser(String username){
-        UserTracker ut = new UserTracker(username);
+        UserTracker ut = UserTracker.getInstance(username);
         return ut.getCurrentUser();
     }
 
@@ -23,7 +23,7 @@ public class GetUser {
      */
     public String returnAllUsers(){
        StringBuilder UserLst = new StringBuilder();
-       for(User user : new UserTracker()){
+       for(User user : UserTracker.getInstance()){
            UserLst.append(user.toString()).append("\n");
        }
        return UserLst.toString();

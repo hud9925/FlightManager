@@ -5,28 +5,41 @@ import java.util.Map;
 
 public class UserTracker implements Iterable<User> {
     /**
+     * The UserTracker instance for Singleton design pattern.
+     */
+    private static final UserTracker instance = new UserTracker();
+    /**
      * A HashMap that maps usernames to User objects for all users in the system.
      */
-    private static final Map<String, User> allUsers = new HashMap<>();
+    private Map<String, User> allUsers = new HashMap<>();
     /**
      * A User object indicate the user currently being tracked.
      */
-    private User currentUser;
+    private User currentUser = null;
 
     /**
      * Construct a new UserTracker with no User being tracked.
      */
-    public UserTracker () {
-        this.currentUser = null;
+    private UserTracker () {}
+
+    /**
+     * Get the UserTracker instance with the username of the User that will be tracked.
+     *
+     * @param username The username of the User to track.
+     * @return The UserTracker instance.
+     */
+    public static UserTracker getInstance (String username) {
+        instance.changeCurrentUser(username);
+        return instance;
     }
 
     /**
-     * Construct a new UserTracker with the username of the User that will be tracked.
+     * Get the UserTracker instance without changing the User that is being tracked.
      *
-     * @param  username The username of the User to track.
+     * @return The UserTracker instance.
      */
-    public UserTracker (String username) {
-        this.currentUser = allUsers.get(username);
+    public static UserTracker getInstance () {
+        return instance;
     }
 
     /**
@@ -34,8 +47,8 @@ public class UserTracker implements Iterable<User> {
      *
      * @param  newUser The new User to add.
      */
-    public static void addUser (User newUser) {
-        allUsers.put(newUser.getUsername(), newUser);
+    public void addUser (User newUser) {
+        this.allUsers.put(newUser.getUsername(), newUser);
     }
 
     /**
@@ -43,8 +56,8 @@ public class UserTracker implements Iterable<User> {
      *
      * @return Return an int represent the total number of users in the system.
      */
-    public static int getTotalUserCount () {
-        return allUsers.size();
+    public int getTotalUserCount () {
+        return this.allUsers.size();
     }
 
     /**

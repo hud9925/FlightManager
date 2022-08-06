@@ -14,16 +14,16 @@ public class AdminTests {
     @Test(timeout = 50)
     public void testAddFirstAdmin(){
         AddAdmin.addFirstAdmin();
-        assertEquals(UserTracker.getTotalUserCount(),1);
+        assertEquals(UserTracker.getInstance().getTotalUserCount(),1);
     }
     // Buggy; awaiting completion of UserTracker
     @Test(timeout = 50)
     public void testAddAdmin(){
         AddAdmin.newAdmin("someone", "probably", LocalDate.of(2000,10,20),
                 "amy");
-        assertEquals(UserTracker.getTotalUserCount(),1);
-        UserTracker ut3 = new UserTracker("someone");
-        UserTracker ut4 = new UserTracker("Administrator");
+        assertEquals(UserTracker.getInstance().getTotalUserCount(),1);
+        UserTracker ut3 = UserTracker.getInstance("someone");
+        UserTracker ut4 = UserTracker.getInstance("Administrator");
         assertTrue(ut3.userExists());
         assertFalse(ut4.userExists());
 
@@ -31,7 +31,7 @@ public class AdminTests {
     // Doesn't work yet; awaiting completion of UserTracker
     @Test(timeout = 50)
     public void testDeleteUser(){
-        UserTracker ut3 = new UserTracker("someone");
+        UserTracker ut3 = UserTracker.getInstance("someone");
         assertTrue(ut3.userExists());
         DeleteUser.removeUser("someone");
         assertFalse(ut3.userExists());

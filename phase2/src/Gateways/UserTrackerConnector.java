@@ -28,7 +28,7 @@ public class UserTrackerConnector extends DatabaseConnector {
     @Override
     public void save() throws IOException {
         PrintWriter pw = new PrintWriter(new FileWriter(this.filepath));
-        for(User user : new UserTracker()){
+        for(User user : UserTracker.getInstance()){
             pw.write(user.toString() + "\n");
         }
         pw.close();
@@ -46,7 +46,7 @@ public class UserTrackerConnector extends DatabaseConnector {
         String line;
         while((line = br.readLine())!= null) {
             User newUser = lineToUser(line);
-            UserTracker.addUser(newUser);
+            UserTracker.getInstance().addUser(newUser);
         }
         br.close();
     }

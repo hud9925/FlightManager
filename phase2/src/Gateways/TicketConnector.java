@@ -29,7 +29,7 @@ public class TicketConnector extends DatabaseConnector{
     @Override
     public void save() throws IOException {
         List<String> allTickets = new ArrayList<>();
-        for(User user: new UserTracker()){
+        for(User user: UserTracker.getInstance()){
             for(Ticket ticket: user.getTickets()){
                 allTickets.add(ticket.simpleToString());
             }

@@ -21,16 +21,16 @@ public class TestSuite {
     @Test(timeout = 50)
     public void testAddFirstAdmin(){
         AddAdmin.addFirstAdmin();
-        assertEquals(UserTracker.getTotalUserCount(),1);
+        assertEquals(UserTracker.getInstance().getTotalUserCount(),1);
     }
     @Test(timeout = 50)
     public void testAddNewAdmin(){
         AddAdmin.newAdmin("someone", "probably", LocalDate.of(2000,10,20),
                 "amy");
-        assertEquals(UserTracker.getTotalUserCount(),1);
+        assertEquals(UserTracker.getInstance().getTotalUserCount(),1);
 
-        UserTracker ut3 = new UserTracker("someone");
-        UserTracker ut4 = new UserTracker("Administrator");
+        UserTracker ut3 = UserTracker.getInstance("someone");
+        UserTracker ut4 = UserTracker.getInstance("Administrator");
         assertTrue(ut3.userExists());
         assertFalse(ut4.userExists());
     }
@@ -49,7 +49,7 @@ public class TestSuite {
     }
     @Test(timeout = 50)
     public void testRemoveUser(){
-        UserTracker ut3 = new UserTracker("someone");
+        UserTracker ut3 = UserTracker.getInstance("someone");
         ut3.removeCurrentUser();
         assertFalse(ut3.userExists());
 

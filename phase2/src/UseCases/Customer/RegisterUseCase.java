@@ -22,13 +22,13 @@ RegisterUseCase {
      */
     public static boolean newUser(String Username, String Password, LocalDate dob, String Email){
 //      Checks if username or email exists in UserTracker
-        if (new UserTracker(Username).userExists()){
+        if (UserTracker.getInstance(Username).userExists()){
             return false;
         } else {
 //          User does not exist. Register as new user.
             Customer newUser = new Customer(Username, Password, dob, Email, false);
             newUser.updateDateList();
-            UserTracker.addUser(newUser);
+            UserTracker.getInstance().addUser(newUser);
             return true;
         }
     }

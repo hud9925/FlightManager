@@ -13,7 +13,7 @@ public class SeeAccountDetails {
      * @return the user's account details
      */
     public static String accountDetails(String username){
-        UserTracker usertracker = new UserTracker(username);
+        UserTracker usertracker = UserTracker.getInstance(username);
         if (usertracker.userExists()){
             return usertracker.getCurrentUser().toString();
 

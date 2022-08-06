@@ -20,7 +20,7 @@ public class AddAdmin {
     public static void newAdmin(String username, String password, LocalDate dob, String email){
 //      Creates a new instance of admin
         User NewAdmin = new Admin(username, password, dob, email);
-        UserTracker.addUser(NewAdmin);
+        UserTracker.getInstance().addUser(NewAdmin);
     }
 
     /**
@@ -29,7 +29,7 @@ public class AddAdmin {
     public static void addFirstAdmin(){
         User firstAdmin = new Admin("Administrator", "admin123", LocalDate.of(2000, 1,
                 1),  "admin@sample.com");
-        UserTracker.addUser(firstAdmin);
+        UserTracker.getInstance().addUser(firstAdmin);
     }
 
 }
