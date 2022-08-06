@@ -86,6 +86,15 @@ abstract public class User {
     }
 
     /**
+     * Get if this User is a member or not.
+     *
+     * @return A boolean indicating whether this User is a member.
+     */
+    public boolean getMemberStatus () {
+        return this.isMember;
+    }
+
+    /**
      * Get an array of tickets purchased by the user.
      * <p>
      * The returned array is a shallow copy.
