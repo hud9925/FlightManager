@@ -3,7 +3,6 @@ package Entities.User.Ticket;
 import Entities.Flight.Flight;
 import Entities.Flight.Seat;
 import Entities.User.User;
-
 import java.time.Instant;
 
 
@@ -51,7 +50,7 @@ public class Ticket {
         this.ticketID = setTicketHashID();
 
         Instant now = Instant.now();
-        this.when = now.toString();
+        this.when = now.toString().substring(0, 10) + " " + now.toString().substring(11, 23) + " UTC";
     }
 
     /**
