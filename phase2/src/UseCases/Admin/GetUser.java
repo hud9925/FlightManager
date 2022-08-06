@@ -21,7 +21,7 @@ public class GetUser {
      * Gets and returns all the current Users present in UserTracker.
      * @return all users
      */
-    public String returnAllUsers(){
+    public static String returnAllUsers(){
        StringBuilder UserLst = new StringBuilder();
        for(User user : UserTracker.getInstance()){
            UserLst.append(user.toString()).append("\n");
