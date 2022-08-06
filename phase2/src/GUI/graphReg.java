@@ -75,12 +75,24 @@ public class graphReg {
         emailText.setBounds(210, 210, 160, 25);
         panel3.add(emailText);
 
+        JButton backButton = new JButton("Back");
+        backButton.setBounds(120, 280, 120, 25);
+        panel3.add(backButton);
+        backButton.addActionListener(e -> {
+            f.getContentPane().removeAll();
+            f.repaint();
+            firstPage.setMainPage();
+        });
+
+
         JButton registerButton = new JButton("Register");
-        registerButton.setBounds(240, 280, 120, 25);
+        registerButton.setBounds(260, 280, 120, 25);
         panel3.add(registerButton);
         registerButton.addActionListener(e -> {
             // TODO: implement me!
         });
+
+
 
 
     }

@@ -14,16 +14,20 @@ import java.util.ArrayList;
  */
 public class LoginMenu {
 
+    public static ArrayList<Boolean> getCred(String username, String password){
+        return LoginUseCase.userType(username, password);
+    }
     /**
      * Method that prompts the user to enter their login credentials
      * If the credentials don't exist, another prompt to go back or to continue.
      */
+
     public static void loginPrompt() throws IOException, FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
         String username = Console.prompt("Enter Username : ", ".+");
         String password = Console.prompt("Enter Password : ", ".+");
 
         // Check credential existence by contacting UserType method from Login Use Case class.
-        ArrayList<Boolean> credPredicates = LoginUseCase.userType(username, password);
+        ArrayList<Boolean> credPredicates = getCred(username, password);
         // The array list of predicates indicate:
         // 1. whether the username/password matches;
         // 2. whether the user is admin.

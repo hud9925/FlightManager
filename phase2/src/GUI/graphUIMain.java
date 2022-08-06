@@ -46,11 +46,7 @@ public class graphUIMain {
         dc4.load();
 
         setF();
-
-        JPanel panel1 = new JPanel();
-        f.add(panel1);
-        firstPage.mainPage(panel1);
-        f.setVisible(true);
+        firstPage.setMainPage();
 
         dc1.save();
         dc2.save();
