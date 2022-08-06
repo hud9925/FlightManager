@@ -9,7 +9,7 @@ public class FlightTracker {
     /**
      Hashmap that maps the Flight Id as the key, and the value being the flight itself
      */
-    private Map<String, Flight> flightMap = new HashMap<>();
+    private final Map<String, Flight> flightMap = new HashMap<>();
     private static final FlightTracker instance = new FlightTracker();
     private FlightTracker(){}
 
@@ -22,7 +22,7 @@ public class FlightTracker {
      */
     public void addFlight(Flight newFlight){
         // adds a new flight to the Map
-        flightMap.put(newFlight.getFlightid(), newFlight);
+        flightMap.put(newFlight.getFlightID(), newFlight);
     }
     /**
      Returns the number of current flights

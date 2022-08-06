@@ -18,6 +18,6 @@ public class ShowFlight {
 
     }
     public static String getFlightID(Flight flight){
-        return flight.getFlightid();
+        return flight.getFlightID();
     }
 }

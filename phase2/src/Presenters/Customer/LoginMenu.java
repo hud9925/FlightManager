@@ -23,7 +23,7 @@ public class LoginMenu {
         String password = Console.prompt("Enter Password : ", ".+");
 
         // Check credential existence by contacting UserType method from Login Use Case class.
-        ArrayList<Boolean> credPredicates = LoginUseCase.UserType(username, password);
+        ArrayList<Boolean> credPredicates = LoginUseCase.userType(username, password);
         // The array list of predicates indicate:
         // 1. whether the username/password matches;
         // 2. whether the user is admin.
@@ -43,7 +43,7 @@ public class LoginMenu {
             if (!credPredicates.get(1)){
                 MainMenu.mainPage();
             } else {
-                AdminMenu.AdminPrompt();
+                AdminMenu.adminPrompt();
             }
         }
     }

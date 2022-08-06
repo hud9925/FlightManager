@@ -33,21 +33,21 @@ public class PurchaseMenuC {
      */
     public PurchaseMenuC(Flight flight, Integer row, Integer column) throws TicketAlreadyExistsException, FlightNotFoundException {
 
-        String ans = LoginConfirmMenu.LoginConfirmPrompt();
+        String ans = LoginConfirmMenu.loginConfirmPrompt();
         if (Objects.equals(ans, "exit")){
-            PurchaseMenu.PurchaseMenuPrompt((ShowFlight.getFlightID(flight)));
+            PurchaseMenu.purchaseMenuPrompt((ShowFlight.getFlightID(flight)));
         }
         else {
-            Ticket PlaneTicket = new Ticket(flight, 0, GetUser.ReturnUser(ans) ,
+            Ticket PlaneTicket = new Ticket(flight, 0, GetUser.returnUser(ans) ,
                     SeatViewer.getSeat(flight, row, column));
-            BuyTicket.PurchasedTicket(GetUser.ReturnUser(ans), PlaneTicket);
+            BuyTicket.purchasedTicket(GetUser.returnUser(ans), PlaneTicket);
             SeatViewer.fillSeat(flight, row, column);
-            String AnotherTicket = PurchaseMenu.PurchaseAnotherTicket();
+            String AnotherTicket = PurchaseMenu.purchaseAnotherTicket();
             if (AnotherTicket.equals("yes")){
-                PurchaseMenu.PurchaseMenuPrompt(ShowFlight.getFlightID(flight));
+                PurchaseMenu.purchaseMenuPrompt(ShowFlight.getFlightID(flight));
             }
             else{
-                FlightMenu.FlightMenuPrompt();
+                FlightMenu.flightMenuPrompt();
             }
         }
 

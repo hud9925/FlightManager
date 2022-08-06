@@ -12,10 +12,9 @@ public class SeatViewer {
 
     /**
      * Returns a Static String Representation of the Seatmap
-     * Will Adjust Later --> Right Now, only returns a string Rep of 'X' and 'O'
      */
 
-    public static String StringRepresentation(Flight flight) {
+    public static String stringRepresentation(Flight flight) {
         String[] Columns = {"A", "B", "C", "D", "E", "F", "G", "H", "J", "K"};
         StringBuilder StringRep = new StringBuilder();
         for (int row = 0; row <flight.getSeats().getRows(); row++) {

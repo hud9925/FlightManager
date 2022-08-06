@@ -23,8 +23,8 @@ public class CancelMenuC {
      * @throws TicketNotFoundException if the ticket does not exist
      */
     public CancelMenuC(String username, int ticketIDHash) throws TicketNotFoundException {
-        CancelTicket.CancelledTicket(GetUser.ReturnUser(username),
-                GetTicketList.getOneTicket(GetUser.ReturnUser(username), ticketIDHash));
+        CancelTicket.cancelledTicket(GetUser.returnUser(username),
+                GetTicketList.getOneTicket(GetUser.returnUser(username), ticketIDHash));
         boolean TicketNotFoundException = false;
         if (!TicketNotFoundException){
             System.out.println("Ticket has been successfully deleted! Redirect to the main menu...");
@@ -34,7 +34,7 @@ public class CancelMenuC {
                 throw new RuntimeException(e);
             }
         } else{
-            CancelMenu.CancelMenuPrompt();
+            CancelMenu.cancelMenuPrompt();
         }
     }
 }

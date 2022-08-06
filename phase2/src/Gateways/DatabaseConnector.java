@@ -72,12 +72,12 @@ abstract public class DatabaseConnector {
     /**
      * Perform the save operation on this database.
      */
-    abstract public void Save() throws IOException;
+    abstract public void save() throws IOException;
 
     /**
      * Perform the load operation on this database.
      */
-    abstract public void Load() throws IOException, ParseException;
+    abstract public void load() throws IOException, ParseException;
 
     /**
      * Check if this database is empty of not.

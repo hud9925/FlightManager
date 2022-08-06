@@ -12,12 +12,12 @@ public class Flight {
     /**
      * This flight's name (ID)
      */
-    private final String flightid;
+    private final String flightID;
 
     /**
      * This flight's airline
      */
-    private String Airline;
+    private String airline;
 
     /**
      * The seatmap containing this flight's seats
@@ -27,18 +27,18 @@ public class Flight {
     /**
      * This flight's departure date
      */
-    private LocalDate departuredate;
+    private LocalDate departureDate;
 
     /**
      * This flight's departure location
      */
-    private String departurelocation;
+    private String departureLocation;
 
 
     /**
      * This flight's arrival location
      */
-    private String arrivallocation;
+    private String arrivalLocation;
 
     /**
      * This flight's duration
@@ -47,12 +47,12 @@ public class Flight {
 
     /**
      * Constructor that creates a flight object.
-     * @param flightid This flight's ID
+     * @param flightID This flight's ID
      * @param rows The number of rows in this flight's seatmap
      * @param columns The number of columns in this flight's seatmap
      */
-    public Flight(String flightid, int rows, int columns){
-        this.flightid = flightid;
+    public Flight(String flightID, int rows, int columns){
+        this.flightID = flightID;
         this.seats = new Seatmap(rows, columns);
     }
 
@@ -61,20 +61,20 @@ public class Flight {
      */
 
     public void setAirline(String airline) {
-        Airline = airline;
+        this.airline = airline;
     }
 
 
-    public void setDeparturedate(LocalDate departuredate) {
-        this.departuredate = departuredate;
+    public void setDepartureDate(LocalDate departureDate) {
+        this.departureDate = departureDate;
     }
 
-    public void setDeparturelocation(String departurelocation) {
-        this.departurelocation = departurelocation;
+    public void setDepartureLocation(String departureLocation) {
+        this.departureLocation = departureLocation;
     }
 
-    public void setArrivallocation(String arrivallocation) {
-        this.arrivallocation = arrivallocation;
+    public void setArrivalLocation(String arrivalLocation) {
+        this.arrivalLocation = arrivalLocation;
     }
 
     public void setSeats(Seatmap seatmap) { this.seats = seatmap; }
@@ -88,24 +88,24 @@ public class Flight {
      */
 
 
-    public LocalDate getDeparturedate() {
-        return departuredate;
+    public LocalDate getDepartureDate() {
+        return departureDate;
     }
 
     public String getAirline() {
-        return Airline;
+        return airline;
     }
 
-    public String getArrivallocation() {
-        return arrivallocation;
+    public String getArrivalLocation() {
+        return arrivalLocation;
     }
 
-    public String getDeparturelocation() {
-        return departurelocation;
+    public String getDepartureLocation() {
+        return departureLocation;
     }
 
-    public String getFlightid() {
-        return flightid;
+    public String getFlightID() {
+        return flightID;
     }
 
     public Seatmap getSeats() {
@@ -121,7 +121,7 @@ public class Flight {
      * Each variable is separated by a comma, and the seatmap is in a new line.
      */
     public String toString() {
-        return this.flightid + "," + this.Airline + "," + this.departuredate  + ","
-        + this.departurelocation + "," + this.arrivallocation + "," + this.duration + "\n" + this.seats;
+        return this.flightID + "," + this.airline + "," + this.departureDate + ","
+        + this.departureLocation + "," + this.arrivalLocation + "," + this.duration + "\n" + this.seats;
     }
 }

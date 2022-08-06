@@ -15,7 +15,7 @@ public class CancelTicket {
      * @param oldTicket the ticket to cancel
      * @throws TicketNotFoundException exception if the ticket does not already exist
      */
-    public static void CancelledTicket(User user, Ticket oldTicket) throws TicketNotFoundException {
+    public static void cancelledTicket(User user, Ticket oldTicket) throws TicketNotFoundException {
         user.removeTicket(oldTicket);
         oldTicket.getWhere().empty();
     }

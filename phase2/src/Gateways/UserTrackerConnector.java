@@ -26,9 +26,9 @@ public class UserTrackerConnector extends DatabaseConnector {
      * @throws IOException - in case of meaningless input
      */
     @Override
-    public void Save() throws IOException {
+    public void save() throws IOException {
         PrintWriter pw = new PrintWriter(new FileWriter(this.filepath));
-        for(User user : new UserTracker()){
+        for(User user : UserTracker.getInstance()){
             pw.write(user.toString() + "\n");
         }
         pw.close();
@@ -40,13 +40,13 @@ public class UserTrackerConnector extends DatabaseConnector {
      * @throws IOException - in case of meaningless input
      */
     @Override
-    public void Load() throws IOException {
+    public void load() throws IOException {
 //        String filepath = String.valueOf(Paths.get("UserDatabase.csv").toAbsolutePath());
         BufferedReader br = new BufferedReader(new FileReader(this.filepath));
         String line;
         while((line = br.readLine())!= null) {
             User newUser = lineToUser(line);
-            UserTracker.addUser(newUser);
+            UserTracker.getInstance().addUser(newUser);
         }
         br.close();
     }
@@ -59,14 +59,14 @@ public class UserTrackerConnector extends DatabaseConnector {
     private User lineToUser(String line) {
         User newUser;
         String [] userinfo = line.split(",");
-        if (userinfo[9].equals("true")){
+        if (userinfo[7].equals("true")){
             newUser = new Admin(userinfo[0], userinfo[1], LocalDate.parse(userinfo[2]), userinfo[3]);
         } else {
             newUser = new Customer(userinfo[0], userinfo[1], LocalDate.parse(userinfo[2]), userinfo[3],
                     Boolean.parseBoolean(userinfo[4]));
         }
-        newUser.changeAddress(userinfo[7]);
-        String[] previousDates = userinfo[8].split("\\|");
+        newUser.changeAddress(userinfo[5]);
+        String[] previousDates = userinfo[6].split("\\|");
         if (!previousDates[0].equals("")) {
             newUser.updateDateList(loginDatesReader(previousDates));
         }

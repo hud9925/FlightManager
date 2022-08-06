@@ -11,7 +11,7 @@ public class MembershipMenu {
      * If the user is not a member, they are prompted to either register for membership or go back
      * to the main menu.
      */
-    public static void MembershipMenuPrompt(){
+    public static void membershipMenuPrompt(){
 
     }
 }

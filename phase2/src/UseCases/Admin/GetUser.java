@@ -12,8 +12,8 @@ public class GetUser {
      * @param username username of the User to parse
      * @return the User
      */
-    public static User ReturnUser(String username){
-        UserTracker ut = new UserTracker(username);
+    public static User returnUser(String username){
+        UserTracker ut = UserTracker.getInstance(username);
         return ut.getCurrentUser();
     }
 
@@ -21,9 +21,9 @@ public class GetUser {
      * Gets and returns all the current Users present in UserTracker.
      * @return all users
      */
-    public String ReturnAllUsers(){
+    public String returnAllUsers(){
        StringBuilder UserLst = new StringBuilder();
-       for(User user : new UserTracker()){
+       for(User user : UserTracker.getInstance()){
            UserLst.append(user.toString()).append("\n");
        }
        return UserLst.toString();

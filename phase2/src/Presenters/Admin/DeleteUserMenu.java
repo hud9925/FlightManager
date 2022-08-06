@@ -12,9 +12,9 @@ public class DeleteUserMenu {
      * Prompt that asks admin for the username of the target user to delete
      * Passes username to delete user and prints out the response
      */
-    public static void RemovingUserPrompt() {
+    public static void removingUserPrompt() {
         String username = Console.prompt("Please enter the Username of the User you wish to delete");
-        if (DeleteUser.RemoveUser(username)){
+        if (DeleteUser.removeUser(username)){
 //                User exists and was removed
             System.out.println("User has been Removed!") ;
         } else{

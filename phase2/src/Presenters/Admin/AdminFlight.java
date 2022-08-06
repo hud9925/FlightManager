@@ -1,7 +1,6 @@
 package Presenters.Admin;
 
 import Controllers.AdminFlightC;
-import Presenters.Admin.Console;
 
 import java.io.IOException;
 
@@ -13,12 +12,13 @@ public class AdminFlight {
     /**
      * The page showing the admin's flight control.
      */
-    public static void AdminFlightPrompt() throws IOException {
+    public static void adminFlightPrompt() throws IOException {
         String what = Console.prompt(new String[]{
                 "You have now reached Admin - Flight page. Enter the following number key to continue:\n" +
                 "- 1: show all available flights;\n" +
                         "- 2: add a flight;\n" +
                         "- 3: cancel a flight\n" +
+                        "- 4: remove all flights\n"+
                         "- 0: back to admin menu."
         }, "^[0-9]*$");
         int whichChoice = Integer.parseInt(what);

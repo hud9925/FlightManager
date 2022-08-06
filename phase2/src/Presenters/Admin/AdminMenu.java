@@ -1,7 +1,6 @@
 package Presenters.Admin;
 
 import Controllers.AdminMenuC;
-import Presenters.Admin.Console;
 
 import java.io.IOException;
 
@@ -13,7 +12,7 @@ public class AdminMenu {
      * Prompt method that displays the admin options, takes in their input and sends it to the controller class
      * @throws IOException for meaningless inputs
      */
-    public static void AdminPrompt() throws IOException {
+    public static void adminPrompt() throws IOException {
         String ans = Console.prompt(new String[]{
                 "Welcome to the admin menu!",
                 "Press 1 to see a list of existing users to add an admin or delete a user.",

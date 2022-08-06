@@ -21,16 +21,16 @@ public class TestSuite {
     @Test(timeout = 50)
     public void testAddFirstAdmin(){
         AddAdmin.addFirstAdmin();
-        assertEquals(UserTracker.getTotalUserCount(),1);
+        assertEquals(UserTracker.getInstance().getTotalUserCount(),1);
     }
     @Test(timeout = 50)
     public void testAddNewAdmin(){
-        AddAdmin.NewAdmin("someone", "probably", LocalDate.of(2000,10,20),
+        AddAdmin.newAdmin("someone", "probably", LocalDate.of(2000,10,20),
                 "amy");
-        assertEquals(UserTracker.getTotalUserCount(),1);
+        assertEquals(UserTracker.getInstance().getTotalUserCount(),1);
 
-        UserTracker ut3 = new UserTracker("someone");
-        UserTracker ut4 = new UserTracker("Administrator");
+        UserTracker ut3 = UserTracker.getInstance("someone");
+        UserTracker ut4 = UserTracker.getInstance("Administrator");
         assertTrue(ut3.userExists());
         assertFalse(ut4.userExists());
     }
@@ -44,12 +44,12 @@ public class TestSuite {
     @Test(timeout = 50)
     public void testAddFlight(){
         Flight f1 = new Flight("BC123", 8, 8);
-        AddFlight.NewFlight(f1);
+        AddFlight.newFlight(f1);
         assertTrue(FlightTracker.getInstance().verifyFlight("BC123"));
     }
     @Test(timeout = 50)
     public void testRemoveUser(){
-        UserTracker ut3 = new UserTracker("someone");
+        UserTracker ut3 = UserTracker.getInstance("someone");
         ut3.removeCurrentUser();
         assertFalse(ut3.userExists());
 
@@ -57,38 +57,38 @@ public class TestSuite {
     @Test(timeout = 50)
     public void testCancelFlight(){
         Flight f2 = new Flight("AC546", 5, 3);
-        AddFlight.NewFlight(f2);
-        CancelFlight.RemoveFlight("AC546");
+        AddFlight.newFlight(f2);
+        CancelFlight.removeFlight("AC546");
         assertNull(FlightTracker.getInstance().getFlight("AC546"));
 
     }
     @Test(timeout = 50)
     public void testReturnUser(){
-        AddAdmin.NewAdmin("someone", "probably",  LocalDate.of(2000,10,20),
+        AddAdmin.newAdmin("someone", "probably",  LocalDate.of(2000,10,20),
                 "amy");
-        assertEquals(GetUser.ReturnUser("someone").getUsername(), "someone");
+        assertEquals(GetUser.returnUser("someone").getUsername(), "someone");
 
     }
     @Test(timeout = 50)
     public void testLoginUseCase(){
-        AddAdmin.NewAdmin("someone", "probably",  LocalDate.of(2000,10,20),
+        AddAdmin.newAdmin("someone", "probably",  LocalDate.of(2000,10,20),
                 "amy");
         ArrayList<Boolean> Predicates = new ArrayList<>();
         Predicates.add(true);
         Predicates.add(true);
-        assertEquals(Predicates, LoginUseCase.UserType("someone", "probably"));
+        assertEquals(Predicates, LoginUseCase.userType("someone", "probably"));
     }
     @Test(timeout = 50)
     public void testRegisterUseCase(){
-        assertTrue(RegisterUseCase.NewUser("C1", "P1", LocalDate.of(1111, 12, 21)
+        assertTrue(RegisterUseCase.newUser("C1", "P1", LocalDate.of(1111, 12, 21)
                 , "ma214"));
-        assertFalse(RegisterUseCase.NewUser("C1", "P1", LocalDate.of(1111, 12, 21)
+        assertFalse(RegisterUseCase.newUser("C1", "P1", LocalDate.of(1111, 12, 21)
                 , "ma214"));
     }
     @Test(timeout = 50)
     public void testShowFlight() throws FlightNotFoundException {
         Flight f1 = new Flight("BC123", 8, 8);
-        AddFlight.NewFlight(f1);
+        AddFlight.newFlight(f1);
         assertEquals(f1, ShowFlight.getFlight("BC123"));
         assertEquals("BC123", ShowFlight.getFlightID(f1));
     }

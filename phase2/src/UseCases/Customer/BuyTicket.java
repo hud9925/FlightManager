@@ -14,7 +14,7 @@ public class BuyTicket {
      * @param newTicket the ticket bought by the user
      * @throws TicketAlreadyExistsException exception if the ticket pre-exists
      */
-    public static void PurchasedTicket(User user, Ticket newTicket) throws TicketAlreadyExistsException {
+    public static void purchasedTicket(User user, Ticket newTicket) throws TicketAlreadyExistsException {
         user.addTicket(newTicket);
     }
 }

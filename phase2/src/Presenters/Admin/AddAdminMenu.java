@@ -15,7 +15,7 @@ public class AddAdminMenu {
      * It takes the User's responses and sends them to the AddAdmin Use Case to create a new admin.
      * @throws IOException for meaningless inputs.
      */
-    public static void AddAdminPrompt() throws IOException {
+    public static void addAdminPrompt() throws IOException {
         //adding a new admin
         String username = Console.prompt("Please enter the new admin's username: ", ".+");
         String password = Console.prompt("Please enter the new admin's password: ", ".+");
@@ -29,9 +29,9 @@ public class AddAdminMenu {
         String email = Console.prompt("Please enter the new admin's email address: ",
                 "^[^@]+@[^@]+\\.[^@]+$");
         String dob = year + "-" + month + "-" + day;
-        AddAdmin.NewAdmin(username, password, LocalDate.parse(dob), email);
+        AddAdmin.newAdmin(username, password, LocalDate.parse(dob), email);
 
         System.out.println("Admin Created!");
-        UserMenu.UserMenuPrompt();
+        UserMenu.userMenuPrompt();
     }
 }

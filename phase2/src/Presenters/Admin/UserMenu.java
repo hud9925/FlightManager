@@ -16,10 +16,10 @@ public class UserMenu {
      * Asks the user for input, sends it to the associated controller class
      * @throws IOException disregards any input that is invalid
      */
-    public static void UserMenuPrompt() throws IOException {
+    public static void userMenuPrompt() throws IOException {
         String ans = Console.prompt(new String[] {
                 "Here is the current list of users:",
-                new GetUser().ReturnAllUsers(),
+                new GetUser().returnAllUsers(),
                 "To delete a user, press 1.",
                 "To add an admin, press 2.",
                 "To go back, press any other key."

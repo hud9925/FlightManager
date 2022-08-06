@@ -12,32 +12,32 @@ public class Ticket {
     /**
      * The cost of the ticket.
      */
-    private int cost;
+    private final int cost;
 
     /**
      * The flight associated with the ticket.
      */
-    private Flight flight;
+    private final Flight flight;
 
     /**
      * The user who owns the ticket.
      */
-    private User who;
+    private final User who;
 
     /**
      * The passenger's seat on the flight associated with the ticket.
      */
-    private Seat where;
+    private final Seat where;
 
     /**
      * The ID of the ticket.
      */
-    private int ticketID;
+    private final int ticketID;
 
     /**
      * The date and time in UTC.
      */
-    private String when;
+    private final String when;
 
     /**
      * This constructor creates a ticket with a specific flight, cost, customer and the seat be assigned. Works iff
@@ -91,7 +91,7 @@ public class Ticket {
 
         String plainTicketText = getWhom().getUsername() + "//" +
                                  this.when + "//" +
-                                 getWhatFlight().getAirline() + getWhatFlight().getFlightid() + "//";
+                                 getWhatFlight().getAirline() + getWhatFlight().getFlightID() + "//";
 
         return plainTicketText.hashCode();
     }
@@ -120,13 +120,13 @@ public class Ticket {
      */
 
     public String toString() {
-        return "Flight ID: " + getWhatFlight().getFlightid() + "\nPrice: " + getCost() +
-                "\nSeat ID: " + getWhere().getSeatid() + "\nPayer: " + getWhom().getUsername() +
+        return "Flight ID: " + getWhatFlight().getFlightID() + "\nPrice: " + getCost() +
+                "\nSeat ID: " + getWhere().getSeatID() + "\nPayer: " + getWhom().getUsername() +
                 "\nBooking time (UTC): " + getWhen() + "\nTicket ID: " + getTicketID() + "\n";
     }
 
     public String simpleToString(){
-        return getWhatFlight().getFlightid() + "," + getCost() + "," + getWhere().getSeatid() + "," +
+        return getWhatFlight().getFlightID() + "," + getCost() + "," + getWhere().getSeatID() + "," +
                 getWhom().getUsername() + "," + getWhen() + "," + getTicketID();
     }
 
