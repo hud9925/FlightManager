@@ -45,4 +45,6 @@ public class Customer extends User{
     public void setPaymentMethod (PaymentMethod newMethod) {
         this.paymentMethod = newMethod;
     }
+
+    public PaymentMethod getPaymentMethod(){return this.paymentMethod;}
 }
