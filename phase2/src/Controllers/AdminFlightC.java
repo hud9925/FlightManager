@@ -111,7 +111,7 @@ public class AdminFlightC {
      */
     public void RemoveAllFlights() throws IOException {
         CancelFlight.removeAllFlights();
-        System.out.println("All flights have been removed!");
+        System.out.println("All flights in the database have been removed!");
         AdminFlight.adminFlightPrompt();
     }
 }
