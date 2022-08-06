@@ -1,5 +1,10 @@
 import Entities.Flight.Flight;
 import Entities.Flight.FlightTracker;
+import Entities.Flight.Seat;
+import Entities.User.Customer;
+import Entities.User.Ticket.Ticket;
+import Entities.User.TicketAlreadyExistsException;
+import Entities.User.TicketNotFoundException;
 import Entities.User.UserTracker;
 import UseCases.*;
 import UseCases.Admin.AddAdmin;
@@ -92,4 +97,39 @@ public class TestSuite {
         assertEquals(f1, ShowFlight.getFlight("BC123"));
         assertEquals("BC123", ShowFlight.getFlightID(f1));
     }
+
+    @Test(timeout = 50)
+    public void testAddTicket() throws TicketAlreadyExistsException {
+        Flight f1 = new Flight("BC123", 8, 8);
+        AddFlight.newFlight(f1);
+        Customer c1 = new Customer("Test", "test", LocalDate.of(2222,12,12),
+                "sample@sample.com", false);
+        assertEquals(0, c1.getTickets().length); // At this time, no tickets are found in this Customer
+        Seat s1 = new Seat(8, 8);
+        Ticket t1 = new Ticket(f1, 800, c1, s1);
+        c1.addTicket(t1);
+        assertEquals(1, c1.getTickets().length); // Now c1 has one ticket.
+    }
+
+    @Test(timeout = 50)
+    public void testRemoveTicket() throws TicketAlreadyExistsException, TicketNotFoundException {
+        Flight f1 = new Flight("BC123", 8, 8);
+        AddFlight.newFlight(f1);
+        Customer c1 = new Customer("Test", "test", LocalDate.of(2222,12,12),
+                "sample@sample.com", false);
+        Seat s1 = new Seat(8, 8);
+        Ticket t1 = new Ticket(f1, 800, c1, s1);
+
+        c1.addTicket(t1);
+        assertEquals(1, c1.getTickets().length); // Now c1 has one ticket.
+
+        c1.removeTicket(t1);
+        assertEquals(0, c1.getTickets().length);
+    }
+
+    @Test(timeout = 50)
+    public void testBuyTicket() throws TicketNotFoundException, TicketAlreadyExistsException {
+        // TODO: implement me!
+    }
+
 }

@@ -18,26 +18,20 @@ public class firstPage {
         JButton newUserButton = new JButton("New User");
         newUserButton.setBounds(100, 40, 150, 25);
         panel1.add(newUserButton);
-        newUserButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                f.getContentPane().removeAll();
-                f.repaint();
-                graphReg.setRegPanel();
-            }
+        newUserButton.addActionListener(e -> {
+            f.getContentPane().removeAll();
+            f.repaint();
+            graphReg.setRegPanel();
         });
 
 
         JButton existingUserButton = new JButton("Existing User");
         existingUserButton.setBounds(280,40,150,25);
         panel1.add(existingUserButton);
-        existingUserButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                f.getContentPane().removeAll();
-                f.repaint();
-                graphLogin.setLoginPanel();
-            }
+        existingUserButton.addActionListener(e -> {
+            f.getContentPane().removeAll();
+            f.repaint();
+            graphLogin.setLoginPanel();
         });
 
 

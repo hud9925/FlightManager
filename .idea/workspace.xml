@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da775fb6-7d69-48d2-b9fe-b7c10713f9ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/phase2/src/GUI/firstPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/phase2/src/GUI/graphLogin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/phase2/src/GUI/graphReg.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/phase2/src/GUI/graphUIMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/GUI/graphUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlightDatabase.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentBase.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TicketBase.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserDatabase.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase2/src/GUI/firstPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/GUI/firstPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase2/src/GUI/graphLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/GUI/graphLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase2/src/GUI/graphReg.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/GUI/graphReg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase2/test/TestSuite.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/test/TestSuite.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,36 +52,10 @@
       <recent name="C:\Users\Owner\Documents\CSC207\group_0291\phase1" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.graphUIMain">
+  <component name="RunManager" selected="JUnit.TestSuite.testRemoveTicket">
     <configuration name="MainApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MainApplication" />
       <module name="GroupProject" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Ticket" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Entities.User.Ticket.Ticket" />
-      <module name="GroupProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Entities.User.Ticket.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="graphUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="GUI.graphUI" />
-      <module name="GroupProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="GUI.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -96,12 +73,43 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestSuite.testBuyTicket" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GroupProject" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestSuite" />
+      <option name="METHOD_NAME" value="testBuyTicket" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestSuite.testRemoveTicket" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GroupProject" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestSuite" />
+      <option name="METHOD_NAME" value="testRemoveTicket" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestSuite.testShowFlight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GroupProject" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestSuite" />
+      <option name="METHOD_NAME" value="testShowFlight" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.graphUIMain" />
-        <item itemvalue="Application.graphUI" />
+        <item itemvalue="JUnit.TestSuite.testRemoveTicket" />
+        <item itemvalue="JUnit.TestSuite.testBuyTicket" />
+        <item itemvalue="JUnit.TestSuite.testShowFlight" />
         <item itemvalue="Application.MainApplication" />
-        <item itemvalue="Application.Ticket" />
+        <item itemvalue="Application.graphUIMain" />
       </list>
     </recent_temporary>
   </component>
@@ -138,7 +146,7 @@
       <workItem from="1659657402596" duration="619000" />
       <workItem from="1659759197973" duration="610000" />
       <workItem from="1659759825056" duration="3064000" />
-      <workItem from="1659799341132" duration="7188000" />
+      <workItem from="1659799341132" duration="9676000" />
     </task>
     <task id="LOCAL-00001" summary="Group information file">
       <created>1653603875638</created>
@@ -189,7 +197,21 @@
       <option name="project" value="LOCAL" />
       <updated>1659801235207</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Renamed graphUI.java to graphUIMain.java.&#10;Implemented the Login/Register GUI pages.&#10;Extracted the firstPage from the graphUIMain.">
+      <created>1659809786668</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1659809786668</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added the four databases outside phase 2 folder for testing.">
+      <created>1659810910419</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1659810910419</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,6 +247,19 @@
     <MESSAGE value="Added already made material (phase 0) to Phase 1 folder (including tests) and everything else" />
     <MESSAGE value="Fixed time date display of Ticket class so that&#10;it follows &quot;YYYY-MM-DD XX:XX:XX.xxx UTC&quot; format.&#10;&#10;Created the shell of the GUI." />
     <MESSAGE value="Enhanced the GUI &quot;shell&quot; appearance. Codes reserved for login system." />
-    <option name="LAST_COMMIT_MESSAGE" value="Enhanced the GUI &quot;shell&quot; appearance. Codes reserved for login system." />
+    <MESSAGE value="Renamed graphUI.java to graphUIMain.java.&#10;Implemented the Login/Register GUI pages.&#10;Extracted the firstPage from the graphUIMain." />
+    <MESSAGE value="Added the four databases outside phase 2 folder for testing." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the four databases outside phase 2 folder for testing." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/phase2/src/MainApplication.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

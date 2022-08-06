@@ -2,6 +2,9 @@ package GUI;
 
 import javax.swing.*;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import static GUI.graphUIMain.f;
 
 public class graphReg {
@@ -75,6 +78,9 @@ public class graphReg {
         JButton registerButton = new JButton("Register");
         registerButton.setBounds(240, 280, 120, 25);
         panel3.add(registerButton);
+        registerButton.addActionListener(e -> {
+            // TODO: implement me!
+        });
 
 
     }

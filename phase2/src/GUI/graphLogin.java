@@ -29,8 +29,6 @@ public class graphLogin {
         title2.setBounds(150,40,350,25);
         panel2.add(title2);
 
-
-
         JLabel userLabel = new JLabel("Username");
         userLabel.setBounds(10, 60, 80, 25);
         panel2.add(userLabel);
@@ -50,6 +48,9 @@ public class graphLogin {
         JButton loginButton = new JButton("Login");
         loginButton.setBounds(240, 120, 120, 25);
         panel2.add(loginButton);
+        loginButton.addActionListener(e -> {
+            // TODO: implement me!
+        });
 
     }
 }
