@@ -23,8 +23,8 @@ public class AdminTests {
                 "amy");
         assertEquals(UserTracker.getInstance().getTotalUserCount(),1);
         UserTracker ut3 = UserTracker.getInstance("someone");
-        UserTracker ut4 = UserTracker.getInstance("Administrator");
         assertTrue(ut3.userExists());
+        UserTracker ut4 = UserTracker.getInstance("Administrator");
         assertFalse(ut4.userExists());
 
     }
