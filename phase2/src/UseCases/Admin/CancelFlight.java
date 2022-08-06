@@ -4,6 +4,8 @@ package UseCases.Admin;
 
 import Entities.Flight.FlightTracker;
 
+import java.util.Set;
+
 public class CancelFlight {
 
     /**
@@ -15,5 +17,16 @@ public class CancelFlight {
      */
     public static boolean removeFlight(String id){
         return FlightTracker.getInstance().removeFlight(id);
+    }
+
+    /**
+     * Removes all Flights in FlightTracker
+     *
+     */
+    public static void removeAllFlights(){
+        Set<String> flights = FlightTracker.getInstance().GetFlights().keySet();
+        for (String flightid: flights){
+            FlightTracker.getInstance().removeFlight(flightid);
+        }
     }
 }

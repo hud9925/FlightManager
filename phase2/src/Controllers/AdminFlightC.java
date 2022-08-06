@@ -33,6 +33,9 @@ public class AdminFlightC {
             case 3:
                 this.cancelFlightOption();
                 break;
+            case 4:
+                this.RemoveAllFlights();
+                break;
 
         }
     }
@@ -103,5 +106,12 @@ public class AdminFlightC {
         AdminFlightC.cancelFlightResult(flightID);
 
     }
-
+    /**
+     * Method that Removes all Flights in the system
+     */
+    public void RemoveAllFlights() throws IOException {
+        CancelFlight.removeAllFlights();
+        System.out.println("All flights have been removed!");
+        AdminFlight.adminFlightPrompt();
+    }
 }
