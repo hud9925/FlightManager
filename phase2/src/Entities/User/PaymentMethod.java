@@ -39,6 +39,8 @@ public class PaymentMethod {
         return balance;
     }
 
+    public void setBalance(int balance){this.balance = balance;}
+
     public int getCardNumber() {
         return cardNumber;
     }
@@ -46,4 +48,7 @@ public class PaymentMethod {
     public String getOwner() {
         return owner;
     }
+
+    @Override
+    public String toString() {return owner + "," + cardNumber + "," + pin + "," + balance;}
 }
