@@ -6,9 +6,9 @@ import UseCases.Admin.GetUser;
 
 public class PaymentManager {
 
-    public void createPaymentMethod(String username, int cardNumber, int balance, int pin){
+    public static void createPaymentMethod(String username, int cardNumber, int pin){
         Customer user = (Customer) GetUser.returnUser(username);
-        PaymentMethod pm = new PaymentMethod(username, cardNumber, balance, pin);
+        PaymentMethod pm = new PaymentMethod(username, cardNumber, pin);
         user.setPaymentMethod(pm);
     }
 
@@ -18,7 +18,7 @@ public class PaymentManager {
         return user.getPaymentMethod().getBalance();
     }
 
-    public int deposit(String username, int deposit){
+    public static int deposit(String username, int deposit){
         Customer user = (Customer) GetUser.returnUser(username);
         user.getPaymentMethod().addBalance(deposit);
         return user.getPaymentMethod().getBalance();

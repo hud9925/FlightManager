@@ -31,6 +31,9 @@ public class MainMenuC {
             case "4":
                 this.membershipMenuOption();
                 break;
+            case "5":
+                this.paymentMethodOption();
+                break;
             default:
                 this.exit();
                 break;
@@ -75,6 +78,8 @@ public class MainMenuC {
     /**
      * Exit option: displays a message.
      */
+
+    public void paymentMethodOption() { paymentMenu.paymentMenuPrompt();}
     public void exit(){
         System.out.println("Program is closing...");
     }
