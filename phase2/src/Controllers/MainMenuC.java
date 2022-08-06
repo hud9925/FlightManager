@@ -72,7 +72,7 @@ public class MainMenuC {
     /**
      * Fourth option method: directs the user to the Membership Menu.
      */
-    public void membershipMenuOption(){
+    public void membershipMenuOption() throws FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
         MembershipMenu.membershipMenuPrompt();
     }
     /**
