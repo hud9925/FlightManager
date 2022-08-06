@@ -27,7 +27,7 @@ public class PaymentConnector extends DatabaseConnector{
     @Override
     public void save() throws IOException {
         PrintWriter pw = new PrintWriter(new FileWriter(this.filepath));
-        for(User user: new UserTracker()){
+        for(User user: UserTracker.getInstance()){
             if(user instanceof Customer){
                 pw.write(((Customer) user).getPaymentMethod().toString() + "\n");
             }
