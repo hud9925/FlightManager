@@ -1,17 +1,32 @@
 package Presenters.Customer;
 
-/**
- * A presenter menu that presents the dashboard for members of the Exclusive Membership program.
- */
+
+import Controllers.MembershipMenuC;
+import Entities.User.TicketAlreadyExistsException;
+import Entities.User.TicketNotFoundException;
+import UseCases.FlightNotFoundException;
+import UseCases.Admin.GetUser;
+
 
 public class MembershipMenu {
-    /**
-     * Menu that presents the user's loyalty status and directs them to a list of
-     * member-only flights.
-     * If the user is not a member, they are prompted to either register for membership or go back
-     * to the main menu.
-     */
-    public static void membershipMenuPrompt(){
 
+    public static void membershipMenuPrompt() throws FlightNotFoundException, TicketAlreadyExistsException,
+            TicketNotFoundException{
+        String username = Console.prompt("Please enter your username.");
+
+        if (GetUser.returnUser(username).getMemberStatus()){
+            System.out.println("in progress");
+
+        } else {
+            String action = Console.prompt(new String[]{
+                    "You are not a member yet. Would you like to become one? \n" +
+                            "Enter 1 if yes.\n" +
+                            "Enter 2 if no/return to the Main Menu.\n"
+            }, "^[0-9]");
+            int choice = Integer.parseInt(action);
+            new MembershipMenuC(choice, username);
+
+        }
     }
+
 }
