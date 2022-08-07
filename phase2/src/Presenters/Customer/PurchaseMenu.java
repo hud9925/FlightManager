@@ -38,7 +38,7 @@ public class PurchaseMenu {
             System.out.println("Please Enter the Seat's Row Number");
             int row = SeatRow.nextInt();
             Scanner SeatColumn = new Scanner(System.in);
-            System.out.println("Please Enter the Seat's Column Number");
+            System.out.println("Please Enter the Seat's Column Letter");
             //int column = SeatColumn.nextInt();
 
             char column = SeatColumn.next().charAt(0);
