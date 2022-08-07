@@ -9,9 +9,15 @@ import UseCases.Customer.ShowFlight;
 import UseCases.FlightNotFoundException;
 import org.junit.Test;
 
+import java.time.LocalDate;
+
 import static org.junit.Assert.*;
 
+/**
+ * Tests for Customer Flight UseCases
+ */
 public class CustomerFlightUseCaseTests {
+
     @Test(timeout = 50)
     public void testCancelFlight(){
         Flight f2 = new Flight("AC546", 5, 3);
@@ -37,13 +43,13 @@ public class CustomerFlightUseCaseTests {
         assertTrue(GetFlightList.flightMap().containsKey("BC123"));
         assertTrue(GetFlightList.flightMap().containsKey("AC567"));
         assertTrue(GetFlightList.flightMap().containsKey("AD789"));
-        assertEquals(GetFlightList.flightMap().size(), 3);
+        assertEquals(GetFlightList.flightMap().size(), 4);
     }
     // Does not work currently
     @Test(timeout = 50)
     public void testGetFlightListFlightInfo(){
         AddFlight.addFirstFlight();
-        assertTrue(GetFlightList.flightInfo("MC123").containsValue("AirCanada"));
+        assertTrue(GetFlightList.flightInfo("AB123").containsValue(LocalDate.now()));
 
     }
 
