@@ -31,7 +31,6 @@ public class AdminTests {
         UserTracker ut3 = UserTracker.getInstance("someone");
         assertTrue(ut3.userExists());
     }
-    // Doesn't work yet; awaiting completion of UserTracker
     @Test(timeout = 50)
     public void testDeleteUser(){
         UserTracker ut3 = UserTracker.getInstance("someone");
@@ -49,7 +48,7 @@ public class AdminTests {
     public void testGetUserReturnAllUser(){
         AddAdmin.newAdmin("someone", "probably",  LocalDate.of(2000,10,20),
                 "amy");
-        String result =  "someone,probably,2000-10-20,amy,false,,true";
+        String result =  "someone,probably,2000-10-20,amy,false,,true"+"\n";
         assertEquals(GetUser.returnAllUsers(), result);
     }
     @Test(timeout = 100)
