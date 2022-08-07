@@ -30,7 +30,7 @@ public class PurchaseMenu {
         System.out.println(SeatViewer.stringRepresentation(ShowFlight.getFlight(ans)));
         String Ans  = Console.prompt("Please enter 'continue' to continue and purchase a ticket, or press any other character " +
                 "to leave this menu");
-        if (Objects.equals(Ans, "continue")){
+        if (Ans.equalsIgnoreCase("continue")){
             System.out.println(" ");
             System.out.println("To Purchase a seat, Please Select a Row and Column individually.");
 
