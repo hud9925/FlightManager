@@ -31,6 +31,11 @@ abstract public class User {
     private boolean isMember;
 
     /**
+     * An integer value representing the total number of loyalty points acquired by the User.
+     */
+    private int loyaltyPoints;
+
+    /**
      * A list of date when the User logged in.
      */
     private final List<Date> dateList;
@@ -58,6 +63,7 @@ abstract public class User {
         this.dob= dob;
         this.email = email;
         this.isMember = isMember;
+        this.loyaltyPoints = 0;
         this.dateList = new ArrayList<>();
         this.tickets = new ArrayList<>();
     }
@@ -90,6 +96,12 @@ abstract public class User {
     }
 
     /**
+     * Get the total number of Loyalty Points acquired by the user.
+     * @return the integer value representing the user's total loyalty points.
+     */
+    public int getLoyaltyPoints () { return this.loyaltyPoints; }
+
+    /**
      * Get an array of tickets purchased by the user.
      * <p>
      * The returned array is a shallow copy.
@@ -116,6 +128,13 @@ abstract public class User {
         this.isMember = newStatus;
     }
 
+    /**
+     * Adds 1000 loyalty points to the User.
+     * Use intended when purchasing a new flight.
+     */
+    public void updateLoyaltyPoints() {
+        this.loyaltyPoints += 1000;
+    }
 
     /**
      * Add the current time to the login time list of this User.
