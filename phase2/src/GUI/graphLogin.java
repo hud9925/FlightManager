@@ -47,7 +47,7 @@ public class graphLogin {
         JTextField userText = new JTextField(20);
         userText.setBounds(100, 60, 160, 25);
         panel2.add(userText);
-        String username = userText.getText();
+
 
         JLabel passwordLabel = new JLabel("Password");
         passwordLabel.setBounds(10, 90, 80, 25);
@@ -56,7 +56,7 @@ public class graphLogin {
         JPasswordField passwordText = new JPasswordField(20);
         passwordText.setBounds(100, 90, 160, 25);
         panel2.add(passwordText);
-        String password = String.valueOf(passwordText.getPassword());
+
 
         JButton backButton = new JButton("Back");
         backButton.setBounds(120, 120, 120, 25);
@@ -71,17 +71,18 @@ public class graphLogin {
         loginButton.setBounds(260, 120, 120, 25);
         panel2.add(loginButton);
         loginButton.addActionListener(e -> {
+            String username = userText.getText();
+            String password = String.valueOf(passwordText.getPassword());
             ArrayList<Boolean> credPredicates = getCred(username, password);
             if (!credPredicates.get(0)){
                 statusLabel.setText("Error: either your username or password is incorrect. Please try again.");
-
             }
-//            else {
-                //statusLabel.setText("Success. Redirecting...");
-//                if (!credPredicates.get(1)){
-//                    statusLabel.setText("Success. Redirecting...");
-//                }
-//            }
+          else {
+                statusLabel.setText("Success. Redirecting...");
+                if (!credPredicates.get(1)){
+                    statusLabel.setText("Success. Redirecting...");
+                }
+            }
         });
 
     }
