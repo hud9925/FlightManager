@@ -1,18 +1,25 @@
 package GUI;
 
+import UseCases.Customer.RegisterUseCase;
+
 import javax.swing.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 
 import static GUI.graphUIMain.f;
 
 public class graphReg {
+    private static JLabel statusLabel;
     public static void setRegPanel(){
         JPanel panel3 = new JPanel();
         f.add(panel3);
         regUI(panel3);
         f.setVisible(true);
+        statusLabel = new JLabel("");
+        statusLabel.setBounds(30, 400, 500,25);
+        panel3.add(statusLabel);
     }
 
     public static void regUI(JPanel panel3){
@@ -89,7 +96,27 @@ public class graphReg {
         registerButton.setBounds(260, 280, 120, 25);
         panel3.add(registerButton);
         registerButton.addActionListener(e -> {
-            // TODO: implement me!
+            String username = userText.getText();
+            String password = String.valueOf(passwordText.getPassword());
+            String year = yrText.getText();
+            String month = mthText.getText();
+            String day = dText.getText();
+            String email = emailText.getText();
+
+            // Now Assume that the year-month-day follows the format of YYYY-MM-DD
+            // and is reasonable (e.g. not 1234-56-78 but 2000-01-01)
+
+            if (!RegisterUseCase.newUser(username, password, LocalDate.parse(year + "-" + month + "-" + day),
+                    email)) { //false = Username is already registered.
+                statusLabel.setText("An account with this username already exists. Please try again.");
+            }
+
+            else { //true = Username is available.
+                statusLabel.setText("Account created successfully! Redirecting...");
+                // TODO: call the register use case method (DONE), then call Main Menu page...
+                RegisterUseCase.newUser(username, password, LocalDate.parse(year + "-" + month + "-" + day),
+                        email);
+            }
         });
 
 

@@ -4,6 +4,7 @@
     <list default="true" id="da775fb6-7d69-48d2-b9fe-b7c10713f9ef" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase2/src/GUI/graphLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/GUI/graphLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase2/src/GUI/graphReg.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/GUI/graphReg.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +141,7 @@
       <workItem from="1659759197973" duration="610000" />
       <workItem from="1659759825056" duration="3064000" />
       <workItem from="1659799341132" duration="15969000" />
-      <workItem from="1659889404525" duration="681000" />
+      <workItem from="1659889404525" duration="2170000" />
     </task>
     <task id="LOCAL-00001" summary="Group information file">
       <created>1653603875638</created>
@@ -219,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659817637826</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Fixed the authentication error on the GUI&#10;login page.">
+      <created>1659890385193</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1659890385193</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +268,8 @@
     <MESSAGE value="Added two tests about Ticket, fixed the GUI pages of&#10;Login and Registration." />
     <MESSAGE value="Added error message for login page.&#10;(Code reserved for future developments.)" />
     <MESSAGE value="Added error message for login page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added error message for login page." />
+    <MESSAGE value="Fixed the authentication error on the GUI&#10;login page." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed the authentication error on the GUI&#10;login page." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -268,12 +277,12 @@
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/phase2/src/GUI/graphUIMain.java</url>
           <line>30</line>
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/phase2/src/GUI/graphUIMain.java</url>
           <line>53</line>
-          <option name="timeStamp" value="2" />
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

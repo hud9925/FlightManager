@@ -78,10 +78,11 @@ public class graphLogin {
                 statusLabel.setText("Error: either your username or password is incorrect. Please try again.");
             }
           else {
-                statusLabel.setText("Success. Redirecting...");
+                statusLabel.setText("Success. Redirecting to admin page...");
                 if (!credPredicates.get(1)){
-                    statusLabel.setText("Success. Redirecting...");
+                    statusLabel.setText("Success. Redirecting to main page...");
                 }
+                // TODO: redirecting to another page (admin/customer) depending on the predicates
             }
         });
 
