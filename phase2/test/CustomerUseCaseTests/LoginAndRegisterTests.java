@@ -10,6 +10,9 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
+/**
+ * Tests for UseCases that handle logging and registering Users
+ */
 public class LoginAndRegisterTests {
     @Test(timeout = 50)
     public void testLoginUseCase(){
