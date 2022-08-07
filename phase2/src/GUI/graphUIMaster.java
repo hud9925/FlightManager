@@ -1,23 +1,13 @@
 package GUI;
 import Gateways.*;
-import Presenters.Customer.LoginMenu;
 import UseCases.Admin.AddAdmin;
 import UseCases.Admin.AddFlight;
 
-import javax.swing.*;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.text.ParseException;
 
-public class graphUIMain {
+public class graphUIMaster {
 
     public static JFrame f;
 

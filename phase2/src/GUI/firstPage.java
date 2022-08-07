@@ -1,10 +1,8 @@
 package GUI;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-import static GUI.graphUIMain.f;
+import static GUI.graphUIMaster.f;
 
 public class firstPage {
 
@@ -44,9 +42,7 @@ public class firstPage {
         JButton quitButton = new JButton("Quit");
         quitButton.setBounds(220,80,120,25);
         panel1.add(quitButton);
-        quitButton.addActionListener(e -> {
-            f.dispose();
-        });
+        quitButton.addActionListener(e -> f.dispose());
 
         JLabel foot1 = new JLabel("Please do not directly close the window, otherwise the data will not be saved!");
         foot1.setBounds(100,130,460,25);

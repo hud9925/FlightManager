@@ -127,9 +127,4 @@ public class TestSuite {
         assertEquals(0, c1.getTickets().length);
     }
 
-    @Test(timeout = 50)
-    public void testBuyTicket() throws TicketNotFoundException, TicketAlreadyExistsException {
-        // TODO: implement me!
-    }
-
 }

@@ -4,11 +4,9 @@ import UseCases.Customer.RegisterUseCase;
 
 import javax.swing.*;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.time.LocalDate;
 
-import static GUI.graphUIMain.f;
+import static GUI.graphUIMaster.f;
 
 public class graphReg {
     private static JLabel statusLabel;
@@ -113,9 +111,10 @@ public class graphReg {
 
             else { //true = Username is available.
                 statusLabel.setText("Account created successfully! Redirecting...");
-                // TODO: call the register use case method (DONE), then call Main Menu page...
-                RegisterUseCase.newUser(username, password, LocalDate.parse(year + "-" + month + "-" + day),
-                        email);
+                f.getContentPane().removeAll();
+                f.repaint();
+                graphMain.setMainPanel();
+
             }
         });
 

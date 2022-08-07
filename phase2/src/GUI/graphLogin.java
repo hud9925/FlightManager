@@ -10,7 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import static GUI.graphUIMain.f;
+import static GUI.graphUIMaster.f;
 import static Presenters.Customer.LoginMenu.getCred;
 
 public class graphLogin {
@@ -79,10 +79,15 @@ public class graphLogin {
             }
           else {
                 statusLabel.setText("Success. Redirecting to admin page...");
+                f.getContentPane().removeAll();
+                f.repaint();
+                graphAdmin.setAdminPanel();
                 if (!credPredicates.get(1)){
                     statusLabel.setText("Success. Redirecting to main page...");
+                    f.getContentPane().removeAll();
+                    f.repaint();
+                    graphMain.setMainPanel();
                 }
-                // TODO: redirecting to another page (admin/customer) depending on the predicates
             }
         });
 
