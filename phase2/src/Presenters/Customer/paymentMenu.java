@@ -5,8 +5,14 @@ import Entities.User.TicketNotFoundException;
 import UseCases.Customer.PaymentManager;
 import UseCases.FlightNotFoundException;
 
+/**
+ * The menu for setting up + interacting with a payment method
+ */
 public class paymentMenu {
 
+    /**
+     * the menu's prompt method, setting up a payment method
+     */
     public static void paymentMenuPrompt(){
         String username = UsernameMenu.getUsernamePrompt();
         String cardNumber = Console.prompt("Please enter your card number (integers only):", "^[0-9]*$");
@@ -24,6 +30,10 @@ public class paymentMenu {
         }
     }
 
+    /**
+     * the menu's deposit menu method, for when there is money being deposited
+     * @param username the user's name
+     */
     private static void depositMenuPrompt(String username) {
         String deposit = Console.prompt("Please enter the amount you are depositing (integers only):",
                 "^[0-9]*$");

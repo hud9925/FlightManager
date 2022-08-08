@@ -1,29 +1,30 @@
 package Gateways;
 
-import Entities.Flight.Flight;
-import Entities.Flight.Seat;
 import Entities.User.*;
-import Entities.User.Ticket.Ticket;
 import UseCases.Admin.GetUser;
-import UseCases.Customer.SeatViewer;
-import UseCases.Customer.ShowFlight;
-import UseCases.FlightNotFoundException;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * Connector class for user payment methods, extends database connector
+ */
 public class PaymentConnector extends DatabaseConnector{
 
     public PaymentConnector() throws IOException {
         super();
     }
 
+    /**
+     * Gets the database's name (filepath)
+     */
     @Override
     protected String getDatabaseName() {
         return "PaymentBase.csv";
     }
 
+    /**
+     * Save method for every user in user tracker's payment method
+     */
     @Override
     public void save() throws IOException {
         PrintWriter pw = new PrintWriter(new FileWriter(this.filepath));
@@ -35,6 +36,9 @@ public class PaymentConnector extends DatabaseConnector{
         pw.close();
     }
 
+    /**
+     * Loading method that reads the payment method data from the database
+     */
     @Override
     public void load() throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(this.filepath));
@@ -46,6 +50,12 @@ public class PaymentConnector extends DatabaseConnector{
         }
         br.close();
     }
+
+    /**
+     * Helper that translates a line of string data into a payment method for a user
+     * @param line the line of data
+     * @return the payment method
+     */
     private PaymentMethod lineToPayment(String line){
         String[] PaymentData = line.split(",");
         PaymentMethod pm = new PaymentMethod(PaymentData[0], Integer.parseInt(PaymentData[1]),

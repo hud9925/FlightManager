@@ -11,8 +11,14 @@ import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * An admin menu to edit a flight's data
+ */
 public class EditFlightMenu {
 
+    /**
+     * The prompt to select a flight to edit
+     */
     public static void EditFlightPrompt() throws IOException {
         System.out.println("Here is a list of the current flights:\n");
         for(String flightID: GetFlightList.flightMap().keySet()){
@@ -26,6 +32,11 @@ public class EditFlightMenu {
             FlightEditor(ans);
         }
     }
+
+    /**
+     * The editor, prompting to input flight data and then sending them to appropriate use case
+     * @param ans the flight's ID
+     */
     public static void FlightEditor(String ans) throws IOException {
         String date = Console.prompt("Please enter the date of the flight (yyyy-MM-dd): ",
                 "\\d{4}-[01]\\d-[0-3]\\d");
