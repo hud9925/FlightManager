@@ -22,7 +22,7 @@ public class graphAdmin {
         title1.setBounds(120,10,380,25);
         panelAdmin.add(title1);
 
-        JLabel title2 = new JLabel("Select on of the following options to continue.");
+        JLabel title2 = new JLabel("Select one of the following options to continue.");
         title2.setBounds(120,40,380,25);
         panelAdmin.add(title2);
 
@@ -46,7 +46,11 @@ public class graphAdmin {
 
         });
 
-        graphMain.logout(panelAdmin);
+        commonButtons.logout(panelAdmin);
+
+        JLabel foot1 = new JLabel("Please do not directly close the window, otherwise the data will not be saved!");
+        foot1.setBounds(100,500,460,25);
+        panelAdmin.add(foot1);
 
     }
 }

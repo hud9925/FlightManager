@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da775fb6-7d69-48d2-b9fe-b7c10713f9ef" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/phase2/src/GUI/commonButtons.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase2/src/GUI/graphAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/GUI/graphAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase2/src/GUI/graphMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/GUI/graphMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,15 +32,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/UT/2022SUM/IdeaProjects/CSC207/Slides/W11/floatingpoint/floatingpoint/src&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "extract.method.default.visibility": "private",
+    "last_opened_file_path": "E:/UT/2022SUM/IdeaProjects/CSC207/Slides/W11/floatingpoint/floatingpoint/src",
+    "nodejs_package_manager_path": "npm"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Owner\Documents\CSC207\group_0291\phase1" />
@@ -145,7 +147,7 @@
       <workItem from="1659799341132" duration="15969000" />
       <workItem from="1659889404525" duration="4579000" />
       <workItem from="1659972907673" duration="641000" />
-      <workItem from="1659973610530" duration="302000" />
+      <workItem from="1659973610530" duration="862000" />
     </task>
     <task id="LOCAL-00001" summary="Group information file">
       <created>1653603875638</created>
@@ -245,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659893678575</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added buttons for Admin/Main GUI pages">
+      <created>1659974215836</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1659974215836</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -289,7 +298,8 @@
     <MESSAGE value="Fixed the authentication error on the GUI&#10;login page." />
     <MESSAGE value="Further implemented the Register and Login GUI page." />
     <MESSAGE value="Created the shells of two another GUI pages (customer Main page, Admin page)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created the shells of two another GUI pages (customer Main page, Admin page)" />
+    <MESSAGE value="Added buttons for Admin/Main GUI pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added buttons for Admin/Main GUI pages" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

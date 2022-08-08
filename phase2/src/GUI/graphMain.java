@@ -1,6 +1,7 @@
 package GUI;
 import javax.swing.*;
 
+import static GUI.commonButtons.logout;
 import static GUI.graphUIMaster.f;
 
 public class graphMain {
@@ -22,7 +23,7 @@ public class graphMain {
         title1.setBounds(120,10,380,25);
         panelMain.add(title1);
 
-        JLabel title2 = new JLabel("Select on of the following options to continue.");
+        JLabel title2 = new JLabel("Select one of the following options to continue.");
         title2.setBounds(120,40,380,25);
         panelMain.add(title2);
 
@@ -48,17 +49,12 @@ public class graphMain {
 
         logout(panelMain);
 
+        JLabel foot1 = new JLabel("Please do not directly close the window, otherwise the data will not be saved!");
+        foot1.setBounds(100,500,460,25);
+        panelMain.add(foot1);
+
 
     }
 
-    static void logout(JPanel somePanel) {
-        JButton logoutButton = new JButton("Logout");
-        logoutButton.setBounds(250, 130, 150, 25);
-        somePanel.add(logoutButton);
-        logoutButton.addActionListener(e -> {
-            f.getContentPane().removeAll();
-            f.repaint();
-            firstPage.setMainPage();
-        });
-    }
+
 }
