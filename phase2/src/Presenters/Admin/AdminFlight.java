@@ -19,6 +19,7 @@ public class AdminFlight {
                         "- 2: add a flight;\n" +
                         "- 3: cancel a flight\n" +
                         "- 4: remove all flights\n"+
+                        "- 5: edit a flight's data\n" +
                         "- 0: back to admin menu."
         }, "^[0-9]*$");
         int whichChoice = Integer.parseInt(what);

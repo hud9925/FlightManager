@@ -2,6 +2,7 @@ package Controllers;
 
 import Presenters.Admin.AdminFlight;
 import Presenters.Admin.AdminMenu;
+import Presenters.Admin.EditFlightMenu;
 import UseCases.Admin.CancelFlight;
 import UseCases.Customer.GetFlightList;
 
@@ -36,7 +37,9 @@ public class AdminFlightC {
             case 4:
                 this.RemoveAllFlights();
                 break;
-
+            case 5:
+                this.EditFlightOption();
+                break;
         }
     }
 
@@ -105,6 +108,10 @@ public class AdminFlightC {
         String flightID = sc.nextLine();
         AdminFlightC.cancelFlightResult(flightID);
 
+    }
+
+    public void EditFlightOption() throws IOException {
+        EditFlightMenu.EditFlightPrompt();
     }
     /**
      * Method that Removes all Flights in the system
