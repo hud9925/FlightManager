@@ -1,4 +1,4 @@
-package GUI;
+package GUI.CustomerPages;
 import javax.swing.*;
 
 import static GUI.commonButtons.logout;

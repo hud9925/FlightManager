@@ -90,7 +90,8 @@ public class Ticket {
 
         String plainTicketText = getWhom().getUsername() + "//" +
                                  this.when + "//" +
-                                 getWhatFlight().getAirline() + getWhatFlight().getFlightID() + "//";
+                                 getWhatFlight().getAirline() + getWhatFlight().getFlightID() + "//" +
+                                 getWhere().getSeatID() + "//";
 
         return plainTicketText.hashCode();
     }

@@ -1,5 +1,7 @@
-package GUI;
+package GUI.loginSystem;
 
+import GUI.CustomerPages.graphMain;
+import GUI.firstPage;
 import UseCases.Customer.RegisterUseCase;
 
 import javax.swing.*;

@@ -1,5 +1,8 @@
-package GUI;
+package GUI.loginSystem;
 
+import GUI.AdminPages.graphAdmin;
+import GUI.CustomerPages.graphMain;
+import GUI.firstPage;
 import Presenters.Admin.AdminMenu;
 import Presenters.Customer.LoginMenu;
 import Presenters.Customer.MainMenu;

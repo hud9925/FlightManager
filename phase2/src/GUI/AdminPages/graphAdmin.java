@@ -1,4 +1,6 @@
-package GUI;
+package GUI.AdminPages;
+import GUI.commonButtons;
+
 import javax.swing.*;
 
 import static GUI.graphUIMaster.f;
