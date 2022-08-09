@@ -4,7 +4,6 @@ import Entities.User.Ticket.Ticket;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 abstract public class User {
@@ -37,7 +36,7 @@ abstract public class User {
     /**
      * A list of date when the User logged in.
      */
-    private final List<Date> dateList;
+    private final List<LocalDate> dateList;
 
     /**
      * A list of Tickets purchased by the User.
@@ -138,14 +137,14 @@ abstract public class User {
     /**
      * Add the current time to the login time list of this User.
      */
-    public void updateDateList () {this.dateList.add(new Date());}
+    public void updateDateList () {this.dateList.add(LocalDate.now());}
 
     /**
      * Add a new date to the login time list of this User.
      *
      * @param newDate The new date to add.
      */
-    public void updateDateList (Date newDate) {
+    public void updateDateList (LocalDate newDate) {
         this.dateList.add(newDate);
     }
 
@@ -154,8 +153,8 @@ abstract public class User {
      *
      * @param newDateList The new dates to append.
      */
-    public void updateDateList (List<Date> newDateList) {
-        for (Date newDate : newDateList) {
+    public void updateDateList (List<LocalDate> newDateList) {
+        for (LocalDate newDate : newDateList) {
             this.updateDateList(newDate);
         }
     }
@@ -195,8 +194,8 @@ abstract public class User {
     @Override
     public String toString(){
         StringBuilder dateStrs = new StringBuilder();
-        for(Date d : this.dateList){
-            String dateStr = String.valueOf(d.getTime());
+        for(LocalDate d : this.dateList){
+            String dateStr = d.toString();
             dateStrs.append(dateStr).append("|");
         }
         return username + "," + password + "," + dob  + "," + email + "," + isMember + "," +

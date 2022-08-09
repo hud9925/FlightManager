@@ -77,10 +77,10 @@ public class UserTrackerConnector extends DatabaseConnector {
      * @param previousDates the list of previous dates, in string format
      * @return the list of previous dates, in date format
      */
-    private List<Date> loginDatesReader(String[] previousDates) {
-        List<Date> dateList = new ArrayList<>();
+    private List<LocalDate> loginDatesReader(String[] previousDates) {
+        List<LocalDate> dateList = new ArrayList<>();
         for(String str: previousDates){
-            Date d = new Date(Long.parseLong(str));
+            LocalDate d = LocalDate.parse(str);
             dateList.add(d);
         }
         return dateList;

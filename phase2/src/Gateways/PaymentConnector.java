@@ -46,7 +46,9 @@ public class PaymentConnector extends DatabaseConnector{
         while((line = br.readLine())!= null) {
             PaymentMethod pm = lineToPayment(line);
             Customer user = (Customer) GetUser.returnUser(pm.getOwner());
-            user.setPaymentMethod(pm);
+            if(user != null){
+                user.setPaymentMethod(pm);
+            }
         }
         br.close();
     }
