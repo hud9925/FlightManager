@@ -2,6 +2,7 @@ package Presenters.Admin;
 
 import Controllers.UserMenuC;
 import UseCases.Admin.GetUser;
+import Presenters.Console;
 
 /**
  * Shows the current list of users

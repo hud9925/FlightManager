@@ -1,5 +1,7 @@
 package Presenters.Customer;
 
+import Presenters.Console;
+
 public class UsernameMenu {
 
     public static String getUsernamePrompt(){

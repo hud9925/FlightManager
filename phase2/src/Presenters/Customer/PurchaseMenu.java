@@ -2,6 +2,7 @@ package Presenters.Customer;
 
 import Controllers.PurchaseMenuC;
 import Entities.User.TicketAlreadyExistsException;
+import Presenters.Console;
 import UseCases.FlightNotFoundException;
 import UseCases.Customer.GetFlightList;
 import UseCases.Customer.SeatViewer;

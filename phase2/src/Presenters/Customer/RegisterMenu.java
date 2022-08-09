@@ -2,6 +2,7 @@ package Presenters.Customer;
 
 import Entities.User.TicketAlreadyExistsException;
 import Entities.User.TicketNotFoundException;
+import Presenters.Console;
 import UseCases.FlightNotFoundException;
 import UseCases.Customer.RegisterUseCase;
 

@@ -1,10 +1,10 @@
-package Presenters.Customer;
+package Presenters;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-class Console {
+public class Console {
 
     /**
      * Prompt the user for input.
@@ -12,7 +12,7 @@ class Console {
      * @param message The message to display.
      * @return The user input string.
      */
-    protected static String prompt (String message) {
+    public static String prompt (String message) {
         return prompt(new String[]{message}, ".*");
     }
 
@@ -22,7 +22,7 @@ class Console {
      * @param messages An array of messages to display. Each item in the array will be displayed in a new line.
      * @return The user input string.
      */
-    protected static String prompt (String[] messages) {
+    public static String prompt (String[] messages) {
         return prompt(messages, ".*");
     }
 
@@ -34,7 +34,7 @@ class Console {
      * @param regex The regex to check the user input against with.
      * @return The user input string.
      */
-    protected static String prompt (String message, String regex) {
+    public static String prompt (String message, String regex) {
         return prompt(new String[]{message}, regex);
     }
 
@@ -46,7 +46,7 @@ class Console {
      * @param regex The regex to check the user input against with.
      * @return The user input string.
      */
-    protected static String prompt (String[] messages, String regex) {
+    public static String prompt (String[] messages, String regex) {
         for (String message : messages) {
             System.out.println(message);
         }
