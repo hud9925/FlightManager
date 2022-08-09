@@ -34,7 +34,7 @@ public class AddFlight {
         FlightTracker.getInstance().addFlight(defaultflight);
     }
     /**
-     * Populates FlightTracker with Random number of Flights(up to 10) After initialization
+     * Populates FlightTracker with Random number of Flights (up to 10) After initialization
      */
     public static void GenerateFlights(){
         Random rand = new Random();

@@ -16,7 +16,7 @@ import java.util.concurrent.ThreadLocalRandom;
          * Adds a new Flight to Flight Tracker with a RandomID, columns, and rows
          * @return the Flight's ID
          */
-        public static String RandomFlight() {
+        public static String RandomFlight()  {
             Random rand = new Random();
             int upperBound = 11;
             int randomCol = rand.nextInt(upperBound);
