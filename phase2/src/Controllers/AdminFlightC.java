@@ -80,8 +80,10 @@ public class AdminFlightC {
      * Method that shows the current flight list, then redirects admin to the flight prompt menu
      */
     public void adminFlightOption() {
-        System.out.println(GetFlightList.flightMap());
-        AdminFlight.adminFlightPrompt();
+        System.out.println("Here is a list of the current flights:\n");
+        for(String flightID: GetFlightList.flightMap().keySet()){
+            System.out.println(GetFlightList.flightMap().get(flightID) + "\n");
+        }
     }
 
     /**
