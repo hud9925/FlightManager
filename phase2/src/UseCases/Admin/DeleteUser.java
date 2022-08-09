@@ -19,4 +19,10 @@ public class DeleteUser {
             return false;
         }
     }
+    /**
+     * Deletes all Users Inside UserTracker
+     */
+    public static void ClearAllUsers(){
+        UserTracker.getInstance().removeAllUsers();
+    }
 }

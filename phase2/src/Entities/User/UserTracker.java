@@ -96,6 +96,12 @@ public class UserTracker implements Iterable<User> {
             this.currentUser = null;
         }
     }
+    /**
+     * Removes All Users within the system
+     */
+    public void removeAllUsers(){
+        allUsers.clear();
+    }
 
     @Override
     public Iterator<User> iterator() {
