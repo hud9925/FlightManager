@@ -24,6 +24,6 @@ public class CancelFlight {
      *
      */
     public static void removeAllFlights(){
-        FlightTracker.getInstance().removeAllFlights();
+        FlightTracker.getInstance().clearFlights();
         }
     }

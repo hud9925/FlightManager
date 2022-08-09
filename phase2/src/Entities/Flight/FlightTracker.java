@@ -42,7 +42,7 @@ public class FlightTracker {
     /**
      * Removes all Flights from the map
      */
-    public void removeAllFlights(){
+    public void clearFlights(){
         flightMap.clear();
     }
     /**
