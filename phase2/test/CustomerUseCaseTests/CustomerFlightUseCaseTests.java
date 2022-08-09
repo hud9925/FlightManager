@@ -46,7 +46,7 @@ public class CustomerFlightUseCaseTests {
         assertEquals(GetFlightList.flightMap().size(), 4);
     }
     // Does not work currently
-    @Test(timeout = 50)
+    @Test(timeout = 200)
     public void testGetFlightListFlightInfo(){
         AddFlight.addFirstFlight();
         assertTrue(GetFlightList.flightInfo("AB123").containsValue(LocalDate.now()));

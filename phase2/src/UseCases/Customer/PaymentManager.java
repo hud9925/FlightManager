@@ -27,7 +27,7 @@ public class PaymentManager {
      * @param cost the cost that they are paying
      * @return the user's balance in their account
      */
-    public int purchase(String username, int cost){
+    public static int purchase(String username, int cost){
         Customer user = (Customer) GetUser.returnUser(username);
         user.getPaymentMethod().addBalance(cost*(-1));
         return user.getPaymentMethod().getBalance();
@@ -50,7 +50,7 @@ public class PaymentManager {
      * @param username the user's name
      * @return the user's card number + balance
      */
-    public String accountDetails(String username){
+    public static String accountDetails(String username){
         Customer user = (Customer) GetUser.returnUser(username);
         PaymentMethod pm = user.getPaymentMethod();
         return "Your Card Number:" + pm.getCardNumber() + "\nYour Balance: " + pm.getBalance();
