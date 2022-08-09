@@ -1,5 +1,8 @@
 package GUI;
 
+import GUI.loginSystem.graphLogin;
+import GUI.loginSystem.graphReg;
+
 import javax.swing.*;
 
 import static GUI.graphUIMaster.f;

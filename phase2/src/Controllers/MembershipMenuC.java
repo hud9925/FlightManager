@@ -39,12 +39,9 @@ public class MembershipMenuC {
             TicketNotFoundException {
         switch(choice){
             case 1:
-                this.exclusiveFlightMenuOption();
-                break;
-            case 2:
                 this.mainMenuOption();
                 break;
-            case 3:
+            case 2:
                 this.cancelMembershipOption(username);
                 break;
         }
@@ -59,13 +56,6 @@ public class MembershipMenuC {
         GetUser.returnUser(username).changeMemberStatus(true);
         System.out.println("Congratulations, you are now a member!");
         MembershipMenu.membershipMenuPrompt();
-    }
-
-    /**
-     * Redirects user to the exclusive flight menu.
-     */
-    public void exclusiveFlightMenuOption(){
-        System.out.println("in progress");
     }
 
     /**
