@@ -38,8 +38,8 @@ public class AddFlight {
      */
     public static void GenerateFlights(){
         Random rand = new Random();
-        int upperBound = 10;
-        int numFlights = rand.nextInt(upperBound);
+        int upperBound = 9;
+        int numFlights = rand.nextInt(upperBound)+1;
         int n =0;
         while (n < numFlights){
             String id = GenerateFlights.RandomFlight();

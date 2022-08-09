@@ -101,6 +101,11 @@ public class AdminTests {
     public void testGenerateFlightsRandomDuration() {
         assertEquals(8, GenerateFlights.RandomDuration().toString().length());
     }
+    @Test(timeout = 200)
+    public void testAddFlightGenerateFlights() {
+        AddFlight.GenerateFlights();
+        assertTrue(1<=FlightTracker.getInstance().numFlights() && FlightTracker.getInstance().numFlights()<=10);
+    }
 
 }
 

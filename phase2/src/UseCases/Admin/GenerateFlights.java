@@ -1,16 +1,16 @@
 package UseCases.Admin;
 
-import UseCases.FlightNotFoundException;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
+import static UseCases.Admin.AddFlight.newFlight;
+
     /**
      * A Use Case that Generates random parameters for new flights
      */
-
     public class GenerateFlights {
         /**
          * Adds a new Flight to Flight Tracker with a RandomID, columns, and rows
@@ -18,11 +18,11 @@ import java.util.concurrent.ThreadLocalRandom;
          */
         public static String RandomFlight()  {
             Random rand = new Random();
-            int upperBound = 11;
-            int randomCol = rand.nextInt(upperBound);
-            int randomRow = rand.nextInt(upperBound);
+            int upperBound = 10;
+            int randomCol = rand.nextInt(upperBound)+1;
+            int randomRow = rand.nextInt(upperBound)+1;
             String randomid = GenerateFlights.RandomID();
-            AddFlight.newFlight(randomid, randomCol, randomRow);
+            newFlight(randomid, randomCol, randomRow);
             return randomid;
         }
         /**
