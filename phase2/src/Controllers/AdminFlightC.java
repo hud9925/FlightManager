@@ -92,11 +92,11 @@ public class AdminFlightC {
         Scanner sc= new Scanner(System.in);
         System.out.print("Enter Flight ID: \n");
         String flightID = sc.nextLine();
-        System.out.println("Enter column number (max 10): \n");
+        System.out.println("Enter the total number of seats per row (max 10): \n");
         int col = sc.nextInt();
-        System.out.println("Enter row number: \n");
+        System.out.println("Enter the number of rows: \n");
         int row = sc.nextInt();
-        AdminFlightC.addFlightResult(flightID, col-1, row);
+        AdminFlightC.addFlightResult(flightID, col, row);
     }
 
     /**
