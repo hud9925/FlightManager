@@ -9,6 +9,9 @@ import java.time.LocalDate;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Tests For UseCase PaymentManager of Package Customer
+ */
 public class PaymentManagerTests {
     @Test(timeout = 200)
     public void testcreatePaymentMethod() {

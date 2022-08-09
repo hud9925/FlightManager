@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Tests for UseCase SeeAccountDetails
+ * Test for UseCase SeeAccountDetails
  */
 public class AccountDetailsTest {
 
