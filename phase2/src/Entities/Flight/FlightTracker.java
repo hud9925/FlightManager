@@ -38,6 +38,13 @@ public class FlightTracker {
     public boolean removeFlight(String idNum){
         return flightMap.remove(idNum) != null;
     }
+
+    /**
+     * Removes all Flights from the map
+     */
+    public void removeAllFlights(){
+        flightMap.clear();
+    }
     /**
      Verifies if a flight with the inputted ID exists, returning a boolean
      */

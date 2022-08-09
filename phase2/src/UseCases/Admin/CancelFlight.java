@@ -24,9 +24,6 @@ public class CancelFlight {
      *
      */
     public static void removeAllFlights(){
-        Set<String> flights = FlightTracker.getInstance().GetFlights().keySet();
-        for (String flightid: flights){
-            FlightTracker.getInstance().removeFlight(flightid);
+        FlightTracker.getInstance().removeAllFlights();
         }
     }
-}

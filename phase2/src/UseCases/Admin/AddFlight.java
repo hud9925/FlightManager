@@ -29,6 +29,9 @@ public class AddFlight {
      */
     public static void addFirstFlight(){
         Flight defaultflight = new Flight("AB123", 5, 5);
+        defaultflight.setAirline("Air Canada");
+        defaultflight.setDepartureLocation("Toronto");
+        defaultflight.setArrivalLocation("Venice");
         defaultflight.setDepartureDate(LocalDate.now());
         defaultflight.setDuration(LocalTime.now());
         FlightTracker.getInstance().addFlight(defaultflight);
