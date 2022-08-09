@@ -2,7 +2,6 @@ package Presenters.Admin;
 
 import UseCases.Admin.AddAdmin;
 
-import java.io.IOException;
 import java.time.LocalDate;
 
 /**
@@ -13,9 +12,8 @@ public class AddAdminMenu {
     /**
      * The prompt method that displays the prompts to the screen
      * It takes the User's responses and sends them to the AddAdmin Use Case to create a new admin.
-     * @throws IOException for meaningless inputs.
      */
-    public static void addAdminPrompt() throws IOException {
+    public static void addAdminPrompt() {
         //adding a new admin
         String username = Console.prompt("Please enter the new admin's username: ", ".+");
         String password = Console.prompt("Please enter the new admin's password: ", ".+");

@@ -6,7 +6,6 @@ import Presenters.Admin.EditFlightMenu;
 import UseCases.Admin.CancelFlight;
 import UseCases.Customer.GetFlightList;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 import static UseCases.Admin.AddFlight.newFlight;
@@ -20,7 +19,7 @@ public class AdminFlightC {
      * Constructor for AdminFlight Controller, takes in user's choice and assigns it to different options
      * @param whichChoice The user's choice
      */
-    public AdminFlightC(int whichChoice) throws IOException {
+    public AdminFlightC(int whichChoice) {
         switch (whichChoice){
             case 0:
                 this.adminMenuOption();
@@ -49,7 +48,7 @@ public class AdminFlightC {
      * @param col: the number of columns of seats for this flight;
      * @param row: the number of rows of seats for this flight;
      */
-    public static void addFlightResult(String flightID, int col, int row) throws IOException {
+    public static void addFlightResult(String flightID, int col, int row) {
         newFlight(flightID, row, col);
         System.out.println("Flight " + flightID + " has been successfully added! Redirecting...");
         AdminFlight.adminFlightPrompt();
@@ -60,7 +59,7 @@ public class AdminFlightC {
      * Notifies if a flight with the given ID does not exist
      * @param flightID: the ID of the flight, if existing.
      */
-    public static void cancelFlightResult(String flightID) throws IOException {
+    public static void cancelFlightResult(String flightID) {
         boolean pred = CancelFlight.removeFlight(flightID);
         if (pred) {
             System.out.println("Flight " + flightID + " has been removed successfully! Redirecting...");
@@ -73,14 +72,14 @@ public class AdminFlightC {
     /**
      * Method that redirects admin to the main admin menu
      */
-    public void adminMenuOption() throws IOException {
+    public void adminMenuOption() {
         AdminMenu.adminPrompt();
     }
 
     /**
      * Method that shows the current flight list, then redirects admin to the flight prompt menu
      */
-    public void adminFlightOption() throws IOException {
+    public void adminFlightOption() {
         System.out.println(GetFlightList.flightMap());
         AdminFlight.adminFlightPrompt();
     }
@@ -88,7 +87,7 @@ public class AdminFlightC {
     /**
      * Method that asks the admin for flight information, then calls helper method to create the flight
      */
-    public void addFlightOption() throws IOException {
+    public void addFlightOption() {
         Scanner sc= new Scanner(System.in);
         System.out.print("Enter Flight ID: \n");
         String flightID = sc.nextLine();
@@ -102,7 +101,7 @@ public class AdminFlightC {
     /**
      * Method that asks the admin for flight ID to be cancelled, then calls helper method to cancel the flight
      */
-    public void cancelFlightOption() throws IOException {
+    public void cancelFlightOption() {
         Scanner sc= new Scanner(System.in);
         System.out.print("Enter Flight ID: \n");
         String flightID = sc.nextLine();
@@ -110,13 +109,13 @@ public class AdminFlightC {
 
     }
 
-    public void EditFlightOption() throws IOException {
+    public void EditFlightOption() {
         EditFlightMenu.EditFlightPrompt();
     }
     /**
      * Method that Removes all Flights in the system
      */
-    public void RemoveAllFlights() throws IOException {
+    public void RemoveAllFlights() {
         CancelFlight.removeAllFlights();
         System.out.println("All flights in the database have been removed!");
         AdminFlight.adminFlightPrompt();

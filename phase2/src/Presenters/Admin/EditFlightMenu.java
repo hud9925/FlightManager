@@ -3,7 +3,6 @@ package Presenters.Admin;
 import UseCases.Admin.FlightDataEditor;
 import UseCases.Customer.GetFlightList;
 
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -19,7 +18,7 @@ public class EditFlightMenu {
     /**
      * The prompt to select a flight to edit
      */
-    public static void EditFlightPrompt() throws IOException {
+    public static void EditFlightPrompt() {
         System.out.println("Here is a list of the current flights:\n");
         for(String flightID: GetFlightList.flightMap().keySet()){
             System.out.println(GetFlightList.flightMap().get(flightID) + "\n");
@@ -37,7 +36,7 @@ public class EditFlightMenu {
      * The editor, prompting to input flight data and then sending them to appropriate use case
      * @param ans the flight's ID
      */
-    public static void FlightEditor(String ans) throws IOException {
+    public static void FlightEditor(String ans) {
         String airline = Console.prompt("Please enter the Airline of the flight");
         String date = Console.prompt("Please enter the date of the flight (yyyy-MM-dd): ",
                 "\\d{4}-[01]\\d-[0-3]\\d");

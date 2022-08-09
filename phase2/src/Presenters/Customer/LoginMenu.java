@@ -6,7 +6,6 @@ import Presenters.Admin.AdminMenu;
 import UseCases.FlightNotFoundException;
 import UseCases.Customer.LoginUseCase;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -22,7 +21,7 @@ public class LoginMenu {
      * If the credentials don't exist, another prompt to go back or to continue.
      */
 
-    public static void loginPrompt() throws IOException, FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
+    public static void loginPrompt() throws FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
         String username = Console.prompt("Enter Username : ", ".+");
         String password = Console.prompt("Enter Password : ", ".+");
 
@@ -55,7 +54,7 @@ public class LoginMenu {
     /**
      * Main prompt method to display the login page. Asks the User if they want to register, login or quit.
      */
-    public static void loginPage() throws IOException, FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
+    public static void loginPage() throws FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
         String ans = Console.prompt(new String[]{
                 "Welcome to the air ticket reserving system login page!",
                 "If you are an existing user, please enter 'E'. If you are new user, you need to register an " +
