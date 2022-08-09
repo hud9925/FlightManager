@@ -19,8 +19,9 @@ public class FlightDataEditor {
      * @param dur the duration of flight
      * @param date the date of flight
      */
-    public static void Editor(String ID, String depLoc, String arrLoc, LocalTime dur, LocalDate date){
+    public static void Editor(String ID, String airline, String depLoc, String arrLoc, LocalTime dur, LocalDate date){
         Flight flight = FlightTracker.getInstance().getFlight(ID);
+        flight.setAirline(airline);
         flight.setDuration(dur);
         flight.setDepartureDate(date);
         flight.setArrivalLocation(arrLoc);

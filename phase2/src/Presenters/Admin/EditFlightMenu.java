@@ -38,6 +38,7 @@ public class EditFlightMenu {
      * @param ans the flight's ID
      */
     public static void FlightEditor(String ans) throws IOException {
+        String airline = Console.prompt("Please enter the Airline of the flight");
         String date = Console.prompt("Please enter the date of the flight (yyyy-MM-dd): ",
                 "\\d{4}-[01]\\d-[0-3]\\d");
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
@@ -53,7 +54,7 @@ public class EditFlightMenu {
         LocalTime duration = LocalTime.parse(time, DateTimeFormatter.ofPattern("HH:mm"));
         String arrLoc = Console.prompt("Please enter the arrival location of the flight:");
         String depLoc = Console.prompt("Please enter the departure location of the flight:");
-        FlightDataEditor.Editor(ans, depLoc, arrLoc, duration, depDate);
+        FlightDataEditor.Editor(ans, airline, depLoc, arrLoc, duration, depDate);
         System.out.println("Flight has been edited. Redirecting to main admin menu...");
         AdminMenu.adminPrompt();
     }

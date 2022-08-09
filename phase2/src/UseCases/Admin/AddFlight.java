@@ -43,7 +43,8 @@ public class AddFlight {
         int n =0;
         while (n < numFlights){
             String id = GenerateFlights.RandomFlight();
-            FlightDataEditor.Editor(id, GenerateFlights.RandomDepartLocation(), GenerateFlights.RandomArrivalLocation(),
+            FlightDataEditor.Editor(id, GenerateFlights.RandomAirline(),
+                    GenerateFlights.RandomDepartLocation(), GenerateFlights.RandomArrivalLocation(),
                     GenerateFlights.RandomDuration(), GenerateFlights.RandomDeparture());
             n++;
         }

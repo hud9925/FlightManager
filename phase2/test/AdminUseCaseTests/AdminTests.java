@@ -6,9 +6,12 @@ import Entities.Flight.FlightTracker;
 import Entities.User.UserTracker;
 import UseCases.Admin.*;
 
+import UseCases.Customer.ShowFlight;
+import UseCases.FlightNotFoundException;
 import org.junit.Test;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Arrays;
 
 import static org.junit.Assert.*;
@@ -66,14 +69,27 @@ public class AdminTests {
 
     }
     @Test(timeout = 50)
-    public void CancelFlight(){
+    public void testCancelFlight(){
         CancelFlight.removeFlight("BC123");
         assertFalse(FlightTracker.getInstance().verifyFlight("BC123"));
     }
     @Test(timeout = 50)
-    public void CancelAllFlights(){
+    public void testCancelAllFlights(){
         CancelFlight.removeAllFlights();
         assertEquals(FlightTracker.getInstance().numFlights(), 0);
+    }
+    @Test(timeout = 200)
+    public void testFlightDataEditor() throws FlightNotFoundException {
+        Flight f1 = new Flight("AB689", 5, 6);
+        AddFlight.newFlight(f1);
+        FlightDataEditor.Editor("AB689","Air Canada", "Toronto",
+                "Madrid",LocalTime.of(6, 7, 8) , LocalDate.now());
+        assertEquals(ShowFlight.getFlight("AB689").getAirline(),"Air Canada");
+        assertEquals(ShowFlight.getFlight("AB689").getDepartureLocation(), "Toronto");
+        assertEquals(ShowFlight.getFlight("AB689").getArrivalLocation(), "Madrid");
+        assertEquals(ShowFlight.getFlight("AB689").getDuration(), LocalTime.of(6, 7, 8));
+        assertEquals(ShowFlight.getFlight("AB689").getDepartureDate(), LocalDate.now());
+
     }
     @Test(timeout = 50)
     public void testGenerateFlightsRandomID(){
