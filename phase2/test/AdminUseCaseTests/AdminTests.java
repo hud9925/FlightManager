@@ -98,7 +98,7 @@ public class AdminTests {
         assertEquals(10, GenerateFlights.RandomDeparture().toString().length());
     }
     @Test(timeout = 50)
-    public void testGenerateFlightsRandomDuration(){
+    public void testGenerateFlightsRandomDuration() {
         assertEquals(8, GenerateFlights.RandomDuration().toString().length());
     }
 
