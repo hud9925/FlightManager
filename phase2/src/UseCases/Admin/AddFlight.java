@@ -2,9 +2,11 @@ package UseCases.Admin;
 
 import Entities.Flight.Flight;
 import Entities.Flight.FlightTracker;
+import UseCases.FlightNotFoundException;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Random;
 
 // A Use Case that adds a flight to the entity FlightTracker
 
@@ -31,4 +33,20 @@ public class AddFlight {
         defaultflight.setDuration(LocalTime.now());
         FlightTracker.getInstance().addFlight(defaultflight);
     }
+    /**
+     * Populates FlightTracker with Random number of Flights(up to 10) After initialization
+     */
+    public static void GenerateFlights(){
+        Random rand = new Random();
+        int upperBound = 10;
+        int numFlights = rand.nextInt(upperBound);
+        int n =0;
+        while (n < numFlights){
+            String id = GenerateFlights.RandomFlight();
+            FlightDataEditor.Editor(id, GenerateFlights.RandomDepartLocation(), GenerateFlights.RandomArrivalLocation(),
+                    GenerateFlights.RandomDuration(), GenerateFlights.RandomDeparture());
+            n++;
+        }
+    }
 }
+

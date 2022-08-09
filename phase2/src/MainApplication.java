@@ -32,6 +32,7 @@ public class MainApplication {
         }
         if (dc2.checkEmpty()){
             AddFlight.addFirstFlight();
+            AddFlight.GenerateFlights();
             dc2.save();
         }
         dc1.load();

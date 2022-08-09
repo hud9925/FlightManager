@@ -9,6 +9,7 @@ import UseCases.Admin.*;
 import org.junit.Test;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 
 import static org.junit.Assert.*;
 
@@ -74,5 +75,32 @@ public class AdminTests {
         CancelFlight.removeAllFlights();
         assertEquals(FlightTracker.getInstance().numFlights(), 0);
     }
+    @Test(timeout = 50)
+    public void testGenerateFlightsRandomID(){
+        assertEquals(5, GenerateFlights.RandomID().length());
+    }
+    @Test(timeout = 50)
+    public void testGenerateFlightsRandomDeparture(){
+        assertEquals(10, GenerateFlights.RandomDeparture().toString().length());
+    }
+    @Test(timeout = 50)
+    public void testGenerateFlightsRandomDepartLocation(){
+        String[] Locations = new String[]{"Toronto", "Chicago", "New York City", "Vancouver", "Seattle", "Nashville"};
+        assertTrue(Arrays.asList(Locations).contains(GenerateFlights.RandomDepartLocation()));
+    }
+    @Test(timeout = 50)
+    public void testGenerateFlightsRandomArrivalLocation(){
+        String[] Locations = new String[]{"Madrid", "Venice", "Buenos Aires", "New Delhi", "Moscow", "Shanghai"};
+        assertTrue(Arrays.asList(Locations).contains(GenerateFlights.RandomArrivalLocation()));
+    }
+    @Test(timeout = 50)
+    public void testGenerateFlightsRandomArrival(){
+        assertEquals(10, GenerateFlights.RandomDeparture().toString().length());
+    }
+    @Test(timeout = 50)
+    public void testGenerateFlightsRandomDuration(){
+        assertEquals(8, GenerateFlights.RandomDuration().toString().length());
+    }
 
 }
+
