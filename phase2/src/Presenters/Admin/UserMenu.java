@@ -20,6 +20,7 @@ public class UserMenu {
                 GetUser.returnAllUsers(),
                 "To delete a user, press 1.",
                 "To add an admin, press 2.",
+                "To delete all users except yourself, press 3.",
                 "To go back, press any other key."
         });
         new UserMenuC(ans);

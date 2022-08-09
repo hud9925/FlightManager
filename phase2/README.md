@@ -8,6 +8,8 @@ as long as you exit from the main menu. If you terminate your run, it does not s
 
 Any Users saved before will be automatically loaded anytime you start the program, so you can log-in using
 their username and password. To access the Admin controls, please login with the username "Administrator" and password "admin123."
-Note that most input prompts are case-sensitive (to be fixed later).
+Please do not delete this account, as only admins are capable of add new admins (can't register as an admin by yourself).
 
+Note that most input prompts are case-sensitive.
+Currently the GUI only has the 
 Classes are organized based on Clean Architecture.

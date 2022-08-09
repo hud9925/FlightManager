@@ -1,4 +1,5 @@
 package UseCases.Admin;
+import Entities.User.User;
 import Entities.User.UserTracker;
 
 // A Use Case that removes a User based on the given Username if it exists in UserTracker.
@@ -22,7 +23,9 @@ public class DeleteUser {
     /**
      * Deletes all Users Inside UserTracker
      */
-    public static void ClearAllUsers(){
+    public static void ClearAllUsers(String username){
+        User currentUser = GetUser.returnUser(username);
         UserTracker.getInstance().removeAllUsers();
+        UserTracker.getInstance().addUser(currentUser);
     }
 }

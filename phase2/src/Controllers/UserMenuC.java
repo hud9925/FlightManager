@@ -3,6 +3,8 @@ package Controllers;
 import Presenters.Admin.AddAdminMenu;
 import Presenters.Admin.AdminMenu;
 import Presenters.Admin.DeleteUserMenu;
+import Presenters.Customer.UsernameMenu;
+import UseCases.Admin.DeleteUser;
 
 /**
  * Controller class containing options for the admin user menu
@@ -18,10 +20,13 @@ public class UserMenuC {
     public UserMenuC(String ans) {
         switch (ans){
             case "1":
-                this.option1();
+                this.deleteUserOption();
                 break;
             case "2":
-                this.option2();
+                this.addAdminOption();
+                break;
+            case "3":
+                this.deleteAllOption();
                 break;
             default:
                 this.back();
@@ -32,18 +37,22 @@ public class UserMenuC {
     /**
      * Option method 1: Directs admin to delete user menu and its prompt
      */
-    public void option1() {
+    public void deleteUserOption() {
         DeleteUserMenu.removingUserPrompt();
     }
     /**
      * Option method 2: Directs admin to add admin menu and its prompt
      */
-    public void option2() {
+    public void addAdminOption() {
         AddAdminMenu.addAdminPrompt();
     }
     /**
-     * Option method 3: Directs admin back to the main admin menu and its prompt
+     * Option method 3: Deletes all users except the current user
      */
+    public void deleteAllOption(){
+        String username = UsernameMenu.getUsernamePrompt();
+        DeleteUser.ClearAllUsers(username);
+    }
     public void back() {
         AdminMenu.adminPrompt();
     }
