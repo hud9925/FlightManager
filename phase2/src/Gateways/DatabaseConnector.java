@@ -28,7 +28,7 @@ abstract public class DatabaseConnector {
             return;
         }
 
-        String altPath = getAbsolutePath("phase2/" + filename);
+        String altPath = getAbsolutePath("Databases/" + filename);
         if (fileExists(altPath)) {
             this.filepath = altPath;
             return;
