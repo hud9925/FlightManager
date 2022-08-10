@@ -63,6 +63,9 @@ public class MainMenuC {
      */
     private void accountInfoOption(String username){
         String[] userdata = GetUser.returnUser(username).toString().split(",");
+        if (userdata[5].endsWith("|")) {
+            userdata[5] = userdata[5].substring(0, userdata[5].length()-1);
+        }
         System.out.println("Username: " + userdata[0] + "\nPassword: " + userdata[1] + "\nBirthday: " + userdata[2] +
                 "\nEmail: " + userdata[3] + "\nMember Status: " + userdata[4] + "\nLogin dates: " + userdata[5]);
         MainMenu.mainPage(username);
