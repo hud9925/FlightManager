@@ -1,5 +1,6 @@
 package UseCases.Customer;
 
+import Entities.User.Customer;
 import Entities.User.Ticket.Ticket;
 import Entities.User.TicketAlreadyExistsException;
 import Entities.User.User;
@@ -16,5 +17,6 @@ public class BuyTicket {
      */
     public static void purchasedTicket(User user, Ticket newTicket) throws TicketAlreadyExistsException {
         user.addTicket(newTicket);
+        ((Customer)user).updateLoyaltyPoints();
     }
 }
