@@ -26,17 +26,16 @@ public class MembershipMenu {
             String action = Console.prompt(new String[]{
                     "Welcome back, " + username + "!",
                     "You have " + GetUser.returnUser(username).getLoyaltyPoints() + " points",
-                    "To return to the Main Menu, enter 1.",
-                    "To cancel your membership status, enter 2."
-            }, "^[0-9]");
-            int choice = Integer.parseInt(action);
-            new MembershipMenuC(choice, username);
+                    "- 1: Cancel your membership status.",
+                    "To go back to the main menu, press any other key."
+            });
+            new MembershipMenuC(action, username);
 
         } else {
             String choice = Console.prompt(new String[]{
                     "You are not a member yet. Would you like to become one? \n" +
-                            "Enter 'yes' if you would.\n" +
-                            "Enter anything else to return to the main menu.\n"
+                            "- 2: Yes.\n" +
+                            "To go back to the main menu, press any other key.\n"
             });
             new MembershipMenuC(choice, username);
         }

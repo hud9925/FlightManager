@@ -12,6 +12,7 @@ import UseCases.Admin.GetUser;
  * and redirects them accordingly.
  */
 public class MembershipMenuC {
+
     /**
      * Takes the user's input from MembershipMenu. If they enter 'yes', they become a member. Any other combination
      * of characters will return them to the Main Menu.
@@ -20,29 +21,15 @@ public class MembershipMenuC {
      */
     public MembershipMenuC(String choice, String username) throws FlightNotFoundException,
             TicketAlreadyExistsException, TicketNotFoundException {
-        if (choice.equalsIgnoreCase("yes")){
-            this.becomeMemberOption(username);
-        }
-        else {
-            this.mainMenuOption();
-        }
-    }
-
-    /**
-     Takes the user's input from MembershipMenu. If they choose 1, they are sent to exclusiveFlightMenuOption
-     * where they can purchase exclusive flights. If they choose 2, they are sent back to the Mai nMenu.
-     * If they choose 3, they can cancel their membership status.
-     * @param choice the option chosen by the user.
-     * @param username the user's username.
-     */
-    public MembershipMenuC(int choice, String username) throws FlightNotFoundException, TicketAlreadyExistsException,
-            TicketNotFoundException {
         switch(choice){
-            case 1:
-                this.mainMenuOption();
-                break;
-            case 2:
+            case "1":
                 this.cancelMembershipOption(username);
+                break;
+            case "2":
+                this.becomeMemberOption(username);
+                break;
+            default:
+                this.mainMenuOption();
                 break;
         }
     }

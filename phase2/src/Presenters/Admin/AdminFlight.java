@@ -22,8 +22,5 @@ public class AdminFlight {
                         "To go back, press any other key."
         });
         new AdminFlightC(choice);
-
-
     }
-
 }

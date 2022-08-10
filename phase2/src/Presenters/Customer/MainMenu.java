@@ -18,11 +18,11 @@ public class MainMenu {
     public static void mainPage() throws FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
         String ans = Console.prompt(new String[] {
                 "Welcome to the air ticket reserving system!",
-                "To see a list of flights, press 1.",
-                "To cancel a ticket, press 2.",
-                "To see your account details, press 3.",
-                "To open the membership dashboard, press 4.",
-                "To add a payment method to your account, press 5.",
+                "- 1: See a list of available flights.",
+                "- 2: Cancel a ticket.",
+                "- 3: View account details.",
+                "- 4: Open the membership dashboard.",
+                "- 5: Add a payment method to your account.",
                 "To exit the program, press any other key."
         });
         new MainMenuC(ans);

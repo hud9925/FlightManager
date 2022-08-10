@@ -18,9 +18,9 @@ public class UserMenu {
         String ans = Console.prompt(new String[] {
                 "Here is the current list of users:",
                 GetUser.returnAllUsers(),
-                "To delete a user, press 1.",
-                "To add an admin, press 2.",
-                "To delete all users except yourself, press 3.",
+                "- 1: Delete a user.",
+                "- 2: Add an admin.",
+                "- 3: Delete all users except yourself.",
                 "To go back, press any other key."
         });
         new UserMenuC(ans);

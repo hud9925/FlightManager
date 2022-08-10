@@ -14,9 +14,9 @@ public class AdminMenu {
     public static void adminPrompt() {
         String ans = Console.prompt(new String[]{
                 "Welcome to the admin menu!",
-                "Press 1 to see a list of existing users to add an admin or delete a user.",
-                "Press 2 to see a list of flights to add or cancel a flight.",
-                "Press any other key to logout."
+                "- 1: See a list of existing users to add an admin or delete a user.",
+                "- 2: See a list of flights to add or cancel a flight.",
+                "To log out, press any other key."
         });
         new AdminMenuC(ans);
     }

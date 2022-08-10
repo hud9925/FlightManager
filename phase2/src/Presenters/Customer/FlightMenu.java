@@ -33,7 +33,7 @@ public class FlightMenu {
             System.out.println("    "+flight.getKey()+"          "+ flight.getValue());
         }
         System.out.println("\n**********************************");
-        String ans = Console.prompt("Please enter the flight number of the flight you wish to view or 'back' to" +
+        String ans = Console.prompt("Please enter the flight number of the flight you wish to view, or 'back' to " +
                 "leave this menu: ");
         new FlightMenuC(ans);
     }
