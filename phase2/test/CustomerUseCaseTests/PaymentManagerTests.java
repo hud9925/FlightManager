@@ -17,7 +17,7 @@ public class PaymentManagerTests {
     public void testcreatePaymentMethod() {
         Customer c1 = new Customer("apple", "banana", LocalDate.now(), "Apple@gmail.com", false);
         UserTracker.getInstance().addUser(c1);
-        PaymentManager.createPaymentMethod("apple", 4500567, 3478);
+        PaymentManager.createPaymentMethod("apple", 4500567, "3478");
         assertEquals(4500567, c1.getPaymentMethod().getCardNumber());
     }
     @Test(timeout = 50)
@@ -38,7 +38,7 @@ public class PaymentManagerTests {
     public void testAccountDetails() {
         Customer c1 = new Customer("apple", "banana", LocalDate.now(), "Apple@gmail.com", false);
         UserTracker.getInstance().addUser(c1);
-        PaymentManager.createPaymentMethod("apple", 4500567, 3478);
+        PaymentManager.createPaymentMethod("apple", 4500567, "3478");
         PaymentManager.deposit("apple", 60);
         assertEquals(PaymentManager.accountDetails("apple"), "Your Card Number:4500567\n" +
                                                                             "Your Balance: 60");
