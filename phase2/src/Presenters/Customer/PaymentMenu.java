@@ -31,9 +31,9 @@ public class PaymentMenu {
      * @param username the user's name
      */
     private static void depositMenuPrompt(String username) {
-        String deposit = Console.prompt("Please enter the amount you are depositing (integers only):",
-                "^[0-9]*$");
-        System.out.println("Your current balance is: " + PaymentManager.deposit(username, Integer.parseInt(deposit)) +
+        int deposit = Console.promptForInt("Please enter the amount you are depositing (integers only): ",
+                false);
+        System.out.println("Your current balance is: " + PaymentManager.deposit(username, deposit) +
                 "\nYou will be redirected to the main menu...");
     }
 }

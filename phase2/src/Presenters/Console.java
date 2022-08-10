@@ -54,6 +54,41 @@ public class Console {
     }
 
     /**
+     * Prompt the user for input, and parse the input to an integer.
+     *
+     * @param message The message to display.
+     * @param allowNegative Whether negative value is accepted.
+     * @return The user input integer.
+     */
+    public static int promptForInt (String message, boolean allowNegative) {
+        return promptForInt(new String[]{message}, allowNegative);
+    }
+
+    /**
+     * Prompt the user for input, and parse the input to an integer.
+     *
+     * @param messages An array of messages to display. Each item in the array will be displayed in a new line.
+     * @param allowNegative Whether negative value is accepted.
+     * @return The user input integer.
+     */
+    public static int promptForInt (String[] messages, boolean allowNegative) {
+        String regex;
+        if (allowNegative) {
+            regex = "^-?\\d+$";
+        } else {
+            regex = "^\\d+$";
+        }
+        String intString = prompt(messages, regex);
+        int result;
+        try {
+            result = Integer.parseInt(intString);
+        } catch (NumberFormatException e) {
+            return promptForInt("Invalid input, please try again.", allowNegative);
+        }
+        return result;
+    }
+
+    /**
      * Get the user input that match the regex. If the input does not match the regex, the user is prompt to input
      * again.
      *

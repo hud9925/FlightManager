@@ -23,11 +23,10 @@ public class CancelMenu {
             System.out.println("You have no tickets. Returning you to main menu...");
             MainMenu.mainPage(username);
         } else {
-            String ticketID = Console.prompt(new String[]{
+            int ticketIDHash = Console.promptForInt(new String[]{
                     Arrays.toString(GetTicketList.getTickets(GetUser.returnUser(username))),
                     "Please enter your ID of ticket you are going to cancel:"
-            });
-            int ticketIDHash = Integer.parseInt(ticketID);
+            }, true);
             new CancelMenuC(username, ticketIDHash);
         }
     }

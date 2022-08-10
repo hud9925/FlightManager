@@ -34,7 +34,7 @@ public class PurchaseMenu {
             System.out.println(" ");
             System.out.println("To Purchase a seat, Please Select a Row and Column individually.");
 
-            int row = Integer.parseInt(Console.prompt("Please Enter the Seat's Row Number", "^\\d+$"));
+            int row = Console.promptForInt("Please Enter the Seat's Row Number", false);
             char column = Console.prompt("Please Enter the Seat's Column Letter", "^[a-zA-Z]$").charAt(0);
             char CharRep = Character.toUpperCase(column);
 

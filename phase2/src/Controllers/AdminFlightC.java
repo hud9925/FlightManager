@@ -107,8 +107,7 @@ public class AdminFlightC {
         int col = Integer.parseInt(Console.prompt("Enter the total number of seats per row (max 10): ",
                 "^(\\d|(10))$"));
         System.out.println("Enter the number of rows: \n");
-        int row = Integer.parseInt(Console.prompt("Enter the number of rows: ",
-                "^\\d+$"));
+        int row = Console.promptForInt("Enter the number of rows: ", false);
         AdminFlightC.addFlightResult(username, flightID, col, row);
     }
 
