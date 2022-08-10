@@ -27,32 +27,63 @@ public class graphMain {
         title2.setBounds(120,40,380,25);
         panelMain.add(title2);
 
-//        JButton usersButton = new JButton("View all users");
-//        usersButton.setBounds(100, 70, 150, 25);
-//        panelMain.add(usersButton);
-//        usersButton.addActionListener(e -> {
-//            statusLabel.setText("Redirecting to the user list page... (not yet developed)");
-////            f.getContentPane().removeAll();
-////            f.repaint();
-//
-//        });
-//
-//        JButton flightsButton = new JButton("View the flights");
-//        flightsButton.setBounds(300, 70, 150, 25);
-//        panelMain.add(flightsButton);
-//        flightsButton.addActionListener(e -> {
-//            statusLabel.setText("Redirecting to the flight list page... (not yet developed)");
-////            f.getContentPane().removeAll();
-////            f.repaint();
-//
-//        });
+        JButton buyTicketButton = new JButton("Buy Tickets");
+        buyTicketButton.setBounds(100, 70, 150, 25);
+        panelMain.add(buyTicketButton);
+        buyTicketButton.addActionListener(e -> {
+            statusLabel.setText("Redirecting ... (not yet developed)");
+            f.getContentPane().removeAll();
+            f.repaint();
+            graphBuyTicket.setBuyTicketPanel();
+
+        });
+
+        JButton viewTicketsButton = new JButton("View Tickets");
+        viewTicketsButton.setBounds(300, 70, 150, 25);
+        panelMain.add(viewTicketsButton);
+        viewTicketsButton.addActionListener(e -> {
+            statusLabel.setText("Redirecting ... (not yet developed)");
+//            f.getContentPane().removeAll();
+//            f.repaint();
+
+        });
+
+        JButton viewAccountButton = new JButton("Account Details");
+        viewAccountButton.setBounds(100, 100, 150, 25);
+        panelMain.add(viewAccountButton);
+        viewAccountButton.addActionListener(e -> {
+            statusLabel.setText("Redirecting ... (not yet developed)");
+//            f.getContentPane().removeAll();
+//            f.repaint();
+
+        });
+
+        JButton viewMemberButton = new JButton("Membership");
+        viewMemberButton.setBounds(300, 100, 150, 25);
+        panelMain.add(viewMemberButton);
+        viewMemberButton.addActionListener(e -> {
+            statusLabel.setText("Redirecting ... (not yet developed)");
+//            f.getContentPane().removeAll();
+//            f.repaint();
+
+        });
+
+        JButton viewPaymentButton = new JButton("Update Payments");
+        viewPaymentButton.setBounds(100, 130, 150, 25);
+        panelMain.add(viewPaymentButton);
+        viewPaymentButton.addActionListener(e -> {
+            statusLabel.setText("Redirecting ... (not yet developed)");
+//            f.getContentPane().removeAll();
+//            f.repaint();
+
+        });
+
 
         logout(panelMain);
 
         JLabel foot1 = new JLabel("Please do not directly close the window, otherwise the data will not be saved!");
         foot1.setBounds(100,500,460,25);
         panelMain.add(foot1);
-
 
     }
 

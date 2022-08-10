@@ -10,7 +10,7 @@ public class commonButtons {
      */
     public static void logout(JPanel somePanel) {
         JButton logoutButton = new JButton("Logout");
-        logoutButton.setBounds(220, 130, 150, 25);
+        logoutButton.setBounds(220, 160, 150, 25);
         somePanel.add(logoutButton);
         logoutButton.addActionListener(e -> {
             f.getContentPane().removeAll();
@@ -18,4 +18,5 @@ public class commonButtons {
             firstPage.setMainPage();
         });
     }
+
 }
