@@ -1,5 +1,6 @@
 package UseCases.Admin;
 
+import Entities.User.Customer;
 import Entities.User.User;
 import Entities.User.UserTracker;
 
@@ -15,6 +16,11 @@ public class GetUser {
     public static User returnUser(String username){
         UserTracker ut = UserTracker.getInstance(username);
         return ut.getCurrentUser();
+    }
+
+    public static Customer returnCustomer(String username){
+        UserTracker ut = UserTracker.getInstance(username);
+        return (Customer)ut.getCurrentUser();
     }
 
     /**

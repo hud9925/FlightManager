@@ -63,6 +63,7 @@ public class UserTrackerConnector extends DatabaseConnector {
         } else {
             newUser = new Customer(userinfo[0], userinfo[1], LocalDate.parse(userinfo[2]), userinfo[3],
                     Boolean.parseBoolean(userinfo[4]));
+            ((Customer)newUser).setLoyaltyPoints(Integer.parseInt(userinfo[7]));
         }
         String[] previousDates = userinfo[5].split("\\|");
         if (!previousDates[0].equals("")) {

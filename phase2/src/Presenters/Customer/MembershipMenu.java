@@ -21,7 +21,7 @@ public class MembershipMenu {
         if (GetUser.returnUser(username).getMemberStatus()){
             String action = Console.prompt(new String[]{
                     "Welcome back, " + username + "!",
-                    "You have " + GetUser.returnUser(username).getLoyaltyPoints() + " points",
+                    "You have " + GetUser.returnCustomer(username).getLoyaltyPoints() + " points",
                     "- 1: Cancel your membership status.",
                     "To go back to the main menu, press any other key."
             });

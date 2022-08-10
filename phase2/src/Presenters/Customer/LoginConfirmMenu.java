@@ -23,7 +23,7 @@ public class LoginConfirmMenu {
         // Checking Credentials Through Contacting LoginUseCase
         if (LoginUseCase.userType(username, password).get(0)){
             System.out.println("Thank you! Ticket has been Purchased!");
-            GetUser.returnUser(username).updateLoyaltyPoints();
+            GetUser.returnCustomer(username).updateLoyaltyPoints();
             return username;
         }
         else { //.UserType(username, password).get(0)) is false

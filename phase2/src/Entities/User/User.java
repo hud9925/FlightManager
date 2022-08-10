@@ -29,11 +29,6 @@ abstract public class User {
     private boolean isMember;
 
     /**
-     * An integer value representing the total number of loyalty points acquired by the User.
-     */
-    private int loyaltyPoints;
-
-    /**
      * A list of date when the User logged in.
      */
     private final List<LocalDate> dateList;
@@ -61,7 +56,6 @@ abstract public class User {
         this.dob= dob;
         this.email = email;
         this.isMember = isMember;
-        this.loyaltyPoints = 0;
         this.dateList = new ArrayList<>();
         this.tickets = new ArrayList<>();
     }
@@ -85,6 +79,24 @@ abstract public class User {
     }
 
     /**
+     * Get the date of birth of this User.
+     *
+     * @return The password.
+     */
+    public LocalDate getDob(){
+        return this.dob;
+    }
+
+    /**
+     * Get the login times of this User.
+     *
+     * @return The password.
+     */
+    public List<LocalDate> getDateList() {
+        return dateList;
+    }
+
+    /**
      * Get if this User is a member or not.
      *
      * @return A boolean indicating whether this User is a member.
@@ -92,12 +104,6 @@ abstract public class User {
     public boolean getMemberStatus () {
         return this.isMember;
     }
-
-    /**
-     * Get the total number of Loyalty Points acquired by the user.
-     * @return the integer value representing the user's total loyalty points.
-     */
-    public int getLoyaltyPoints () { return this.loyaltyPoints; }
 
     /**
      * Get an array of tickets purchased by the user.
@@ -108,6 +114,15 @@ abstract public class User {
      */
     public Ticket[] getTickets() {
         return tickets.toArray(new Ticket[this.tickets.size()]);
+    }
+
+    /**
+     * Get this user's email.
+     *
+     * @return A boolean indicating whether this User is a member.
+     */
+    public String getEmail() {
+        return email;
     }
 
     /**
@@ -126,13 +141,7 @@ abstract public class User {
         this.isMember = newStatus;
     }
 
-    /**
-     * Adds 1000 loyalty points to the User.
-     * Use intended when purchasing a new flight.
-     */
-    public void updateLoyaltyPoints() {
-        this.loyaltyPoints += 1000;
-    }
+
 
     /**
      * Add the current time to the login time list of this User.

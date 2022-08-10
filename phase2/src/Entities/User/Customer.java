@@ -9,6 +9,11 @@ import java.time.LocalDate;
 public class Customer extends User{
 
     /**
+     * An integer value representing the total number of loyalty points acquired by the User.
+     */
+    private int loyaltyPoints;
+
+    /**
      * This customer's payment method
      * <p>
      * <strong>Payment methods are not yet implemented.</strong>
@@ -26,6 +31,7 @@ public class Customer extends User{
                     boolean isMember) {
         super(username, password, dob, email, isMember);
         this.paymentMethod = new PaymentMethod(username);
+        this.loyaltyPoints = 0;
     }
 
     /**
@@ -47,4 +53,36 @@ public class Customer extends User{
     }
 
     public PaymentMethod getPaymentMethod(){return this.paymentMethod;}
+
+    /**
+     * Adds 1000 loyalty points to the User.
+     * Use intended when purchasing a new flight.
+     */
+    public void updateLoyaltyPoints() {
+        this.loyaltyPoints += 1000;
+    }
+
+    /**
+     * Get the total number of Loyalty Points acquired by the user.
+     * @return the integer value representing the user's total loyalty points.
+     */
+    public int getLoyaltyPoints () { return this.loyaltyPoints; }
+
+    /**
+     * Set the loyalty points of this customer to input value (intended for file reading)
+     * @param loyaltyPoints the input loyalty points
+     */
+    public void setLoyaltyPoints(int loyaltyPoints){
+        this.loyaltyPoints = loyaltyPoints;
+    }
+    @Override
+    public String toString(){
+        StringBuilder dateString = new StringBuilder();
+        for(LocalDate d : super.getDateList()){
+            String dateStr = d.toString();
+            dateString.append(dateStr).append("|");
+        }
+        return super.getUsername() + "," + super.getPassword() + "," + super.getDob()  + "," + super.getEmail()
+                + "," + super.getMemberStatus() + "," + dateString + ",false," + loyaltyPoints;
+    }
 }
