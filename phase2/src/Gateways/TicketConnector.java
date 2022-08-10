@@ -21,11 +21,18 @@ public class TicketConnector extends DatabaseConnector{
         super();
     }
 
+    /**
+     * Gets the name of the database for the tickets
+     * @return the name of the database
+     */
     @Override
     protected String getDatabaseName() {
         return "TicketBase.csv";
     }
 
+    /**
+     * Implements save function for tickets
+     */
     @Override
     public void save() throws IOException {
         List<String> allTickets = new ArrayList<>();
@@ -41,6 +48,9 @@ public class TicketConnector extends DatabaseConnector{
         pw.close();
     }
 
+    /**
+     * Implements laod function for tickets
+     */
     @Override
     public void load() throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(this.filepath));
@@ -55,6 +65,12 @@ public class TicketConnector extends DatabaseConnector{
         }
         br.close();
     }
+
+    /**
+     * Translates a string (a line from a file) into a ticket object
+     * @param line the input stream of data
+     * @return the ticket object
+     */
     private Ticket lineToTicket(String line) {
         String[] ticketData = line.split(",");
         Flight flight;

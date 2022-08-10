@@ -18,6 +18,11 @@ public class GetUser {
         return ut.getCurrentUser();
     }
 
+    /**
+     * Used for returning a customer with the input username
+     * @param username username of the customer
+     * @return the customer
+     */
     public static Customer returnCustomer(String username){
         UserTracker ut = UserTracker.getInstance(username);
         return (Customer)ut.getCurrentUser();
