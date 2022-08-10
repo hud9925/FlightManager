@@ -3,6 +3,7 @@ package AdminUseCaseTests;
 import Entities.Flight.Flight;
 import Entities.Flight.FlightTracker;
 
+import Entities.User.Customer;
 import Entities.User.UserTracker;
 import UseCases.Admin.*;
 
@@ -41,6 +42,19 @@ public class AdminTests {
         assertTrue(ut3.userExists());
         DeleteUser.removeUser("someone");
         assertFalse(ut3.userExists());
+    }
+    @Test(timeout = 50)
+    public void testClearAllUsers(){
+        Customer c1 = new Customer("CookieMonster", "cookies", LocalDate.of(2005, 6, 7), "Cookies@gmail.com", false);
+        Customer c2 = new Customer("Apple", "cookies", LocalDate.of(2005, 6, 7), "Cookies@gmail.com", false);
+        AddAdmin.newAdmin("someone", "probably",  LocalDate.of(2000,10,20),
+                "amy");
+        UserTracker.getInstance().addUser(c1);
+        UserTracker.getInstance().addUser(c2);
+        assertEquals(3, UserTracker.getInstance().getTotalUserCount());
+        DeleteUser.ClearAllUsers("someone");
+        assertEquals(1, UserTracker.getInstance().getTotalUserCount());
+
     }
     @Test(timeout = 50)
     public void testGetUserReturnUser(){
