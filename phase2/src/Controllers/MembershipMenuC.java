@@ -1,7 +1,9 @@
 package Controllers;
 
+import Presenters.Customer.FlightMenu;
 import Presenters.Customer.MainMenu;
 import Presenters.Customer.MembershipMenu;
+import Presenters.Customer.PurchaseMenu;
 import UseCases.Admin.GetUser;
 
 /**
@@ -22,6 +24,9 @@ public class MembershipMenuC {
                 this.cancelMembershipOption(username);
                 break;
             case "2":
+                this.purchaseOption(username);
+                break;
+            case "3":
                 this.becomeMemberOption(username);
                 break;
             default:
@@ -57,5 +62,13 @@ public class MembershipMenuC {
         GetUser.returnUser(username).changeMemberStatus(false);
         System.out.println("You are no longer a member!");
         MainMenu.mainPage(username);
+    }
+
+    /**
+     * redirects member to flight menu to buy a flight
+     * @param username the user's username
+     */
+    private void purchaseOption(String username){
+        FlightMenu.flightMenuPrompt(username);
     }
 }
