@@ -11,5 +11,6 @@ their username and password. To access the Admin controls, please login with the
 Please do not delete this account, as only admins are capable of add new admins (can't register as an admin by yourself).
 
 Note that most input prompts are case-sensitive.
-Currently the GUI only has the 
+Currently the GUI only has the login/register pages, for admin and customers.
+
 Classes are organized based on Clean Architecture.
