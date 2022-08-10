@@ -17,27 +17,27 @@ import static UseCases.Admin.AddFlight.newFlight;
 public class AdminFlightC {
     /**
      * Constructor for AdminFlight Controller, takes in user's choice and assigns it to different options
-     * @param whichChoice The user's choice
+     * @param choice The user's choice
      */
-    public AdminFlightC(int whichChoice) {
-        switch (whichChoice){
-            case 0:
-                this.adminMenuOption();
-                break;
-            case 1:
+    public AdminFlightC(String choice) {
+        switch (choice){
+            case "1":
                 this.adminFlightOption();
                 break;
-            case 2:
+            case "2":
                 this.addFlightOption();
                 break;
-            case 3:
+            case "3":
                 this.cancelFlightOption();
                 break;
-            case 4:
+            case "4":
                 this.RemoveAllFlights();
                 break;
-            case 5:
+            case "5":
                 this.EditFlightOption();
+                break;
+            default:
+                this.adminMenuOption();
                 break;
         }
     }

@@ -12,17 +12,16 @@ public class AdminFlight {
      * The page showing the admin's flight control.
      */
     public static void adminFlightPrompt() {
-        String what = Console.prompt(new String[]{
+        String choice = Console.prompt(new String[]{
                 "You have now reached Admin - Flight page. Enter the following number key to continue:\n" +
-                "- 1: show all available flights;\n" +
-                        "- 2: add a flight;\n" +
-                        "- 3: cancel a flight\n" +
-                        "- 4: remove all flights\n"+
-                        "- 5: edit a flight's data\n" +
-                        "- 0: back to admin menu."
-        }, "^[0-5]*$");
-        int whichChoice = Integer.parseInt(what);
-        new AdminFlightC(whichChoice);
+                "- 1: Show all available flights;\n" +
+                        "- 2: Add a flight;\n" +
+                        "- 3: Cancel a flight\n" +
+                        "- 4: Remove all flights\n"+
+                        "- 5: Edit a flight's data\n" +
+                        "To go back, press any other key."
+        });
+        new AdminFlightC(choice);
 
 
     }
