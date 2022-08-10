@@ -193,12 +193,12 @@ abstract public class User {
      */
     @Override
     public String toString(){
-        StringBuilder dateStrs = new StringBuilder();
+        StringBuilder dateString = new StringBuilder();
         for(LocalDate d : this.dateList){
             String dateStr = d.toString();
-            dateStrs.append(dateStr).append("|");
+            dateString.append(dateStr).append("|");
         }
         return username + "," + password + "," + dob  + "," + email + "," + isMember + "," +
-                dateStrs + "," + (this.isAdmin()?"true":"false");
+                dateString + "," + (this.isAdmin()?"true":"false");
     }
 }

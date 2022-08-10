@@ -4,8 +4,6 @@ package UseCases.Admin;
 
 import Entities.Flight.FlightTracker;
 
-import java.util.Set;
-
 public class CancelFlight {
 
     /**

@@ -60,7 +60,6 @@ import static UseCases.Admin.AddFlight.newFlight;
          * @return generated Departure Date
          */
         public static LocalDate RandomDeparture(){
-            Random random = new Random();
             LocalDate startDate  = LocalDate.now();
             long startd = startDate.toEpochDay();
 

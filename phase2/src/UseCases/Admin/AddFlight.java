@@ -2,7 +2,6 @@ package UseCases.Admin;
 
 import Entities.Flight.Flight;
 import Entities.Flight.FlightTracker;
-import UseCases.FlightNotFoundException;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

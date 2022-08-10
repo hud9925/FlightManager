@@ -28,8 +28,8 @@ public class FlightTrackerConnector extends DatabaseConnector {
     @Override
     public void save() throws IOException {
         PrintWriter pw = new PrintWriter(new FileWriter(this.filepath));
-        Map<String, Flight> allflights = GetFlightList.flightMap();
-        for(Flight flight : allflights.values()){
+        Map<String, Flight> allFlights = GetFlightList.flightMap();
+        for(Flight flight : allFlights.values()){
             pw.write(flight.toString() + "\n");
         }
         pw.close();
@@ -45,12 +45,12 @@ public class FlightTrackerConnector extends DatabaseConnector {
         BufferedReader br = new BufferedReader(new FileReader(this.filepath));
         String line;
         while((line = br.readLine())!= null) {
-            String flightdata = line;
+            String flightData = line;
             line = br.readLine();
-            Seatmap newseatmap = lineToSeatmap(line);
-            Flight newflight = lineToFlight(flightdata, newseatmap);
-            newflight.setSeats(newseatmap);
-            FlightTracker.getInstance().addFlight(newflight);
+            Seatmap newSeatmap = lineToSeatmap(line);
+            Flight newFlight = lineToFlight(flightData, newSeatmap);
+            newFlight.setSeats(newSeatmap);
+            FlightTracker.getInstance().addFlight(newFlight);
         }
         br.close();
     }
@@ -61,10 +61,10 @@ public class FlightTrackerConnector extends DatabaseConnector {
      * @return a Seatmap object
      */
     private Seatmap lineToSeatmap(String line) {
-        String[] stringseatmap = line.split(" ");
-        Seatmap sm = new Seatmap(stringseatmap.length, stringseatmap[0].length());
-        for(int i = 0; i < stringseatmap.length; i++){
-            String[] chars = stringseatmap[i].split("(?!^)");
+        String[] stringSeatmap = line.split(" ");
+        Seatmap sm = new Seatmap(stringSeatmap.length, stringSeatmap[0].length());
+        for(int i = 0; i < stringSeatmap.length; i++){
+            String[] chars = stringSeatmap[i].split("(?!^)");
             for(int j = 0; j < chars.length; j++){
                 if(chars[j].equals("O")){
                     sm.getSeat(i,j).fill();
@@ -80,21 +80,21 @@ public class FlightTrackerConnector extends DatabaseConnector {
      * @return a Flight object
      */
     private Flight lineToFlight(String line, Seatmap sm) {
-        String[] flightdata = line.split(",");
-        Flight flight = new Flight(flightdata[0], sm.getRows(), sm.getColumns());
+        String[] flightData = line.split(",");
+        Flight flight = new Flight(flightData[0], sm.getRows(), sm.getColumns());
         flight.setSeats(sm);
-        flight.setAirline(flightdata[1]);
-        if(flightdata[2].equals("null")){
+        flight.setAirline(flightData[1]);
+        if(flightData[2].equals("null")){
             flight.setDepartureDate(LocalDate.now());
         } else {
-            flight.setDepartureDate(LocalDate.parse(flightdata[2]));
+            flight.setDepartureDate(LocalDate.parse(flightData[2]));
         }
-        flight.setDepartureLocation(flightdata[3]);
-        flight.setArrivalLocation(flightdata[4]);
-        if(flightdata[5].equals("null")){
+        flight.setDepartureLocation(flightData[3]);
+        flight.setArrivalLocation(flightData[4]);
+        if(flightData[5].equals("null")){
             flight.setDuration(LocalTime.now());
         } else {
-            flight.setDuration(LocalTime.parse(flightdata[5]));
+            flight.setDuration(LocalTime.parse(flightData[5]));
         }
         return flight;
     }

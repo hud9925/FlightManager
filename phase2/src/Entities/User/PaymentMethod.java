@@ -26,7 +26,7 @@ public class PaymentMethod {
     private final String pin;
 
     /**
-     * Cosntructor that builds an empty payment method
+     * Constructor that builds an empty payment method
      * @param username the customer's name
      */
     public PaymentMethod(String username){
