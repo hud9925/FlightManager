@@ -48,7 +48,7 @@ public class TicketConnector extends DatabaseConnector{
         while((line = br.readLine())!= null) {
             Ticket ticket = lineToTicket(line);
             try {
-                ticket.getWhom().addTicket(ticket);
+                GetUser.returnUser(ticket.getWhom()).addTicket(ticket);
             } catch (TicketAlreadyExistsException e) {
                 throw new RuntimeException(e);
             }
@@ -58,15 +58,13 @@ public class TicketConnector extends DatabaseConnector{
     private Ticket lineToTicket(String line) {
         String[] ticketData = line.split(",");
         Flight flight;
-        User buyer;
         Seat seat;
         try {
             flight = ShowFlight.getFlight(ticketData[0]);
             seat = SeatViewer.getSeat(flight, ticketData[2]);
-            buyer = GetUser.returnUser(ticketData[3]);
         } catch (FlightNotFoundException e) {
             throw new RuntimeException(e);
         }
-        return new Ticket(flight, Integer.parseInt(ticketData[1]),buyer, seat);
+        return new Ticket(flight, Integer.parseInt(ticketData[1]), ticketData[3], seat);
     }
 }

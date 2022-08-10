@@ -24,7 +24,7 @@ public class TicketUseCaseTests {
         Customer c1 = new Customer("CookieMonster", "cookies", LocalDate.of(2005, 6, 7), "Cookies@gmail.com", false);
         Flight f1 = new Flight("BC123", 8, 8);
         Seat s1 = new Seat(1, 1);
-        Ticket t1 = new Ticket(f1, 0, c1, s1);
+        Ticket t1 = new Ticket(f1, 0, "CookieMonster", s1);
         BuyTicket.purchasedTicket(c1, t1);
         assertEquals(1, c1.getTickets().length);
     }
@@ -34,7 +34,7 @@ public class TicketUseCaseTests {
         Customer c1 = new Customer("CookieMonster", "cookies", date, "Cookies@gmail.com", false);
         Flight f1 = new Flight("BC123", 8, 8);
         Seat s1 = new Seat(1, 1);
-        Ticket t1 = new Ticket(f1, 0, c1, s1);
+        Ticket t1 = new Ticket(f1, 0, "CookieMonster", s1);
         BuyTicket.purchasedTicket(c1, t1);
         assertEquals(1, c1.getTickets().length); // ticket currently has been bought
         CancelTicket.cancelledTicket(c1, t1);
@@ -47,7 +47,7 @@ public class TicketUseCaseTests {
         Customer c1 = new Customer("CookieMonster", "cookies", date, "Cookies@gmail.com", false);
         Flight f1 = new Flight("BC123", 8, 8);
         Seat s1 = new Seat(1, 1);
-        Ticket t1 = new Ticket(f1, 0, c1, s1);
+        Ticket t1 = new Ticket(f1, 0, "CookieMonster", s1);
         BuyTicket.purchasedTicket(c1, t1);
         assertEquals(1, GetTicketList.getTickets(c1).length);
     }
@@ -61,9 +61,9 @@ public class TicketUseCaseTests {
         Seat s2 = new Seat(4, 2);
         Seat s3 = new Seat(5, 6);
 
-        Ticket t1 = new Ticket(f1, 0, c1, s1);
-        Ticket t2 = new Ticket(f1, 0, c1, s2);
-        Ticket t3 = new Ticket(f1, 0, c1, s3);
+        Ticket t1 = new Ticket(f1, 0, "CookieMonster", s1);
+        Ticket t2 = new Ticket(f1, 0, "CookieMonster", s2);
+        Ticket t3 = new Ticket(f1, 0, "CookieMonster", s3);
 
         BuyTicket.purchasedTicket(c1, t1);
         BuyTicket.purchasedTicket(c1, t2);
@@ -82,9 +82,9 @@ public class TicketUseCaseTests {
         Seat s2 = new Seat(4, 2);
         Seat s3 = new Seat(5, 6);
 
-        Ticket t1 = new Ticket(f1, 0, c1, s1);
-        Ticket t2 = new Ticket(f1, 0, c1, s2);
-        Ticket t3 = new Ticket(f1, 0, c1, s3);
+        Ticket t1 = new Ticket(f1, 0, "CookieMonster", s1);
+        Ticket t2 = new Ticket(f1, 0, "CookieMonster", s2);
+        Ticket t3 = new Ticket(f1, 0, "CookieMonster", s3);
 
         BuyTicket.purchasedTicket(c1, t1);
         BuyTicket.purchasedTicket(c1, t2);
@@ -102,7 +102,7 @@ public class TicketUseCaseTests {
                 "sample@sample.com", false);
         assertEquals(0, c1.getTickets().length); // At this time, no tickets are found in this Customer
         Seat s1 = new Seat(8, 8);
-        Ticket t1 = new Ticket(f1, 800, c1, s1);
+        Ticket t1 = new Ticket(f1, 800, "Test", s1);
         c1.addTicket(t1);
         assertEquals(1, c1.getTickets().length); // Now c1 has one ticket.
     }
@@ -114,7 +114,7 @@ public class TicketUseCaseTests {
         Customer c1 = new Customer("Test", "test", LocalDate.of(2222,12,12),
                 "sample@sample.com", false);
         Seat s1 = new Seat(8, 8);
-        Ticket t1 = new Ticket(f1, 800, c1, s1);
+        Ticket t1 = new Ticket(f1, 800, "Test", s1);
 
         c1.addTicket(t1);
         assertEquals(1, c1.getTickets().length); // Now c1 has one ticket.

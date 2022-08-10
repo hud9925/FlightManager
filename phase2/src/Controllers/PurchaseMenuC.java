@@ -40,7 +40,7 @@ public class PurchaseMenuC {
             PurchaseMenu.purchaseMenuPrompt(username, ShowFlight.getFlightID(flight));
         }
         else {
-            Ticket PlaneTicket = new Ticket(flight, 0, GetUser.returnUser(ans) ,
+            Ticket PlaneTicket = new Ticket(flight, 0, GetUser.returnUser(ans).getUsername() ,
                     SeatViewer.getSeat(flight, row, column));
             BuyTicket.purchasedTicket(GetUser.returnUser(ans), PlaneTicket);
             SeatViewer.fillSeat(flight, row, column);
