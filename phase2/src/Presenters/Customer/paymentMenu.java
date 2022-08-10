@@ -13,9 +13,9 @@ public class paymentMenu {
      */
     public static void paymentMenuPrompt(){
         String username = UsernameMenu.getUsernamePrompt();
-        String cardNumber = Console.prompt("Please enter your card number (integers only):", "^[0-9]*$");
-        String pin = Console.prompt("Please enter your pin number (integers only):", "^[0-9]*$");
-        PaymentManager.createPaymentMethod(username, Integer.parseInt(cardNumber), Integer.parseInt(pin));
+        String cardNumber = Console.prompt("Please enter your card number:", "^[1-9][0-9]{15}$");
+        String pin = Console.prompt("Please enter your pin number (digit only):", "^[0-9]*$");
+        PaymentManager.createPaymentMethod(username, Long.parseLong(cardNumber), pin);
         String ans = Console.prompt("Your payment method has been saved. To deposit an amount, press 'd'. Enter any " +
                 "other input to go back.");
         if(ans.equalsIgnoreCase("d")){

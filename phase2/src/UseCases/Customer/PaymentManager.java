@@ -15,7 +15,7 @@ public class PaymentManager {
      * @param cardNumber the number of their card
      * @param pin the pin number of their card
      */
-    public static void createPaymentMethod(String username, int cardNumber, int pin){
+    public static void createPaymentMethod(String username, long cardNumber, String pin){
         Customer user = (Customer) GetUser.returnUser(username);
         PaymentMethod pm = new PaymentMethod(username, cardNumber, pin);
         user.setPaymentMethod(pm);

@@ -60,8 +60,8 @@ public class PaymentConnector extends DatabaseConnector{
      */
     private PaymentMethod lineToPayment(String line){
         String[] PaymentData = line.split(",");
-        PaymentMethod pm = new PaymentMethod(PaymentData[0], Integer.parseInt(PaymentData[1]),
-                Integer.parseInt(PaymentData[2]));
+        PaymentMethod pm = new PaymentMethod(PaymentData[0], Long.parseLong(PaymentData[1]),
+                PaymentData[2]);
         pm.setBalance(Integer.parseInt(PaymentData[3]));
         return pm;
     }

@@ -13,7 +13,7 @@ public class PaymentMethod {
     /**
      * Variable representing the customer's card number
      */
-    private final int cardNumber;
+    private final long cardNumber;
 
     /**
      * Variable keeping track of the amount of money in the balance
@@ -23,7 +23,7 @@ public class PaymentMethod {
     /**
      * The card's pin number
      */
-    private final int pin;
+    private final String pin;
 
     /**
      * Cosntructor that builds an empty payment method
@@ -32,7 +32,7 @@ public class PaymentMethod {
     public PaymentMethod(String username){
         this.owner = username;
         this.balance = 0;
-        this.pin = 0;
+        this.pin = "";
         this.cardNumber = 0;
     }
 
@@ -42,7 +42,7 @@ public class PaymentMethod {
      * @param cardNumber the customer's card number
      * @param pin the card's pin
      */
-    public PaymentMethod(String owner, int cardNumber, int pin){
+    public PaymentMethod(String owner, long cardNumber, String pin){
         this.owner = owner;
         this.cardNumber = cardNumber;
         this.balance = 0;
@@ -75,7 +75,7 @@ public class PaymentMethod {
      * Getter for the card number
      * @return the card number
      */
-    public int getCardNumber() {
+    public long getCardNumber() {
         return cardNumber;
     }
 
