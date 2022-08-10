@@ -6,7 +6,7 @@ import UseCases.Customer.PaymentManager;
 /**
  * The menu for setting up + interacting with a payment method
  */
-public class paymentMenu {
+public class PaymentMenu {
 
     /**
      * the menu's prompt method, setting up a payment method
@@ -20,7 +20,7 @@ public class paymentMenu {
         String ans = Console.prompt("Your payment method has been saved. To deposit an amount, press 'd'. Enter any " +
                 "other input to go back.");
         if(ans.equalsIgnoreCase("d")){
-            paymentMenu.depositMenuPrompt(username);
+            PaymentMenu.depositMenuPrompt(username);
         }
         MainMenu.mainPage(username);
     }

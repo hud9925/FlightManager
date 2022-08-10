@@ -76,7 +76,7 @@ public class MainMenuC {
         MembershipMenu.membershipMenuPrompt(username);
     }
 
-    private void paymentMethodOption(String username) { paymentMenu.paymentMenuPrompt(username);}
+    private void paymentMethodOption(String username) { PaymentMenu.paymentMenuPrompt(username);}
     /**
      * Exit option: displays a message.
      */
