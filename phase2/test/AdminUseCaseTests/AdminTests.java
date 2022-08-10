@@ -54,7 +54,6 @@ public class AdminTests {
         assertEquals(3, UserTracker.getInstance().getTotalUserCount());
         DeleteUser.ClearAllUsers("someone");
         assertEquals(1, UserTracker.getInstance().getTotalUserCount());
-
     }
     @Test(timeout = 50)
     public void testGetUserReturnUser(){
