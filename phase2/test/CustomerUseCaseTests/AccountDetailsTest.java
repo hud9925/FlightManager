@@ -19,7 +19,7 @@ public class AccountDetailsTest {
         Customer c1 = new Customer("apple", "banana",LocalDate.now(), "Apple@gmail.com", false);
         assertEquals("User does not exist", SeeAccountDetails.accountDetails("apple"));
         UserTracker.getInstance().addUser(c1);
-        assertEquals("apple,banana,2022-08-09,Apple@gmail.com,false,,false", SeeAccountDetails.accountDetails("apple"));
+        assertEquals("apple,banana,2022-08-10,Apple@gmail.com,false,,false,0", SeeAccountDetails.accountDetails("apple"));
     }
 
 }
