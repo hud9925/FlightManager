@@ -1,10 +1,7 @@
-import Entities.User.TicketAlreadyExistsException;
-import Entities.User.TicketNotFoundException;
 import Gateways.*;
 import Presenters.Customer.LoginMenu;
 import UseCases.Admin.AddAdmin;
 import UseCases.Admin.AddFlight;
-import UseCases.FlightNotFoundException;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -19,7 +16,7 @@ public class MainApplication {
      * In case there are no previous users, it will call the AddAdmin Use case to create the first admin.
      * @param args input arguments - part of public static void main method.
      */
-    public static void main(String[] args) throws FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
+    public static void main(String[] args) {
         try {
             DatabaseConnector dc1 = new UserTrackerConnector();
             DatabaseConnector dc2 = new FlightTrackerConnector();

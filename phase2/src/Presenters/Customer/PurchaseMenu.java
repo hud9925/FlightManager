@@ -17,7 +17,7 @@ import java.util.Scanner;
  *
  */
 public class PurchaseMenu {
-    public static void purchaseMenuPrompt(String ans) throws FlightNotFoundException, TicketAlreadyExistsException {
+    public static void purchaseMenuPrompt(String ans) throws FlightNotFoundException {
         System.out.println("Flight" + " " + ans + " of airline " + GetFlightList.flightInfo(ans).get("Airline:") +
                 " departing from " + GetFlightList.flightInfo(ans).get("Departure Location:") +
                 " to "+ GetFlightList.flightInfo(ans).get("Arrival Location:") + " departs at " +
@@ -55,7 +55,11 @@ public class PurchaseMenu {
                 System.out.println(" ");
                 purchaseMenuPrompt(ans);
             } else{
-                new PurchaseMenuC(ShowFlight.getFlight(ans), row, (int) CharRep -65);
+                try {
+                    new PurchaseMenuC(ShowFlight.getFlight(ans), row, (int) CharRep -65);
+                } catch (TicketAlreadyExistsException e) {
+                    throw new RuntimeException(e);
+                }
             }
 
         } else {

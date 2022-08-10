@@ -2,10 +2,7 @@ package Presenters.Customer;
 
 
 import Controllers.MembershipMenuC;
-import Entities.User.TicketAlreadyExistsException;
-import Entities.User.TicketNotFoundException;
 import Presenters.Console;
-import UseCases.FlightNotFoundException;
 import UseCases.Admin.GetUser;
 
 /**
@@ -18,8 +15,7 @@ public class MembershipMenu {
      * flights or cancel their membership status.
      * If they are not a member, they may register to become one, or they can return to the main menu.
      */
-    public static void membershipMenuPrompt() throws FlightNotFoundException, TicketAlreadyExistsException,
-            TicketNotFoundException{
+    public static void membershipMenuPrompt() {
         String username = Console.prompt("Please enter your username.");
 
         if (GetUser.returnUser(username).getMemberStatus()){

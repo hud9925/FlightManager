@@ -2,9 +2,7 @@ package Presenters.Customer;
 
 import Controllers.FlightMenuC;
 import Entities.Flight.Flight;
-import Entities.User.TicketAlreadyExistsException;
 import Presenters.Console;
-import UseCases.FlightNotFoundException;
 import UseCases.Customer.GetFlightList;
 
 import java.util.HashMap;
@@ -20,7 +18,7 @@ public class FlightMenu {
     * Presents All Available Flights(by their ID) with its Arrival Location, as a map,
     * and Sends User Input to Controller Class
     */
-    public static void flightMenuPrompt() throws FlightNotFoundException, TicketAlreadyExistsException {
+    public static void flightMenuPrompt() {
         Map<String, String> destinations = new HashMap<>();
         for (Map.Entry<String, Flight> flight: GetFlightList.flightMap().entrySet()){
             String flightKey = flight.getKey();
@@ -42,10 +40,8 @@ public class FlightMenu {
     /**
      * Error prompt that arises if the ID inputted by the user does not correspond with an existing
      * flight's ID.
-     * @throws FlightNotFoundException if the flight does not exist / isn't found
-     * @throws TicketAlreadyExistsException if the ticket already exists
      */
-    public static void flightError() throws FlightNotFoundException, TicketAlreadyExistsException {
+    public static void flightError() {
         String ans  = Console.prompt("A flight with that ID does not exist. Please re-enter the id of the flight you" +
                 "wish to view, or 'back' to leave this menu");
         new FlightMenuC(ans);

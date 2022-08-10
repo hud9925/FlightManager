@@ -1,10 +1,7 @@
 package Presenters.Customer;
 
 import Controllers.CancelMenuC;
-import Entities.User.TicketAlreadyExistsException;
-import Entities.User.TicketNotFoundException;
 import Presenters.Console;
-import UseCases.FlightNotFoundException;
 import UseCases.Customer.GetTicketList;
 import UseCases.Admin.GetUser;
 
@@ -18,20 +15,15 @@ public class CancelMenu {
 
     /**
      * Menu that allows a user to cancel their flight.
-     * @throws TicketNotFoundException if the input ticket does not exist
      */
-    public static void cancelMenuPrompt() throws TicketNotFoundException {
+    public static void cancelMenuPrompt() {
         String username = Console.prompt("Please enter your username:");
         if(GetUser.returnUser(username) == null){
             System.out.println("Invalid username.\n");
             CancelMenu.cancelMenuPrompt();
         } else if (GetTicketList.getTickets(GetUser.returnUser(username)).length <= 0) {
             System.out.println("You have no tickets. Returning you to main menu...");
-            try {
-                MainMenu.mainPage();
-            } catch (FlightNotFoundException | TicketAlreadyExistsException e) {
-                throw new RuntimeException(e);
-            }
+            MainMenu.mainPage();
         } else {
             String ticketID = Console.prompt(new String[]{
                     Arrays.toString(GetTicketList.getTickets(GetUser.returnUser(username))),

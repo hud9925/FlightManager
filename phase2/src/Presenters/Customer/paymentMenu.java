@@ -1,10 +1,7 @@
 package Presenters.Customer;
 
-import Entities.User.TicketAlreadyExistsException;
-import Entities.User.TicketNotFoundException;
 import Presenters.Console;
 import UseCases.Customer.PaymentManager;
-import UseCases.FlightNotFoundException;
 
 /**
  * The menu for setting up + interacting with a payment method
@@ -24,11 +21,7 @@ public class paymentMenu {
         if(ans.equalsIgnoreCase("d")){
             paymentMenu.depositMenuPrompt(username);
         }
-        try {
-            MainMenu.mainPage();
-        } catch (FlightNotFoundException | TicketAlreadyExistsException | TicketNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+        MainMenu.mainPage();
     }
 
     /**

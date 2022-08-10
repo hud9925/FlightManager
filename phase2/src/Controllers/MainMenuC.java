@@ -17,7 +17,7 @@ public class MainMenuC {
      * Allocates to option methods depending on the user's choice
      * @param ans the user's choice
      */
-    public MainMenuC(String ans) throws FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
+    public MainMenuC(String ans) {
         switch (ans) {
             case "1":
                 this.flightMenuOption();
@@ -43,13 +43,13 @@ public class MainMenuC {
     /**
      * First option method: directs user to the flight menu
      */
-    public void flightMenuOption() throws FlightNotFoundException, TicketAlreadyExistsException {
+    public void flightMenuOption() {
         FlightMenu.flightMenuPrompt();
     }
     /**
      * Second option method: directs user to the cancel menu
      */
-    public void cancelMenuOption() throws TicketNotFoundException {
+    public void cancelMenuOption() {
         CancelMenu.cancelMenuPrompt();
     }
     /**
@@ -61,16 +61,12 @@ public class MainMenuC {
         String[] userdata = GetUser.returnUser(username).toString().split(",");
         System.out.println("Username: " + userdata[0] + "\nPassword: " + userdata[1] + "\nBirthday: " + userdata[2] +
                 "\nEmail: " + userdata[3] + "\nMember Status: " + userdata[4] + "\nLogin dates: " + userdata[5]);
-        try {
-            MainMenu.mainPage();
-        } catch (FlightNotFoundException | TicketAlreadyExistsException | TicketNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+        MainMenu.mainPage();
     }
     /**
      * Fourth option method: directs the user to the Membership Menu.
      */
-    public void membershipMenuOption() throws FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
+    public void membershipMenuOption() {
         MembershipMenu.membershipMenuPrompt();
     }
     /**

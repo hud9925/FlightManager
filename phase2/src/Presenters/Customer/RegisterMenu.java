@@ -1,9 +1,6 @@
 package Presenters.Customer;
 
-import Entities.User.TicketAlreadyExistsException;
-import Entities.User.TicketNotFoundException;
 import Presenters.Console;
-import UseCases.FlightNotFoundException;
 import UseCases.Customer.RegisterUseCase;
 
 import java.time.LocalDate;
@@ -17,7 +14,7 @@ public class RegisterMenu {
      * Method that prompts the user to enter their relevant information
      * If the username already exists, then prompt to either retry or to go back.
      */
-    public static void registerPrompt() throws FlightNotFoundException, TicketAlreadyExistsException, TicketNotFoundException {
+    public static void registerPrompt() {
         String username = Console.prompt("Please enter your new username: ", ".+");
         String password = Console.prompt("Please enter your new password: ", ".+");
         String year = Console.prompt("Please enter your birth YEAR (YYYY): ",

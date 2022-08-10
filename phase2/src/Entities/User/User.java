@@ -168,7 +168,7 @@ abstract public class User {
      */
     public void addTicket (Ticket newTicket) throws TicketAlreadyExistsException {
         if (this.tickets.contains(newTicket)) {
-            throw new TicketAlreadyExistsException();
+            throw new TicketAlreadyExistsException(this.username);
         }
         this.tickets.add(newTicket);
     }
@@ -181,7 +181,7 @@ abstract public class User {
      */
     public void removeTicket (Ticket oldTicket) throws TicketNotFoundException {
         if (!this.tickets.contains(oldTicket)) {
-            throw new TicketNotFoundException();
+            throw new TicketNotFoundException(this.username);
         }
         this.tickets.remove(oldTicket);
     }
