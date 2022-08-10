@@ -9,7 +9,6 @@ import UseCases.Customer.SeatViewer;
 import UseCases.Customer.ShowFlight;
 
 import java.util.Objects;
-import java.util.Scanner;
 
 /**
  * A Presenter Menu that Displays Flight information including its seat map, prompts the User to select a seat for
@@ -35,14 +34,8 @@ public class PurchaseMenu {
             System.out.println(" ");
             System.out.println("To Purchase a seat, Please Select a Row and Column individually.");
 
-            Scanner SeatRow = new Scanner(System.in);
-            System.out.println("Please Enter the Seat's Row Number");
-            int row = SeatRow.nextInt();
-            Scanner SeatColumn = new Scanner(System.in);
-            System.out.println("Please Enter the Seat's Column Letter");
-            //int column = SeatColumn.nextInt();
-
-            char column = SeatColumn.next().charAt(0);
+            int row = Integer.parseInt(Console.prompt("Please Enter the Seat's Row Number", "^\\d+$"));
+            char column = Console.prompt("Please Enter the Seat's Column Letter", "^[a-zA-Z]$").charAt(0);
             char CharRep = Character.toUpperCase(column);
 
             if (SeatViewer.getSeat(ShowFlight.getFlight(ans), row, (int) CharRep -65)==null){

@@ -3,10 +3,9 @@ package Controllers;
 import Presenters.Admin.AdminFlight;
 import Presenters.Admin.AdminMenu;
 import Presenters.Admin.EditFlightMenu;
+import Presenters.Console;
 import UseCases.Admin.CancelFlight;
 import UseCases.Customer.GetFlightList;
-
-import java.util.Scanner;
 
 import static UseCases.Admin.AddFlight.newFlight;
 
@@ -103,13 +102,13 @@ public class AdminFlightC {
      * @param username The username of the current user.
      */
     private void addFlightOption(String username) {
-        Scanner sc= new Scanner(System.in);
-        System.out.print("Enter Flight ID: \n");
-        String flightID = sc.nextLine();
+        String flightID = Console.prompt("Enter Flight ID: ", ".+");
         System.out.println("Enter the total number of seats per row (max 10): \n");
-        int col = sc.nextInt();
+        int col = Integer.parseInt(Console.prompt("Enter the total number of seats per row (max 10): ",
+                "^(\\d|(10))$"));
         System.out.println("Enter the number of rows: \n");
-        int row = sc.nextInt();
+        int row = Integer.parseInt(Console.prompt("Enter the number of rows: ",
+                "^\\d+$"));
         AdminFlightC.addFlightResult(username, flightID, col, row);
     }
 
@@ -119,11 +118,8 @@ public class AdminFlightC {
      * @param username The username of the current user.
      */
     private void cancelFlightOption(String username) {
-        Scanner sc= new Scanner(System.in);
-        System.out.print("Enter Flight ID: \n");
-        String flightID = sc.nextLine();
+        String flightID = Console.prompt("Enter Flight ID: ", ".+");
         AdminFlightC.cancelFlightResult(username, flightID);
-
     }
 
     private void EditFlightOption(String username) {
