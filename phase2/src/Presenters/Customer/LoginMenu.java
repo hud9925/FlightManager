@@ -42,9 +42,9 @@ public class LoginMenu {
         }
         else {
             if (!credPredicates.get(1)){
-                MainMenu.mainPage();
+                MainMenu.mainPage(username);
             } else {
-                AdminMenu.adminPrompt();
+                AdminMenu.adminPrompt(username);
             }
         }
     }

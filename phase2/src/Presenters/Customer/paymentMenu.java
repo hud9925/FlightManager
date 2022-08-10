@@ -10,9 +10,10 @@ public class paymentMenu {
 
     /**
      * the menu's prompt method, setting up a payment method
+     *
+     * @param username The username of the current user.
      */
-    public static void paymentMenuPrompt(){
-        String username = UsernameMenu.getUsernamePrompt();
+    public static void paymentMenuPrompt(String username){
         String cardNumber = Console.prompt("Please enter your card number:", "^[1-9][0-9]{15}$");
         String pin = Console.prompt("Please enter your pin number (digit only):", "^[0-9]*$");
         PaymentManager.createPaymentMethod(username, Long.parseLong(cardNumber), pin);
@@ -21,11 +22,12 @@ public class paymentMenu {
         if(ans.equalsIgnoreCase("d")){
             paymentMenu.depositMenuPrompt(username);
         }
-        MainMenu.mainPage();
+        MainMenu.mainPage(username);
     }
 
     /**
      * the menu's deposit menu method, for when there is money being deposited
+     *
      * @param username the user's name
      */
     private static void depositMenuPrompt(String username) {

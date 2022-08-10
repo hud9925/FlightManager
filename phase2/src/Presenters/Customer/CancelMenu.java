@@ -15,15 +15,13 @@ public class CancelMenu {
 
     /**
      * Menu that allows a user to cancel their flight.
+     *
+     * @param username The username of the current user.
      */
-    public static void cancelMenuPrompt() {
-        String username = Console.prompt("Please enter your username:");
-        if(GetUser.returnUser(username) == null){
-            System.out.println("Invalid username.\n");
-            CancelMenu.cancelMenuPrompt();
-        } else if (GetTicketList.getTickets(GetUser.returnUser(username)).length <= 0) {
+    public static void cancelMenuPrompt(String username) {
+        if (GetTicketList.getTickets(GetUser.returnUser(username)).length <= 0) {
             System.out.println("You have no tickets. Returning you to main menu...");
-            MainMenu.mainPage();
+            MainMenu.mainPage(username);
         } else {
             String ticketID = Console.prompt(new String[]{
                     Arrays.toString(GetTicketList.getTickets(GetUser.returnUser(username))),

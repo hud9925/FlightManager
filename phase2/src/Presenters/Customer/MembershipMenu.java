@@ -14,10 +14,10 @@ public class MembershipMenu {
      * Method that determines whether a user is a member. If they are, they can purchase exclusive
      * flights or cancel their membership status.
      * If they are not a member, they may register to become one, or they can return to the main menu.
+     *
+     * @param username The username of the current user.
      */
-    public static void membershipMenuPrompt() {
-        String username = Console.prompt("Please enter your username.");
-
+    public static void membershipMenuPrompt(String username) {
         if (GetUser.returnUser(username).getMemberStatus()){
             String action = Console.prompt(new String[]{
                     "Welcome back, " + username + "!",

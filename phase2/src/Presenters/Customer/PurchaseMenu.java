@@ -17,7 +17,7 @@ import java.util.Scanner;
  *
  */
 public class PurchaseMenu {
-    public static void purchaseMenuPrompt(String ans) throws FlightNotFoundException {
+    public static void purchaseMenuPrompt(String username, String ans) throws FlightNotFoundException {
         System.out.println("Flight" + " " + ans + " of airline " + GetFlightList.flightInfo(ans).get("Airline:") +
                 " departing from " + GetFlightList.flightInfo(ans).get("Departure Location:") +
                 " to "+ GetFlightList.flightInfo(ans).get("Arrival Location:") + " departs at " +
@@ -47,23 +47,23 @@ public class PurchaseMenu {
 
             if (SeatViewer.getSeat(ShowFlight.getFlight(ans), row, (int) CharRep -65)==null){
                 System.out.println("The Seat is not found on the plane. Please Try Again");
-                purchaseMenuPrompt(ans);
+                purchaseMenuPrompt(username, ans);
             }
             else if (Objects.requireNonNull(SeatViewer.getSeat(ShowFlight.getFlight(ans), row, (int) CharRep -65)).isFilled()){
                 System.out.println(" ");
                 System.out.println("This Seat is already Occupied. Please Try Again");
                 System.out.println(" ");
-                purchaseMenuPrompt(ans);
+                purchaseMenuPrompt(username, ans);
             } else{
                 try {
-                    new PurchaseMenuC(ShowFlight.getFlight(ans), row, (int) CharRep -65);
+                    new PurchaseMenuC(username, ShowFlight.getFlight(ans), row, (int) CharRep -65);
                 } catch (TicketAlreadyExistsException e) {
                     throw new RuntimeException(e);
                 }
             }
 
         } else {
-            FlightMenu.flightMenuPrompt();
+            FlightMenu.flightMenuPrompt(username);
         }
 
     }

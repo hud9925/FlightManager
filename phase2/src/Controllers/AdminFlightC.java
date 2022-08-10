@@ -17,80 +17,92 @@ import static UseCases.Admin.AddFlight.newFlight;
 public class AdminFlightC {
     /**
      * Constructor for AdminFlight Controller, takes in user's choice and assigns it to different options
+     *
+     * @param username The username of the current user.
      * @param choice The user's choice
      */
-    public AdminFlightC(String choice) {
+    public AdminFlightC(String username, String choice) {
         switch (choice){
             case "1":
-                this.adminFlightOption();
+                this.adminFlightOption(username);
                 break;
             case "2":
-                this.addFlightOption();
+                this.addFlightOption(username);
                 break;
             case "3":
-                this.cancelFlightOption();
+                this.cancelFlightOption(username);
                 break;
             case "4":
-                this.RemoveAllFlights();
+                this.RemoveAllFlights(username);
                 break;
             case "5":
-                this.EditFlightOption();
+                this.EditFlightOption(username);
                 break;
             default:
-                this.adminMenuOption();
+                this.adminMenuOption(username);
                 break;
         }
     }
 
     /**
      * Helper method creating a new flight based on user input and redirecting the user to the menu prompt
+     *
+     * @param username The username of the current user.
      * @param flightID: the ID of the single flight want to be added;
      * @param col: the number of columns of seats for this flight;
      * @param row: the number of rows of seats for this flight;
      */
-    public static void addFlightResult(String flightID, int col, int row) {
+    public static void addFlightResult(String username, String flightID, int col, int row) {
         newFlight(flightID, row, col);
         System.out.println("Flight " + flightID + " has been successfully added! Redirecting...");
-        AdminFlight.adminFlightPrompt();
+        AdminFlight.adminFlightPrompt(username);
     }
 
     /**
      * Helper method cancelling a new flight based on input flight ID and redirecting the user to the menu prompt
      * Notifies if a flight with the given ID does not exist
+     *
+     * @param username The username of the current user.
      * @param flightID: the ID of the flight, if existing.
      */
-    public static void cancelFlightResult(String flightID) {
+    public static void cancelFlightResult(String username, String flightID) {
         boolean pred = CancelFlight.removeFlight(flightID);
         if (pred) {
             System.out.println("Flight " + flightID + " has been removed successfully! Redirecting...");
         }else{
             System.out.println("Flight " + flightID + " does not exist in the database! Redirecting...");
         }
-        AdminFlight.adminFlightPrompt();
+        AdminFlight.adminFlightPrompt(username);
     }
 
     /**
      * Method that redirects admin to the main admin menu
+     *
+     * @param username The username of the current user.
      */
-    public void adminMenuOption() {
-        AdminMenu.adminPrompt();
+    public void adminMenuOption(String username) {
+        AdminMenu.adminPrompt(username);
     }
 
     /**
      * Method that shows the current flight list, then redirects admin to the flight prompt menu
+     *
+     * @param username The username of the current user.
      */
-    public void adminFlightOption() {
+    public void adminFlightOption(String username) {
         System.out.println("Here is a list of the current flights:\n");
         for(String flightID: GetFlightList.flightMap().keySet()){
             System.out.println(GetFlightList.flightMap().get(flightID) + "\n");
         }
-        AdminFlight.adminFlightPrompt();
+        AdminFlight.adminFlightPrompt(username);
     }
 
     /**
      * Method that asks the admin for flight information, then calls helper method to create the flight
+     *
+     * @param username The username of the current user.
      */
-    public void addFlightOption() {
+    public void addFlightOption(String username) {
         Scanner sc= new Scanner(System.in);
         System.out.print("Enter Flight ID: \n");
         String flightID = sc.nextLine();
@@ -98,29 +110,33 @@ public class AdminFlightC {
         int col = sc.nextInt();
         System.out.println("Enter the number of rows: \n");
         int row = sc.nextInt();
-        AdminFlightC.addFlightResult(flightID, col, row);
+        AdminFlightC.addFlightResult(username, flightID, col, row);
     }
 
     /**
      * Method that asks the admin for flight ID to be cancelled, then calls helper method to cancel the flight
+     *
+     * @param username The username of the current user.
      */
-    public void cancelFlightOption() {
+    public void cancelFlightOption(String username) {
         Scanner sc= new Scanner(System.in);
         System.out.print("Enter Flight ID: \n");
         String flightID = sc.nextLine();
-        AdminFlightC.cancelFlightResult(flightID);
+        AdminFlightC.cancelFlightResult(username, flightID);
 
     }
 
-    public void EditFlightOption() {
-        EditFlightMenu.EditFlightPrompt();
+    public void EditFlightOption(String username) {
+        EditFlightMenu.EditFlightPrompt(username);
     }
     /**
      * Method that Removes all Flights in the system
+     *
+     * @param username The username of the current user.
      */
-    public void RemoveAllFlights() {
+    public void RemoveAllFlights(String username) {
         CancelFlight.removeAllFlights();
         System.out.println("All flights in the database have been removed!");
-        AdminFlight.adminFlightPrompt();
+        AdminFlight.adminFlightPrompt(username);
     }
 }

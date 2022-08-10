@@ -25,7 +25,7 @@ public class MembershipMenuC {
                 this.becomeMemberOption(username);
                 break;
             default:
-                this.mainMenuOption();
+                this.mainMenuOption(username);
                 break;
         }
     }
@@ -37,14 +37,16 @@ public class MembershipMenuC {
     public void becomeMemberOption(String username) {
         GetUser.returnUser(username).changeMemberStatus(true);
         System.out.println("Congratulations, you are now a member!");
-        MembershipMenu.membershipMenuPrompt();
+        MembershipMenu.membershipMenuPrompt(username);
     }
 
     /**
      * Redirects user to the main menu.
+     *
+     * @param username The username of the current user.
      */
-    public void mainMenuOption() {
-        MainMenu.mainPage();
+    public void mainMenuOption(String username) {
+        MainMenu.mainPage(username);
     }
 
     /**
@@ -54,6 +56,6 @@ public class MembershipMenuC {
     public void cancelMembershipOption(String username) {
         GetUser.returnUser(username).changeMemberStatus(false);
         System.out.println("You are no longer a member!");
-        MainMenu.mainPage();
+        MainMenu.mainPage(username);
     }
 }

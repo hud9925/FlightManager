@@ -25,11 +25,11 @@ public class CancelMenuC {
                     GetTicketList.getOneTicket(GetUser.returnUser(username), ticketIDHash));
         } catch (TicketNotFoundException e) {
             System.out.println("Ticket not found. Please try again.");
-            CancelMenu.cancelMenuPrompt();
+            CancelMenu.cancelMenuPrompt(username);
             return;
         }
 
         System.out.println("Ticket has been successfully deleted! Redirect to the main menu...");
-        MainMenu.mainPage();
+        MainMenu.mainPage(username);
     }
 }

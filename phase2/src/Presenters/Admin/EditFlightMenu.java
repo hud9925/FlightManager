@@ -18,8 +18,10 @@ public class EditFlightMenu {
 
     /**
      * The prompt to select a flight to edit
+     *
+     * @param username The username of the current user.
      */
-    public static void EditFlightPrompt() {
+    public static void EditFlightPrompt(String username) {
         System.out.println("Here is a list of the current flights:\n");
         for(String flightID: GetFlightList.flightMap().keySet()){
             System.out.println(GetFlightList.flightMap().get(flightID) + "\n");
@@ -27,17 +29,19 @@ public class EditFlightMenu {
         String ans = Console.prompt("Please enter the ID of the flight you want to edit:");
         if(GetFlightList.flightMap().get(ans) == null){
             System.out.println("A flight with that ID does not exist. Try again.");
-            EditFlightPrompt();
+            EditFlightPrompt(username);
         } else {
-            FlightEditor(ans);
+            FlightEditor(username, ans);
         }
     }
 
     /**
      * The editor, prompting to input flight data and then sending them to appropriate use case
+     *
+     * @param username The username of the current user.
      * @param ans the flight's ID
      */
-    public static void FlightEditor(String ans) {
+    public static void FlightEditor(String username, String ans) {
         String airline = Console.prompt("Please enter the Airline of the flight");
         String date = Console.prompt("Please enter the date of the flight (yyyy-MM-dd): ",
                 "\\d{4}-[01]\\d-[0-3]\\d");
@@ -56,6 +60,6 @@ public class EditFlightMenu {
         String depLoc = Console.prompt("Please enter the departure location of the flight:");
         FlightDataEditor.Editor(ans, airline, depLoc, arrLoc, duration, depDate);
         System.out.println("Flight has been edited. Redirecting to main admin menu...");
-        AdminMenu.adminPrompt();
+        AdminMenu.adminPrompt(username);
     }
 }

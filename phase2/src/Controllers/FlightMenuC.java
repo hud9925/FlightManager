@@ -16,19 +16,21 @@ public class FlightMenuC {
     /**
      * Takes the user's input from the FlightMenu presenter and either directs them to PurchaseMenu
      * or allows them to go back to the main page.
+     *
+     * @param username The username of the current user.
      * @param flightId ID of the flight
      */
-    public FlightMenuC(String flightId) {
+    public FlightMenuC(String username, String flightId) {
         if (GetFlightList.flightMap().containsKey(flightId)) {
             try {
-                PurchaseMenu.purchaseMenuPrompt(flightId);
+                PurchaseMenu.purchaseMenuPrompt(username, flightId);
             } catch (FlightNotFoundException e) {
                 throw new RuntimeException(e);
             }
         } else if (flightId.equalsIgnoreCase("back")) {
-            MainMenu.mainPage();
+            MainMenu.mainPage(username);
         } else {
-            FlightMenu.flightError();
+            FlightMenu.flightError(username);
         }
     }
 }

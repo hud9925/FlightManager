@@ -25,17 +25,19 @@ public class PurchaseMenuC {
     /**
      * Allows the user to purchase a ticket for a flight and a specific seat on that flight based on the seat's row and
      * column.
+     *
+     * @param username The username of the current user.
      * @param flight flight to purchase
      * @param row row of the requested seat
      * @param column column of the requested seat
      * @throws TicketAlreadyExistsException if the ticket already exists
      * @throws FlightNotFoundException if the flight does not exist
      */
-    public PurchaseMenuC(Flight flight, Integer row, Integer column) throws TicketAlreadyExistsException, FlightNotFoundException {
+    public PurchaseMenuC(String username, Flight flight, Integer row, Integer column) throws TicketAlreadyExistsException, FlightNotFoundException {
 
-        String ans = LoginConfirmMenu.loginConfirmPrompt();
+        String ans = LoginConfirmMenu.loginConfirmPrompt(username);
         if (Objects.equals(ans, "exit")){
-            PurchaseMenu.purchaseMenuPrompt((ShowFlight.getFlightID(flight)));
+            PurchaseMenu.purchaseMenuPrompt(username, ShowFlight.getFlightID(flight));
         }
         else {
             Ticket PlaneTicket = new Ticket(flight, 0, GetUser.returnUser(ans) ,
@@ -44,10 +46,10 @@ public class PurchaseMenuC {
             SeatViewer.fillSeat(flight, row, column);
             String AnotherTicket = PurchaseMenu.purchaseAnotherTicket();
             if (AnotherTicket.equals("yes")){
-                PurchaseMenu.purchaseMenuPrompt(ShowFlight.getFlightID(flight));
+                PurchaseMenu.purchaseMenuPrompt(username, ShowFlight.getFlightID(flight));
             }
             else{
-                FlightMenu.flightMenuPrompt();
+                FlightMenu.flightMenuPrompt(username);
             }
         }
 

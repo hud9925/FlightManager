@@ -11,8 +11,10 @@ public class MainMenu {
     /**
      * Main page of the application. Prompts the user on what they want to do.
      * Takes in their username, passes their answer and their username to the associated controller.
+     *
+     * @param username The username of the current user.
      */
-    public static void mainPage() {
+    public static void mainPage(String username) {
         String ans = Console.prompt(new String[] {
                 "Welcome to the air ticket reserving system!",
                 "- 1: See a list of available flights.",
@@ -22,6 +24,6 @@ public class MainMenu {
                 "- 5: Add a payment method to your account.",
                 "To exit the program, press any other key."
         });
-        new MainMenuC(ans);
+        new MainMenuC(username, ans);
     }
 }

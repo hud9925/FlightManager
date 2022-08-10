@@ -43,7 +43,7 @@ public class RegisterMenu {
         }
         else { //true = Username is available.
             System.out.println("Account created successfully!");
-            MainMenu.mainPage(); // Call main menu.
+            MainMenu.mainPage(username); // Call main menu.
         }
 
     }

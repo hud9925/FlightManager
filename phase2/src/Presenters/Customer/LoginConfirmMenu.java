@@ -13,11 +13,12 @@ public class LoginConfirmMenu {
     /**
      * Menu that requires the user to input their username and password to confirm their
      * purchase.
+     *
+     * @param username The username of the current user.
      * @return the user's username
      */
-    public static String loginConfirmPrompt() {
-        System.out.println("To Continue, Please re-Enter your username and password");
-        String username = Console.prompt("Enter Username : ", ".+");
+    public static String loginConfirmPrompt(String username) {
+        System.out.println("To Continue, Please re-Enter your password");
         String password = Console.prompt("Enter Password : ", ".+");
         // Checking Credentials Through Contacting LoginUseCase
         if (LoginUseCase.userType(username, password).get(0)){
@@ -29,7 +30,7 @@ public class LoginConfirmMenu {
             String RePrompt = Console.prompt("Either your username or password is incorrect. Please try again." +
                             "Please Enter 't' to try again, or enter any other character to go back to the flight menu.");
             if (RePrompt.equalsIgnoreCase("t")){
-                loginConfirmPrompt();
+                loginConfirmPrompt(username);
             }
             else {
                 return "exit";

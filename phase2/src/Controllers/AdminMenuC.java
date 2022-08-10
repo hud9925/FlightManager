@@ -12,15 +12,17 @@ public class AdminMenuC {
     /**
      * Takes the user's input from AdminMenu. If option 1 is chosen, the admin user is able to add
      * or delete users. If option 2 is chosen, the admin user is able to add or cancel flights.
+     *
+     * @param username The username of the current user.
      * @param ans the option chosen by the admin user
      */
-    public AdminMenuC(String ans) {
+    public AdminMenuC(String username, String ans) {
         switch (ans){
             case "1":
-                this.userMenuOption();
+                this.userMenuOption(username);
                 break;
             case "2":
-                this.adminFlightOption();
+                this.adminFlightOption(username);
                 break;
             default:
                 this.exit();
@@ -30,16 +32,20 @@ public class AdminMenuC {
 
     /**
      * Option method redirecting the admin to the user menu
+     *
+     * @param username The username of the current user.
      */
-    public void userMenuOption() {
-        UserMenu.userMenuPrompt();
+    public void userMenuOption(String username) {
+        UserMenu.userMenuPrompt(username);
     }
 
     /**
      * Option method redirecting the admin to the flight menu
+     *
+     * @param username The username of the current user.
      */
-    public void adminFlightOption() {
-        AdminFlight.adminFlightPrompt();
+    public void adminFlightOption(String username) {
+        AdminFlight.adminFlightPrompt(username);
     }
     /**
      * Option method that notifies the admin about quitting the program

@@ -10,8 +10,10 @@ import Presenters.Console;
 public class AdminFlight {
     /**
      * The page showing the admin's flight control.
+     *
+     * @param username The username of the current user.
      */
-    public static void adminFlightPrompt() {
+    public static void adminFlightPrompt(String username) {
         String choice = Console.prompt(new String[]{
                 "You have now reached Admin - Flight page. Enter the following number key to continue:\n" +
                 "- 1: Show all available flights;\n" +
@@ -21,6 +23,6 @@ public class AdminFlight {
                         "- 5: Edit a flight's data\n" +
                         "To go back, press any other key."
         });
-        new AdminFlightC(choice);
+        new AdminFlightC(username, choice);
     }
 }

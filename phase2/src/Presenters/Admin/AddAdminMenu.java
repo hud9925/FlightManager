@@ -13,8 +13,10 @@ public class AddAdminMenu {
     /**
      * The prompt method that displays the prompts to the screen
      * It takes the User's responses and sends them to the AddAdmin Use Case to create a new admin.
+     *
+     * @param currentUsername The username of the current user.
      */
-    public static void addAdminPrompt() {
+    public static void addAdminPrompt(String currentUsername) {
         //adding a new admin
         String username = Console.prompt("Please enter the new admin's username: ", ".+");
         String password = Console.prompt("Please enter the new admin's password: ", ".+");
@@ -31,6 +33,6 @@ public class AddAdminMenu {
         AddAdmin.newAdmin(username, password, LocalDate.parse(dob), email);
 
         System.out.println("Admin Created!");
-        UserMenu.userMenuPrompt();
+        UserMenu.userMenuPrompt(currentUsername);
     }
 }
