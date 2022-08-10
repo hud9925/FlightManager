@@ -35,7 +35,7 @@ public class AdminMenuC {
      *
      * @param username The username of the current user.
      */
-    public void userMenuOption(String username) {
+    private void userMenuOption(String username) {
         UserMenu.userMenuPrompt(username);
     }
 
@@ -44,13 +44,13 @@ public class AdminMenuC {
      *
      * @param username The username of the current user.
      */
-    public void adminFlightOption(String username) {
+    private void adminFlightOption(String username) {
         AdminFlight.adminFlightPrompt(username);
     }
     /**
      * Option method that notifies the admin about quitting the program
      */
-    public void exit(){
+    private void exit(){
         System.out.println("Exiting the program...");
     }
 

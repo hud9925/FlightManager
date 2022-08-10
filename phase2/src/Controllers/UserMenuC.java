@@ -38,7 +38,7 @@ public class UserMenuC {
     /**
      * Option method 1: Directs admin to delete user menu and its prompt
      */
-    public void deleteUserOption() {
+    private void deleteUserOption() {
         DeleteUserMenu.removingUserPrompt();
     }
     /**
@@ -46,7 +46,7 @@ public class UserMenuC {
      *
      * @param username The username of the current user.
      */
-    public void addAdminOption(String username) {
+    private void addAdminOption(String username) {
         AddAdminMenu.addAdminPrompt(username);
     }
     /**
@@ -54,10 +54,10 @@ public class UserMenuC {
      *
      * @param username The username of the current user (to keep).
      */
-    public void deleteAllOption(String username){
+    private void deleteAllOption(String username){
         DeleteUser.ClearAllUsers(username);
     }
-    public void back(String username) {
+    private void back(String username) {
         AdminMenu.adminPrompt(username);
     }
 }

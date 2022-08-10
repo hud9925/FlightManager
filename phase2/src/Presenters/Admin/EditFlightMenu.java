@@ -41,7 +41,7 @@ public class EditFlightMenu {
      * @param username The username of the current user.
      * @param ans the flight's ID
      */
-    public static void FlightEditor(String username, String ans) {
+    private static void FlightEditor(String username, String ans) {
         String airline = Console.prompt("Please enter the Airline of the flight");
         String date = Console.prompt("Please enter the date of the flight (yyyy-MM-dd): ",
                 "\\d{4}-[01]\\d-[0-3]\\d");

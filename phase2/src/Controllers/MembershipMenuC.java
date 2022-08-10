@@ -34,7 +34,7 @@ public class MembershipMenuC {
      * Changes the user's membership status to member and redirects them to MembershipMenu.
      * @param username the user's username.
      */
-    public void becomeMemberOption(String username) {
+    private void becomeMemberOption(String username) {
         GetUser.returnUser(username).changeMemberStatus(true);
         System.out.println("Congratulations, you are now a member!");
         MembershipMenu.membershipMenuPrompt(username);
@@ -45,7 +45,7 @@ public class MembershipMenuC {
      *
      * @param username The username of the current user.
      */
-    public void mainMenuOption(String username) {
+    private void mainMenuOption(String username) {
         MainMenu.mainPage(username);
     }
 
@@ -53,7 +53,7 @@ public class MembershipMenuC {
      * Changes the user's membership status to member and redirects them to the Main Menu.
      * @param username the user's username.
      */
-    public void cancelMembershipOption(String username) {
+    private void cancelMembershipOption(String username) {
         GetUser.returnUser(username).changeMemberStatus(false);
         System.out.println("You are no longer a member!");
         MainMenu.mainPage(username);

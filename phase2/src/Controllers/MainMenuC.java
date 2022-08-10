@@ -44,7 +44,7 @@ public class MainMenuC {
      *
      * @param username The username of the current user.
      */
-    public void flightMenuOption(String username) {
+    private void flightMenuOption(String username) {
         FlightMenu.flightMenuPrompt(username);
     }
     /**
@@ -52,7 +52,7 @@ public class MainMenuC {
      *
      * @param username The username of the current user.
      */
-    public void cancelMenuOption(String username) {
+    private void cancelMenuOption(String username) {
         CancelMenu.cancelMenuPrompt(username);
     }
     /**
@@ -61,7 +61,7 @@ public class MainMenuC {
      *
      * @param username The username of the current user.
      */
-    public void accountInfoOption(String username){
+    private void accountInfoOption(String username){
         String[] userdata = GetUser.returnUser(username).toString().split(",");
         System.out.println("Username: " + userdata[0] + "\nPassword: " + userdata[1] + "\nBirthday: " + userdata[2] +
                 "\nEmail: " + userdata[3] + "\nMember Status: " + userdata[4] + "\nLogin dates: " + userdata[5]);
@@ -72,15 +72,15 @@ public class MainMenuC {
      *
      * @param username The username of the current user.
      */
-    public void membershipMenuOption(String username) {
+    private void membershipMenuOption(String username) {
         MembershipMenu.membershipMenuPrompt(username);
     }
 
-    public void paymentMethodOption(String username) { paymentMenu.paymentMenuPrompt(username);}
+    private void paymentMethodOption(String username) { paymentMenu.paymentMenuPrompt(username);}
     /**
      * Exit option: displays a message.
      */
-    public void exit(){
+    private void exit(){
         System.out.println("Program is closing...");
     }
 }

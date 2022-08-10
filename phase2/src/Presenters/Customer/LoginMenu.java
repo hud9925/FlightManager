@@ -19,7 +19,7 @@ public class LoginMenu {
      * If the credentials don't exist, another prompt to go back or to continue.
      */
 
-    public static void loginPrompt() {
+    private static void loginPrompt() {
         String username = Console.prompt("Enter Username : ", ".+");
         String password = Console.prompt("Enter Password : ", ".+");
 

@@ -52,7 +52,7 @@ public class AdminFlightC {
      * @param col: the number of columns of seats for this flight;
      * @param row: the number of rows of seats for this flight;
      */
-    public static void addFlightResult(String username, String flightID, int col, int row) {
+    private static void addFlightResult(String username, String flightID, int col, int row) {
         newFlight(flightID, row, col);
         System.out.println("Flight " + flightID + " has been successfully added! Redirecting...");
         AdminFlight.adminFlightPrompt(username);
@@ -65,7 +65,7 @@ public class AdminFlightC {
      * @param username The username of the current user.
      * @param flightID: the ID of the flight, if existing.
      */
-    public static void cancelFlightResult(String username, String flightID) {
+    private static void cancelFlightResult(String username, String flightID) {
         boolean pred = CancelFlight.removeFlight(flightID);
         if (pred) {
             System.out.println("Flight " + flightID + " has been removed successfully! Redirecting...");
@@ -80,7 +80,7 @@ public class AdminFlightC {
      *
      * @param username The username of the current user.
      */
-    public void adminMenuOption(String username) {
+    private void adminMenuOption(String username) {
         AdminMenu.adminPrompt(username);
     }
 
@@ -89,7 +89,7 @@ public class AdminFlightC {
      *
      * @param username The username of the current user.
      */
-    public void adminFlightOption(String username) {
+    private void adminFlightOption(String username) {
         System.out.println("Here is a list of the current flights:\n");
         for(String flightID: GetFlightList.flightMap().keySet()){
             System.out.println(GetFlightList.flightMap().get(flightID) + "\n");
@@ -102,7 +102,7 @@ public class AdminFlightC {
      *
      * @param username The username of the current user.
      */
-    public void addFlightOption(String username) {
+    private void addFlightOption(String username) {
         Scanner sc= new Scanner(System.in);
         System.out.print("Enter Flight ID: \n");
         String flightID = sc.nextLine();
@@ -118,7 +118,7 @@ public class AdminFlightC {
      *
      * @param username The username of the current user.
      */
-    public void cancelFlightOption(String username) {
+    private void cancelFlightOption(String username) {
         Scanner sc= new Scanner(System.in);
         System.out.print("Enter Flight ID: \n");
         String flightID = sc.nextLine();
@@ -126,7 +126,7 @@ public class AdminFlightC {
 
     }
 
-    public void EditFlightOption(String username) {
+    private void EditFlightOption(String username) {
         EditFlightMenu.EditFlightPrompt(username);
     }
     /**
@@ -134,7 +134,7 @@ public class AdminFlightC {
      *
      * @param username The username of the current user.
      */
-    public void RemoveAllFlights(String username) {
+    private void RemoveAllFlights(String username) {
         CancelFlight.removeAllFlights();
         System.out.println("All flights in the database have been removed!");
         AdminFlight.adminFlightPrompt(username);
