@@ -84,6 +84,7 @@ public class AdminFlightC {
         for(String flightID: GetFlightList.flightMap().keySet()){
             System.out.println(GetFlightList.flightMap().get(flightID) + "\n");
         }
+        AdminFlight.adminFlightPrompt();
     }
 
     /**
