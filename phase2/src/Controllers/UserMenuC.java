@@ -1,5 +1,6 @@
 package Controllers;
 
+import Entities.User.Admin;
 import Presenters.Admin.AddAdminMenu;
 import Presenters.Admin.AdminMenu;
 import Presenters.Admin.DeleteUserMenu;
@@ -21,7 +22,7 @@ public class UserMenuC {
     public UserMenuC(String username, String ans) {
         switch (ans){
             case "1":
-                this.deleteUserOption();
+                this.deleteUserOption(username);
                 break;
             case "2":
                 this.addAdminOption(username);
@@ -37,9 +38,11 @@ public class UserMenuC {
 
     /**
      * Option method 1: Directs admin to delete user menu and its prompt
+     * @param username the admin's name
      */
-    private void deleteUserOption() {
+    private void deleteUserOption(String username) {
         DeleteUserMenu.removingUserPrompt();
+        AdminMenu.adminPrompt(username);
     }
     /**
      * Option method 2: Directs admin to add admin menu and its prompt
@@ -56,6 +59,7 @@ public class UserMenuC {
      */
     private void deleteAllOption(String username){
         DeleteUser.ClearAllUsers(username);
+        AdminMenu.adminPrompt(username);
     }
     private void back(String username) {
         AdminMenu.adminPrompt(username);

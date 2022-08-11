@@ -22,5 +22,6 @@ public class DeleteUserMenu {
 //                User does not exist
             System.out.println("This User does not exist");
         }
+        System.out.println("Redirecting to main admin menu...");
     }
 }
